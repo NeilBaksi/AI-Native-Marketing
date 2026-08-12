@@ -1,0 +1,46 @@
+---
+title: "The Problem"
+part: "Foundations"
+order: 1
+question: "Why does marketing keep breaking even as budgets and headcount grow?"
+readingTime: 6
+difficulty: foundational
+prerequisites: []
+concepts: ["four-symptoms", "insight-without-action", "content-without-context", "measurement-without-learning", "tools-without-governance"]
+diagrams: []
+sources:
+  - label: "Adweek — When P&G Cut $200 Million in Digital Ad Spend, Its Marketing Became 10% More Effective"
+    url: "https://www.adweek.com/brand-marketing/when-procter-gamble-cut-200-million-in-digital-ad-spend-its-marketing-became-10-more-effective/"
+  - label: "AM-online — Honda fined over 'illegal' marketing emails (ICO, March 2017)"
+    url: "https://www.am-online.com/news/car-manufacturer-news/2017/03/28/honda-fined-over-illegal-marketing-emails"
+---
+
+In 2017, Procter & Gamble's chief brand officer told a room of advertisers something that should have been alarming: the company had quietly removed $200 million from its digital ad budget over the previous year, and nothing had gotten worse. Reach actually went up. The money hadn't been buying anything — it had been paying for ad placements no human would ever see, served to bots, buried below the fold, gone before anyone scrolled that far.
+
+That same year, a British regulator fined Honda's European arm for a smaller but more telling failure. Honda's marketing team wanted to confirm which customers had actually opted in to receive emails, so they emailed 289,790 people to ask. The problem: emailing someone to ask permission to email them is itself an act of marketing, and Honda had no record of consent for that first message either. The company hadn't set out to break the law. It had simply lost track, at some point, of who had said yes to what.
+
+Neither of these is a story about bad marketers. P&G's team had run the same digital-buying playbook every serious advertiser ran in 2017. Honda's team was trying to *clean up* a compliance gap, not create one. Both organizations had invested in modern tools, real budgets, and capable people. And in both cases, the tools didn't know something the organization needed them to know — which ads a human would ever see, which customers had actually consented — until the gap became a write-off or a fine.
+
+## The pattern underneath both stories
+
+Pull the thread on almost any marketing failure at scale and you find the same shape: a piece of information that existed somewhere in the organization never reached the system making the decision. Not because anyone hid it. Because nothing was built to carry it there automatically, every time, without a person remembering to forward it.
+
+That gap shows up in four recurring ways.
+
+**Insight without action.** A model or a research team surfaces something real — a shift in intent, a segment worth reaching differently — and the finding sits in a report while the campaign that could have used it ships unchanged. The insight was correct. It just never became an instruction anything downstream could execute.
+
+**Content without context.** A message goes out that is technically well-made and situationally wrong — an offer to someone who bought yesterday, a "we miss you" email to someone mid-conversation with support. The creative process and the customer record were never the same system, so creative can't see state it has no access to.
+
+**Measurement without learning.** A dashboard reports, accurately, what happened last quarter. Nobody's job is to feed that result back into next quarter's starting assumptions, so the same tests get run again, from the same blank slate, by whoever's on the account this time.
+
+**Tools without governance.** Consent, claims, and brand rules get enforced by a person reading a spreadsheet before launch, not by anything running while the system operates — so the check only exists when someone remembers to perform it, and it's invisible the moment they don't. Honda's fine is what that failure mode looks like once it reaches a regulator.
+
+## Why "better tools" doesn't fix it
+
+The instinct is to treat each symptom as its own problem — better attribution for the insight gap, a smarter CMS for context, a cleverer dashboard for learning, a compliance checklist for governance. Every one of those fixes has been tried, repeatedly, by capable teams. The symptoms persist anyway, because they aren't four separate problems. They're four views of the same missing thing: nothing in a typical marketing stack is responsible for making sure information that exists in one place *automatically* reaches every place that needs it, every time, without a human in the loop remembering to carry it across.
+
+Other functions solved this decades ago — not with better individual tools, but by building an operating layer underneath the tools whose entire job is that carrying-across. What that layer looks like for marketing, and why marketing never built one, is where this handbook starts.
+
+## Where this leads
+
+The next chapter names what's actually missing — not a tool, but an *operating architecture* — and walks through why manufacturing, software, and finance each built one decades ago while marketing kept shipping campaigns off a shared drive and a Slack channel.

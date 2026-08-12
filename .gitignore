@@ -1,0 +1,19 @@
+# Build output / deps
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+
+# Instruction / knowledge-base source material — private, not for the public repo
+/00_BUILD_PROMPT.md
+/APPENDIX_A_Concept_Inventory.md
+/APPENDIX_B_Applied_Projects.md
+/.impeccable.md
+
+# Internal project docs (ADR, design direction, IA, open questions) — kept local only
+/docs/*.md

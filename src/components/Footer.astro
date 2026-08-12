@@ -1,0 +1,28 @@
+---
+import { href } from '../lib/url';
+---
+
+<footer class="site-footer">
+  <p>
+    An independent study aid drawing on MKTG 468 (Kellogg School of Management). Not
+    affiliated with or endorsed by Kellogg or the course instructor.
+    <a href={href('about/attribution')}>Attribution &amp; removal requests</a>.
+  </p>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--rule);
+    padding: var(--space-lg) var(--space-base);
+    color: var(--ink-500);
+    font-size: var(--text-xs);
+  }
+  .site-footer p {
+    max-width: var(--measure);
+    margin-inline: auto;
+  }
+  .site-footer a {
+    color: inherit;
+    text-decoration-color: var(--ink-300);
+  }
+</style>

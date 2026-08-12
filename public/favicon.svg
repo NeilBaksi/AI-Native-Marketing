@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .paper { fill: #FAF7F0; }
+    .mark { fill: none; stroke: #0E4640; stroke-width: 3; stroke-linecap: round; }
+    @media (prefers-color-scheme: dark) {
+      .paper { fill: #0B1614; }
+      .mark { stroke: #4FA095; }
+    }
+  </style>
+  <rect class="paper" width="32" height="32" rx="6" />
+  <circle class="mark" cx="8" cy="16" r="3" />
+  <circle class="mark" cx="16" cy="16" r="3" />
+  <circle class="mark" cx="24" cy="16" r="3" />
+  <path class="mark" d="M11 16h2M19 16h2" />
+</svg>
