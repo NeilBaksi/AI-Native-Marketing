@@ -38,11 +38,12 @@ jobs:
         run: npm audit --audit-level=high
 
       - name: Type-check
-        run: npx astro check
+        run: npm run typecheck
 
-      # Builds, then runs Pagefind indexing and the base-path link check —
-      # both wired into `npm run build` (package.json). A base-path bug or a
-      # broken link fails the build here, not silently in production.
+      # tsc -b, then vite build, then the content-integrity check — all
+      # wired into `npm run build` (package.json). A chunking-rule violation,
+      # an unresolved fact id, or a missing synthetic banner fails the build
+      # here, not silently in production. See scripts/check-content.mjs.
       - name: Build
         run: npm run build
 

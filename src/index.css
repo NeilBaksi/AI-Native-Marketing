@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Self-hosted — no CDN, no third-party requests. See docs/design-direction.md §2. */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/AI-Native-Marketing/fonts/bricolage-grotesque-variable.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Switzer';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/AI-Native-Marketing/fonts/switzer-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Switzer';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/AI-Native-Marketing/fonts/switzer-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/AI-Native-Marketing/fonts/geist-mono-variable.woff2') format('woff2');
+}
+
+@layer base {
+  :root { color-scheme: light; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-paper font-body text-ink-soft antialiased;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection { @apply bg-ember/15 text-ink; }
+  h1, h2, h3 { @apply font-display; text-wrap: balance; }
+  :focus-visible { outline: 2px solid theme('colors.ember'); outline-offset: 3px; border-radius: 2px; }
+}
+
+@layer components {
+  /* The two custom classes for the whole site — everything else is Tailwind
+     utilities in JSX. See docs/design-direction.md and CLAUDE.md. */
+  .kicker { @apply font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted; }
+  .prose-body { @apply max-w-prose text-base leading-relaxed text-ink-soft; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>The AI-Native Marketing Handbook</title>
+    <script>
+      // GitHub Pages has no server-side rewrite rule for a single-page app,
+      // so any deep link it doesn't recognize as a real file lands here.
+      // Two cases:
+      //   1. A pre-migration path (this site used to be server-rendered
+      //      with clean paths, e.g. /AI-Native-Marketing/foundations/the-problem/)
+      //      — rewrite it into the hash-routed equivalent.
+      //   2. Anything else — send to home.
+      var base = '/AI-Native-Marketing/';
+      var path = location.pathname;
+      if (path.indexOf(base) === 0) {
+        var rest = path.slice(base.length).replace(/\/$/, '');
+        location.replace(base + (rest ? '#/' + rest : ''));
+      } else {
+        location.replace(base);
+      }
+    </script>
+  </head>
+  <body>
+    <p>Redirecting…</p>
+  </body>
+</html>
