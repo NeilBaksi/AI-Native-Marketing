@@ -10,7 +10,11 @@
  *   4. Every <Stat id="..."> / <Example id="..."> resolves in facts.ts.
  *   5. Any <SyntheticBanner>/<Example> referencing a synthetic fact implies
  *      the host page declares PageMeta.synthetic.
- *   6. No TODO( markers on status:'live' pages.
+ *   6. No TODO(content) markers on status:'live' pages. TODO(verify): is a
+ *      deliberate, scoped exception and is allowed to persist.
+ *   7. Every capitalized JSX tag (<Foo>) resolves in src/mdx-components.tsx —
+ *      catches the exact bug an MDX runtime error only surfaces at render
+ *      time: a tag not registered under that exact name.
  *
  * Deliberately regex/line-based, not a full MDX AST parse — this is a content
  * hygiene gate for a personal site, not a compiler. Ponytail: swap for a real
@@ -24,6 +28,8 @@ const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const contentDir = join(root, 'src/content')
 const pagesFile = join(root, 'src/data/pages.ts')
 const factsFile = join(root, 'src/data/facts.ts')
+const promptsFile = join(root, 'src/data/prompts.ts')
+const mdxComponentsFile = join(root, 'src/mdx-components.tsx')
 
 let ok = true
 const fail = (msg) => {
@@ -43,10 +49,25 @@ const pages = pageBlocks.map((block) => {
 const slugs = new Set(pages.map((p) => p.slug))
 
 // --- Parse facts.ts ids ----------------------------------------------------
+// Each fact entry is matched as a bounded block (open brace to its own
+// closing `  },`), not a lazy scan to the next occurrence anywhere later in
+// the file — a lazy, unbounded match here previously let one fact's
+// `kind: 'synthetic'` bleed backward onto an earlier, unrelated fact the
+// moment a synthetic entry existed anywhere after it in file order.
 const factsSrc = readFileSync(factsFile, 'utf-8')
-const factIds = new Set([...factsSrc.matchAll(/^\s*'([a-z0-9-]+)':\s*\{/gm)].map((m) => m[1]))
-const syntheticFactIds = new Set(
-  [...factsSrc.matchAll(/'([a-z0-9-]+)':\s*\{[\s\S]*?kind:\s*'synthetic'/g)].map((m) => m[1]),
+const factBlocks = [...factsSrc.matchAll(/'([a-z0-9-]+)':\s*\{[\s\S]*?\n {2}\},/g)]
+const factIds = new Set(factBlocks.map((m) => m[1]))
+const syntheticFactIds = new Set(factBlocks.filter((m) => /kind:\s*'synthetic'/.test(m[0])).map((m) => m[1]))
+
+// --- Parse mdx-components.tsx for every registered tag name ---------------
+const promptsSrc = readFileSync(promptsFile, 'utf-8')
+const promptIds = new Set(
+  [...promptsSrc.matchAll(/'([a-z0-9-]+)':\s*\{[\s\S]*?\n {2}\},/g)].map((m) => m[1]),
+)
+
+const mdxComponentsSrc = readFileSync(mdxComponentsFile, 'utf-8')
+const knownComponents = new Set(
+  [...mdxComponentsSrc.matchAll(/^\s{2}([A-Z][A-Za-z0-9]*)\s*[,:]/gm)].map((m) => m[1]),
 )
 
 // --- Walk content files -----------------------------------------------------
@@ -129,9 +150,54 @@ for (const file of mdxFiles) {
     }
   }
 
-  // 6. No TODO markers on live pages
-  if (page?.status === 'live' && /TODO\(/.test(text)) {
-    fail(`${rel}.mdx is status:'live' but still has a TODO( marker`)
+  // 4b. <Scorecard ids={[...]}> resolves too — same factual-integrity rule as 4/5.
+  // Without this a bad id passes the gate and blows up at render, and worse, a
+  // Scorecard citing a *synthetic* fact skips rule 5's mandatory-banner check
+  // entirely, putting an unlabelled fictional figure on a page.
+  for (const m of text.matchAll(/<Scorecard[^>]*ids=\{\[([^\]]+)\]\}/g)) {
+    for (const idm of m[1].matchAll(/'([a-z0-9-]+)'/g)) {
+      const id = idm[1]
+      if (!factIds.has(id)) {
+        fail(`${rel}.mdx: <Scorecard> id "${id}" does not resolve in src/data/facts.ts`)
+      } else if (syntheticFactIds.has(id) && page && !page.hasSynthetic) {
+        fail(`${rel}.mdx uses synthetic fact "${id}" in <Scorecard> but its PageMeta has no \`synthetic\` field`)
+      }
+    }
+  }
+
+  // 4c. <Prompt id="..."> resolves in the prompt registry.
+  for (const m of text.matchAll(/<Prompt\s+id="([a-z0-9-]+)"/g)) {
+    if (!promptIds.has(m[1])) {
+      fail(`${rel}.mdx: <Prompt id="${m[1]}"> does not resolve in src/data/prompts.ts`)
+    }
+  }
+
+  // 7. Every capitalized JSX tag resolves in mdx-components.tsx
+  for (const m of text.matchAll(/<([A-Z][A-Za-z0-9]*)\b/g)) {
+    const tag = m[1]
+    if (!knownComponents.has(tag)) {
+      fail(`${rel}.mdx uses <${tag}>, which is not registered in src/mdx-components.tsx`)
+    }
+  }
+
+  // 8. Markdown blockquotes (`> `) may not contain nested markdown — the
+  // mdx-components.tsx `blockquote` handler casts children to a plain
+  // string (`String(props.children)`), which renders as literal
+  // "[object Object]" the moment the line has bold/italic/etc inside it.
+  // Author a formatted quote as `<PullQuote quote="..." />` directly instead.
+  for (const line of lines) {
+    const trimmed = line.trim()
+    if (trimmed.startsWith('>') && /[*_`[]/.test(trimmed.slice(1))) {
+      fail(`${rel}.mdx has a markdown blockquote with nested formatting ("${trimmed}") — renders as [object Object]; use <PullQuote quote="..." /> instead`)
+    }
+  }
+
+  // 6. No unfinished-content markers on live pages. `TODO(verify): ...` is a
+  // deliberate, scoped exception (docs/open-questions.md §2.4) — a single
+  // fact flagged as unreconciled in the source material, not incomplete
+  // authoring — and may persist on a live page until a human resolves it.
+  if (page?.status === 'live' && /TODO\(content\)/.test(text)) {
+    fail(`${rel}.mdx is status:'live' but still has a TODO(content) marker`)
   }
 }
 

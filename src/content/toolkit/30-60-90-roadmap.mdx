@@ -1,25 +1,135 @@
-_Stub — outline below; full prose to come._
+<Section index="01" kicker="The plan, not the diagnosis" title="What it's for">
 
-## What it's for
+[The Maturity Model](/foundations/maturity-model) places an organization at one of four stages — Point Tools, Partial Integration, Workflow Orchestration, Full I-MOS — and stops there, deliberately: it's a diagnostic, not a project plan. This page is the project plan. It converts "we're at Stage 1" into what actually happens in the next 30, 60, and 90 days, keyed to the stage the self-diagnostic returned.
 
-TODO(content): Explain that this is a 30/60/90-day roadmap template for an organization starting its I-MOS adoption journey, sequencing the early milestones from first audit to first live workflow.
+</Section>
 
-## When to use it
+<Section index="02" kicker="Right after the self-diagnostic" title="When to use it">
 
-TODO(content): Describe when to fill this out — kicking off an I-MOS adoption effort, or presenting a phased adoption plan to stakeholders for buy-in.
+Fill this out right after the maturity-model self-diagnostic, while the stage placement is still fresh — before it turns into a budget request or a stakeholder deck that has to justify a sequence, not just a destination.
 
-## Worked example
+- Kicking off an I-MOS adoption effort and needing a concrete first-90-days plan, not just a target architecture.
+- Presenting a phased plan for buy-in, where "eventually we'll have Shared Memory" isn't going to clear a budget conversation on its own.
 
-TODO(content): Walk through a filled-in 30/60/90-day roadmap for a realistic organization, showing concrete milestones at each 30-day mark tied to the maturity model stages.
+</Section>
 
-## Blank version
+<Section index="03" kicker="Filled in, from Stage 1" title="Worked example">
 
-TODO(content): Present the blank 30/60/90-day roadmap template with milestone rows for each 30-day period.
+An organization starting at Stage 1 — Point Tools, no shared memory between systems — filling in the roadmap:
 
-## Downloads
+<Timeline
+  entries={[
+    {
+      marker: '30 days',
+      title: 'One shared object, one pilot pair',
+      body: 'Prove the pipe works on the smallest slice before anything wider gets funded.',
+      fields: [
+        { label: 'Instrument', value: 'Stand up one shared object — an Identity object connecting two tools that never talked before (e.g. CRM + email).' },
+        { label: 'Pilot', value: 'Pick one workflow pair to pilot: Sense → Focus, nothing wider yet.' },
+        { label: 'Measure', value: 'None yet — instrumentation has to exist first.' },
+        { label: 'Govern', value: 'Name who owns the new shared object and who can change it.' },
+        { label: 'Org shift', value: 'One cross-functional owner named for the pilot, pulled part-time from two teams.' },
+      ],
+    },
+    {
+      marker: '60 days',
+      title: 'Run it live, add the first gate',
+      body: 'The pilot moves off the sandbox and picks up its first governance checkpoint.',
+      fields: [
+        { label: 'Instrument', value: 'Extend the object to a second pair of systems.' },
+        { label: 'Pilot', value: 'Run the Sense → Focus pair on real decisions, not a sandbox.' },
+        { label: 'Measure', value: "Stand up a holdout on the pilot's first real decision." },
+        { label: 'Govern', value: "Add the first blocking check on the pilot's output before it ships." },
+        { label: 'Org shift', value: 'Pilot owner reports results biweekly to the group that will fund Stage 2.' },
+      ],
+    },
+    {
+      marker: '90 days',
+      title: 'Decide whether to widen, from a measured result',
+      body: 'Everything from here reads off what the pilot actually proved, not a projection.',
+      fields: [
+        { label: 'Instrument', value: 'Confirm the object is trustworthy enough for a third workflow to depend on it.' },
+        { label: 'Pilot', value: 'Decide whether to widen the pilot to a third workflow or fix what the holdout exposed first.' },
+        { label: 'Measure', value: "Write the pilot's first Learning-object write-back — a real result feeding the next cycle automatically." },
+        { label: 'Govern', value: 'Governance checkpoint runs on every pilot decision, not spot-checked.' },
+        { label: 'Org shift', value: "Staffing case built from the pilot's actual measured result, not a projection." },
+      ],
+    },
+  ]}
+/>
 
-TODO(content): note this needs a downloadable .md/.csv or .xlsx version once the content is written
+<Example id="cdw-marko">
+  CDW built its multi-agent system on top of an existing six-tool martech stack rather than a greenfield rebuild — proving value on one use case first, with governance running at every step, before scaling. The same sequencing shows up here: one shared object, one pilot pair, proven and governed, before a second or third workflow gets added.
+</Example>
 
-## Design decision
+<Tabs
+  label="Starting from a different stage"
+  items={[
+    { id: 'stage-2', label: 'Starting at Stage 2', content: 'Pairwise connections already exist, so the 30-day goal isn\'t a first shared object — it\'s consolidating two existing point-to-point pipelines into one shared object a third workflow can also read. 60 days: get a workflow that was previously blind to that data reading it live. 90 days: first governance checkpoint that runs across more than one of those pipelines at once, not per-pipeline.' },
+    { id: 'stage-3', label: 'Starting at Stage 3', content: 'The loop already runs as one system, so the gap is almost always Governance running at audit speed instead of continuous speed. 30 days: instrument one workflow\'s governance checks to run inline instead of periodically. 60 days: extend inline governance to a second workflow. 90 days: measure whether continuous governance changed anything real — caught something a periodic audit would have missed.' },
+  ]}
+/>
 
-TODO(content): Pull from the course material why the roadmap is fixed at 30/60/90-day increments rather than a longer or variable timeline, and how it ties to the site's maturity model.
+</Section>
+
+<Section index="04" kicker="Copy this, per stage" title="Blank version">
+
+<Timeline
+  entries={[
+    {
+      marker: '30 days',
+      title: '(fill in)',
+      body: '(fill in)',
+      fields: [
+        { label: 'Instrument', value: '(fill in)' },
+        { label: 'Pilot', value: '(fill in)' },
+        { label: 'Measure', value: '(fill in)' },
+        { label: 'Govern', value: '(fill in)' },
+        { label: 'Org shift', value: '(fill in)' },
+      ],
+    },
+    {
+      marker: '60 days',
+      title: '(fill in)',
+      body: '(fill in)',
+      fields: [
+        { label: 'Instrument', value: '(fill in)' },
+        { label: 'Pilot', value: '(fill in)' },
+        { label: 'Measure', value: '(fill in)' },
+        { label: 'Govern', value: '(fill in)' },
+        { label: 'Org shift', value: '(fill in)' },
+      ],
+    },
+    {
+      marker: '90 days',
+      title: '(fill in)',
+      body: '(fill in)',
+      fields: [
+        { label: 'Instrument', value: '(fill in)' },
+        { label: 'Pilot', value: '(fill in)' },
+        { label: 'Measure', value: '(fill in)' },
+        { label: 'Govern', value: '(fill in)' },
+        { label: 'Org shift', value: '(fill in)' },
+      ],
+    },
+  ]}
+  footnote="Read left to right as a sequence, not five independent checklists."
+/>
+
+Or start from a first draft instead of a blank grid:
+
+<Prompt id="roadmap-30-60-90-draft" />
+
+</Section>
+
+<Section index="05" kicker="For now" title="Downloads">
+
+The roadmap above maps directly onto a spreadsheet — three rows (30/60/90 days), five workstream columns. A dedicated .md/.csv export is on the list for when the toolkit ships a bulk download page.
+
+</Section>
+
+<Section index="06" kicker="Why Org shift gets its own column" title="Design decision">
+
+Two choices worth being deliberate about when filling this in. First, the columns are a sequence, not five parallel workstreams to fill independently — never measure before you instrument, never scale before you govern, is the actual constraint the ordering encodes, not a stylistic layout choice. Second, Org Shift is a required column, not an afterthought squeezed in if there's room: a roadmap that spends none of its 90 days on who owns the new object and who reports on it produces a pilot that quietly reverts to Stage 1 the moment its original champion moves teams.
+
+</Section>

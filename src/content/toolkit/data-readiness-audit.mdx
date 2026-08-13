@@ -1,25 +1,81 @@
-_Stub — outline below; full prose to come._
+<Section index="01" kicker="An audit, not a scorecard" title="What it's for">
 
-## What it's for
+[Shared Memory](/spine/shared-memory) names the schema every workflow reads and writes: identity, state, decision, content, and learning objects. That chapter doesn't ask whether your organization's actual data can populate them — it assumes the objects exist. This audit is the question it skips: for each of the five object types, does the data you actually have support it, or does the object exist only on a slide?
 
-TODO(content): Explain that this audit checklist assesses whether an organization's data — its quality, structure, and accessibility — is actually ready to support I-MOS workflows, before any agentic system is layered on top.
+<Callout kind="caution" title="An audit, not a scorecard">
+The point isn't a pass/fail grade across every field. Some gaps are launch-blocking; some are cosmetic imperfections nobody should lose a week fixing. The worked example below draws that line explicitly, on purpose.
+</Callout>
 
-## When to use it
+</Section>
 
-TODO(content): Describe when to run this audit — early in an I-MOS adoption effort, before committing to build any agent or automation that depends on the data being sound.
+<Section index="02" kicker="Before the build starts" title="When to use it">
 
-## Worked example
+Run this before committing to build any workflow, agent, or automation that assumes Shared Memory objects already exist and are trustworthy — not after the build starts and the gaps surface as production bugs.
 
-TODO(content): Walk through a filled-in audit for a realistic organization's marketing data stack, showing which checks passed, which failed, and the resulting readiness verdict.
+- Early in an I-MOS adoption effort, right after the [maturity-model](/foundations/maturity-model) self-diagnostic places you at a stage.
+- Before scaling autonomy on any workflow — an agent making Fully Autonomous decisions on a Propensity Score built from stale, fragmented identity data is a governance failure waiting to happen, not a data-quality footnote.
+- When a workflow's outputs look wrong and the suspicion is the object it read, not the logic that read it.
 
-## Blank version
+</Section>
 
-TODO(content): Present the blank data readiness audit checklist with items covering data quality, structure, accessibility, and ownership.
+<Section index="03" kicker="One retailer, five object types" title="Worked example">
 
-## Downloads
+A mid-size subscription retailer runs the audit across its five object types before greenlighting its first agentic workflow.
 
-TODO(content): note this needs a downloadable .md/.csv or .xlsx version once the content is written
+<ComparisonTable
+  caption="Data readiness audit — one subscription retailer, five object types."
+  columns={['What it requires', 'What we actually have', 'Verdict']}
+  rows={[
+    { label: 'Identity', cells: ['One resolved customer record across web, email, CRM, and support.', 'Separate IDs per system; roughly 30% match rate on email hash alone.', { text: 'Blocking', state: 'major-gap' }] },
+    { label: 'State', cells: ['A near-real-time behavioral event stream.', 'Nightly batch ETL from web analytics — state is always ~24 hours stale.', { text: 'Limits, not blocking', state: 'gap' }] },
+    { label: 'Decision', cells: ['A shared log of which policy fired, for which customer, and why.', 'Each platform logs its own decisions natively; nothing centralized across them.', { text: 'Blocking', state: 'major-gap' }] },
+    { label: 'Content', cells: ['Modular, tagged Core/Proof/Offer/Risk blocks an agent can assemble.', 'A DAM holding finished, whole assets — nothing decomposed into blocks.', { text: 'Limits, not blocking', state: 'gap' }] },
+    { label: 'Learning', cells: ['Holdout-tested results written back automatically after every campaign.', 'A quarterly BI dashboard a person reads; nothing writes back on its own.', { text: 'Blocking', state: 'major-gap' }] },
+  ]}
+/>
 
-## Design decision
+<Example id="ab-inbev-three-consumers">
+  The Identity gap above is the same failure at a much larger scale: a single AB InBev consumer, buying across three of the company's own brands, was invisible as one person to three separate campaign systems — not because any model was wrong, but because no Identity object existed anywhere for that consumer to be recognized as one.
+</Example>
 
-TODO(content): Pull from the course material why this audit is scoped to data readiness specifically rather than folded into a general technology-readiness checklist.
+Three of the five — Identity, Decision, Learning — are launch-blocking here: without them, autonomy can't scale past a demo, because there's nowhere for the loop to write its results. State and Content are real gaps but not blocking; a workflow can launch with 24-hour-stale state and whole-asset content, and tighten both later.
+
+</Section>
+
+<Section index="04" kicker="Score your own five objects" title="Blank version">
+
+<SelfCheck
+  label="Data readiness self-check"
+  levels={['Blocking', 'Limits, not blocking', 'Ready']}
+  dimensions={[
+    { id: 'identity', question: 'Identity — one resolved customer record across web, email, CRM, and support?' },
+    { id: 'state', question: 'State — a near-real-time behavioral event stream?' },
+    { id: 'decision', question: 'Decision — a shared log of which policy fired, for which customer, and why?' },
+    { id: 'content', question: 'Content — modular, tagged Core/Proof/Offer/Risk blocks an agent can assemble?' },
+    { id: 'learning', question: 'Learning — holdout-tested results written back automatically after every campaign?' },
+  ]}
+  verdicts={[
+    "At least one object type is blocking — don't scale autonomy on any workflow that depends on it until this is fixed.",
+    'Nothing is blocking, but at least one object type limits what a workflow can safely do — note the constraint before building against it.',
+    "Every object type is ready. The gaps that remain, if any, are worth watching but wouldn't stop a workflow from launching.",
+  ]}
+  rule="Your placement is the worst object type, not the average — one blocking gap stops the loop from writing anywhere, no matter how ready the other four are."
+/>
+
+Or run the audit against a written inventory of your own systems instead of scoring from memory:
+
+<Prompt id="data-readiness-audit-run" />
+
+</Section>
+
+<Section index="05" kicker="For now" title="Downloads">
+
+The self-check above doesn't save your answers between visits. For a version that persists, the worked example's table shows the shape to copy — five rows, three columns (what it requires / what we have / verdict). A dedicated .md/.csv export is on the list for when the toolkit ships a bulk download page.
+
+</Section>
+
+<Section index="06" kicker="Not every gap is a blocker" title="Design decision">
+
+The verdict column forces a real distinction most data audits skip: not every imperfection is a blocker. A field that's slightly stale, or a category share that's off by a rounding error, doesn't deserve the same response as an object that structurally doesn't exist anywhere. Treating every gap as equally urgent trains a team to either ignore the audit entirely or stall a launch over something that was never going to matter — this audit asks the launch-blocking question explicitly, row by row, instead of producing one undifferentiated list of problems.
+
+</Section>

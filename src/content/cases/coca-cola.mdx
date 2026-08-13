@@ -1,17 +1,73 @@
-_Stub — outline below; full prose to come._
+Coca-Cola runs 200+ brands across 200+ countries, each one filtered through local agencies and designers interpreting the same 400-page brand-guideline PDF. Before generative AI, that produced small, contained drift — a red that's slightly off, a logo sized wrong for a social crop. Generative AI doesn't fix that drift; it multiplies it, instantly, at every market at once. Four years before Coca-Cola shipped anything, its Global VP of Design asked the question that set the direction: not "how do we make more content faster," but *"what if our logo was intelligent enough to understand how it should behave within a design?"*
 
-## What happened
+<Scorecard ids={['coca-cola-fizzion', 'coca-cola-holiday-ad']} label="A Design win and a Govern miss, in the same year" />
 
-TODO(content): narrate two connected episodes — Coca-Cola building "StyleIDs" as real Brand DNA infrastructure, then the 2024 holiday-ad governance failure where a high-autonomy task got mistakenly governed as low-autonomy.
+<Section index="01" kicker="What happened" title="Project Fizzion — brand rules that enforce themselves">
 
-## Where it fits the framework
+<BeforeAfter
+  beforeLabel="Guideline PDF"
+  afterLabel="StyleID enforcement"
+  rows={[
+    { dimension: 'When a brand rule gets enforced', before: 'After a designer publishes, at a brand-manager review pass', after: 'Before a designer can commit the off-brand move at all' },
+    { dimension: 'Who catches the mistake', before: 'A brand manager, reviewing after the fact, market by market', after: 'The system itself, inside Illustrator, InDesign, and Photoshop, in real time' },
+    { dimension: 'What one approved change reaches', before: "Whatever a local agency re-keys by hand from the PDF", after: 'Every format variant at once — Instagram Story, billboard, product label — reading from the same StyleID' },
+  ]}
+  verdict="Coca-Cola and Adobe didn't write stricter rules. They moved brand governance from a correction applied after the fact to a constraint enforced at the moment of creation."
+/>
 
-TODO(content): map the StyleIDs system to the Design workflow, and map the 2024 holiday-ad incident specifically to a Govern failure — misclassifying a Zone 3 (high-autonomy) task as Zone 1 (low-autonomy).
+Instead of writing rules and handing them down, Fizzion watched senior designers work — this font at this size, this logo at this position — and captured those real decisions as they happened. The system learned the rules by observing correct behavior, not by being handed a specification to enforce.
 
-## What went right or wrong
+Every corrected decision became a "StyleID": a machine-readable file defining exactly how one brand element behaves — the red at a given opacity, the contour bottle at a given scale, the Sprite wordmark's spacing.
 
-TODO(content): contrast what StyleIDs got right about treating Brand DNA as infrastructure against what the Govern process got wrong about zone classification for the holiday ad.
+<Example id="coca-cola-fizzion">
+  A single approved change to one artboard cascaded automatically across every format variant Coca-Cola runs — Instagram Story, billboard, product label — because every one of those variants reads from the same StyleID, not a separately maintained asset. Every AI tool touching Coca-Cola content, Adobe Firefly included, calls the same library, which is what makes AI-generated Coca-Cola content safe at scale without a human checking each output against the guideline PDF.
+</Example>
 
-## What to take away
+</Section>
 
-TODO(content): state the transferable lesson about correctly classifying task autonomy zones (Zone 1 vs. Zone 3) before letting a system act, even when the underlying Design infrastructure is sound.
+<Section index="02" kicker="Where it fits the framework" title="Design as infrastructure, not a gate">
+
+<Figure
+  d="D90"
+  caption="Fizzion's six layers — brand governance moved from a review step at the end to a constraint enforced at the moment of creation."
+  alt="Six-layer stack: Observe (Adobe UXP plugin watches designers work, captures brand-relevant decisions as an event stream), Encode (creative intent becomes a StyleID, a machine-readable JSON file, versioned in Adobe AEM Assets), Govern (StyleIDs act as live guardrails inside Creative Cloud, refusing off-brand moves before a designer commits them), Distribute (the StyleID library syncs to every agency globally through Creative Cloud Libraries), Generate (Adobe Firefly generates campaign variants within StyleID constraints), Audit (every AI-generated asset carries a provenance record proving it was created within approved constraints)."
+>
+  <ComparisonTable
+    caption="Project Fizzion's six layers, from a designer's decision to an auditable asset."
+    columns={['What it does', "Who's job it stays"]}
+    rows={[
+      { label: 'Observe', cells: ['Watches designers work, captures every brand-relevant decision as it happens', 'Creative leadership picks which senior designers set the standard'] },
+      { label: 'Encode', cells: ['Turns a captured decision into a StyleID — a machine-readable behavior spec', 'A creative director reviews and approves each StyleID before it publishes'] },
+      { label: 'Govern', cells: ['StyleIDs refuse off-brand moves in real time, before a designer commits them', 'Governance rules decide what is non-negotiable vs. designer discretion'] },
+      { label: 'Distribute', cells: ['The StyleID library syncs to every agency and market simultaneously', 'Decide which StyleID version is valid when the guideline updates'] },
+      { label: 'Generate', cells: ['AI produces campaign variants that stay inside StyleID constraints', 'Marketing briefs the creative theme; a person reviews for emotional fit'] },
+      { label: 'Audit', cells: ['Every generated asset carries a provenance record of the constraints it was made under', 'Legal sets audit policy; marketing uses the trail in brand-misuse disputes'] },
+    ]}
+  />
+</Figure>
+
+This is [Design](/workflows/design) doing exactly what the workflow is supposed to do — encoding Brand DNA as something a system can enforce, not just something a person can consult. The result: 10x faster content production, brand integrity held across 200 markets simultaneously, and — worth naming directly — zero reduction in creative headcount. Designers didn't get replaced by StyleIDs; they became the people who train and govern them, freed from reformatting to spend the time on storytelling.
+
+</Section>
+
+<Section index="03" kicker="What went right or wrong" title="A sound Design layer, a governance-zone miss">
+
+<PullQuote quote="The Fizzion build shows what Design gets right when Brand DNA is genuinely infrastructure. Coca-Cola's own 2024 holiday ad shows what still goes wrong when that infrastructure covers the wrong risk." />
+
+Fizzion is a governance success story for the category of failure it's built to catch: format drift, off-brand color, inconsistent logo placement — every one of those is a rules-based check, and rules-based checks are exactly what StyleIDs enforce well. It is a system built for content Design classifies as low-stakes and high-volume.
+
+The 2024 holiday ad wasn't that kind of content. Already covered in depth on [Economics of Error](/spine/economics-of-error) — [worth reading in full there](/spine/economics-of-error) rather than repeated here — the short version is that Coca-Cola's AI remake of its 1995 holiday ad passed every brand-compliance rule Fizzion-style governance would check, and still landed emotionally flat. The gap wasn't in Fizzion's architecture; it's that the holiday ad needed the human-only checkpoint of Zone 3 — content with brand-manifesto-level stakes — and got the fully-autonomous treatment of Zone 1 because the rules-based checks all cleared. A sound Design infrastructure still requires someone to correctly classify which zone a given piece of content belongs in before the infrastructure runs.
+
+</Section>
+
+<Section index="04" kicker="What to take away" title="The transferable lesson">
+
+Building excellent Design-layer infrastructure doesn't automatically solve governance — it solves the governance problems that infrastructure was built to catch. StyleIDs catch color, spacing, and placement drift because those are things a rules engine can verify. They cannot catch "does this feel true to the brand emotionally," because that's not a rule, it's a judgment call — which is precisely the [Economics of Error](/spine/economics-of-error) test for whether a decision belongs in a human-only zone. The transferable practice: before any content goes through an automated brand-governance system, classify its autonomy zone first, on its own stakes, not by whether the rules-based checks happen to be available for it.
+
+What doesn't transfer: the object lesson here is Coca-Cola's own asset, at Coca-Cola's own scale of visibility — most organizations won't have a single ad carry the reputational weight a Super Bowl-era holiday spot does for Coca-Cola specifically. The zone-classification discipline is universal; the size of the blast radius when it's skipped is not.
+
+</Section>
+
+## Where this leads
+
+Coca-Cola's holiday-ad miss was a governance-classification failure with a fast recovery — caught, acknowledged, corrected. [The OpenAI sycophancy incident](/cases/openai-sycophancy) is the same underlying failure — a system running exactly as designed, with no governance definition of "good" upstream of it — at a scale where the miss took a public model rollback to fix.

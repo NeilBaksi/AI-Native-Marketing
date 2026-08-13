@@ -79,7 +79,11 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
             role="dialog"
             aria-modal="true"
             aria-label="Search"
-            className="fixed left-1/2 top-24 w-[min(560px,92vw)] -translate-x-1/2 rounded-2xl border border-rule bg-paper shadow-xl"
+            // Centred with `inset-x-0 mx-auto`, not `left-1/2 -translate-x-1/2`: framer-motion
+            // animates `y` here and writes an inline `style.transform`, which beats Tailwind's
+            // class-level `--tw-translate-x: -50%` — so the panel rendered a half-viewport to
+            // the right. Margin auto owes nothing to transform.
+            className="fixed inset-x-0 top-24 mx-auto w-[min(560px,92vw)] rounded-2xl border border-rule bg-paper shadow-xl"
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
@@ -91,6 +95,7 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
                 ref={inputRef}
                 type="text"
                 role="combobox"
+                aria-autocomplete="list"
                 aria-expanded={results.length > 0}
                 aria-controls={listId}
                 aria-activedescendant={results[activeIndex] ? `${listId}-${results[activeIndex].page.slug}` : undefined}
@@ -109,6 +114,10 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
                 <li key={r.page.slug} id={`${listId}-${r.page.slug}`} role="option" aria-selected={i === activeIndex}>
                   <button
                     type="button"
+                    // Real focus stays on the input; the arrow keys move a virtual
+                    // cursor via aria-activedescendant. Leaving these tabbable gives
+                    // the widget two competing navigation models.
+                    tabIndex={-1}
                     onClick={() => go(r.page.slug)}
                     onMouseEnter={() => setActiveIndex(i)}
                     className={`flex min-h-[44px] w-full flex-col items-start rounded-lg px-3 py-2 text-left transition-colors ${

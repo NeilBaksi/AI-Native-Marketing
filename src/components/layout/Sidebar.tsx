@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom'
 import { Search } from 'lucide-react'
 import { NavLinks } from './NavLinks'
 
+// SidebarLayout's handler accepts metaKey OR ctrlKey, so the hint should match the
+// platform rather than always promising ⌘ to Windows and Linux readers.
+const SHORTCUT_HINT =
+  typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform) ? '⌘K' : 'Ctrl K'
+
 interface SidebarProps {
   onSearch: () => void
 }
@@ -29,7 +34,7 @@ export function Sidebar({ onSearch }: SidebarProps) {
         >
           <Search size={15} aria-hidden />
           Search
-          <kbd className="ml-auto font-mono text-[0.65rem] text-muted">⌘K</kbd>
+          <kbd className="ml-auto font-mono text-[0.65rem] text-muted">{SHORTCUT_HINT}</kbd>
         </button>
       </div>
 

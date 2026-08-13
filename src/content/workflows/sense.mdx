@@ -1,13 +1,73 @@
-_Stub — outline below; full prose to come._
+Sense is where the loop starts, and where every later workflow's quality ceiling gets set — Focus can't build a living ICP on signal that's stale, incomplete, or misread. This chapter is what "always-on listening" actually consists of.
 
-## Signal Families
+<Section index="01" kicker="Not one stream" title="Signal families">
 
-TODO(content): Enumerate the distinct families of signal Sense ingests (e.g. behavioral, transactional, conversational, market/competitive, first-party vs. third-party) and what kind of question each family is good at answering.
+Four families of signal, each answering a different question and each blind to something the others catch. No single family is sufficient on its own — that's the argument for the next section, not a caveat to skip past.
 
-## Triangulation
+<Figure
+  d="D19"
+  caption="The four signal families — what each one answers, and what it structurally cannot see on its own."
+  alt="Four signal families: Behavioral (what are customers actually doing — revealed preference from usage and purchase patterns), Qualitative (why are they behaving this way — the emotional and cultural why from reviews and support transcripts), Intent (what will they do next — predictive signal from search and pricing-page activity), and Environmental (what external forces are shaping behavior — competitor moves, regulation, seasonality)."
+>
+  <DefinitionList items={[
+    { term: 'Behavioral — what are they doing?', body: 'Revealed preference: usage, clicks, purchases, cart adds and abandons. Highest fidelity, but blind to why.' },
+    { term: 'Qualitative — why?', body: 'Interviews, support transcripts, reviews, social posts. Reveals the reason, but at small sample sizes — no sense of scale.' },
+    { term: 'Intent — what next?', body: 'Search behavior, pricing-page visits, third-party intent data. Predictive, but noisy — a download could mean a buyer or a curious intern.' },
+    { term: 'Environmental — what context?', body: "Competitor moves, regulation, seasonality, macro trends. Without it the system optimizes as if the customer exists in a vacuum." },
+  ]} />
+</Figure>
 
-TODO(content): Explain how Sense combines multiple signal families to confirm or disconfirm a single insight, rather than acting on any one signal in isolation — with an example of a false positive a single-signal read would have produced.
+<Example id="retail-bank-churn-lag">
+  This isn't a hypothetical cost. A retail bank's models correctly flagged 40,000 customers as churn risks — real signal, correctly detected. Nearly a third of them left before any campaign built off that signal ever launched, because the finding sat in a dashboard instead of writing to an object Focus could read the moment it existed. The signal wasn't the problem. The architecture carrying it was.
+</Example>
 
-## The Five Insight Objects
+<Prompt id="sense-signal-audit" />
 
-TODO(content): Name and define each of the five specific insight objects Sense writes to Shared Memory, and what downstream workflow (Focus, Orchestrate, etc.) consumes each one.
+</Section>
+
+<Section index="02" kicker="Why no family stands alone" title="Triangulation">
+
+Each family's blind spot is exactly what another family covers: behavioral sees *what* but not *why*; qualitative sees *why* but not *how much*; intent sees *next* but not how *certain*; environmental sees *context* but not *cause*. Combine them and two distinct things can happen — and the system should do something different in each case.
+
+<Figure
+  d="D20"
+  caption="Triangulation's two modes — convergence lets the system act; contradiction makes it stop and escalate."
+  alt="Two triangulation outcomes. Convergence: behavioral signal (browsing premium tiers) and environmental signal (a competitor just raised prices) agree, so the system triggers an upsell offer with high confidence. Contradiction: behavioral signal (engagement rising) conflicts with qualitative signal (a negative review) and intent signal (browsing a competitor's product pages), so the system escalates for human review rather than acting."
+>
+  <div className="flex flex-col gap-4">
+    <FlowChain nodes={['Behavioral: premium browsing', 'Environmental: competitor price rise', 'Converge → upsell, high confidence']} />
+    <FlowChain nodes={['Behavioral: engagement rising', 'Qualitative: negative review', 'Contradict → escalate to human']} />
+  </div>
+</Figure>
+
+The contradiction case is the one worth sitting with: read behavioral data alone — engagement climbing — and the system would file this customer as healthy, maybe even upsell-ready. That's the false positive a single-signal system produces with total confidence. Add the review and the competitor-browsing pattern and the read flips from *growing* to *at risk of leaving*. Triangulation didn't just add detail here; it reversed the conclusion.
+
+<Example id="starbucks-deep-brew">
+  Deep Brew's real value shows up in composition, not any one feed: a customer's habitual morning latte now includes weekday afternoon cold brews (behavioral); she's browsed the summer Refreshers menu three times without ordering (intent); a barista's observation, confirmed by the regional manager, places the second drink as an office run, not a personal treat (qualitative); a heat wave hits her zip code the same week a competitor launches a cold-brew promotion (environmental). No single feed justifies an offer. Together, they do — an AI found the pattern, but a person is still the one who confirmed what the office-run observation meant.
+</Example>
+
+</Section>
+
+<Section index="03" kicker="Where the objects come from" title="The five insight objects, sourced">
+
+Part II already named what Sense writes — Identity Profile, Engagement History, Propensity Score, Need State, and Consent + Constraints — and who reads them. What that chapter didn't cover is where each one's evidence actually originates and where it lands next:
+
+<ComparisonTable
+  caption="Each insight object's primary signal source and downstream reader."
+  columns={['Primarily sourced from', 'Read next by']}
+  rows={[
+    { label: 'Identity Profile', cells: ['Behavioral + first-party records', 'Every downstream workflow'] },
+    { label: 'Engagement History', cells: ['Behavioral', 'Focus (scoring), Orchestrate (state)'] },
+    { label: 'Propensity Score', cells: ['Behavioral + Intent, triangulated', 'Focus (ICP scoring)'] },
+    { label: 'Need State', cells: ['Qualitative + Intent, triangulated', 'Focus (persona), Design (messaging)'] },
+    { label: 'Consent + Constraints', cells: ['Environmental (regulatory) + explicit input', 'Every workflow that acts on this person'] },
+  ]}
+/>
+
+No object here is the product of one signal family working alone — which is the same triangulation argument from the last section, just traced object by object instead of case by case.
+
+</Section>
+
+## Where this leads
+
+Sense hands Focus five objects; what Focus does with the first of them — turning a Propensity Score and a Need State into an actual ICP a system can score against — is where strategic judgment enters the loop hardest. That's the next chapter.

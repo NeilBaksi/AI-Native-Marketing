@@ -1,25 +1,71 @@
-_Stub — outline below; full prose to come._
+<Section index="01" kicker="The gate, not the standard" title="What it's for">
 
-## What it's for
+[Execute & Learn](/workflows/execute-and-learn) establishes why a holdout test is the only causal proof in this handbook — treatment against a matched control, not a before/after comparison riding on whatever else happened that quarter. This checklist is the pre-launch gate that turns that discipline into something a team actually runs before a test ships, not a standard they agree with in the abstract and skip under deadline pressure.
 
-TODO(content): Explain that this checklist verifies a marketing experiment or test is validly designed — hypothesis, sample size, control, and success metric all specified — before it runs, not after results come in.
+</Section>
 
-## When to use it
+<Section index="02" kicker="Immediately before launch" title="When to use it">
 
-TODO(content): Describe when to run this checklist — before launching any A/B test, campaign experiment, or measurement pilot.
+Run this checklist immediately before launching any holdout, A/B, or incrementality test — as a go/no-go gate the test has to clear, not a report filled out afterward to explain what happened.
 
-## Worked example
+- Any test that will inform a real budget or targeting decision, not just a curiosity check.
+- Any test where the launch is close enough to a deadline that the temptation is to skip straight to "launch it and see."
 
-TODO(content): Walk through a filled-in checklist for a realistic marketing experiment, showing the hypothesis, control/variant setup, sample size, and pre-registered success metric.
+</Section>
 
-## Blank version
+<Section index="03" kicker="A referral-banner test" title="Worked example">
 
-TODO(content): Present the blank experiment design checklist with items for hypothesis, control, sample size, duration, and success metric.
+A test proposal for adding a referral-incentive banner to the post-purchase confirmation page, run against all seven required fields:
 
-## Downloads
+<ComparisonTable
+  caption="Experiment design checklist, filled in for a referral-banner test."
+  columns={['Filled in']}
+  rows={[
+    { label: 'Hypothesis (falsifiable, names a number)', cells: ['Adding a $10-credit referral banner to the confirmation page increases referral-attributed revenue per customer by at least 8% over 90 days versus a matched holdout.'] },
+    { label: 'What changes', cells: ['Only the confirmation-page banner. No other step in the purchase or referral flow is touched.'] },
+    { label: 'Metrics — primary + guardrail', cells: ['Primary: incremental referral revenue per customer. Guardrail: support-ticket volume, to catch confusion the banner itself might cause.'] },
+    { label: 'Design', cells: ['Randomized, customer-level holdout, matched on cohort and average order value.'] },
+    { label: 'Duration', cells: ['90 days — long enough for a full referral cycle to mature.'] },
+    { label: 'Success threshold', cells: ['≥8% lift, significant at the pre-registered threshold set before launch.'] },
+    { label: 'Decision enabled', cells: ['Clears: roll out to 100%. Misses: kill the banner concept — don’t relaunch the same copy without a new hypothesis.'] },
+  ]}
+/>
 
-TODO(content): note this needs a downloadable .md/.csv or .xlsx version once the content is written
+<PullQuote quote="Test the decisions you haven't made yet — not the ones you already have." attribution="course material, applied-projects case notes" />
 
-## Design decision
+That line names the failure this checklist is built to prevent: a test proposed to confirm a decision that's effectively already been made produces a confirmation, not evidence — the checklist's Decision Enabled field exists specifically to catch it before launch.
 
-TODO(content): Pull from the course material why the checklist requires the success metric to be pre-registered before launch rather than chosen after seeing results.
+</Section>
+
+<Section index="04" kicker="Copy this, per test" title="Blank version">
+
+<Checklist
+  label="Pre-launch gate — all seven required"
+  items={[
+    { text: 'Hypothesis (falsifiable, names a number)', hint: 'Must name a specific number, not a direction.' },
+    { text: 'What changes' },
+    { text: 'Metrics — primary and guardrail' },
+    { text: 'Design' },
+    { text: 'Duration' },
+    { text: 'Success threshold' },
+    { text: 'Decision enabled', hint: 'What happens on a clear pass, and on a clear miss?' },
+  ]}
+/>
+
+Or draft the seven fields from a test idea instead of filling them in cold:
+
+<Prompt id="experiment-design-draft" />
+
+</Section>
+
+<Section index="05" kicker="For now" title="Downloads">
+
+The seven fields above map directly onto a spreadsheet — one row per required field. The checklist here doesn't save your ticks between visits; the worked example's table above shows the row-per-field shape to copy. A dedicated .md/.csv export is on the list for when the toolkit ships a bulk download page.
+
+</Section>
+
+<Section index="06" kicker="The two fields that get skipped" title="Design decision">
+
+Two fields do the real work here, and both are easy to skip under deadline pressure. The hypothesis has to name a number, not just a direction — "the banner will help" can never fail, but "at least 8% lift" can, and only a hypothesis that can fail is actually being tested. Decision Enabled is the other one: stating, before launch, exactly what happens on a pass and on a miss. A test with no pre-committed decision attached to its result doesn't produce an action when it finishes — it produces a debate about what the number means, which is the outcome the checklist exists to rule out.
+
+</Section>

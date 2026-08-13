@@ -1,17 +1,52 @@
-_Stub — outline below; full prose to come._
+Part III walks each of the seven workflows in turn — Sense through Execute & Learn — and every one of those chapters will eventually run into a governance question. This short chapter exists so that isn't a surprise: it puts the constraint on the table now, before the workflow detail, so it reads as a known boundary rather than a Session-19 afterthought.
 
-## Why governance can't wait for Part III
+<Section index="01" kicker="Named, not yet detailed" title="The five Govern components">
 
-TODO(content): Explain why this ~700-word orientation exists here, before Part III begins — so governance is a known constraint going into every workflow chapter (Sense through Execute & Learn) rather than a Session-19 surprise.
+Five components, named here in outline only — each gets its full treatment, including controls and the specific risks it maps to, in `workflows/govern`:
 
-## The five Govern components
+<DefinitionList items={[
+  { term: 'Consent checks', body: 'Verified before every automated action, not assumed from account creation onward.' },
+  { term: 'Claims verification', body: 'Every claim a system generates is checked against an approved list before it reaches a customer.' },
+  { term: 'Bias detection', body: "Fairness checks on model output, per group, not just in aggregate." },
+  { term: 'Audit trail', body: 'Every decision logged — signal, rule, action, content, outcome — for full lineage.' },
+  { term: 'Kill-switch protocol', body: 'A formal halt mechanism with defined triggers, scope, authority, and recovery steps.' },
+]} />
 
-TODO(content): Introduce the five Govern components in outline only — Consent Checks, Claims Verification, Bias Detection, Audit Trail, Kill-Switch Protocol — without yet detailing their controls or the six risks they map to.
+</Section>
 
-## Govern as envelope, not gate
+<Section index="02" kicker="Not a review step" title="Envelope, not gate">
 
-TODO(content): Frame Govern as the eighth, cross-cutting workflow running continuously beneath all seven others (the governance bar under D1), not a review gate at the end of the process — distinguish BLOCKING, ADVISORY, and CONTINUOUS modes at a glance.
+Every diagram of the seven workflows in this handbook draws Govern as a band running beneath all seven, not as an eighth box at the end of the sequence — and that placement is the whole argument. A gate is something work passes through once, at the end, before it ships. An envelope is a property every workflow holds continuously, while it's running, not after.
 
-## Where the full treatment lives
+Blocking and Advisory aren't two stops on a pipeline — they're the two answers to one test, applied per check, with Continuous logging running underneath both regardless of which answer a given check gets.
 
-TODO(content): Point the reader to workflows/govern for the full treatment — the six risks, their controls, kill-switch design (Triggers, Halt scope, Authority, Recovery), and the regulatory map — which this page deliberately does not duplicate.
+<DecisionTree
+  root={{
+    question: 'Does failing this check make the output unsafe to ship, or just worth a flag?',
+    branches: [
+      {
+        when: 'Unsafe to ship as-is',
+        then: 'Blocking',
+        because: 'Halts the pipeline until the issue clears. Over-rely on it and every workflow bottlenecks behind human approval.',
+      },
+      {
+        when: 'Worth a flag, not unsafe',
+        then: 'Advisory',
+        because: 'Flags the issue, logs it, and continues. Over-rely on it and the system generates alerts nobody has time to act on.',
+      },
+    ],
+  }}
+  caption="Continuous logging runs underneath both, unconditionally — it's what makes Blocking and Advisory decisions auditable after the fact, not a third alternative to choose between."
+/>
+
+</Section>
+
+<Section index="03" kicker="Scope of this page" title="Where the full treatment lives">
+
+What this page deliberately doesn't do: work through the six risks Govern actually defends against, detail kill-switch design (its triggers, halt scope, authority, and recovery steps), or walk the regulatory map. That's `workflows/govern`'s job, positioned last in Part III on purpose — by then, every workflow this envelope constrains will already be on the page to point back to.
+
+</Section>
+
+## Where this leads
+
+Part II is the spine: seven workflows, four layers, the Insight Gap, the Economics of Error, Shared Memory, and now Govern as the constraint running under all of it. Part III takes each workflow in turn and shows what actually running it looks like — starting with the one everything else depends on: Sense.

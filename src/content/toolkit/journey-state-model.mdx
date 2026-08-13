@@ -1,25 +1,69 @@
-_Stub — outline below; full prose to come._
+<Section index="01" kicker="The fields a state needs" title="What it's for">
 
-## What it's for
+[Orchestrate](/workflows/orchestrate) defines what makes a journey state real rather than a funnel stage relabeled — it has to be observable, exclusive, and actionable — and names the seven archetypal states built on that test. This page doesn't re-run that argument. It's the fillable template: the fields a state actually needs before an orchestration engine can trigger off it, applied to a state of your own.
 
-TODO(content): Explain that this template maps a customer journey as a set of discrete states and the transitions between them, giving orchestration workflows a structure to trigger off instead of a linear funnel.
+</Section>
 
-## When to use it
+<Section index="02" kicker="Before wiring any triggers" title="When to use it">
 
-TODO(content): Describe when to build a journey state model — designing a new orchestration workflow, or replacing a legacy linear-funnel journey map that can't express branching or looping behavior.
+Fill this out any time a new state needs defining — not just for the seven named archetypes, but for any sub-state a real journey needs that those seven don't name individually.
 
-## Worked example
+- Designing a new orchestration workflow and defining its states before wiring any triggers.
+- Replacing a linear funnel stage that can't express branching, looping, or "customer moved backward" — the exact behavior a funnel structurally can't hold.
 
-TODO(content): Walk through a filled-in state model for a realistic customer journey, naming each state, its entry/exit transitions, and the triggers that move a customer between states.
+</Section>
 
-## Blank version
+<Section index="03" kicker="A trial nearing expiry" title="Worked example">
 
-TODO(content): Present the blank journey state model template with fields for state name, entry conditions, exit transitions, and triggers.
+A state that sits inside "Considering" for a subscription product: a free trial nearing its expiry, filled in field by field.
 
-## Downloads
+<ComparisonTable
+  caption="Journey state template, filled in for Free-Trial Nearing Expiry."
+  columns={['Filled in']}
+  rows={[
+    { label: 'Entry (boolean)', cells: ['Trial day ≥ 11 of 14 AND activation score ≥ 40 (they are actually using the product) AND no purchase event yet.'] },
+    { label: 'Dwell minimum', cells: ['24 hours — re-evaluate at most once a day, not on every event.'] },
+    { label: 'Exit', cells: ['Purchase event fires → Retained. OR trial day = 14 with no purchase → Lapsed.'] },
+    { label: 'Content / next-best-action', cells: ['Day 11: in-app tip. Day 12: email with a usage recap. Day 13: human outreach if activation score ≥ 70.'] },
+    { label: 'Autonomy level', cells: ['L4 (Fully Autonomous) for the day 11–12 nudges — low cost, easily corrected. L2 (Human in the Loop) for day-13 outreach to high-activation trials.'] },
+    { label: 'Regression rule + cooldown', cells: ['If activation score drops more than 20 points in 24 hours, revert to Considering with a 3-day cooldown before re-entering this state.'] },
+  ]}
+/>
 
-TODO(content): note this needs a downloadable .md/.csv or .xlsx version once the content is written
+Each field maps back to one of the three tests Orchestrate names: Entry and Exit are what make the state observable — a system can detect them without a person judging. The fact that Purchase and day-14-no-purchase can't both be true is what keeps it exclusive. Content/NBA is what makes it actionable — nothing about being "nearing expiry" matters if no move is attached to it.
 
-## Design decision
+</Section>
 
-TODO(content): Pull from the course material why journeys are modeled as states and transitions rather than a linear funnel, and how that choice enables orchestration logic elsewhere in the site.
+<Section index="04" kicker="Copy this, per state" title="Blank version">
+
+<ComparisonTable
+  caption="Blank journey state template."
+  columns={['Your answer']}
+  rows={[
+    { label: 'State name', cells: ['(fill in)'] },
+    { label: 'Entry (boolean)', cells: ['(fill in — must be system-detectable, not a judgment call)'] },
+    { label: 'Dwell minimum', cells: ['(fill in — how often can this state be re-evaluated?)'] },
+    { label: 'Exit', cells: ['(fill in — every path out, and which state each one leads to)'] },
+    { label: 'Content / next-best-action', cells: ['(fill in)'] },
+    { label: 'Autonomy level', cells: ['(fill in — per the Economics of Error)'] },
+    { label: 'Regression rule + cooldown', cells: ['(fill in — what sends a customer back a state, and the minimum wait before re-entry)'] },
+  ]}
+/>
+
+Or draft a state definition from a real behavior instead of filling in each field cold:
+
+<Prompt id="journey-state-draft" />
+
+</Section>
+
+<Section index="05" kicker="For now" title="Downloads">
+
+The blank table above copies directly into a spreadsheet — one row per field, one column per state. A dedicated .md/.csv export is on the list for when the toolkit ships a bulk download page.
+
+</Section>
+
+<Section index="06" kicker="What keeps a state machine calm" title="Design decision">
+
+Dwell minimum and the regression cooldown are the two fields most journey-state designs skip, and they're the ones that keep a state machine calm in production. Without a dwell minimum, a customer whose activation score wobbles across a threshold gets re-evaluated on every event and can flicker between states within minutes. Without a cooldown on regression, a customer who drops out of a state and immediately re-qualifies bounces straight back in, and the system spends its effort reacting to noise instead of orchestrating anything real. Naming both explicitly, for every state, is what separates a template that survives contact with real data from one that only ever worked in the design doc.
+
+</Section>

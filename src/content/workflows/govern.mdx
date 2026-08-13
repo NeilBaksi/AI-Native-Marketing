@@ -1,21 +1,81 @@
-_Stub — outline below; full prose to come._
+`/spine/govern-envelope` named five components in outline and stopped there on purpose — orientation, not depth, so the constraint was on the table before Part III's workflow detail rather than a Session-19 surprise at the end. This chapter is the depth that page deliberately deferred: not what governance does in general, but the six specific ways an AI-native marketing system actually fails, what stops each one, how a kill switch gets designed before it's needed, and which regulations are actually asking for this.
 
-## Why This Chapter, Not Just the Govern Envelope
+<Section index="01" kicker="Six ways this actually breaks" title="The six risks">
 
-TODO(content): Note that `/spine/govern-envelope` only orients at governance at a high level, and that this chapter is the full treatment — state what's covered here that the earlier page deliberately left out, without duplicating its content.
+Every one of these has already happened, publicly, to a real company — not a hypothetical risk register:
 
-## The Six Risks
+<Figure
+  d="D81"
+  caption="Six risks, each with a real case where it happened and the control that would have caught it."
+  alt="Six risks paired with real incidents: Consent boundaries (Digit drained user accounts beyond consented limits, class-action settlement), Uncanny valley (Lensa AI generated sexualized, skin-lightened avatars from ordinary selfies, public backlash), Bias (Meta's ad platform delivered gendered and racially skewed job ads, HUD lawsuit), AI sameness (Jaguar's AI-assisted rebrand erased brand heritage), Claims and IP risk (the Chicago Sun-Times published an AI-generated reading list with hallucinated book titles), Agentic drift (Air Canada's chatbot invented a fare policy that didn't exist and the airline was held liable for it)."
+>
+  <ComparisonTable
+    caption="The six risks, each with a real case."
+    columns={['What happened', 'Control that catches it']}
+    rows={[
+      { label: 'Consent boundaries', cells: ['Digit drained accounts beyond consented limits — class-action settlement', 'Verify opt-in in real time before every action, not a paper trail'] },
+      { label: 'Uncanny valley', cells: ['Lensa AI generated sexualized, skin-lightened avatars from ordinary selfies', 'Cap how much inferred data the system can use about one person'] },
+      { label: 'Bias', cells: ['Meta delivered nursing ads to women, janitorial ads to men of color — HUD lawsuit', 'Fairness check on every model output before delivery; auto-suppress'] },
+      { label: 'AI sameness', cells: ["Jaguar's AI-assisted rebrand erased its own brand heritage", 'Lock brand voice into the system as enforced rules, not suggestions'] },
+      { label: 'Claims & IP risk', cells: ['Chicago Sun-Times published a reading list with hallucinated book titles', 'A claims library — every output checked against approved facts'] },
+      { label: 'Agentic drift', cells: ["Air Canada's chatbot invented a fare policy; the airline was held liable", 'A kill switch with pre-defined triggers, scope, authority, recovery'] },
+    ]}
+  />
+</Figure>
 
-TODO(content): Name and define each of the six specific risks governance has to address across the workflows.
+Two of these are worth sitting with longer than a table row allows:
 
-## Controls for Each Risk
+<Example id="air-canada-chatbot">
+  A customer asked Air Canada's chatbot about bereavement fares. The chatbot invented a policy that didn't exist and told the customer it was real. Air Canada argued in tribunal that the chatbot was effectively a separate entity, responsible for its own statements. The tribunal disagreed — the airline was held liable for what its own agent said, which is the entire argument for a kill switch that can actually stop an agent before it speaks for the brand again.
+</Example>
 
-TODO(content): Map each of the six risks to the specific control (or controls) that mitigates it, and how each control is actually enforced rather than just documented.
+<Example id="meta-hud-bias">
+  Nobody instructed Meta's ad-delivery model to discriminate. It learned the pattern from training data — nursing ads skewing toward women, janitorial ads skewing toward men of color — and repeated it at scale, invisibly, until a HUD lawsuit made it visible. A fairness check run on every output before delivery, not sampled after the fact, is specifically designed to catch exactly this: a pattern nobody wrote down anywhere, reproduced faithfully by a system that has no concept of having done anything wrong.
+</Example>
 
-## Kill-Switch Design
+</Section>
 
-TODO(content): Explain how a kill switch is designed — what triggers it, what scope it cuts off (a single agent, a workflow, the whole system), and how it's tested.
+<Section index="02" kicker="Before it's needed, not after" title="Kill-switch design">
 
-## Regulation
+A kill switch designed after an incident is a postmortem action item. Designed in advance, it's four decisions made calmly, before anyone needs them under pressure:
 
-TODO(content): Cover the regulatory landscape this governance model has to satisfy, and how the six risks and their controls map to specific regulatory obligations.
+<Figure
+  d="D82"
+  caption="Kill-switch design — four decisions, made before an incident, not during one."
+  alt="Four dimensions of kill-switch design: Triggers (unverified claim detected, spend exceeds guardrail, sentiment drops more than 15%, regulatory notice, data breach), Halt scope (single-agent pause, workflow halt, full system suspension, channel-specific or audience-specific freeze), Authority (marketing lead pauses one zone, CMO halts the full system, legal owns regulatory halts, some triggers auto-fire on threshold breach), Recovery (find root cause, remediate outputs, patch the policy layer, update the audit trail, restart only after the fix is verified)."
+>
+  <FlowChain nodes={['Triggers — what fires it', 'Halt scope — what it cuts off', 'Authority — who can pull it', 'Recovery — root cause to restart']} />
+</Figure>
+
+<Example id="spotify-ai-dj-trust">
+  Spotify's AI DJ generates spoken commentary between songs, and early versions referenced a listener's inferred location and current activity. "I see you are at the gym" tested well in a demo and unsettling in practice — personalization had crossed from delightful to surveilled. The fix wasn't a bigger disclaimer; it was capping what the system could reference at all — mood stays in, inferred location comes out — with skip-rate monitored in real time as an early-warning signal. AI DJ runs at over 70% positive sentiment since. Governance prevented the problem here; it didn't clean up after it.
+</Example>
+
+<Prompt id="govern-kill-switch-design" />
+
+</Section>
+
+<Section index="03" kicker="What regulators are actually asking" title="Regulation">
+
+Every major regulatory framework touching this system reduces to a version of the same demand: prove it.
+
+<ComparisonTable
+  caption="What four major regulatory frameworks require."
+  columns={['Core requirement']}
+  rows={[
+    { label: 'EU AI Act', cells: ['Classify risk before deployment; biometric targeting banned; GenAI content labeled; audit trail mandatory'] },
+    { label: 'FTC', cells: ['Every claim needs substantiation; AI endorsements need disclosure; biased targeting is an unfair practice'] },
+    { label: 'GDPR', cells: ['Consent verified per action; users can demand an explanation; audit trail is a legal obligation'] },
+    { label: 'CCPA / CPRA', cells: ['Opt-out signals must reach AI decisions; sensitive data needs explicit consent; annual audits required'] },
+  ]}
+/>
+
+None of these four frameworks ask for a different governance architecture than the one this chapter already described — a policy layer upstream of execution, claims verified before delivery, a complete audit trail, and a kill switch with defined authority. They ask for the same system, provably running.
+
+<Prompt id="govern-regulatory-gap-check" />
+
+</Section>
+
+## Where this leads
+
+Part III is complete: every workflow named, decomposed, and now governed. Part IV takes this entire framework and tests it against real organizations — some of which built it well, and at least one that didn't, which is exactly why that failure is the most useful case in the set.

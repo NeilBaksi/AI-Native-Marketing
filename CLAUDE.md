@@ -2,16 +2,16 @@
 
 ## Precedence
 
-Read `docs/BRIEF-AMENDMENTS.md` before treating anything in `00_BUILD_PROMPT.md` as current. §5 (stack), §8 (palette/type), §9.2 (diagram system), §11 (perf budget), §12 (CSP), §7/§14 (content model) are all superseded there. The brief's information architecture (`docs/information-architecture.md`, the 59-page tree) and pedagogy rules (§3.4, §7.1 page shapes) still stand.
+Read `docs/BRIEF-AMENDMENTS.md` before treating anything in `docs/00_BUILD_PROMPT.md` as current. §5 (stack), §8 (palette/type), §9.2 (diagram system), §11 (perf budget), §12 (CSP), §7/§14 (content model) are all superseded there. The brief's information architecture (`docs/information-architecture.md`, the 59-page tree) and pedagogy rules (§3.4, §7.1 page shapes) still stand.
 
-`docs/`, `.impeccable.md`, `00_BUILD_PROMPT.md`, and both appendices are gitignored — read them locally, never assume a worker agent without local filesystem access has seen them.
+`docs/` (brief, both appendices, ADRs, design direction, IA, open questions) and `.impeccable.md` are gitignored — read them locally, never assume a worker agent without local filesystem access has seen them.
 
 ## Stack
 
 Vite 8 + React 19 + TypeScript + Tailwind v3 + framer-motion + react-router-dom (HashRouter) + lucide-react + clsx. Mirrors `../five-days-of-product` and `../PromptToolkit` — when unsure how to build something, check those two first.
 
 ```
-npm run dev        # http://localhost:5481/AI-Native-Marketing/
+npm run dev        # http://localhost:5960/AI-Native-Marketing/
 npm run build       # tsc -b && vite build && node scripts/check-content.mjs
 npm run typecheck
 ```

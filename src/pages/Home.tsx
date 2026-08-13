@@ -10,9 +10,12 @@ const WORKFLOWS = ['Sense', 'Focus', 'Design', 'Attract', 'Orchestrate', 'Execut
 
 /**
  * Not a SaaS hero — no centered headline/subhead/two-buttons block. The D1
- * diagram does double duty as the course's most important recurring visual
- * and the site's primary navigation (each node will link to its Part III
- * page once those exist).
+ * diagram is the course's most important recurring visual.
+ *
+ * Its nodes are deliberately NOT links: `Figure` wraps the diagram in
+ * `role="img"` + `aria-label`, which collapses everything inside it into one
+ * atomic image for assistive tech. Links in there would be unreachable. The
+ * reading-paths nav below carries the navigation instead.
  */
 export default function Home() {
   return (
@@ -57,6 +60,15 @@ export default function Home() {
             </Link>
             <p className="mt-1 text-sm text-ink-soft">
               The four symptoms of a disconnected marketing operation — why this exists at all.
+            </p>
+          </li>
+          <li>
+            <Link to="/cases" className="font-display text-h4 text-ember-deep hover:underline">
+              Start from a real case
+            </Link>
+            <p className="mt-1 text-sm text-ink-soft">
+              Eight organisations that built one of these loops, or failed to — for anyone who
+              learns better from a worked example than from a framework.
             </p>
           </li>
         </ul>

@@ -1,3 +1,6 @@
+import clsx from 'clsx'
+import { AlertTriangle, Check, X } from 'lucide-react'
+
 export interface TableCell {
   text: string
   /** Optional coverage state — renders a label, never colour alone. */
@@ -10,10 +13,26 @@ interface ComparisonTableProps {
   rows: { label: string; cells: (string | TableCell)[] }[]
 }
 
-const STATE_LABEL: Record<NonNullable<TableCell['state']>, string> = {
-  covered: '✓ Covered',
-  gap: '⚠ Gap',
-  'major-gap': '✗ Major gap',
+/**
+ * Three redundant codings per state — icon, wording, and (for the two that
+ * matter) fill — so the escalation survives greyscale and colour-vision
+ * deficiency alike. Icons are lucide, matching every other icon on the site;
+ * these were `✓ ⚠ ✗` unicode glyphs, which is the "mixed icon families" the
+ * brief bans outright.
+ *
+ * `covered` gets `muted` and no tint on purpose: the absence of a problem earns
+ * no ink, and green would both invent a success semantic the palette doesn't
+ * have and turn coverage tables 60% green. `gap` and `major-gap` share a text
+ * colour — the escalation is carried by the cell fill, which is what keeps them
+ * distinguishable without colour at all.
+ */
+const STATE: Record<
+  NonNullable<TableCell['state']>,
+  { icon: typeof Check; label: string; text: string; cell: string }
+> = {
+  covered: { icon: Check, label: 'Covered', text: 'text-muted', cell: '' },
+  gap: { icon: AlertTriangle, label: 'Gap', text: 'text-ember-deep', cell: '' },
+  'major-gap': { icon: X, label: 'Major gap', text: 'text-ember-deep', cell: 'bg-ember/8' },
 }
 
 /** Also serves the brief's CoverageGrid form via the per-cell `state` field. */
@@ -44,10 +63,21 @@ export function ComparisonTable({ caption, columns, rows }: ComparisonTableProps
                 const isObj = typeof cell !== 'string'
                 const text = isObj ? cell.text : cell
                 const state = isObj ? cell.state : undefined
+                const StateIcon = state ? STATE[state].icon : null
                 return (
-                  <td key={i} className="p-3 text-ink-soft">
+                  <td key={i} className={clsx('p-3 text-ink-soft', state && STATE[state].cell)}>
                     {text}
-                    {state && <span className="ml-2 text-xs text-muted">{STATE_LABEL[state]}</span>}
+                    {state && StateIcon && (
+                      <span
+                        className={clsx(
+                          'ml-2 inline-flex items-center gap-1 whitespace-nowrap align-middle font-mono text-[0.65rem] uppercase tracking-wider',
+                          STATE[state].text,
+                        )}
+                      >
+                        <StateIcon size={12} strokeWidth={2} aria-hidden />
+                        {STATE[state].label}
+                      </span>
+                    )}
                   </td>
                 )
               })}

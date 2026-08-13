@@ -1,17 +1,50 @@
-_Stub — outline below; full prose to come._
+The last chapter named the gap without naming what fills it. This course calls that missing layer the **Intelligent Marketing Operating System** — I-MOS for short: the coordination layer that connects customer signals, marketing decisions, content creation, journey execution, and performance learning into one continuous, governed system.
 
-## I-MOS, defined
+That's a dense sentence, so it's worth taking apart. I-MOS isn't a product you buy — no vendor ships "an I-MOS." It's an architecture: a specific way of connecting the tools an organization already owns (or will own) so that what one workflow learns, the next one can actually use, automatically, without a person carrying it across by hand.
 
-TODO(content): Define I-MOS (Intelligent Marketing Operating System) as the AI-native coordination layer connecting customer signals, decisions, content creation, journey execution, and performance learning into one continuous, governed system, and map the five OS functions (Shared Memory, Resource Allocation, Standardized Interfaces, Security & Governance, Persistent State) onto their marketing equivalents.
+<Callout kind="key" title="Three things that make it an operating system, not a stack of tools">
+This course names three defining characteristics. **One system, not many tools** — the workflows share memory instead of each holding its own disconnected copy of the truth. **Always-on, not campaign-by-campaign** — it runs continuously, the way a server runs, not the way a launch runs. **Trusted by design, not by exception** — governance is built into how the system executes, not added afterward as a review step.
+</Callout>
 
-## The seven workflows, at a glance
+<Section index="01" kicker="The work" title="Seven workflows, three phases">
 
-TODO(content): Name and preview each of the seven workflows in sequence — Sense, Focus, Design, Attract, Orchestrate, Build, Execute & Learn — with a one-line description of what each does, and note Govern as the eighth, cross-cutting workflow rather than a step in the sequence.
+I-MOS organizes marketing's actual work into seven workflows: Sense, Focus, Design, Attract, Orchestrate, Execute, and Learn. They group into three phases. **Understand** (Sense, Focus) is figuring out who the customer is and what they need. **Build** (Design, Attract) is making the assets and getting them discovered. **Run** (Orchestrate, Execute, Learn) is putting the right message in front of the right person and getting smarter from the result.
 
-## The four-layer stack
+<Figure
+  d="D1"
+  caption="The seven I-MOS workflows, grouped into Understand / Build / Run, with Learn writing back to Sense and Govern running beneath all seven continuously."
+  alt="Seven connected stages — Sense, Focus, Design, Attract, Orchestrate, Execute, Learn — arranged left to right, with an arrow from Learn back to Sense showing the loop closes, and a band beneath all seven labeled Govern, running continuously underneath every stage."
+>
+  <FlowChain
+    nodes={['Sense', 'Focus', 'Design', 'Attract', 'Orchestrate', 'Execute', 'Learn']}
+    loopBackLabel="Learn writes back to Sense — the loop compounds instead of resetting"
+    band="GOVERN — runs beneath every workflow, continuously"
+  />
+</Figure>
 
-TODO(content): Introduce the four-layer stack — Shared Memory ("the hard drive/brain"), Agentic Services ("the applications/organs"), Orchestration ("the conductor/nervous system"), Governance ("the immune system") — as the technical substrate the seven workflows run on.
+Two things about this diagram matter more than the seven names. First, the arrow from Learn back to Sense: results aren't the end of the chain, they're an input to the next cycle — the same distinction between an operating system that has memory and a campaign process that resets to blank each time. Second, Govern isn't a phase in the sequence — it's a band running underneath all seven, continuously, not a gate a campaign passes through once before launch. Later chapters in Part III each take one workflow and go deep; this diagram is the map they're all zooming into one node of.
 
-## Why this diagram recurs through the whole course
+</Section>
 
-TODO(content): Set up D1 (the seven workflows grouped under Understand/Build/Run with a governance bar beneath) as the course's central recurring diagram, referenced again in spine/seven-workflows and spine/four-layer-stack.
+<Section index="02" kicker="The machinery" title="What actually runs underneath">
+
+The seven workflows describe the *work*. Underneath them, I-MOS is built from four layers, each with a rough body-system metaphor the course uses to make the abstraction concrete.
+
+<DefinitionList items={[
+  { term: 'Shared Memory', body: 'The hard drive and the brain — the persistent record of what the system knows about each customer and what happened last time, so nothing resets between cycles.' },
+  { term: 'Agentic Services', body: 'The organs — the individual AI-driven capabilities that do the actual work of each workflow, reading from and writing to Shared Memory.' },
+  { term: 'Orchestration', body: 'The nervous system and the conductor — the layer that sequences which service acts when, and routes each workflow\'s output to the next workflow that needs it.' },
+  { term: 'Governance', body: 'The immune system — consent, claims, bias, and audit checks running inside execution, not as a separate review step bolted on after.' },
+]} />
+
+A later chapter in Part II goes through each layer in enough detail to be useful; this is the version worth carrying forward for now: work happens in the Agentic Services layer, gets remembered in Shared Memory, gets sequenced by Orchestration, and Governance runs through all three continuously rather than checking them afterward.
+
+</Section>
+
+<Section index="03" kicker="Why this is the spine" title="Everything else in this handbook zooms into this page">
+
+Every chapter from here forward is either a piece of the seven-workflow loop or a piece of the four-layer stack. Part II goes through the loop and the stack in real depth, including the two ideas — the Insight Gap and the Economics of Error — that decide how much of each workflow AI can safely run versus where a human still has to sit in the loop. Part III takes each of the seven workflows in turn and shows what actually running it looks like. The cases in Part IV are all instances of an organization building — or failing to build — some piece of what's on this page.
+
+Before any of that: almost no organization starts at Full I-MOS. The next chapter is a self-diagnostic — a way to place where an organization actually sits on the road toward what this page just described.
+
+</Section>

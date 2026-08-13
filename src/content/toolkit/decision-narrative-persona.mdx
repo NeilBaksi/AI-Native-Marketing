@@ -1,25 +1,98 @@
-_Stub — outline below; full prose to come._
+A demographic persona describes who a buyer is. [Focus's decision-narrative persona](/workflows/focus) describes how they actually decide — five fields written as system instructions, not a sketch with a stock photo. This template is the fillable version, built for the primary/secondary/negative trio every ICP already produces.
 
-## What it's for
+<Section index="01" kicker="Fillable, three at a time" title="What it's for">
 
-TODO(content): Explain that this persona template is built around a customer's decision narrative — the actual reasoning path and triggers that lead to a purchase decision — rather than demographic or firmographic attributes alone.
+The five fields — JTBD, Anxiety, Proof, Channel, Tone — are already defined in Focus; this template doesn't redefine them, it gives them a form a team actually fills in per account tier, three personas at a time: **primary** (build for and lead with), **secondary** (serve without optimizing around), and **negative** (actively excluded). The negative persona is the same suppression rule Focus already names, made concrete enough to act on.
 
-## When to use it
+</Section>
 
-TODO(content): Describe when to build a decision-narrative persona — before designing a journey state model, or whenever a team's existing personas are demographic-only and can't drive orchestration logic.
+<Section index="02" kicker="Before journey design" title="When to use it">
 
-## Worked example
+Fill this out before designing a [journey-state model](/toolkit/journey-state-model) — orchestration logic needs a persona built from reasoning paths and triggers, not attributes, to route on. It's also the right fix whenever an existing persona deck is demographic-only and nobody can point to what it would change about a single piece of copy.
 
-TODO(content): Walk through a filled-in decision-narrative persona for a realistic buyer, tracing their actual reasoning path from trigger event through evaluation to decision.
+</Section>
 
-## Blank version
+<Section index="03" kicker="Filled in, for Ridgeline" title="Worked example">
 
-TODO(content): Present the blank decision-narrative persona template with sections for trigger, reasoning path, objections, and decision moment.
+<ComparisonTable
+  caption="Ridgeline's persona trio, all five fields per persona."
+  columns={['Primary — Finance Ops Manager', 'Secondary — AP Clerk', 'Negative — Sole proprietor, <20 employees']}
+  rows={[
+    {
+      label: 'JTBD',
+      cells: [
+        'Get every expense report approved and coded correctly without personally chasing 40 people a month',
+        'Process approved reports into the ledger without re-keying data by hand',
+        'Track a handful of expenses — a spreadsheet already does this',
+      ],
+    },
+    {
+      label: 'Anxiety',
+      cells: [
+        'Switching platforms breaks the approval chain right before a quarter-close audit',
+        "Losing the manual checks that catch the miscodes she's used to spotting",
+        'Paying for automation software at all, at this volume',
+      ],
+    },
+    {
+      label: 'Proof',
+      cells: [
+        'A peer at a similarly sized company cut close time from 9 days to 3',
+        'A walkthrough showing the same coding accuracy with less manual entry',
+        'Not applicable — this segment is excluded, not persuaded',
+      ],
+    },
+    {
+      label: 'Channel',
+      cells: [
+        'LinkedIn, peer finance communities, finance-conference case studies — not cold email',
+        'Internal rollout material from the finance ops manager, not outbound marketing',
+        'Excluded from paid acquisition targeting entirely',
+      ],
+    },
+    {
+      label: 'Tone',
+      cells: [
+        'Precise, numbers-first, skeptical of hype language',
+        'Procedural, step-by-step, low on strategic framing',
+        'N/A',
+      ],
+    },
+  ]}
+/>
 
-## Downloads
+Cost of acquisition for the negative persona exceeds any plausible lifetime value at that account size — the system filters it out before spend reaches it, the same discipline [Focus](/workflows/focus) names for personalization risk applied here to targeting.
 
-TODO(content): note this needs a downloadable .md/.csv or .xlsx version once the content is written
+</Section>
 
-## Design decision
+<Section index="04" kicker="Copy this, per persona" title="Blank version">
 
-TODO(content): Pull from the course material why this template centers the decision narrative instead of demographics, and how that choice ties personas directly to journey and orchestration design.
+- **JTBD** — [the job they're hiring the product to do, in their own context]
+- **Anxiety** — [what they fear about buying or switching, stated as the objection before it's raised]
+- **Proof** — [the evidence that makes the claim believable to this exact persona]
+- **Channel** — [where and in what format they actually consume information]
+- **Tone** — [the register a credible source would use with them]
+
+Fill this three times — primary, secondary, negative — before calling the persona set done. A trio with no negative entry hasn't finished the exercise.
+
+Or draft the trio from real call notes instead of writing each field cold:
+
+<Prompt id="persona-trio-draft" />
+
+</Section>
+
+<Section index="05" kicker="For now" title="Downloads">
+
+<Callout kind="note" title="Copy the blank version above">
+The three-column comparison format maps directly to a spreadsheet with one persona per column — a working `.csv` layout once the toolkit ships file assets.
+</Callout>
+
+</Section>
+
+<Section index="06" kicker="Why the reasoning path, not the résumé" title="Design decision">
+
+<Callout kind="key" title="A persona built on attributes can't drive routing logic">
+Demographic fields — age, title, company size — describe who exists in a segment; they don't tell an orchestration system what to do next. A reasoning path does: JTBD and Anxiety are the inputs a journey-state model reads to decide which message fires, and Channel and Tone are what an assembly engine reads to decide how. Centering the template on the decision narrative isn't a stylistic choice — it's what makes the persona something a downstream system can actually consume, not just a slide a strategist presents once.
+</Callout>
+
+</Section>

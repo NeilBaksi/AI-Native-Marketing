@@ -1,9 +1,217 @@
-_Stub — outline below; full prose to come._
+This is not Appendix A's full ~255-term concept inventory — it's the subset the live site actually teaches, pulled from every chapter's own concept list. 88 terms, each with a short definition and a link to the chapter that teaches it in depth. As Parts I–VI grow, this list grows with them.
 
-## What's here
+**This list is not alphabetical.** It's grouped by Part, then by the chapter that teaches each term, in reading order — a term taught in passing on an earlier page but taught in depth on a later one is listed once, under the page that does the teaching. Within a chapter's group, order follows the chapter's own structure rather than the alphabet, since a term usually only makes sense next to the ones around it. If you already know the word you're after, use your browser's find-in-page rather than scanning — the Part groupings below exist to make skimming a section possible, not to make the whole list sortable.
 
-TODO(content): Describe the ~255-term glossary — searchable, tagged by difficulty tier, cross-linked — that serves as the auto-linking source of truth for terminology used across the whole site.
+<Section index="01" kicker="Part I" title="Part I — Foundations">
 
-## How it's organized
+### [The Problem](/foundations/the-problem)
 
-TODO(content): Explain the glossary's organization — difficulty tiers, search/filter mechanics, and how cross-links back into chapter content are generated from this list.
+<DefinitionList items={[
+  { term: 'Four Symptoms', body: 'Insight without action, content without context, measurement without learning, and tools without governance — four recurring failure patterns that compound rather than staying isolated.' },
+  { term: 'Insight without action', body: 'A real finding — a shift in intent, a segment worth treating differently — sits in a report while the campaign that could use it ships unchanged.' },
+  { term: 'Content without context', body: 'A technically well-made message that is situationally wrong, sent because nothing in the system knew what the customer had just done.' },
+  { term: 'Measurement without learning', body: 'A dashboard reports what happened accurately, but nothing feeds that result back into next quarter’s starting assumptions.' },
+  { term: 'Tools without governance', body: 'Consent, claims, and brand rules enforced by a person checking a spreadsheet before launch, not by anything running while the system operates.' },
+]} />
+
+### [Two Architectures](/foundations/two-architectures)
+
+<DefinitionList items={[
+  { term: 'Strategic architecture', body: 'The decades-old "what to decide" layer of marketing — STP, the 4Ps, brand positioning, journey maps — that names what a good decision looks like.' },
+  { term: 'Operating architecture', body: 'The missing "how to run it" machinery that executes strategic decisions continuously, at scale, with memory and governance built in.' },
+  { term: 'Jet engine on a carriage', body: 'The metaphor for bolting AI onto a fragmented martech stack: real power that can’t translate into motion because the operating model underneath can’t harness it.' },
+]} />
+
+### [What Is I-MOS](/foundations/what-is-imos)
+
+<DefinitionList items={[
+  { term: 'I-MOS', body: 'The Intelligent Marketing Operating System — the coordination layer that connects customer signals, decisions, content, journey execution, and performance learning into one continuous, governed system.' },
+]} />
+
+### [The Maturity Model](/foundations/maturity-model)
+
+<DefinitionList items={[
+  { term: 'Maturity model', body: 'A four-stage self-diagnostic — Point Tools, Partial Integration, Workflow Orchestration, Full I-MOS — for locating where an organization actually sits.' },
+  { term: 'Point Tools', body: 'Stage 1 of the maturity model: disconnected best-of-breed tools with no shared memory or coordination between them.' },
+  { term: 'Full I-MOS', body: 'Stage 4 of the maturity model — every workflow connected through shared memory, orchestration, and governance. Aspirational; no company operates here yet.' },
+]} />
+
+</Section>
+
+<Section index="02" kicker="Part II" title="Part II — The Spine">
+
+### [The Seven Workflows](/spine/seven-workflows)
+
+<DefinitionList items={[
+  { term: 'Seven Workflows', body: 'Sense, Focus, Design, Attract, Orchestrate, Execute, and Learn — the recurring units of work a marketing operating system performs, grouped into Understand, Build, and Run.' },
+  { term: 'Understand / Build / Run', body: 'The three phases the seven workflows group into: Understand (Sense + Focus), Build (Design + Attract), Run (Orchestrate + Execute + Learn).' },
+  { term: 'Learn-to-Sense feedback', body: 'The backward arc of the workflow chain — Learn’s results feed the next Sense cycle, so the system compounds instead of resetting with every campaign.' },
+  { term: 'Output chain', body: 'The rule that every workflow’s output becomes the next workflow’s structured input, with nothing lost to human translation in between.' },
+  { term: 'Machine-readability test', body: 'Whether a downstream system or workflow can apply or consume a rule without a human interpreting it first; binary and numeric rules pass, adjectives fail.' },
+]} />
+
+### [The Four-Layer Stack](/spine/four-layer-stack)
+
+<DefinitionList items={[
+  { term: 'Four-Layer Stack', body: 'Shared Memory, Agentic Services, Orchestration, and Governance — the technical layers I-MOS runs on, likened to a brain, organs, a nervous system, and an immune system.' },
+  { term: 'Agentic services', body: 'Coordinated teams of autonomous agents that each deliver one marketing capability, communicating through Shared Memory rather than through a single monolithic tool.' },
+  { term: 'Orchestration', body: 'The layer that sequences the agentic services, manages handoffs between them, and resolves exceptions — the conductor, not a player.' },
+  { term: 'Governance', body: 'The layer that enforces consent, claims, bias, and audit rules at system speed, continuously, rather than as an end-of-process review gate.' },
+  { term: 'One Signal, Full System', body: 'A trace of a single customer signal moving through every layer of the stack in one pass, showing the whole architecture at work on one real event.' },
+]} />
+
+### [The Insight Gap](/spine/insight-gap)
+
+<DefinitionList items={[
+  { term: 'Signal', body: 'Raw, unprocessed data about customer behavior or context — the first link in the chain toward action.' },
+  { term: 'Interpretation', body: 'The step of assigning meaning to a signal — what it implies about the customer, not just what happened.' },
+  { term: 'Insight', body: 'A deep, non-obvious, actionable understanding that explains why something is happening, not just what is happening.' },
+  { term: 'Action', body: 'The decision or execution a system or team takes once a signal has been interpreted into an insight.' },
+  { term: 'Insight Gap', body: 'The space between raw signal and actionable insight where human judgment — not AI — has to operate.' },
+  { term: 'Collect → Resolve → Interpret → Surface', body: 'The four-step operating-sensing loop: collect a signal, resolve it to one customer identity, interpret what it means, and surface it as a decision-ready insight.' },
+  { term: 'Interpretive ambiguity', body: 'One of the three forms the Insight Gap takes — a signal genuinely admits more than one reasonable reading, and a human has to pick.' },
+  { term: 'Strategic judgment', body: 'A form of the Insight Gap: deciding whether a pattern is worth acting on strategically, not just whether it is statistically real.' },
+  { term: 'Cultural resonance', body: 'A form of the Insight Gap: whether content or a decision will actually land with a human audience in its cultural context — something no model verifies from data alone.' },
+]} />
+
+### [The Economics of Error](/spine/economics-of-error)
+
+<DefinitionList items={[
+  { term: 'Cost of error', body: 'How expensive, visible, and hard to reverse a wrong decision would be — one of the two variables that sets how much autonomy a decision deserves.' },
+  { term: 'Value of speed', body: 'How much is gained by deciding and acting faster — the second variable, alongside cost of error, that sets the right level of autonomy.' },
+  { term: 'Four Autonomy Tiers', body: 'Human in Command, Human in the Loop, Human on the Loop, and Fully Autonomous — the ladder of how much a system is allowed to decide without a person.' },
+  { term: 'Autonomy inflation', body: 'Treating a decision that should have a human checkpoint as fully autonomous because removing the checkpoint is more efficient — the canonical failure is Honda Europe’s consent emails.' },
+  { term: 'Autonomy deflation', body: 'The inverse error: requiring human approval for decisions that are genuinely low-stakes, destroying velocity for no governance benefit.' },
+  { term: 'Governance zones', body: 'Zone 1 (full autonomy), Zone 2 (human in the loop), and Zone 3 (human-only) — the economics of error applied to a specific decision, most visibly content generation.' },
+  { term: 'Four Diagnostic Questions', body: 'The portable version of the economics of error: how costly is a wrong decision, is it reversible, how much is speed worth, and how confident is the model?' },
+]} />
+
+### [Shared Memory](/spine/shared-memory)
+
+<DefinitionList items={[
+  { term: 'Shared Memory', body: 'The real-time, single source of customer and system truth every workflow reads from and writes to, replacing fragmented CDPs, CRMs, and data lakes.' },
+  { term: 'Object-writing pattern', body: 'The convention that every workflow reads and writes typed objects to Shared Memory — an ICP Score, a Persona, a Positioning Payload — instead of passing prose between teams.' },
+  { term: 'Five Insight Objects', body: 'Identity Profile, Engagement History, Propensity Score, Need State, and Consent + Constraints — what Sense writes to Shared Memory for Focus to read.' },
+  { term: 'Learning Flywheel', body: 'Act → Measure → Analyze → Update → Improve — the cycle where winning parameters write back to Shared Memory so the next cycle starts from better priors, not a blank slate.' },
+]} />
+
+### [The Govern Envelope](/spine/govern-envelope)
+
+<DefinitionList items={[
+  { term: 'Govern Envelope', body: 'The protective layer that runs continuously underneath all seven workflows rather than gating them at the end — consent, claims, bias, audit, and kill-switch.' },
+  { term: 'Five Govern Components', body: 'Consent Checks, Claims Verification, Bias Detection, Audit Trail, and Kill-Switch Protocol — the five mechanisms that make up the Govern layer.' },
+  { term: 'BLOCKING / ADVISORY / CONTINUOUS', body: 'The three governance modes: BLOCKING halts a pipeline until cleared, ADVISORY flags and logs without halting, CONTINUOUS logs everything and never pauses.' },
+]} />
+
+</Section>
+
+<Section index="03" kicker="Part III" title="Part III — The Workflows">
+
+### [Sense](/workflows/sense)
+
+<DefinitionList items={[
+  { term: 'Signal families', body: 'Behavioral, Qualitative, Intent, and Environmental — the four categories of signal Sense draws from, each with its own blind spot.' },
+  { term: 'Triangulation', body: 'Combining multiple signal families so each one’s blind spot is covered by another — an architectural requirement for a trustworthy insight, not an analytical nicety.' },
+  { term: 'Insight objects', body: 'The structured, typed findings Sense produces and writes to Shared Memory, as distinct from raw signal.' },
+  { term: 'Convergence', body: 'When independent signal families agree — confidence high enough for the system to act without a human review step.' },
+  { term: 'Contradiction', body: 'When signal families disagree — the system escalates to a human rather than averaging the disagreement away.' },
+]} />
+
+### [Focus](/workflows/focus)
+
+<DefinitionList items={[
+  { term: 'ICP formula', body: 'Fit × Readiness − Friction — the live scoring formula that defines an Ideal Customer Profile as an operating policy, not a static description.' },
+  { term: 'Persona', body: 'A decision-narrative built from five system-instruction fields — JTBD, Anxiety, Proof, Channel, Tone — replacing a demographic sketch.' },
+  { term: 'Personalization Spectrum', body: 'Segment → Contextual → Individual → Anticipatory — four levels of personalization, increasing together in effort, precision, and risk.' },
+  { term: 'Positioning', body: 'A system contract anchored in the customer’s job-to-be-done, built from ICP, JTBD, proof, and explicit boundaries on what the brand will not claim.' },
+  { term: 'Primary / Secondary / Negative Persona', body: 'Build for the primary persona, adapt for the secondary, and actively suppress the negative persona from spend before it’s committed.' },
+  { term: 'Trust boundaries', body: 'Four ways personalization fails even when it’s technically accurate: uncanny valley, sensitive inference, context mismatch, and consent mismatch.' },
+]} />
+
+### [Design](/workflows/design)
+
+<DefinitionList items={[
+  { term: 'Brand DNA', body: 'Brand guidelines re-encoded as specific, binary, machine-testable rules an AI system can enforce automatically at the moment content is generated.' },
+  { term: 'Content blocks', body: 'Core, Proof, Offer, and Risk — the four modular, tagged units content is assembled from, instead of being written whole each time.' },
+  { term: 'Prompt architecture', body: 'The three-layer prompt structure — System (Brand DNA), Context (brief), Asset (which blocks) — that keeps generation consistent across every piece of content.' },
+]} />
+
+### [Attract](/workflows/attract)
+
+<DefinitionList items={[
+  { term: 'SEO to AEO', body: 'The shift from optimizing to rank in search results (SEO) to optimizing to be the source an AI system cites in a synthesized answer (AEO) — no click required, no ad unit to buy into it.' },
+  { term: 'Four Citation Signals', body: 'Provenance, Structure, Specificity, and Recency — the four properties that determine whether an answer engine cites a page.' },
+  { term: 'Zero-click economics', body: 'The fact that a majority of searches now end without a click to any website — the value of being cited is real, but conventional attribution can’t see it.' },
+  { term: 'Dark social', body: 'Content sharing through untrackable private channels — Slack, DMs, forwarded email — that drives real influence with no analytics trail.' },
+]} />
+
+### [Orchestrate](/workflows/orchestrate)
+
+<DefinitionList items={[
+  { term: 'State-based journeys', body: 'Treating each customer as being in one observable, exclusive, actionable state at a time, replacing a funnel that counts everyone in a stage as equivalent.' },
+  { term: 'Next-Best-Action', body: 'The real-time, per-customer decision across four dimensions: the right message, right channel, right timing, and right person.' },
+  { term: 'Policy stack', body: 'Four gates a next-best-action must clear in sequence — Right Customer, Right Moment, Compliance, Frequency Caps — before it’s ranked and sent.' },
+  { term: 'Seven Archetypal Journey States', body: 'Unaware → Aware → Considering → High-Intent → Retained → At-Risk → Lapsed — the journey states most customers move through, each with its own next-best-action.' },
+]} />
+
+### [Build](/workflows/build)
+
+<DefinitionList items={[
+  { term: 'Six Agentic Services', body: 'Signal, Decisioning, Content Assembly, Journey Orchestration, Activation, and Experimentation & Measurement — the coordinated agent teams that implement the four-layer stack.' },
+  { term: 'Ontology', body: 'The formal five-entity schema — Workflow → Sub-workflow → Task → Agent → Connection — used to specify any I-MOS workflow down to the agent level.' },
+  { term: 'Implementation archetypes', body: 'Adobe-centered, Salesforce-centered, and Composable — the three viable technical patterns for building I-MOS, with no universal winner.' },
+]} />
+
+### [Deep Dive: The Four-Pass Decomposition Method](/workflows/build/deep-dive/four-pass-decomposition)
+
+<DefinitionList items={[
+  { term: 'Four-Pass Decomposition', body: 'The method for turning one workflow into a working agent design in four passes: sub-workflows, tasks, agents, then the connections between them.' },
+  { term: 'Focus workflow agent walkthrough', body: 'A full agent-level trace of the Focus workflow — from a raw buying signal to an activated audience — used to demonstrate the Four-Pass method end to end.' },
+]} />
+
+### [Execute & Learn](/workflows/execute-and-learn)
+
+<DefinitionList items={[
+  { term: 'Always-on execution', body: 'Continuous, signal-first execution with real-time optimization and fluid budget, replacing the locked-budget, review-at-the-end campaign lifecycle.' },
+  { term: 'Incrementality', body: 'Revenue with marketing minus revenue without it, measured against a matched control — the only reliable proof that marketing caused an outcome rather than just preceding it.' },
+  { term: 'iROAS', body: 'Incremental ROAS — incremental revenue divided by marketing spend. Below 1.0 means the spend cost more than it produced.' },
+  { term: 'ROMI', body: 'Incremental contribution margin divided by marketing spend — the same causal proof as iROAS, stated in the currency finance actually tracks.' },
+]} />
+
+### [Govern](/workflows/govern)
+
+<DefinitionList items={[
+  { term: 'Six Risks', body: 'Consent boundaries, uncanny valley, bias, AI sameness, claims and IP, and agentic drift — the six named risk categories governance exists to control, each with a documented real case.' },
+  { term: 'Controls', body: 'The specific mechanism mapped to each of the six risks — real-time consent verification, specificity ceilings, fairness checks, locked brand voice, a claims library, and a formal kill switch.' },
+  { term: 'Kill-switch design', body: 'The four dimensions a kill switch must specify before it’s needed: triggers, halt scope, authority, and recovery.' },
+  { term: 'Regulation', body: 'The external rules governance has to satisfy — the EU AI Act, FTC substantiation and disclosure rules, GDPR, and CCPA/CPRA — each asking, in different ways, to prove the system is behaving.' },
+]} />
+
+</Section>
+
+<Section index="04" kicker="Part V" title="Part V — Applied">
+
+### [Auranis](/applied/auranis)
+
+<DefinitionList items={[
+  { term: 'Claims fabrication', body: 'A specific claim in a document or output that is not supported by any underlying data — the failure mode Auranis’s revision arc is built to teach.' },
+  { term: 'Hallucination laundering', body: 'A fabricated claim that survives into a later, more polished draft because a reviewer trusted the document’s improved framing instead of re-checking its numbers.' },
+  { term: 'Guardrails', body: 'The checks — a claims-to-source requirement, a review step, a specificity ceiling — that catch a fabricated or unsupported claim before it ships.' },
+]} />
+
+### [Agentforce Capstone](/applied/agentforce-capstone)
+
+<DefinitionList items={[
+  { term: 'Internal marketing', body: 'Marketing where the customer is an internal audience — in this case, a sales rep — rather than an external buyer.' },
+  { term: 'Rep enablement', body: 'Equipping sales reps to use a new capability effectively, measured by adoption and behavior change, not just training completion.' },
+]} />
+
+### [Agentic Lab](/applied/agentic-lab)
+
+<DefinitionList items={[
+  { term: 'Agent design', body: 'Deciding what each individual agent in a multi-agent system is responsible for, what it can see, and where its authority ends.' },
+  { term: 'Sensitive-signal leakage', body: 'A sensitive inference — about a protected life stage, for example — surfacing indirectly through a proxy signal that wasn’t designed to carry it.' },
+  { term: 'Defense in depth', body: 'Layering multiple independent safeguards so that no single failure point exposes a sensitive signal or produces an unsafe output.' },
+]} />
+
+</Section>

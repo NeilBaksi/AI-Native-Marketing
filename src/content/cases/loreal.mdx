@@ -1,17 +1,52 @@
-_Stub — outline below; full prose to come._
+In 2017, L'Oréal had a conversion problem with a specific shape: 400 foundation shades across its brands, a hex code as the only online guidance, and a shade that photographed one way in a product shot and looked like something else entirely on a customer's own skin — skin that changes with season, age, and light. The company didn't respond with a bigger catalog or better photography. It asked what job the customer was actually trying to do before buying anything: *see themselves wearing the product, on their own face, before committing.* Everything else followed from that one sentence.
 
-## What happened
+<Scorecard ids={['loreal-trendspotter', 'loreal-modiface-results']} label="What the sequence produced" />
 
-TODO(content): narrate how L'Oréal built the full I-MOS loop in the correct sequence — Sense work establishing signal before Focus prioritization, both feeding Design — rather than skipping straight to campaign production.
+<Section index="01" kicker="What happened" title="Sense, before there was a product to sell">
 
-## Where it fits the framework
+The unusual part of L'Oréal's build isn't any single piece of technology — it's the order things got built in. Before there was a try-on feature to launch, L'Oréal built "TrendSpotter," a listening system scraping 3,500+ sources — beauty forums, Instagram, TikTok, search trends — to track which shades, skin tones, and ingredients were gaining momentum, by region, as they happened. That system detected the shift toward inclusive shade ranges 6–18 months before sales data would have confirmed it, which is the entire argument for [Sense](/workflows/sense) as a continuous capability rather than an annual survey: it lets an organization move before the market forces its hand, not after.
 
-TODO(content): map L'Oréal's build to Sense, Focus, Design, and Execute & Learn specifically, showing how each workflow fed the next in the right order rather than running in isolation.
+<Example id="loreal-trendspotter">
+  TrendSpotter's output didn't sit in a research deck. It fed directly into what L'Oréal built next — the in-app selfie scanner, SkinConsult AI, that clustered users by skin-tone profile, sensitivity profile, and product usage. That's an ICP built from behavior, not from a demographic bucket like "women 18–35" — a distinction [Focus](/workflows/focus) exists to draw.
+</Example>
 
-## What went right or wrong
+Only after Sense and Focus had done that work did L'Oréal touch the product experience. It acquired ModiFace and encoded its own Brand DNA into the rendering engine — shade accuracy calibrated against 40+ skin tones, lighting simulation across natural light, office light, and evening light, realistic skin texture. That rendering spec wasn't a style guide handed to a design team; it was a machine-readable specification the try-on system draws from directly, which is what [Design](/workflows/design) means by encoding Brand DNA rather than just publishing it.
 
-TODO(content): explain why sequencing Sense before Focus before Design was the deciding factor in L'Oréal's success, and what would likely have broken had the order been skipped or reversed.
+</Section>
 
-## What to take away
+<Section index="02" kicker="Where it fits the framework" title="The loop, not just the workflows">
 
-TODO(content): state the transferable lesson about workflow sequencing (Sense → Focus → Design → Execute & Learn) that other organizations should copy from L'Oréal's build.
+<Figure
+  d="D90"
+  caption="L'Oréal's build, workflow by workflow — each one's output became the next workflow's structured input, not a handoff that needed a person to re-key it."
+  alt="Five-stage sequence: Sense (TrendSpotter scrapes 3,500+ sources for shade and ingredient trends, 6-18 months ahead of sales data) feeds Focus (SkinConsult AI clusters users into behavioral ICPs from a selfie scan) feeds Design (ModiFace encodes shade-accurate rendering rules calibrated to 40+ skin tones as machine-readable specifications) feeds Attract and Execute (deployed inside Amazon, Sephora's app, and Instagram — not a standalone app, one new deployment per day at peak) feeds Learn (every try-on's shade dwell time and drop-off re-ranks recommendations and feeds back into product formulation) which loops back into Sense."
+>
+  <FlowChain
+    nodes={['Sense — TrendSpotter', 'Focus — SkinConsult AI', 'Design — ModiFace rendering rules', 'Attract & Execute — in-platform try-on', 'Learn — dwell time re-ranks & feeds formulation']}
+    loopBackLabel="Every try-on becomes a sensing event — the loop writes back into the next TrendSpotter pass, not just a quarterly report"
+  />
+</Figure>
+
+The deployment choice matters as much as the technology: L'Oréal didn't ship a standalone app. ModiFace's rendering rules ran inside Amazon product pages, Sephora's app, and Instagram — platforms customers were already on — matching a live camera feed against the Design-layer rules in real time, no download required. That's [Attract](/workflows/attract) and [Execute](/workflows/execute-and-learn) working on the same principle Design just established: meet the customer inside their own workflow, don't ask them to adopt a new one.
+
+Learn closed the loop in a way that's easy to understate: every try-on generated shade dwell time, immediate rejections, repeat trials, and drop-off before cart. That behavioral stream re-ranked recommendations *and* fed L'Oréal's product formulation cycle on a quarterly basis — a try-on tool that was simultaneously a sales channel and a research department, because the same signal reached both without a person routing it there.
+
+</Section>
+
+<Section index="03" kicker="What went right or wrong" title="Why the sequence was the deciding factor">
+
+Nothing in this build is exotic technology — computer vision for skin-tone matching, an in-app scanner, a recommendation model — all of it existed elsewhere in 2017 without producing this result. What's specific to L'Oréal is that Sense ran before Focus, and Focus ran before Design. Had the order reversed — say, building the ModiFace rendering engine first and backfilling an ICP to match — the shade calibration would have been built against L'Oréal's assumption of who the customer was, not against what TrendSpotter and SkinConsult AI had actually observed. The 40+ skin-tone calibration only makes sense as a target because Focus had already established, from behavioral data, that shade and skin-tone diversity was the axis that mattered.
+
+The results in the scorecard above read like a Design win, but they're a sequencing win. 3x e-commerce conversion and a 22% media efficiency gain came from a product that photographed accurately because the specification behind it was built on real skin-tone and sensitivity clustering — not from better rendering technology in isolation. The 16 petabytes of first-party data L'Oréal has since accumulated is itself downstream of getting the loop's order right: Learn only had something worth compounding because Sense, Focus, and Design had already produced signal worth learning from.
+
+</Section>
+
+<Section index="04" kicker="What to take away" title="The transferable lesson">
+
+The lesson isn't "acquire a computer-vision company" or "build an in-app scanner." It's that Sense → Focus → Design → Execute & Learn is a dependency chain, not a menu — skipping straight to a flashy Design-layer feature without the Sense and Focus work underneath it produces a technically impressive product built on a guess about the customer instead of a behavioral finding. What doesn't transfer as cleanly: L'Oréal had the acquisition budget to buy a seven-year technology lead outright, and a category (color-accurate beauty product matching) where the Sense-to-Design translation is unusually direct — skin tone maps to rendering spec in a way a more abstract product category won't. The sequencing principle generalizes; the specific technology bet and the resourcing behind it don't.
+
+</Section>
+
+## Where this leads
+
+L'Oréal shows the loop built in the right order, with the acquisition budget to execute cleanly at every stage. [Coca-Cola](/cases/coca-cola) shows the loop built well on one axis — Brand DNA as genuine infrastructure — and still failing on governance for a single high-stakes asset, which is the more common way this actually goes wrong.

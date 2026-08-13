@@ -1,21 +1,103 @@
-_Stub — outline below; full prose to come._
+<Section index="01" kicker="The premise" title="A synthetic company, not a real one">
 
-## A synthetic company, not a real one
+Auranis is a fictional company, written by Prof. Mohanbir Sawhney for MKTG 468 at Kellogg. No business by this name exists; the case carries its own disclaimer that any resemblance to a real company is coincidental. Auranis DermLab Serum is the product at the center of it — a "barrier comfort" serum whose entire authorized claim surface is four short phrases: designed to support comfort, helps reduce the look of dryness, fragrance-free, dermatologist reviewed. That tight a claim set, on a real skincare product, would be unusually conservative. On a teaching case, it's deliberate — it turns any invented clinical language into an easy, checkable trap.
 
-TODO(content): State explicitly that Auranis is a fictional/synthetic company built to teach a revision arc — no real company by this name exists, and every claim, brief, and number in this case is invented for teaching purposes, not sourced from an actual business.
+What follows is a four-beat arc, not the two-beat "bad draft, good revision" story it looks like from a distance. A clean first draft gets audited, its real methodological flaw gets fixed in the revision — and the same revision quietly introduces a fabricated clinical claim that wasn't in the flawed draft at all.
 
-## v1 — the clean initial draft
+<Callout kind="key" title="The counterintuitive beat">
+The audit scored the first draft's positioning statement 92 out of 100 and praised it by name for having "no invented clinical results." The hallucination arrives in the *next* draft — the one written specifically to fix a different, real problem. Fixing the method and contaminating the claims happened in the same revision pass.
+</Callout>
 
-TODO(content): Walk through Auranis's first-pass draft — a reasonably competent output that gets the format and tone right but hasn't yet been stress-tested for accuracy or method.
+</Section>
 
-## v2 — methodologically improved, factually contaminated
+<Section index="02" kicker="The clean draft" title="v1 — the clean initial draft">
 
-TODO(content): Show how the v2 revision tightens structure, argument, and method over v1, while some of its factual claims quietly pick up errors or unsupported assertions somewhere in the revision process — the twist that makes this arc more than a simple "better draft" story.
+The first Case A memo names an ICP called "Skincare Enthusiasts," built from a sixteen-variable feature set that — without anyone flagging it at the time — mixes behavioral signals in with outcome variables: revenue, orders, average order value, returns. It produces three segments (277 / 255 / 293 customers) and a positioning statement that stays entirely inside the claim budget: "designed to calm, not correct." Three pillar names — Calm is the New Active, Simplify Don't Start Over, Science You Can Trust — carry no invented evidence anywhere in the draft.
 
-## A reviewer catches the claims problem
+<Stat id="auranis-v1-rubric" />
 
-TODO(content): Narrate a grader/reviewer pass that flags the contaminated claims in v2 specifically (not the method, which is fine) and introduces guardrails — e.g., a claims-checking step — to catch this failure mode going forward.
+A self-audit against the course rubric catches the real problem, and it isn't the claims. Revenue, orders, and returns had been let into the clustering step as if they were just more signal, and the result only avoided a degenerate outcome through non-reproducible seed luck.
 
-## B v2 / C — the clean final version
+<Example id="auranis-outcome-contamination">
+Re-run the same four outcome variables deliberately and the lowest-inertia solution collapses into an eleven-customer "whale" cluster — the algorithm sorting customers by how much they'd already spent, not by what they actually needed from a barrier-comfort serum. The v1 memo's real segments avoided that collapse by chance, not by design.
+</Example>
 
-TODO(content): Present the final, guardrailed version of the draft graded against v1 and v2, and note explicitly that this four-beat arc (clean v1 → contaminated v2 → caught by review → clean final) should not be flattened into a simple "bad draft, good revision" narrative — each beat teaches something the others don't.
+Fixing that gap is the entire, explicit goal of the next draft. It succeeds at exactly that — and breaks something the auditor never asked it to touch.
+
+</Section>
+
+<Section index="03" kicker="The revision" title="v2 — methodologically improved, factually contaminated">
+
+<ComparisonTable
+  caption="Clustering inputs, v1 vs. v2"
+  columns={['v1', 'v2']}
+  rows={[
+    { label: 'Feature set', cells: ['16 variables, including revenue, orders, AOV, returns', '11 need-state variables — skin type, concern, life stage, routine depth, sensitivity risk, and others; outcome variables removed'] },
+    { label: 'Method', cells: ['Single clustering run', '40 random starts, minimum-inertia solution selected'] },
+    { label: 'Segments', cells: ['277 / 255 / 293', '274 / 300 / 251'] },
+  ]}
+/>
+
+By every measure the auditor cared about, v2 is the correct fix — need-state variables replace outcome variables, and the AI-oversight section names exactly why that boundary matters: a model trained to see revenue will eventually just name the ICP "our best customers," which is a tautology, not a strategy. But the same revision pass rewrote the positioning statement and Pillar 1's proof cue, and neither rewrite has any source. Against a four-phrase claim budget, v2 invents a product name, a clinical trial, and a mechanism of action.
+
+<Quarantine
+  claim="Auranis DermLab Super Serum is a clinical-grade treatment serum that delivers measurable improvement on pigmentation, fine lines, and texture at eight weeks, because the peptide complex targets collagen synthesis and cell turnover while niacinamide addresses pigmentation."
+  why="The product name 'Super Serum,' the eight-week clinical timeline, the ingredient chemistry, and every claim about pigmentation, fine lines, and texture are absent from every source document. The product's actual authorized claim surface is four phrases about comfort, dryness, fragrance-free status, and dermatologist review."
+/>
+
+<Quarantine
+  claim="92% saw visible texture improvement at 8 weeks (n=120, independent clinic)."
+  why="Pillar 1's proof cue in the v2 revision. No clinical trial of any size or duration exists anywhere in the case materials — the sample size, the clinic, and the percentage are all invented."
+/>
+
+Neither fabrication is a small drift in tone. Both read as citable clinical evidence, and both would have shipped if nothing downstream had caught them.
+
+</Section>
+
+<Section index="04" kicker="The catch" title="A reviewer catches the claims problem">
+
+Grader feedback on the Case A and Case B drafts flags "Super Serum" as a hallucination directly. Tracing it back further is the more useful part: an intermediate, AI-generated brand-voice file sitting in the workspace had silently expanded the case's allowed-claims list to include the fabricated stats.
+
+<PullQuote
+  quote="An intermediate AI-generated brand-voice file in the workspace had silently expanded the allowed list with these fabricated stats — the hallucination cascaded through what looked like a governance artifact."
+  attribution="Oversight catch, Case B v2 brief"
+/>
+
+That is the sharpest lesson in the whole sequence: the artifact that looked like a control became the vector. A brand-voice file reads as something downstream drafts are supposed to trust, not diff against — so once it absorbed the fabricated claims, nothing stopped them from propagating quietly into the next draft.
+
+<DefinitionList items={[
+  { term: 'Forbidden-phrase list', body: 'Append-only — once a hallucinated phrase is named, it never leaves the list, even after the draft that contained it is fixed.' },
+  { term: 'Source-of-truth hierarchy', body: 'Named tiers of authority, with an explicit NOT-authoritative tier for prior drafts and any AI-generated "guidelines" file — the exact artifact type that laundered the claim here.' },
+  { term: 'Diff-against-source rule', body: 'Before any new claim ships, find its literal citation in a source document. No citation, no claim.' },
+  { term: 'Pre-submission checklist', body: 'Twenty boxes, all of them mandatory. If any is unchecked, the draft does not go out.' },
+]} />
+
+The guardrails file that comes out of this catch isn't a lesson written down after the fact — it's the standing pre-flight checklist every subsequent Auranis draft runs against before submission.
+
+<Prompt id="govern-claims-audit" />
+
+</Section>
+
+<Section index="05" kicker="What clean looks like" title="B v2 / C — the clean final version">
+
+Case B v2 reverts to v1's clean positioning language and pillar names, replaces its central idea with "Calm doesn't mean compromise," and states its truth anchor as exactly the four authorized claim phrases and the Case A product description — nothing else. It documents a catch the guardrails file hadn't anticipated: "polite-word overclaim," where words like restore, heal, and rebuild read as harmless but imply the same medical-treatment claims the authorized list forbids.
+
+The Case C memo, written entirely under the guardrails, is the strongest artifact in the sequence — six weeks after launch, reporting a campaign that is profitable in aggregate while concentrating real contribution loss in specific, identifiable cells.
+
+<Stat id="auranis-case-c-headline" />
+
+Its most sophisticated catch isn't a claims problem at all — it's a causal-reasoning one. Email's opt-in list showed a large gap between converters and non-converters, and the first AI-generated read treated that gap as proof of incremental lift.
+
+<Example id="auranis-selection-bias">
+An opt-in list is self-selected by definition — people already inclined to convert are the ones who joined it. The same +16.9-point gap is equally consistent with pure selection bias as with real incremental lift, and nothing in the raw number can tell the two apart. The catch didn't just flag the risk: it halved the proposed budget increase and built an actual holdout test underneath the smaller one.
+</Example>
+
+<PullQuote quote="Test the decisions you haven't made yet — not the ones you already have." attribution="Case C memo" />
+
+That closing discipline — test what's undecided, not what's already been decided — is what four beats of this arc were building toward: a method fixed, a claim caught, a control hardened, and a habit of mind that survives past the one case that taught it.
+
+</Section>
+
+## Where this leads
+
+Auranis is one failure mode, worked all the way through. The [Agentforce Capstone](/applied/agentforce-capstone) widens the lens from a single claims catch to a full internal-marketing system built on a real platform and a synthetic dataset — the same test-the-undecided-decision habit shows up there too, just with a budget and a rep population behind it instead of a serum.

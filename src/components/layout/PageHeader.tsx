@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, ChevronsDownUp, ChevronsUpDown } from 'lucide-react'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { getPage } from '../../data/pages'
 import { EASE_OUT_EXPO } from '../../lib/motion'
 
@@ -25,19 +25,22 @@ interface PageHeaderProps {
   prerequisites?: string[]
   prev?: PageHeaderLink
   next?: PageHeaderLink
-  /** Wired to the page's accordions — present only when the page has any. */
-  onExpandAll?: () => void
-  expanded?: boolean
 }
 
 // Orchestrated one-shot entrance. Framer collapses this for reduced-motion users.
+//
+// Fade only — deliberately no `y`. PageTransition already rises the entire page
+// subtree (y: 12 → 0) on every route change, so a second per-child rise here
+// compounded to ~26px of visible title travel and read as the header lurching
+// upward after load. One movement per navigation, owned by PageTransition; this
+// stagger contributes sequence, not displacement.
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.07, delayChildren: 0.02 } },
 }
 const item = {
-  hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE_OUT_EXPO } },
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { duration: 0.5, ease: EASE_OUT_EXPO } },
 }
 
 /** Per-page hero: kicker, display title, the question, prereq chips, subtitle, meta row. Left-aligned. */
@@ -50,8 +53,6 @@ export function PageHeader({
   prerequisites,
   prev,
   next,
-  onExpandAll,
-  expanded,
 }: PageHeaderProps) {
   const prereqPages = (prerequisites ?? []).map((slug) => getPage(slug)).filter((p) => p !== undefined)
 
@@ -135,18 +136,6 @@ export function PageHeader({
             </div>
           ))}
         </motion.dl>
-      )}
-
-      {onExpandAll && (
-        <motion.button
-          variants={item}
-          type="button"
-          onClick={onExpandAll}
-          className="mt-8 flex min-h-[44px] items-center gap-2 rounded-full border border-rule px-4 text-sm text-ink-soft transition-colors hover:border-ember hover:text-ember-deep"
-        >
-          {expanded ? <ChevronsDownUp size={16} aria-hidden /> : <ChevronsUpDown size={16} aria-hidden />}
-          {expanded ? 'Collapse all' : 'Expand all'}
-        </motion.button>
       )}
     </motion.header>
   )

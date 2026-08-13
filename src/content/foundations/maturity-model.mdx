@@ -1,21 +1,56 @@
-_Stub — outline below; full prose to come._
+Everything so far has described I-MOS as an architecture — the seven workflows, the four layers, the loop that closes instead of resetting. None of it says where a real organization actually stands relative to that architecture today. This course places every organization on a four-stage maturity model, and it's worth being direct about the punchline before walking through the stages:
 
-## Stage 1: Point Tools
+<Callout kind="key" title="No company is at Stage 4">
+Full I-MOS is the course's own name for the aspirational endpoint — nobody has actually built it yet. If a stage below feels uncomfortably familiar, that's the point of a diagnostic, not a failing grade.
+</Callout>
 
-TODO(content): Describe Stage 1 — isolated AI tools bolted onto individual campaigns or channels with no shared memory between them — and what it looks like day to day for a reader whose org sits here.
+<Timeline
+  entries={[
+    {
+      marker: 'Stage 1',
+      title: 'Point Tools',
+      body: 'A collection of good individual tools with no shared memory between them — a CDP, an ESP, an ad platform, a CMS, each one capable, each one holding its own disconnected copy of the truth. Nothing written in one tool is readable by another without a person manually exporting, translating, or re-entering it. This is where the four symptoms from the opening chapter live at full strength, and most organizations that think of themselves as sophisticated are still partly here, in whichever workflow got the least investment.',
+    },
+    {
+      marker: 'Stage 2',
+      title: 'Partial Integration',
+      body: "Real connections start to exist, but pairwise, not system-wide: a CDP feeding an ad platform's audiences, a personalization engine reading purchase history. Sense might feed Focus directly, but Design has no access to what Sense learned, and Orchestrate makes journey decisions blind to what Execute is currently measuring. Every new connection is its own custom integration project, which is why Stage 2 organizations tend to have a handful of expensively-built pipelines sitting next to workflows that still operate like Stage 1.",
+    },
+    {
+      marker: 'Stage 3',
+      title: 'Workflow Orchestration',
+      body: "The seven-workflow loop actually running as one connected system — Shared Memory genuinely shared, Orchestration genuinely sequencing across workflows, Learn's output genuinely reaching Sense automatically. What's usually still missing is Governance running at the same continuous speed as everything else: consent, claims, and bias checks that still happen as a periodic audit rather than inside every execution — a system that orchestrates fast but governs slow.",
+    },
+    {
+      marker: 'Stage 4',
+      title: 'Full I-MOS',
+      body: 'All four layers running continuously, governance included, at the same speed as everything else — the architecture from the last two chapters with no seams. The course is explicit that this is aspirational: it names the target so an organization can navigate toward it, not because anyone has arrived.',
+    },
+  ]}
+/>
 
-## Stage 2: Partial Integration
+Placing an organization on this ladder is exactly what the self-diagnostic below does — one question per workflow family, scored by the weakest answer.
 
-TODO(content): Describe Stage 2 — some workflows connected, most organizations actually sit here — using Starbucks Deep Brew as the "sequencing done right, shared memory first" reference case.
+<SelfCheck
+  label="Self-diagnostic"
+  levels={[
+    'Point Tools — no shared memory, every handoff manual',
+    'Partial Integration — real but pairwise connections',
+    'Workflow Orchestration — one connected system',
+    'Full I-MOS — continuous, governance included',
+  ]}
+  dimensions={[
+    { id: 'understand', question: 'Sense and Focus — how connected is customer understanding across the two?' },
+    { id: 'build', question: 'Design and Attract — how connected is content production and discovery?' },
+    { id: 'run', question: 'Orchestrate, Execute, and Learn — how connected is delivery and measurement?' },
+    { id: 'govern', question: 'Governance — do consent, claims, and bias checks run continuously, or as a periodic audit?' },
+  ]}
+  verdicts={[
+    'Point Tools. Each tool holds its own disconnected copy of the truth, and nothing written in one is readable by another without a person moving it by hand.',
+    'Partial Integration. Real connections exist, but pairwise — a handful of expensively-built pipelines sitting next to workflows that still operate like Stage 1.',
+    'Workflow Orchestration. The seven-workflow loop runs as one connected system, but Governance usually still lags — a periodic audit, not a continuous check.',
+    'Full I-MOS. All four layers, including Governance, running continuously at the same speed. The course is explicit that this is aspirational — no organization is fully here yet.',
+  ]}
+/>
 
-## Stage 3: Workflow Orchestration
-
-TODO(content): Describe Stage 3 — multiple workflows running continuously and coordinating with each other, but not yet unified under one shared-memory fabric.
-
-## Stage 4: Full I-MOS
-
-TODO(content): Describe Stage 4 — the aspirational end state where all seven workflows share memory and governance continuously — and note explicitly that no company is fully there yet.
-
-## Self-diagnostic: where does your organization actually sit
-
-TODO(content): Give the reader a short self-diagnostic, in the spirit of Reading01 Ex.4, they can run against their own organization to place it on the four-stage ladder.
+That's Part I. The next part goes underneath the diagram — the seven workflows and the four-layer stack in real depth, plus the two ideas that decide how much of any of this an organization should actually let AI run on its own.

@@ -1,17 +1,61 @@
-_Stub — outline below; full prose to come._
+Focus's own chapter stopped at what positioning is: a system contract anchored in JTBD, falling out of the ICP, the persona, and where the personalization spectrum stops. This page is what positioning turns into once it has to survive contact with an AI system generating content from it at scale — messaging and positioning alone ran long enough in drafting to earn their own page rather than a fifth section bolted onto Focus.
 
-## Why This Is a Deep Dive
+Before starting here, [Focus](/workflows/focus) should already be familiar: the ICP formula, the decision-narrative persona, and the one-sentence positioning contract this page builds on top of.
 
-TODO(content): Note that this page was split out of the main Focus chapter because messaging and positioning alone made that chapter run too long, and state what a reader should already know from Focus before starting here.
+<Section index="01" kicker="One layer, cascading" title="The five-layer messaging architecture">
 
-## The Five-Layer Messaging Architecture
+Five layers, each inherited by the one below it — change something at the top and every layer under it has to change too, which is the point: nothing downstream contradicts what's above it. Run it against [the toolkit's own worked example](/toolkit/positioning-statement) — Ridgeline, a fictional expense-and-procurement platform for mid-market finance teams — end to end:
 
-TODO(content): Define each of the five layers of the messaging architecture in order, from the top-level positioning statement down to channel-level copy, and how a change at one layer cascades to the layers below it.
+<StepList steps={[
+  {
+    title: 'Positioning Statement',
+    body: 'One sentence. Everything downstream inherits from it — change it and every layer below has to change too.',
+    example: 'Ridgeline turns expense-and-procurement approval into a same-day, audit-ready process for mid-market finance teams — by reading ERP and card-feed data directly, with routing logic finance can see and edit instead of a locked vendor black box.',
+  },
+  {
+    title: 'Value Pillars',
+    body: '3 to 4 claims — the only ones AI is allowed to generate content around.',
+    example: 'Speed (same-day routing, not a multi-week queue). Auditability (every approval traceable end to end). Transparency (routing rules visible and editable by finance).',
+  },
+  {
+    title: 'Claims + Proof',
+    body: 'Every benefit needs evidence attached before AI can use it in a claim — no stat without a registered source.',
+    example: '"Same-day routing" needs a customer-verified benchmark on file. No proof on file, no claim ships.',
+  },
+  {
+    title: 'Objections + Rebuttals',
+    body: "Pre-approved answers to the fears a buyer won't say out loud, loaded before they raise it, not improvised in the moment.",
+    example: '"We already integrate with our ERP" — integration moves data; it doesn\'t make routing logic visible or editable, which is the actual gap.',
+  },
+  {
+    title: 'Stories',
+    body: 'Real customer wins, specific enough to read as evidence rather than a testimonial slide.',
+    example: "A named customer whose finance team cut its close-of-month approval backlog.",
+  },
+]} />
 
-## Points of Difference and Points of Parity (POD/POP)
+Each layer is narrower and more specific than the one above it. By the time AI is generating channel-level copy at layer five, every word it produces can be traced back up the cascade to one sentence at the top.
 
-TODO(content): Explain what qualifies a claim as a point of difference versus a point of parity, and how the two are used together to build a defensible competitive claim.
+</Section>
 
-## No Stat Without a Source
+<Section index="02" kicker="Two different jobs" title="Points of difference and points of parity">
 
-TODO(content): Spell out the "no stat without a source" discipline — why every number used in messaging must trace to a registered, provenance-tagged fact — and what happens when that discipline is skipped.
+Not every true claim belongs in the same place. A **point of difference (POD)** is a capability competitors can't credibly match, valued by the customer, and mapped to the exact JTBD dimension where the product wins — Ridgeline's editable routing logic is a POD, because most competitors keep that logic locked inside the vendor's own black box. A **point of parity (POP)** is table stakes: SOC 2 compliance, an audit trail, single sign-on — features every credible competitor also has. Ridgeline needs all of them to be considered at all, and none of them differentiates it from anything.
+
+The failure mode this distinction exists to prevent: leading with a POP as if it were a POD. "We're SOC 2 compliant" as a headline claim invites a features checklist comparison Ridgeline wins by default and loses by framing — every competitor clears that bar too, so leading with it says nothing except that the buyer should go compare the rest of the list. AI agents generating content from the messaging architecture must not promote a POP to differentiator status; the claims-and-proof layer is where that discipline gets enforced, not left to whichever pillar sounds most impressive in the moment.
+
+</Section>
+
+<Section index="03" kicker="Not optional" title="No stat without a source">
+
+Every number that reaches layer three needs a registered, provenance-tagged source before AI can use it in generated content — verified, course-sourced, or explicitly synthetic, never unmarked. This isn't a style guideline for this handbook; it's mechanically enforced. Every `<Stat>` and `<Example>` on this site resolves against [a typed fact registry](/reference/statistics), and the site's own build fails if one doesn't — the same discipline this page is teaching, applied to the page teaching it.
+
+Skip this discipline in a real deployment and the failure mode isn't abstract: an AI system generating content at scale will confidently produce a claim that sounds exactly as authoritative as one that's actually sourced, because nothing in its output format distinguishes the two. The proof requirement is what makes that distinction visible before a claim ships, not after a customer catches it.
+
+<Prompt id="focus-messaging-cascade" />
+
+</Section>
+
+## Where this leads
+
+Focus's five-layer messaging architecture is what Design's Content Assembly Service actually assembles from — [Design](/workflows/design) picks up here, turning Brand DNA and this cascade into the modular content blocks an AI system generates on demand.

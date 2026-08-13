@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { RefreshCcw } from 'lucide-react'
 
 export interface FlowChainProps {
@@ -27,7 +28,28 @@ export function FlowChain({ nodes, loopBackLabel, band }: FlowChainProps) {
       <div className="flex flex-col gap-2 xl:flex-row xl:items-stretch xl:gap-0">
         {nodes.map((label, i) => (
           <div key={label} className="flex min-w-0 flex-1 flex-col items-center gap-2 xl:flex-row">
-            <div className="flex w-full min-w-0 flex-1 items-center justify-center rounded-xl border border-ember/40 bg-ember/5 px-3 py-4 text-center">
+            {/*
+              Hairline on paper, not a tint. A chain is mechanism, and mechanism is cobalt's
+              register — but the accent marks the entry node only, never fills every node.
+              Tinting all 34 chains site-wide with the same `bg-ember/5 + border-ember/40`
+              was a third of why every page read as one texture.
+            */}
+            <div
+              className={clsx(
+                // `xl:min-w-fit` is the fix for the mid-word breaking this component kept
+                // producing ("Orchestr/ate"). `flex-1` distributes width EQUALLY, which
+                // squeezes the longest label below its intrinsic width, and `break-words`
+                // then chops it mid-word. A `min-width: fit-content` floor lets the nodes
+                // still grow evenly while refusing to shrink past their own text.
+                //
+                // The row genuinely fits: `main` is `max-w-5xl`, so content caps at ~960px
+                // regardless of viewport, and the seven D1 labels measure ~431px of text
+                // + 7x24px padding + 6x16px arrows = ~695px. It was never a space problem,
+                // it was an equal-distribution problem.
+                'flex w-full min-w-0 flex-1 items-center justify-center rounded-xl border bg-paper px-3 py-4 text-center xl:min-w-fit',
+                i === 0 ? 'border-cobalt' : 'border-rule',
+              )}
+            >
               <span className="min-w-0 break-words font-display text-sm font-bold text-ink sm:text-base">{label}</span>
             </div>
             {i < nodes.length - 1 && (
@@ -49,7 +71,7 @@ export function FlowChain({ nodes, loopBackLabel, band }: FlowChainProps) {
 
       {loopBackLabel && (
         <div className="mt-4 flex items-center justify-center gap-2 rounded-lg bg-paper px-4 py-2 text-center">
-          <RefreshCcw size={14} className="shrink-0 text-ember-deep" aria-hidden />
+          <RefreshCcw size={14} className="shrink-0 text-cobalt-deep" aria-hidden />
           <span className="text-xs text-ink-soft">{loopBackLabel}</span>
         </div>
       )}

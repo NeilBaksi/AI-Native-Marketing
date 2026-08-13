@@ -60,3 +60,43 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Print / save-as-PDF. Readers print chapters for class, so this is a real
+   output target, not a nicety.
+
+   The `opacity`/`transform` reset is load-bearing: `Reveal` uses framer-motion's
+   `whileInView` with `once: true`, which leaves every not-yet-scrolled-to element
+   at an inline `opacity: 0`. Printing an unscrolled page therefore dropped most
+   section headings from the PDF entirely. A stylesheet `!important` beats an
+   inline style that has no `!important`, which is what makes this work at all. */
+@media print {
+  *, *::before, *::after {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Navigation chrome has no meaning on paper. */
+  aside, nav[aria-label='Handbook navigation'], header[class*='fixed'],
+  [role='dialog'], .print\:hidden {
+    display: none !important;
+  }
+
+  /* Drop the sidebar gutter and the viewport cap — paper sets the measure. */
+  body > div > div { padding-left: 0 !important; }
+  main { max-width: none !important; padding: 0 !important; }
+
+  body { background: #fff !important; color: #000 !important; }
+
+  /* Don't strand a heading at the foot of a page, or split a diagram across two. */
+  h1, h2, h3, h4 { break-after: avoid-page; }
+  figure, table, pre, li { break-inside: avoid; }
+
+  /* Spell out link targets — a printed underline points nowhere. */
+  main a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.75em;
+    word-break: break-all;
+  }
+}

@@ -1,30 +1,23 @@
-interface PageSkeletonProps {
-  /** Real title/kicker, rendered immediately — only the body is unknown while it loads. */
-  kicker?: string
-  title?: string
-}
-
 /**
  * Loading fallback for the Suspense boundary around lazy-loaded page bodies.
- * Because the manifest (PAGES) is already in the main bundle, the real
- * title/kicker render instantly — only the prose below is actually waiting,
- * which is most of the perceived-speed win.
+ *
+ * Body only — deliberately no kicker and no title. `PageHeader` renders those
+ * from the manifest, which is already in the main bundle, and it sits *outside*
+ * this boundary in Page.tsx. Rendering them here too stacked a second hero
+ * block (same `pt-14 sm:pt-20` padding) under a header that is still at
+ * `opacity: 0` mid-stagger, so the only visible title sat ~450px down the page
+ * and snapped to the top when the chunk resolved and this subtree unmounted.
  */
-export function PageSkeleton({ kicker, title }: PageSkeletonProps) {
+export function PageSkeleton() {
   return (
-    <div role="status" aria-busy="true" className="pt-14 pb-10 sm:pt-20 sm:pb-14">
+    <div role="status" aria-busy="true" className="flex flex-col gap-5">
       <span className="sr-only">Loading page</span>
-      {kicker && <p className="kicker">{kicker}</p>}
-      {title && <h1 className="mt-3 text-display-lg text-ink">{title}</h1>}
-
-      <div className="mt-10 flex flex-col gap-5" aria-hidden>
-        <div className="h-4 w-3/4 animate-pulse rounded bg-rule/60 motion-reduce:animate-none" />
-        <div className="h-4 w-full animate-pulse rounded bg-rule/60 motion-reduce:animate-none" />
-        <div className="h-4 w-5/6 animate-pulse rounded bg-rule/60 motion-reduce:animate-none" />
-        <div className="mt-4 h-48 w-full animate-pulse rounded-xl bg-rule/60 motion-reduce:animate-none" />
-        <div className="h-4 w-2/3 animate-pulse rounded bg-rule/60 motion-reduce:animate-none" />
-        <div className="h-4 w-full animate-pulse rounded bg-rule/60 motion-reduce:animate-none" />
-      </div>
+      <div aria-hidden className="h-4 w-3/4 animate-pulse rounded bg-rule/60 motion-reduce:animate-none" />
+      <div aria-hidden className="h-4 w-full animate-pulse rounded bg-rule/60 motion-reduce:animate-none" />
+      <div aria-hidden className="h-4 w-5/6 animate-pulse rounded bg-rule/60 motion-reduce:animate-none" />
+      <div aria-hidden className="mt-4 h-48 w-full animate-pulse rounded-xl bg-rule/60 motion-reduce:animate-none" />
+      <div aria-hidden className="h-4 w-2/3 animate-pulse rounded bg-rule/60 motion-reduce:animate-none" />
+      <div aria-hidden className="h-4 w-full animate-pulse rounded bg-rule/60 motion-reduce:animate-none" />
     </div>
   )
 }

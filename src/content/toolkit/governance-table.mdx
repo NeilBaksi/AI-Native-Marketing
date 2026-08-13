@@ -1,25 +1,127 @@
-_Stub — outline below; full prose to come._
+[Economics of Error](/spine/economics-of-error) and [Design's Governance Zones](/workflows/design) already decide which zone a piece of content sits in. This table is where that decision becomes auditable per workflow — one named failure, one control, one measurable kill-switch, for every AI agent running in production.
 
-## What it's for
+<Section index="01" kicker="Autonomy, made auditable" title="What it's for">
 
-TODO(content): Explain that this table documents governance rules — what's automated, what needs human review, and explicitly what was left out and why — making the boundaries of an AI workflow's autonomy auditable.
+A governance table documents what's automated, what needs human review, and — the part most teams skip — what was deliberately left out and why. Filled out honestly, it's the artifact a compliance review or an incident postmortem actually wants to see: not a values statement about responsible AI, but a specific mechanism per agent that someone can check against what actually shipped.
 
-## When to use it
+</Section>
 
-TODO(content): Describe when to fill out a governance table — standing up a new agentic workflow, or during a compliance/audit review of an existing one.
+<Section index="02" kicker="Before an agent goes live" title="When to use it">
 
-## Worked example
+Fill this out when standing up a new agentic workflow, before it touches customer-facing output, and revisit it at any compliance or audit review of an existing one. If a workflow can't produce a filled row — a named failure mode, a control, a measurable trigger — it isn't ready to run unsupervised, regardless of how well it tested in a demo.
 
-TODO(content): Walk through a filled-in governance table for a realistic workflow, showing rows for automated actions, human-review checkpoints, and explicitly excluded actions with the reasoning for each exclusion.
+<Checklist
+  label="Ready to go live — all four required, per agent"
+  items={[
+    { text: 'A named failure mode exists for this agent or content type', hint: 'Specific, not "something could go wrong."' },
+    { text: 'A zone is assigned (1, 2, or 3) per the Economics of Error' },
+    { text: 'A control is documented that catches the named failure before publish' },
+    { text: 'A measurable kill-switch trigger is defined', hint: 'A number or event, not a feeling.' },
+  ]}
+/>
 
-## Blank version
+</Section>
 
-TODO(content): Present the blank governance table template with columns for action, automation status, review requirement, and exclusion rationale.
+<Section index="03" kicker="Ridgeline's content-generation agent" title="Worked example">
 
-## Downloads
+<ComparisonTable
+  caption="Governance table for Ridgeline's AI content-generation agent, across four content types."
+  columns={['Zone', 'Highest-risk failure', 'Control', 'Measurable kill-switch']}
+  rows={[
+    {
+      label: 'Blog post drafting',
+      cells: [
+        'Zone 1',
+        'Cites a stat not in the claims registry',
+        'Every number checked against the registry before publish',
+        '>1 unsourced stat flagged in a week → agent paused for this content type',
+      ],
+    },
+    {
+      label: 'In-app microcopy',
+      cells: [
+        'Zone 1',
+        'Tone drifts from brand voice under prompt variation',
+        'Automated tone-of-voice rule check pre-publish',
+        '2 consecutive tone-check failures → routed to human review',
+      ],
+    },
+    {
+      label: 'Sales one-pagers with customer ROI figures',
+      cells: [
+        'Zone 2',
+        "Invents or rounds a customer's reported savings number",
+        'Numbers pulled only from the verified case-study registry; human sign-off required',
+        'Any unverified number in a draft → hard block, cannot publish',
+      ],
+    },
+    {
+      label: 'Competitive comparison content',
+      cells: [
+        'Zone 3',
+        'Makes an unsubstantiated claim about a named competitor',
+        'Legal review required before any draft starts',
+        'Not applicable — agent has no drafting permission for this category',
+      ],
+    },
+  ]}
+/>
 
-TODO(content): note this needs a downloadable .md/.csv or .xlsx version once the content is written
+<ComparisonTable
+  caption="What was deliberately left out of this agent's scope, and why."
+  columns={['Why it was left out']}
+  rows={[
+    {
+      label: 'Full autonomy on pricing-page copy',
+      cells: ["Pricing errors carry Zone 3-adjacent stakes even though the copy itself reads like routine Zone 1 content — cost of error is too high to automate the whole path yet."],
+    },
+    {
+      label: 'An automated fact-checker that grades its own drafts',
+      cells: ['Self-grading collapses the control and the thing being controlled into the same system — no independent check remains if the grader hallucinates too.'],
+    },
+  ]}
+/>
 
-## Design decision
+</Section>
 
-TODO(content): Pull from the course material why the table requires an explicit "left out and why" column, since this is the part of governance documentation teams most commonly skip.
+<Section index="04" kicker="Copy this, per workflow" title="Blank version">
+
+<ComparisonTable
+  caption="Blank governance table."
+  columns={['Zone', 'Highest-risk failure', 'Control', 'Measurable kill-switch']}
+  rows={[
+    { label: '[Agent or content type]', cells: ['[1 / 2 / 3]', '[the one failure most likely to happen, named specifically]', '[what checks for it before publish]', '[the number or event that pauses the agent]'] },
+  ]}
+/>
+
+<ComparisonTable
+  caption="Blank exclusions table — fill in at least two rows."
+  columns={['Why it was left out']}
+  rows={[
+    { label: '[what was deliberately not automated or not controlled]', cells: ['[the risk of that omission, named — not just "not a priority yet"]'] },
+  ]}
+/>
+
+Or draft the rows from a description of the agent instead of starting from empty brackets:
+
+<Prompt id="governance-table-draft" />
+
+</Section>
+
+<Section index="05" kicker="For now" title="Downloads">
+
+<Callout kind="note" title="Copy the blank version above">
+Both tables map directly to two spreadsheet tabs — a working `.csv` pair once the toolkit ships file assets.
+</Callout>
+
+</Section>
+
+<Section index="06" kicker="The column teams skip" title="Design decision">
+
+<PullQuote quote="Not an ethics statement — a specific mechanism per agent: one named failure, one control, one measurable kill-switch." attribution="governance design principle" />
+
+<Callout kind="key" title="Naming what you didn't cover is the harder half">
+The main table is the part every team eventually fills in under audit pressure. The exclusions table is the part that gets skipped, because admitting a gap feels like handing a reviewer ammunition. It's the opposite: an unnamed gap is a gap nobody's watching; a named one, with its risk stated, is a gap someone made a deliberate call about — the same discipline the [decision-narrative persona](/toolkit/decision-narrative-persona) template applies to its negative persona, pointed at governance instead of targeting.
+</Callout>
+
+</Section>

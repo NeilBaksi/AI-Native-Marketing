@@ -23,7 +23,7 @@ document if you're collaborating on the build).
 
 ```bash
 npm install
-npm run dev        # http://localhost:5481/AI-Native-Marketing/
+npm run dev        # http://localhost:5960/AI-Native-Marketing/
 npm run build       # tsc -b && vite build, runs the content-integrity check
 npm run preview     # serve the production build locally
 ```

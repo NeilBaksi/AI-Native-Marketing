@@ -1,13 +1,90 @@
-_Stub — outline below; full prose to come._
+This is the most technical page in the handbook, and it earns that by being the one page that doesn't skip a step. Everything in the last chapter — six services, a five-entity ontology — is the vocabulary. This page is the actual method that turns one workflow into a buildable set of agents, run start to finish against Focus.
 
-## The Four-Pass Decomposition Method
+<Section index="01" kicker="One method, four passes" title="The four-pass decomposition method">
 
-TODO(content): Define each of the four passes in the Four-Pass Decomposition Method, in order, and what question each pass answers when turning a workflow into an agent design. Note that this is the most technical page in the whole site, so the walkthrough below should not skip steps.
+<StepList steps={[
+  {
+    title: 'Workflow → Sub-workflows',
+    body: 'Identify 3 to 6 operational phases within the workflow, sequential or parallel. This produces the structural skeleton — the answer to "what are the distinct jobs inside this one workflow," before any task-level detail.',
+  },
+  {
+    title: 'Sub-workflows → Tasks',
+    body: 'For each sub-workflow, identify 3 to 8 atomic tasks — specific enough to actually implement, but platform-agnostic, not yet tied to a particular tool or model. This is where the real intellectual work happens: naming the tasks correctly is harder than assigning them to agents afterward.',
+  },
+  {
+    title: 'Tasks → Agents',
+    body: 'Map tasks to agent types. Some tasks share one agent; some need their own. Autonomy level for each agent gets set here, using the Economics of Error — cost of error and value of speed, task by task, not workflow by workflow.',
+  },
+  {
+    title: 'Agent Connections',
+    body: 'Map every connection: within a sub-workflow, across sub-workflows, across workflows, to Shared Memory, and to governance agents. This is the knowledge graph — the part that makes six independent agent teams into one coordinated service instead of six unrelated tools.',
+  },
+]} />
 
-## Worked Walkthrough: Decomposing Focus into Agents
+<Prompt id="build-four-pass-decomposition" />
 
-TODO(content): Run the Focus workflow through all four passes end to end, showing the intermediate output of each pass and the final agent design that falls out of the last one.
+</Section>
 
-## What the Walkthrough Generalizes To
+<Section index="02" kicker="All four passes, one workflow" title="Worked walkthrough: decomposing Focus into agents">
 
-TODO(content): Note what part of the Focus walkthrough is specific to Focus versus what generalizes to decomposing any other workflow in the handbook.
+Run the method against Focus and the output is the Decisioning Service from the last chapter — 12 agents, 5 sub-workflows, 27 tasks, not as a round estimate but as what falls out of actually running the four passes.
+
+<Figure
+  d="D59"
+  caption="Focus's five sub-workflows — SW-3 and SW-4 run in parallel, both converging into SW-5."
+  alt="Sequential flow: Segmentation and Clustering (SW-1) leads to ICP Definition and Scoring (SW-2), which splits into two parallel branches — Eligibility and Policy (SW-3, the primary governance gate) and Positioning and Value Prop (SW-4) — both converging into Audience Assembly (SW-5)."
+>
+  <FlowChain nodes={['SW-1 Segmentation & Clustering', 'SW-2 ICP Definition & Scoring']} />
+  <div className="mt-2 flex flex-col gap-2">
+    <FlowChain nodes={['SW-3 Eligibility & Policy — governance gate']} />
+    <FlowChain nodes={['SW-4 Positioning & Value Prop']} />
+  </div>
+  <div className="mt-2">
+    <FlowChain nodes={['SW-5 Audience Assembly — convergence point']} />
+  </div>
+</Figure>
+
+<Figure
+  d="D60"
+  caption="The 12 agents of Focus, by sub-workflow and autonomy level — ★ marks the two human-in-the-loop agents."
+  alt="Table of 12 agents across Focus's five sub-workflows, each with an autonomy level (L2 human-in-the-loop, L3 agent-acts-human-monitors, or L4 fully autonomous) and a one-line responsibility, from Segmentation Engineer through Audience Activator."
+>
+  <ComparisonTable
+    caption="The 12 agents of Focus, by sub-workflow and autonomy level."
+    columns={['Sub-workflow', 'Level', 'Responsibility']}
+    rows={[
+      { label: 'Segmentation Engineer', cells: ['SW-1', 'L3', 'Cluster discovery, feature selection, dynamic refresh'] },
+      { label: 'Segment Profiler', cells: ['SW-1', 'L3', 'Human-readable profiles, validation, registration'] },
+      { label: 'ICP Scorer', cells: ['SW-2', 'L2 ★', 'ICP criteria, scoring model, propensity fusion'] },
+      { label: 'Buying Group Evaluator', cells: ['SW-2', 'L3', 'B2B persona coverage, group completeness'] },
+      { label: 'ICP Monitor', cells: ['SW-2', 'L3', 'Drift detection — all revisions routed to a human analyst'] },
+      { label: 'Consent Filter', cells: ['SW-3', 'L4', 'Consent verification in under 100ms; halts on undetermined'] },
+      { label: 'Suppression Manager', cells: ['SW-3', 'L4', 'Suppression rules, frequency caps, stale-rule alerts'] },
+      { label: 'Policy Evaluator', cells: ['SW-3', 'L3', 'Territory rules, sales ownership, offer eligibility'] },
+      { label: 'Positioning Strategist', cells: ['SW-4', 'L2 ★', 'Need-state mapping, value prop, competitive adjustment'] },
+      { label: 'Brief Generator', cells: ['SW-4', 'L3', 'Machine-readable Positioning Briefs for Content Assembly'] },
+      { label: 'Audience Composer', cells: ['SW-5', 'L3', 'Assembly, sizing, look-alike expansion'] },
+      { label: 'Audience Activator', cells: ['SW-5', 'L4', 'Syndication to CRM, journey, ad platforms, Learn tracking'] },
+    ]}
+  />
+</Figure>
+
+★ marks the two human-in-the-loop agents — the system recommends, a person decides. That both sit at exactly the points Part II's Insight Gap chapter named (naming and narrative at ICP Scorer, strategic vs. statistical fit at Positioning Strategist) isn't a coincidence; it's the Economics of Error from Pass 3, applied.
+
+**The B2B sequence, end to end (Meridian Healthcare, ~4 minutes total):** Segmentation Engineer spots a healthcare vertical with an engagement spike and assigns it to an active segment. Thirty seconds later, ICP Scorer computes Fit 95%, Revenue 88%, Tech 72%, Intent 74% — a Priority Score of 78, Tier 1 — and routes for human confirmation before anything downstream sees it. In parallel, Buying Group Evaluator finds CISO and CTO covered but CFO missing, flagging the gap for Orchestrate to build a targeted engagement journey. Positioning Strategist reads a competitor's price increase off Shared Memory and proposes a specific angle; a human approves it. Consent Filter and Suppression Manager clear in parallel. Audience Composer and Activator wait for SW-3 and SW-4 to converge, then compose and syndicate the finished audience — to CRM, to Journey Service, to Learn tracking, all at once.
+
+Nothing in that sequence required a person to manually hand anything to the next step. The four passes are what made that true — not a faster team, a differently connected one.
+
+</Section>
+
+<Section index="03" kicker="Focus-specific vs. universal" title="What the walkthrough generalizes to">
+
+The specific numbers here are Focus's — 12 agents, 5 sub-workflows, this exact table. What generalizes to every other workflow in this handbook is the method that produced them, not the count. Sense's Signal Service runs the same four passes and lands at 19 agents across 6 sub-workflows; Design's Content Assembly Service lands at 14 across a different structure entirely. The sub-workflow names, the task list, the agent count — all workflow-specific. Pass 1 through Pass 4, in that order, applied to the workflow's actual job rather than skipped in favor of guessing at an agent count directly — that's the part that doesn't change.
+
+The one discipline worth carrying forward explicitly: Pass 2 before Pass 3. Skipping straight from sub-workflows to agents — deciding "who does this" before deciding "what exactly needs doing" — is where agent designs fail at task boundaries, because the boundary was never actually specified.
+
+</Section>
+
+## Where this leads
+
+Focus decomposed into 12 agents is one instance of the pattern every one of Part III's workflow chapters implies. The next chapter, Execute & Learn, is where those agents' output stops being a design exercise and becomes a running campaign — continuous delivery, and the measurement discipline that decides whether any of this actually worked.

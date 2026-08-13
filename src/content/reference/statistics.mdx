@@ -1,9 +1,74 @@
-_Stub — outline below; full prose to come._
+38 of the site's registered facts carry a number worth looking up on its own, outside the chapter that first used it. Below, each one renders inside a `<Scorecard>` — the same fact record the chapter itself renders — so a source or a figure can never drift between a chapter and this index.
 
-## What's here
+Every stat carries a provenance chip: **Verified** means an independently checked, linkable source — there are only two of those on the site today, both in Foundations. **Course** means the figure comes from the MKTG 468 course material as cited in its own endnotes, not independently re-verified for this site. No stat on this page is marked **Synthetic** — see the note below.
 
-TODO(content): List every statistic used across the site with its source and a provenance classification — verified, course-sourced, or synthetic.
+<Callout kind="note" title="Known discrepancies in the source material">
+A few figures are cited inconsistently across the course's own sessions and readings, and this site keeps the version closest to its primary citation rather than silently picking one: **Honda**'s email count is registered here as 289,790 (the UK ICO's own enforcement notice), though some course material rounds it to "~300,000." The **martech tool count** appears two ways in the source material — Session 10 cites "91 of 9,932 tools," which is what's registered here, while other sessions cite chiefmartec's larger 2025 landscape figure of 15,384 tools. **NAB**'s adaptive-model count is registered as "800–2,000" because Reading 11 and Session 11 cite different figures for the same system. Starbucks's and Sephora's loyalty-member counts vary by session (17M to 35.5M) in the source material; no fact on this site currently registers either number, so no stat below carries that discrepancy.
+</Callout>
+
+The 12 synthetic teaching-case figures — Auranis, the Salesforce Agentforce Capstone, and the Agentic Lab — aren't indexed here. Each one only means something next to the fictional dataset that produced it; read them inside [Auranis](/applied/auranis), [Agentforce Capstone](/applied/agentforce-capstone), and [Agentic Lab](/applied/agentic-lab) instead.
 
 ## How it's organized
 
-TODO(content): Note the flagged numeric discrepancies found in source material — the martech tool count, Starbucks/Sephora loyalty numbers, NAB model count, and Honda email count — presented as honest ranges rather than a single silently-chosen figure, and explain how the list is grouped and sorted for lookup.
+Stats are grouped by Part, in the order their host chapters appear, not by size or topic — this is a lookup list, not a ranking. Within a Part, related stats are clustered into rows of 2–4 (a `<Scorecard>` each) rather than stacked one per line, so a Part's numbers can be scanned in one pass instead of scrolled past one at a time. A row's mono label names the shared theme; it isn't a fifth data point.
+
+## Part I — Foundations
+
+<Scorecard label="The two verified citations" ids={['pg-200m', 'honda-289k']} />
+
+## Part II — The Spine
+
+<Scorecard
+  label="Shared infrastructure at scale"
+  ids={['starbucks-deep-brew', 'airbnb-lighthouse', 'martech-fragmentation', 'cdw-marko']}
+/>
+
+<Scorecard
+  label="Governance, insight, and a brand miss"
+  ids={['governance-gates-44', 'sephora-shade-skin', 'korn-ferry-6sense', 'coca-cola-holiday-ad']}
+/>
+
+<Scorecard
+  label="Experimentation and shared memory"
+  ids={['netflix-ab-tests', 'ab-inbev-three-consumers', 'booking-com-experiments']}
+/>
+
+## Part III — The Workflows
+
+<Scorecard
+  label="Sense, Focus, and Design"
+  ids={['retail-bank-churn-lag', 'gong-jtbd-reframe', 'betterhelp-ftc-fine', 'unilever-branddnai']}
+/>
+
+<Scorecard
+  label="Attract — search to answer engines"
+  ids={['casper-saatva-aeo', 'hubspot-aeo', 'zero-click-rate', 'dark-social-share']}
+/>
+
+<Scorecard
+  label="Orchestrate and Build"
+  ids={['amazon-nba', 'jpmorgan-policy-stack', 'imos-agent-scale', 'airbnb-experimentation']}
+/>
+
+<Scorecard
+  label="Execute, Learn, and Govern"
+  ids={['instacart-iroas', 'air-canada-chatbot', 'meta-hud-bias', 'spotify-ai-dj-trust']}
+/>
+
+## Part IV — Cases
+
+<Scorecard
+  label="L'Oréal, Coca-Cola, and OpenAI"
+  ids={['loreal-trendspotter', 'loreal-modiface-results', 'coca-cola-fizzion', 'openai-sycophancy-autopsy']}
+/>
+
+<Scorecard
+  label="Yelp, NAB, Peloton, and Lensa"
+  ids={['yelp-zero-click-exposure', 'nab-policy-stack-scale', 'peloton-five-state-model', 'lensa-uncanny-valley']}
+/>
+
+## Part V — Applied
+
+Only one stat here is course-sourced rather than synthetic — the rest of Part V's figures are the fictional-case numbers excluded above.
+
+<Stat id="salesforce-scenario-setup" />

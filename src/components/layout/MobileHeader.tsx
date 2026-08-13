@@ -2,12 +2,13 @@ import { Link } from 'react-router-dom'
 import { Menu, Search } from 'lucide-react'
 
 interface MobileHeaderProps {
+  open: boolean
   onOpen: () => void
   onSearch?: () => void
 }
 
 /** Sticky mobile top bar: wordmark, search button, hamburger that opens the drawer. */
-export function MobileHeader({ onOpen, onSearch }: MobileHeaderProps) {
+export function MobileHeader({ open, onOpen, onSearch }: MobileHeaderProps) {
   return (
     <header
       className="sticky top-0 z-40 border-b border-rule bg-paper/85 backdrop-blur-md md:hidden"
@@ -32,7 +33,7 @@ export function MobileHeader({ onOpen, onSearch }: MobileHeaderProps) {
             type="button"
             onClick={onOpen}
             aria-label="Open navigation"
-            aria-expanded={false}
+            aria-expanded={open}
             aria-controls="mobile-nav"
             className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-ink transition-colors hover:bg-surface"
           >

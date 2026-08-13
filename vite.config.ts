@@ -9,6 +9,6 @@ export default defineConfig({
     react(),
   ],
   base: '/AI-Native-Marketing/',
-  server: { port: 5481, strictPort: true },
-  preview: { port: 5481, strictPort: true },
+  server: { port: 5960, strictPort: true },
+  preview: { port: 5960, strictPort: true },
 })

@@ -1,17 +1,84 @@
-_Stub — outline below; full prose to come._
+Every chapter so far has described what a workflow does. This one is the second of two translations the course names explicitly: Strategy becomes Architecture — that's I-MOS itself, everything from Part II — and Architecture becomes Stack, which is this chapter's job. An architecture names capabilities. A stack specifies what actually gets built, by which agents, on what data.
 
-## The Four-Layer Stack, Made Concrete
+<Section index="01" kicker="Two translations" title="The four-layer stack, made concrete">
 
-TODO(content): Revisit the four-layer stack introduced in the Spine section and show what each layer actually consists of once Build is the workflow being implemented.
+<Figure
+  d="D54"
+  caption="Two translations, three levels — this chapter is the second one."
+  alt="Three stacked levels connected by two translation arrows. Level 1: Strategic Marketing Architecture — STP, the 4Ps, brand and messaging, the customer journey map — the CMO's decision framework. Translation one leads to Level 2: Marketing Operating Architecture — I-MOS itself, the seven workflows, Shared Memory, Agentic Services, Orchestration Plane, Governance Envelope. Translation two, this chapter's subject, leads to Level 3: Marketing Operating Stack — agent specs and sequence, data and signal contracts, tool and model bindings, policy gates and checkpoints."
+>
+  <FlowChain nodes={['Level 1 — Strategic Architecture', 'Level 2 — Operating Architecture (I-MOS)', 'Level 3 — Operating Stack']} />
+</Figure>
 
-## The Six Agentic Services
+Part II's four layers were the operating architecture — what each layer is *for*. This chapter is what gets built inside each one: which agents, doing which tasks, connected how. Remove the translation and the architecture stays a diagram nobody can implement.
 
-TODO(content): Name and describe each of the six specific agentic services, what each one is responsible for, and how they hand work to one another.
+</Section>
 
-## The Ontology Layer
+<Section index="02" kicker="Six teams, not one tool" title="The six agentic services">
 
-TODO(content): Explain the ontology layer — the shared vocabulary/schema the agentic services rely on — and why it has to be defined before the services can interoperate.
+An agentic service is a coordinated team of autonomous agents delivering one marketing capability — not a single AI tool bolted onto a workflow. The scale of what "team" means here is the concrete part most descriptions skip:
 
-## Implementation Archetypes
+<Figure
+  d="D56"
+  caption="The six agentic services, each mapped to a workflow, with real agent and task counts — not an estimate, a specified build."
+  alt="Six services: Signal Service (Sense, 19 agents, 39 tasks), Decisioning Service (Focus + Orchestrate, 12 agents, 27 tasks), Content Assembly Service (Design, 14 agents, 33 tasks), Journey Orchestration Service (Orchestrate, 15 agents, 35 tasks, described as the I-MOS spine), Activation Service (Attract + Execute, 14 agents, 32 tasks, the most autonomous service), Experimentation and Measurement (Learn, 12 agents, 30 tasks, the only service whose output flows backward to update the others)."
+>
+  <ComparisonTable
+    caption="The six agentic services, their workflow mapping, and their scale."
+    columns={['Maps to', 'Agents / Tasks']}
+    rows={[
+      { label: 'Signal Service', cells: ['Sense', '19 / 39'] },
+      { label: 'Decisioning Service', cells: ['Focus + Orchestrate', '12 / 27'] },
+      { label: 'Content Assembly Service', cells: ['Design', '14 / 33'] },
+      { label: 'Journey Orchestration Service', cells: ['Orchestrate — "the I-MOS spine"', '15 / 35'] },
+      { label: 'Activation Service', cells: ['Attract + Execute — most autonomous', '14 / 32'] },
+      { label: 'Experimentation & Measurement', cells: ['Learn — the only backward-flowing output', '12 / 30'] },
+    ]}
+  />
+</Figure>
 
-TODO(content): Give an overview of the implementation archetypes — the recurring patterns for how these agents actually get built — without going into full depth (that's the deep dive).
+<Stat id="imos-agent-scale" />
+
+Decisioning Service — the one behind Focus's ICP scoring — is a useful size reference: 12 agents organized into 5 sub-workflows, 3 of them requiring human sign-off before anything downstream fires. That's small next to Signal's 19, and it's still not "one AI tool," which is the entire point of naming it a service instead of a feature.
+
+</Section>
+
+<Section index="03" kicker="The shared vocabulary" title="The ontology layer">
+
+Every service above has to interoperate with every other one, and interoperation needs a common schema before it needs a single line of agent code. Five entity types, formally, describe any I-MOS workflow at any level of depth — each one nested inside the last, not a sequence a workflow passes through:
+
+<StepList steps={[
+  { title: 'Workflow', body: 'The seven top-level marketing outcomes, plus Govern as a cross-cutting envelope.' },
+  { title: 'Sub-workflow', body: '3 to 6 operational phases within each workflow.' },
+  { title: 'Task', body: 'The atomic unit — defined input, defined output, defined constraints. Where governance gates get specified.' },
+  { title: 'Agent', body: 'An autonomous entity performing one or more tasks, with a persona, triggers, an autonomy level, and a kill-switch.' },
+  { title: 'Connection', body: 'A typed link — sequential, parallel, conditional, feedback, escalation, or governance — that defines the knowledge graph.' },
+]} />
+
+This is the schema the Four-Pass Decomposition Method walks through, workflow by workflow, to turn any of Part III's chapters into an actual buildable agent design — the deep dive attached to this chapter runs the full method against Focus, start to finish.
+
+</Section>
+
+<Section index="04" kicker="Same architecture, different technology" title="Implementation archetypes">
+
+There's no universal winner here, and the course is explicit about that: three archetypes implement the identical I-MOS architecture on different technology, and the right choice depends on where an organization's data already lives.
+
+<ComparisonTable
+  caption="Three implementation archetypes — same four layers, different spine."
+  columns={['Spine', 'Best when']}
+  rows={[
+    { label: 'Adobe', cells: ['AEP + Real-Time CDP', 'Content personalization and experience are primary — DTC, retail, media'] },
+    { label: 'Salesforce', cells: ['CRM + Account Intelligence', 'CRM data is the richest source and B2B account journeys dominate'] },
+    { label: 'Composable', cells: ['Warehouse + best-of-breed', 'Flexibility and data-warehouse ownership matter more than a single vendor'] },
+  ]}
+/>
+
+Many organizations run hybrids rather than picking one cleanly — the CDW build from the previous chapter sits closer to Salesforce-plus-composable than to any pure archetype, which is normal, not a sign the framework doesn't fit.
+
+<Prompt id="build-archetype-selector" />
+
+</Section>
+
+## Where this leads
+
+Naming six services and a five-entity schema doesn't yet show how a workflow actually becomes one — [the deep dive attached to this chapter](/workflows/build/deep-dive/four-pass-decomposition) runs the Four-Pass Decomposition Method against Focus end to end, the most technical page on the site. Back in the main sequence, Build assembled the agents; Execute & Learn is what those agents do once they're actually running — continuous delivery, and the measurement discipline that decides what "working" means.

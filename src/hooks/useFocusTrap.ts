@@ -22,8 +22,13 @@ export function useFocusTrap(ref: RefObject<HTMLElement | null>, active: boolean
       }
       if (e.key !== 'Tab') return
 
+      // `tabindex="-1"` must be excluded by element too, not just by the
+      // `[tabindex]` clause: `button:not([disabled])` matches a -1 button anyway,
+      // which made the trap treat a programmatically-focusable-only element as its
+      // Tab boundary. Native Tab then skipped it and walked straight out of the
+      // dialog. Anything not in the tab order cannot be a trap edge.
       const focusable = Array.from(node.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(
-        (el) => el.offsetParent !== null,
+        (el) => el.offsetParent !== null && el.getAttribute('tabindex') !== '-1',
       )
       if (focusable.length === 0) return
 

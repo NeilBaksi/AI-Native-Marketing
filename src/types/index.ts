@@ -25,6 +25,17 @@ export interface Fact {
   provenance: Provenance
 }
 
+export interface PromptEntry {
+  /** Sentence-case title, e.g. 'Signal audit for a Sense layer'. */
+  title: string
+  /** The situation this prompt is for. Rendered after the label "Use when". */
+  useWhen: string
+  /** Exact text written to the clipboard. `[bracketed]` spans render as placeholders. */
+  body: string
+  /** Optional follow-up move, rendered after the label "Then". */
+  tip?: string
+}
+
 export type PartId =
   | 'foundations'
   | 'spine'

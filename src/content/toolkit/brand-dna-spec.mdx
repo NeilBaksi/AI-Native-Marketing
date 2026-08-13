@@ -1,25 +1,78 @@
-_Stub — outline below; full prose to come._
+[Design](/workflows/design) names five Brand DNA components and the test they have to pass — can an agent act on this without a human translating it first? This spec is the fillable version: five fields plus two mechanics that make the whole thing enforceable rather than aspirational.
 
-## What it's for
+<Section index="01" kicker="A spec, not a mood board" title="What it's for">
 
-TODO(content): Explain that this spec documents a brand's DNA — voice, visual identity, and do's/don'ts — in a machine-readable format an AI system can actually reference at generation time, not just a human-readable brand guide.
+The five components — tone-of-voice rules, visual grammar, proof cues, claims boundaries, required disclaimers — are already defined in Design; this template doesn't re-explain them, it gives each one a field an agent can actually check its own output against before generation, the same standard the [Machine-Readability Test](/workflows/design) applies line by line.
 
-## When to use it
+</Section>
 
-TODO(content): Describe when to build a brand DNA spec — before connecting a brand to any AI content generation workflow, or when an existing brand guide is too unstructured for a system to consume.
+<Section index="02" kicker="Before the pipeline connects" title="When to use it">
 
-## Worked example
+Fill this out before connecting a brand to any AI content-generation workflow, or the moment an existing brand guide turns out to be adjectives a person has to interpret rather than rules a system can enforce — "fresh and vibrant" is a guideline; "saturation 70–85%, no stock" is a spec.
 
-TODO(content): Walk through a filled-in brand DNA spec for a realistic brand, showing structured voice attributes, visual identity fields, and explicit do's/don'ts entries.
+</Section>
 
-## Blank version
+<Section index="03" kicker="Filled in, for a fictional coffee brand" title="Worked example">
 
-TODO(content): Present the blank brand DNA spec template with structured fields for voice, visual identity, and do's/don'ts.
+Wayfarer Coffee Roasters, a fictional direct-to-consumer coffee subscription brand — used here to show the spec filled in for a brand distinct from the haircare example Design already worked through.
 
-## Downloads
+<DefinitionList items={[
+  { term: 'Tone-of-voice rules', body: 'Max 18 words per sentence. Second person. No exclamation points. Approved verbs: roast, source, ship. Not approved: elevate, unlock, obsess.' },
+  { term: 'Visual grammar', body: 'Primary #2B1B12, accent #C67F3E. Product photography always on unfinished oak, natural light only — no studio white background.' },
+  { term: 'Proof cues', body: "Farm name, altitude, and harvest date pulled from the sourcing database only — never estimated or written from memory." },
+  { term: 'Claims boundaries', body: 'Permitted: "single-origin," "direct-trade," "roasted within 10 days of shipping" — each verifiable per batch. Prohibited: "organic" (uncertified), "fair trade" (no certification on file), "healthiest coffee."' },
+  { term: 'Required disclaimers', body: 'Any mention of subscription pricing auto-appends "cancel anytime, prorated" — not removable by the assembly engine.' },
+]} />
 
-TODO(content): note this needs a downloadable .md/.csv or .xlsx version once the content is written
+Two mechanics make the spec enforceable rather than descriptive:
 
-## Design decision
+<ComparisonTable
+  caption="On-brand vs. off-brand copy, same underlying fact."
+  columns={['On-brand', 'Off-brand']}
+  rows={[
+    {
+      label: 'Same lot, two drafts',
+      cells: [
+        '"Lot 14 comes from a single 1,800m block in Huila, picked the second week of March."',
+        '"Get ready to fall in love with this unlock-your-morning artisanal blend."',
+      ],
+    },
+  ]}
+/>
 
-TODO(content): Pull from the course material why the spec is structured as machine-readable fields rather than free-text brand guidelines, and what that trade-off costs in nuance versus what it gains in AI usability.
+The violation-words list behind that second draft — "elevate," "unlock," "obsess," "artisanal" — is append-only: an entry gets added the first time it shows up in a rejected draft and never removed, the same discipline the [AI Hallucination Guardrails](/toolkit/ai-hallucination-guardrails) checklist applies to fabricated claims.
+
+</Section>
+
+<Section index="04" kicker="Copy this" title="Blank version">
+
+<DefinitionList items={[
+  { term: 'Tone-of-voice rules', body: '[a binary, testable rule — sentence length, person, punctuation, an approved/not-approved verb list — not an adjective]' },
+  { term: 'Visual grammar', body: '[hex codes and pixel specs, not mood-board language]' },
+  { term: 'Proof cues', body: '[the single approved source this brand draws evidence from — named, not described]' },
+  { term: 'Claims boundaries', body: '[a binary permitted/prohibited list, with the reason each prohibited claim fails]' },
+  { term: 'Required disclaimers', body: '[the exact text, and the trigger condition that auto-appends it]' },
+  { term: 'Violation words (append-only)', body: '[start empty — add an entry the first time a draft uses it, never remove one]' },
+]} />
+
+Or turn an existing style guide into a first-draft spec instead of starting from empty fields:
+
+<Prompt id="brand-dna-draft" />
+
+</Section>
+
+<Section index="05" kicker="For now" title="Downloads">
+
+<Callout kind="note" title="Copy the blank version above">
+The definition-list format above maps to a two-column spreadsheet (field, filled value) for a working `.csv` once the toolkit ships file assets.
+</Callout>
+
+</Section>
+
+<Section index="06" kicker="What machine-readable costs, and buys" title="Design decision">
+
+<Callout kind="key" title="An enforceable spec is a narrower spec">
+Structured fields cost real nuance — "feels fresh and vibrant" captures something a hex code and an f-stop range never will. The trade is deliberate: a spec that keeps the adjective is unusable at generation time, so nothing in it actually governs the ten thousandth asset the way it governed the first. A narrower spec that an agent can check itself against beats a richer one that only a person can interpret, because only one of them scales past a human review queue.
+</Callout>
+
+</Section>

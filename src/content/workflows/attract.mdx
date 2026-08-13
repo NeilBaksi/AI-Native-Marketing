@@ -1,21 +1,66 @@
-_Stub — outline below; full prose to come._
+Design finished the legislative work — Brand DNA, content blocks, the messaging architecture — on the assumption that a customer would eventually see the result. Attract is where that assumption gets tested, and where it's been quietly failing for the whole industry since roughly 2023.
 
-## From SEO to AEO
+<Section index="01" kicker="A structural shift, not a trend" title="From SEO to AEO">
 
-TODO(content): Explain the shift from optimizing for search-engine ranking to optimizing for being cited by answer engines, and what specifically changes about how content gets produced.
+<Figure
+  d="D45"
+  caption="Three eras of discovery — each one redefined who wins and what gets measured."
+  alt="Three eras: Display and Broadcast (1990s–2005, interrupt the audience, reach and frequency, loudest voice wins), Search Engine Optimization (2005–2022, be present at intent, click-through rate and rank, best optimizer wins), Answer Engine Optimization (2023–present, become the source AI cites, citation share, most trusted source wins)."
+>
+  <FlowChain nodes={['Display & Broadcast — loudest wins', 'SEO — best optimizer wins', 'AEO — most trusted source wins']} />
+</Figure>
 
-## The Four Citation Signals
+Being present at the moment of discovery no longer means ranking on a results page — it means being the source an AI system cites when it synthesizes an answer, with no click required and no ad unit to buy your way into it. Keyword density doesn't move this needle; semantic authority does.
 
-TODO(content): Enumerate the four specific signals that get content cited by AI answer engines, and how each is verified or measured.
+<Example id="casper-saatva-aeo">
+  Search "best mattress for back pain" on Google and Casper holds four of the top six slots — paid placement, affiliate reviews, a dedicated landing page. Ask Gemini the same question and Casper gets one passing mention as "a bed-in-a-box pioneer," not a recommendation; Saatva, Helix, and Tempur-Pedic get cited instead, sourced to Wirecutter and Consumer Reports. Same query, opposite winner — because Casper's pages read as ad copy, and the LLM had nothing extractable to lift and compare against the alternatives' firmness ratings and chiropractor endorsements.
+</Example>
 
-## Zero-Click Economics
+</Section>
 
-TODO(content): Explain what zero-click economics means for a marketing team — value delivered without a visit-driven conversion event — and how it changes what gets measured.
+<Section index="02" kicker="What actually gets you cited" title="The four citation signals">
 
-## Dark Social
+<Figure
+  d="D47"
+  caption="The four citation signals — each with the question an answer engine is effectively asking, and the action that earns a yes."
+  alt="Four citation signals: Provenance (who trusts you — named evidence and verified statistics beat vague self-promotion), Structure (can a machine parse it — headings, direct Q&A, and schema markup beat narrative prose), Specificity (is the claim verifiable — a sourced statistic beats a superlative), Recency (how fresh is it — answer engines weight recently updated content over stale pages)."
+>
+  <DefinitionList items={[
+    { term: 'Provenance — who trusts you?', body: 'Named evidence, verified statistics, attributed endorsements. Vague self-promotion is invisible to a citation model that weights source authority.' },
+    { term: 'Structure — can a machine parse it?', body: 'Clear headings, direct Q&A, schema markup, explicit claim-evidence pairing. Narrative prose is harder to extract than an answer already shaped like one.' },
+    { term: 'Specificity — is the claim verifiable?', body: '"97% satisfaction (J.D. Power 2025)" is citable. "Leader in customer service" is not — nothing in it can be checked or repeated.' },
+    { term: 'Recency — how fresh is it?', body: 'Answer engines weight recently updated content; a page with last year\'s numbers loses citation share to a newer source, regardless of its underlying authority.' },
+  ]} />
+</Figure>
 
-TODO(content): Define dark social, why it's invisible to conventional attribution, and how it interacts with AEO and zero-click behavior.
+The same four signals govern citation on a retail media network and a recommendation from a creator, not just an AI chat answer — the mechanism of discovery differs by channel, but the underlying test (trusted, specific, structured, current) doesn't change.
 
-## Where This Shows Up in Practice
+<Example id="hubspot-aeo">
+  HubSpot's organic traffic had fallen 27% year-over-year as AI Overviews intercepted the informational queries that used to send readers to its blog. The fix wasn't more content — it was rewriting existing pages against the four signals: Q&A headers with direct answers up front, every statistic traced to a named study, a quarterly refresh cadence instead of a set-and-forget archive. Qualified leads from AI-referred traffic rose 1,850%, converting at three times the rate of traditional organic visitors.
+</Example>
 
-TODO(content): Reference the L'Oréal and Yelp cases as concrete illustrations of AEO/zero-click/dark-social dynamics playing out in practice.
+<Prompt id="attract-citation-audit" />
+
+</Section>
+
+<Section index="03" kicker="Where the value goes when the click doesn't" title="Zero-click economics">
+
+<Stat id="zero-click-rate" />
+
+Zero-click doesn't mean content stopped creating value — it means the value moved to where it's captured. A brand cited in a synthesized answer builds awareness and trust the analytics stack will later misattribute to "direct traffic" or a branded search a week later, not to the citation that actually caused it. The value is real. The attribution is broken. That's a measurement problem downstream of Attract, not a reason to discount what Attract is doing.
+
+</Section>
+
+<Section index="04" kicker="Invisible, not absent" title="Dark social">
+
+<Stat id="dark-social-share" />
+
+Dark social is content moving through channels no analytics stack observes: a Slack message, a forwarded email, a private LinkedIn DM. A CFO shares a competitor comparison in an executive Slack channel; three colleagues visit the site the next day; the CRM logs three sessions of direct traffic with no source — the referral that actually put the brand on a shortlist is invisible by construction, not by a fixable tracking gap.
+
+The instinct is to treat this as a measurement problem to solve with better attribution tooling. It's more accurately an Attract problem: the question isn't only how to track conversations a brand is excluded from, but whether the content itself is engineered to survive being forwarded — specific enough to be worth sharing, structured enough to read cleanly as a link preview, authoritative enough that a practitioner forwards it rather than paraphrasing it into something weaker.
+
+</Section>
+
+## Where this leads
+
+Design's content and Attract's citation signals both exist for the same reason: to move a customer from unaware to a known state Orchestrate can actually act on. [The Yelp case](/cases/yelp) is the sharpest instance of what happens when an entire business model built on Era 2 discovery meets Era 3 disintermediation head-on — and [L'Oréal](/cases/loreal) shows what it looks like to build the sensing and discovery layers together, in the right order, from the start. Both are worth the detour before the next chapter, which picks up exactly where this one leaves off: a customer Attract has moved into a known state, and what Orchestrate does with that.

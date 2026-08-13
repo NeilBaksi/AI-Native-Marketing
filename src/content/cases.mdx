@@ -1,9 +1,31 @@
-_Stub — outline below; full prose to come._
+Seven full cases, one company each, chosen because each one makes a specific I-MOS failure or success visible in a way a framework description alone can't. Three built the loop well — L'Oréal, Coca-Cola's Fizzion build, National Australia Bank, and Peloton all show a workflow done right, at real scale. Two show what breaks when a workflow runs without the constraint it needed — OpenAI's sycophancy rollback and the governance roll-call. Yelp sits in between: a company mid-decision, watching the ground move under a business model that assumed a customer would always arrive at a destination.
 
-## What's here
+<Section index="01" kicker="By workflow" title="Which case teaches which part of the loop">
 
-TODO(content): introduce the case-study index — seven full cases (L'Oréal, Coca-Cola, OpenAI sycophancy, Yelp, NAB, Peloton, governance failures roll-call) plus the further-examples list, and explain that this index is filterable by I-MOS workflow (Sense, Focus, Design, Orchestrate, Attract, Execute & Learn, Govern), by outcome (success/failure/mixed), and by industry.
+<ComparisonTable
+  caption="Seven cases, mapped to the I-MOS workflows they illustrate and how each one turned out."
+  columns={['Primary workflow(s)', 'Outcome']}
+  rows={[
+    { label: "L'Oréal", cells: ['Sense → Focus → Design → Execute & Learn, built in sequence', 'Success'] },
+    { label: 'Coca-Cola', cells: ['Design (Project Fizzion) · Govern (2024 holiday ad)', 'Mixed'] },
+    { label: 'The OpenAI Sycophancy Incident', cells: ['Execute & Learn (ran correctly) · Govern (never defined "good")', 'Failure'] },
+    { label: 'Yelp', cells: ['Attract — answer-engine disintermediation, strategy still open', 'Mixed'] },
+    { label: 'National Australia Bank', cells: ['Orchestrate — compliance co-designed into the policy stack', 'Success'] },
+    { label: 'Peloton', cells: ['Orchestrate — journey-state design, human escalation as a designed action', 'Success'] },
+    { label: 'Six Governance Failures', cells: ['Govern — six risk types, six real companies', 'Failure'] },
+  ]}
+/>
 
-## How it's organized
+Read the full page for any row: [L'Oréal](/cases/loreal) · [Coca-Cola](/cases/coca-cola) · [The OpenAI Sycophancy Incident](/cases/openai-sycophancy) · [Yelp](/cases/yelp) · [National Australia Bank](/cases/nab) · [Peloton](/cases/peloton) · [Six Governance Failures](/cases/governance-failures).
 
-TODO(content): describe the filter/index mechanics — how the filterable table or card grid surfaces each case's workflow tag(s), outcome tag, and industry tag, and how it links out to each individual case page and to the further-examples list.
+</Section>
+
+<Section index="02" kicker="Shorter entries" title="Beyond the seven">
+
+Four more companies — Oracle Eloqua, Nike, ServiceNow, and CDW — illustrate a real pattern each without needing the full four-section treatment. They live on [Further Examples](/cases/further-examples), at a couple hundred words apiece rather than a full page.
+
+</Section>
+
+## Where this leads
+
+Read cases in whatever order the workflow chapters send you here — [Attract](/workflows/attract) points to Yelp directly, and every other case stands on its own once you've read the workflow(s) it maps to. [The Toolkit](/toolkit) is where the patterns these cases illustrate turn into templates you can actually use.

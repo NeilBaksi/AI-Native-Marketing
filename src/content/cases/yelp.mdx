@@ -1,17 +1,65 @@
-_Stub — outline below; full prose to come._
+In early March 2026, Yelp's Chief Strategy Officer had two documents on her desk. One was a term sheet from a second major AI platform wanting to license Yelp's review data, on the heels of a deal already signed with OpenAI. The other was the February analytics brief: advertising revenue from restaurants, retail, and other consumer categories had fallen for a fourth straight quarter, down 12% year-over-year in the last one alone. Read together, the two documents describe the same disintermediation from opposite sides — Yelp's content is more in demand than it's ever been, and fewer people are visiting Yelp to get it.
 
-## What happened
+<Scorecard ids={['yelp-zero-click-exposure', 'yelp-review-corpus']} label="More demanded, less visited" />
 
-TODO(content): narrate Yelp's "answer-engine disintermediation" problem — AI answer engines began answering user questions directly instead of routing traffic to Yelp's own site.
+<Section index="01" kicker="What happened" title="The traffic that used to be Yelp's isn't going to Yelp">
 
-## Where it fits the framework
+The mechanism is [answer-engine optimization](/workflows/attract) working exactly as [Attract](/workflows/attract) describes it, just from the losing side.
 
-TODO(content): map this case to the Attract workflow, specifically the strategic fork between becoming a source layer (feeding data to AI answer engines) versus staying a destination (the site people actually visit).
+<BeforeAfter
+  beforeLabel="The search path"
+  afterLabel="The answer-engine path"
+  rows={[
+    { dimension: 'How "best sushi near me" resolves', before: 'Type into Google, click through to Yelp, read reviews, decide', after: 'Ask ChatGPT, Google AI Overviews, or Perplexity — get a synthesized answer, no click required' },
+    { dimension: "Where Yelp's own reviews end up", before: 'On Yelp, generating a pageview and an ad impression', after: "Inside someone else's answer, generating neither" },
+  ]}
+  verdict="Yelp's content is more in demand than it's ever been, and fewer people are visiting Yelp to get it."
+/>
 
-## What went right or wrong
+The categories most exposed to this shift are contracting the fastest: advertising from restaurants and retail — the categories most likely to get answered directly by an AI summary — fell 6% to $444M, with the fourth quarter alone down 12%. Meanwhile Services advertising (plumbing, home repair, auto — categories where an AI answer still has to hand off to booking an actual appointment) grew 8% to a record $948M. One complicating detail worth holding onto: total search demand rose 26% globally over the same period. The value chain didn't shrink. It restructured, and Yelp's share of it moved to wherever the click used to land.
 
-TODO(content): lay out the tradeoffs Yelp weighed between the source-layer path and the destination path, and what the choice implies for traffic, revenue, and brand visibility.
+</Section>
 
-## What to take away
+<Section index="02" kicker="Where it fits the framework" title="A fork inside Attract, not a fix for it">
 
-TODO(content): state the transferable lesson for any Attract strategy facing answer-engine disintermediation — how to decide between becoming a data source vs. defending destination status.
+Yelp's three named strategic options are three different bets on where a company should stand once the answer engine, not the search results page, is the moment of discovery:
+
+<Figure
+  d="D86"
+  caption="Three options on the table, none of them mutually exclusive in principle, all of them competing for the same constrained 2026 budget."
+  alt="Three strategic options compared: Source Layer Pivot (license review data to AI platforms as a Trust API, monetizing ubiquity, risking brand commoditization and weak bargaining power against much larger platforms), Destination Upgrade (make Yelp Assistant the primary consumer interface, protecting the ad-revenue model that funds 95% of the business, competing against far better-funded AI platforms for a discovery habit consumers have already moved), Influence Dashboard (a measurement layer tracking off-platform citations and attributed outcomes instead of on-platform sessions, which supports either strategy but needs its own data infrastructure and doesn't itself resolve the product question)."
+>
+  <ComparisonTable
+    caption="Yelp's three strategic options for the same disintermediation problem."
+    columns={['The bet', 'The risk']}
+    rows={[
+      { label: 'Source Layer Pivot', cells: ['License the review corpus to AI platforms as a "Trust API" — scale through ubiquity, not through owning the interface', "Commoditizes the brand if consumers never see Yelp's name, and negotiating leverage runs against companies that dwarf Yelp in scale"] },
+      { label: 'Destination Upgrade', cells: ['Make Yelp Assistant the primary interface, defending the ~95%-of-revenue advertising model that depends on first-party sessions', 'Competes for engineering and AI investment against companies with far larger R&D budgets, for a discovery habit consumers have already relocated'] },
+      { label: 'Influence Dashboard', cells: ['Measure off-platform citations and attributed outcomes instead of on-platform traffic — a supplement, not a replacement, for either bet', "Doesn't resolve the product question on its own, and asks investors to trust a newer, less auditable metric than clicks"] },
+    ]}
+  />
+</Figure>
+
+This is [Attract](/workflows/attract)'s citation-signal problem playing out at the level of an entire company's strategy, not a single page's SEO. The same four signals — provenance, structure, specificity, recency — that decide whether any individual page gets cited decide, in aggregate, whether Yelp's reviews get cited at all; the strategic question is what Yelp does once being cited stops reliably sending anyone to Yelp.
+
+</Section>
+
+<Section index="03" kicker="What went right or wrong" title="The tradeoffs, weighed honestly">
+
+Yelp's own assets cut in different directions depending on which option they support. The 330M+ review corpus, refreshed by 22 million new reviews a year, is exactly the kind of current, deep, long-tail content an answer engine has trouble replacing with a general web scrape — a genuine argument for the Source Layer Pivot, where being the best underlying data source is the whole strategy. The same asset argues for the Destination Upgrade: Yelp holds first-party behavioral data (a user's actual review history, bookings, and stated preferences) that a general-purpose answer engine structurally can't access, which is real personalization leverage if Yelp builds its own interface around it.
+
+What tips the decision toward being genuinely hard, not just genuinely open, is that neither option is free, and 2026 EBITDA guidance already projects margin compression from the AI investment already committed — Yelp can't fully fund a world-class consumer AI experience, scale a data-licensing business, and rebuild its measurement and sales infrastructure at the same time. The case explicitly frames this as a resource-prioritization decision, not a technology decision, which is the detail easiest to miss if you only look at the product options and skip the budget constraint sitting underneath them.
+
+</Section>
+
+<Section index="04" kicker="What to take away" title="The transferable lesson">
+
+Any business whose model assumes customers arrive at a destination is exposed to the same fork the moment an AI layer starts answering questions on the destination's own content. The decision isn't "resist disintermediation" — that ship has sailed structurally, the same way it did for Attract generally — it's choosing, deliberately, whether to compete for the interface (Destination) or to compete for being the trusted source behind everyone else's interface (Source Layer), and building the measurement (Influence Dashboard) that actually reflects whichever bet gets made, instead of continuing to report metrics built for the era that's ending.
+
+What doesn't transfer: Yelp's specific leverage — a 330M+ review corpus with a real trust and content-integrity track record in an era when generative AI can flood the web with synthetic reviews — is not a generic asset every disintermediated business has. A company without a comparably hard-to-replicate content moat has a weaker Source Layer case, and the Destination Upgrade path gets correspondingly more attractive by default, not because it's easier.
+
+</Section>
+
+## Where this leads
+
+Read this case right after [Attract](/workflows/attract) — it depends on nothing downstream and is the sharpest test of whether the four citation signals actually land. From here, go to [Orchestrate](/workflows/orchestrate): Yelp's whole dilemma is about a customer Attract has already moved into a known state, and Orchestrate is where that known state turns into a decision about what happens next.

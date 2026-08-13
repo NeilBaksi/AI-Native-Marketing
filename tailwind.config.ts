@@ -15,9 +15,25 @@ export default {
         ink: 'oklch(0.183 0.007 78.1 / <alpha-value>)', // headings            ≈ #14120F
         'ink-soft': 'oklch(0.335 0.012 78.2 / <alpha-value>)', // body text           ≈ #3A3630
         muted: 'oklch(0.520 0.017 80.7 / <alpha-value>)', // captions/meta only  ≈ #6E685E
-        slate: 'oklch(0.372 0.039 257.3 / <alpha-value>)', // secondary structural≈ #334155
+        // Two accents, each rationed. EMBER marks consequence — risk, stakes, the
+        // claim asserted, the fabricated figure. COBALT marks construction —
+        // sequence, structure, formulas, the parts of a system. Most components
+        // use neither; hierarchy still comes from ink weight and spacing.
+        //
+        // Cobalt never appears as inline prose text: body links are `ember-deep`,
+        // and a second dark accent in the text flow would read as a link.
+        // It lives in mono rails, numerals, markers, control accents, hairlines.
+        //
+        // Hue 258 is chosen so the pair survives colour-vision deficiency. Under
+        // protanopia/deuteranopia ember collapses to olive-yellow and cobalt to
+        // blue-violet — opposite poles of the surviving blue-yellow axis. Their
+        // post-simulation luminance ratio is only ~1.25:1 though, so the two
+        // accents must never be the SOLE difference between two things a reader
+        // has to tell apart; always pair with position, an icon, or a label.
         ember: 'oklch(0.553 0.174 38.4 / <alpha-value>)', // accent — rare       ≈ #C2410C
         'ember-deep': 'oklch(0.470 0.143 37.3 / <alpha-value>)', // AA-safe small accent ≈ #9A3412
+        cobalt: 'oklch(0.520 0.152 258.0 / <alpha-value>)', // structural accent  ≈ #2966BE (5.14:1 on paper)
+        'cobalt-deep': 'oklch(0.440 0.132 258.0 / <alpha-value>)', // AA-safe accent text ≈ #1C509A (7.24:1)
       },
       fontFamily: {
         display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],

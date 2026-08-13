@@ -1,10 +1,9 @@
 import type { ComponentType } from 'react'
-import { lazy, Suspense, useState } from 'react'
+import { lazy, Suspense } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
 import { getPage } from '../data/pages'
 import { PARTS } from '../types'
 import { pager } from '../lib/pager'
-import { ExpandAllContext } from '../lib/expand-all'
 import { ErrorBoundary, PageHeader, PageSkeleton, PrevNextPager } from '../components/layout'
 import { SyntheticBanner, SourcesDisclosure } from '../components/ui'
 
@@ -17,11 +16,35 @@ const BODIES = import.meta.glob<{ default: ComponentType }>('../content/**/*.mdx
 // component body creates a fresh promise each render and the Suspense
 // boundary never resolves. Cache the lazy wrapper per slug instead.
 const LAZY_BODIES = new Map<string, ComponentType>()
+
+// A chunk fetch fails with "Failed to fetch dynamically imported module"
+// when a browser holds an old cached index.html pointing at a hashed
+// filename a newer deploy no longer serves. One full reload picks up the
+// current index.html and its correct hashes; the flag stops a reload loop
+// if the chunk is genuinely missing.
+function lazyImportWithReload(loader: () => Promise<{ default: ComponentType }>) {
+  return lazy(async () => {
+    try {
+      const mod = await loader()
+      sessionStorage.removeItem('chunk-reload')
+      return mod
+    } catch (error) {
+      // Only the built site goes stale like this — in dev a failed import
+      // is a real MDX/syntax error, and reloading would just hide Vite's
+      // error overlay behind a fresh reload loop.
+      if (import.meta.env.DEV || sessionStorage.getItem('chunk-reload')) throw error
+      sessionStorage.setItem('chunk-reload', '1')
+      window.location.reload()
+      return new Promise<never>(() => {})
+    }
+  })
+}
+
 function getBody(slug: string): ComponentType | undefined {
   if (!LAZY_BODIES.has(slug)) {
     const loader = BODIES[`../content/${slug}.mdx`]
     if (!loader) return undefined
-    LAZY_BODIES.set(slug, lazy(loader as () => Promise<{ default: ComponentType }>))
+    LAZY_BODIES.set(slug, lazyImportWithReload(loader as () => Promise<{ default: ComponentType }>))
   }
   return LAZY_BODIES.get(slug)
 }
@@ -30,7 +53,6 @@ export default function Page() {
   const location = useLocation()
   const slug = location.pathname.replace(/^\//, '').replace(/\/$/, '')
   const meta = getPage(slug)
-  const [expanded, setExpanded] = useState(false)
 
   if (!meta) return <Navigate to="/" replace />
 
@@ -48,21 +70,17 @@ export default function Page() {
         prerequisites={meta.prerequisites}
         prev={prev}
         next={next}
-        onExpandAll={() => setExpanded((e) => !e)}
-        expanded={expanded}
       />
 
       {meta.synthetic && <SyntheticBanner scope="page" subject={meta.synthetic.subject} note={meta.synthetic.note} />}
 
-      <ExpandAllContext.Provider value={expanded}>
-        <ErrorBoundary key={slug}>
-          <Suspense fallback={<PageSkeleton kicker={PARTS[meta.part]} title={meta.title} />}>
-            <div className="flex flex-col gap-8">
-              <Body />
-            </div>
-          </Suspense>
-        </ErrorBoundary>
-      </ExpandAllContext.Provider>
+      <ErrorBoundary key={slug}>
+        <Suspense fallback={<PageSkeleton />}>
+          <div className="flex flex-col gap-8">
+            <Body />
+          </div>
+        </Suspense>
+      </ErrorBoundary>
 
       {meta.sources.length > 0 && (
         <div className="mt-10">

@@ -1,25 +1,89 @@
-_Stub — outline below; full prose to come._
+A positioning statement is one sentence; a content pipeline needs more surface area than that to draw from without inventing a new angle per asset. Messaging pillars are that surface — a small, fixed set of themes every piece of copy is built from, each one carrying its own proof and its own explicit boundary.
 
-## What it's for
+<Section index="01" kicker="A fixed vocabulary, not a brief" title="What it's for">
 
-TODO(content): Explain that this spec defines a brand's messaging pillars — the core themes that get repeated consistently across every channel — so downstream content generation has a fixed set of themes to draw from instead of reinventing messaging per channel.
+This spec names the handful of themes a brand is allowed to repeat, gives each one the evidence that backs it up, and — the part most pillar templates skip — states what that pillar is *not* allowed to imply. [Positioning](/workflows/focus) supplies the raw material (the "Because" and "Unlike" from the positioning statement); this spec is where that material becomes something an AI content system can pull from on every asset without re-litigating brand fit each time.
 
-## When to use it
+</Section>
 
-TODO(content): Describe when to build or revisit a messaging pillar spec — brand refresh, launching a new product line, or setting up an AI content pipeline that needs pillar-anchored guardrails.
+<Section index="02" kicker="Before the pipeline runs" title="When to use it">
 
-## Worked example
+Build or revisit a pillar spec at a brand refresh, when launching a new product line under an existing brand, or before connecting any AI content workflow to production — [Design](/workflows/design)'s prompt architecture loads Brand DNA as its system layer, and pillars are what the brief layer narrows down to for a specific job. A spec with no pillars means every generation call is improvising the brand's argument from scratch.
 
-TODO(content): Show a filled-in spec with 3-4 concrete messaging pillars for a real brand, each with its supporting proof points and the channels it should surface in.
+</Section>
 
-## Blank version
+<Section index="03" kicker="Filled in, for Ridgeline" title="Worked example">
 
-TODO(content): Present the blank messaging pillar spec template with fields for pillar name, description, proof points, and channel mapping.
+Three pillars for Ridgeline, the fictional expense-automation platform introduced in [Positioning Statement](/toolkit/positioning-statement):
 
-## Downloads
+<ComparisonTable
+  caption="Ridgeline's three messaging pillars, each with support points, proof cues, and a do-not-say line."
+  columns={['Support points', 'Proof cues', 'Do not say']}
+  rows={[
+    {
+      label: 'Speed to close',
+      cells: [
+        'Approvals route same-day, not weekly batches',
+        'Case-study registry: median close-time drop across onboarded accounts',
+        '"Instant" — routing is same-day, never real-time for every approval class',
+      ],
+    },
+    {
+      label: 'Audit-ready by default',
+      cells: [
+        'Every approval keeps a timestamped, exportable trail',
+        'Compliance-team testimonials from the verified proof library only',
+        '"Guarantees compliance" — the platform supports an audit, it doesn\'t certify one',
+      ],
+    },
+    {
+      label: 'Rules finance controls',
+      cells: [
+        'Routing logic is visible and editable without a vendor ticket',
+        'Screenshot of the live rules editor, sourced from the current product build',
+        '"No-code for everyone" — it\'s built for finance admins, not any employee',
+      ],
+    },
+  ]}
+/>
 
-TODO(content): note this needs a downloadable .md/.csv or .xlsx version once the content is written
+</Section>
 
-## Design decision
+<Section index="04" kicker="Copy this, per pillar" title="Blank version">
 
-TODO(content): Pull from the course material why messaging pillars are capped at a small fixed number rather than left open-ended, and why each pillar requires explicit proof points rather than just a theme statement.
+<StepList
+  steps={[
+    { title: 'Pillar name', body: '[the theme, in three words or fewer]' },
+    { title: 'Support point 1', body: '[a specific claim, not a category adjective]' },
+    { title: 'Support point 2', body: '[a second, distinct angle on the same theme]' },
+    { title: 'Proof cue 1', body: '[where the evidence for this pillar lives — a named, checkable source]' },
+    { title: 'Proof cue 2', body: '[a second source, or leave blank rather than force one]' },
+    { title: 'Do not say', body: '[the specific overclaim this pillar invites, named so a reviewer — human or automated — knows exactly what to flag]' },
+  ]}
+/>
+
+Cap the spec at three or four pillars. A fifth one is usually a support point for an existing pillar wearing a new hat.
+
+Or draft the pillars from an existing positioning statement instead of running the six steps cold:
+
+<Prompt id="messaging-pillars-draft" />
+
+</Section>
+
+<Section index="05" kicker="For now" title="Downloads">
+
+<Callout kind="note" title="Copy the blank version above">
+The three-column table format above maps directly onto a spreadsheet — pillar name as the row label, support points/proof cues/do-not-say as columns — for a working `.csv` once the toolkit ships file assets.
+</Callout>
+
+</Section>
+
+<Section index="06" kicker="The line most templates skip" title="Design decision">
+
+<Callout kind="key" title="Say what a pillar can't imply, not just what it claims">
+Almost every messaging-pillar template stops at support points and proof — what the brand is allowed to say. That leaves the actual failure mode uncovered: a support point that's true on its own gets stretched by an AI system into a claim nobody approved, because nothing told it where the line was. The "do not say" line closes that gap per pillar, not as a blanket brand rule but pinned to the exact overclaim that specific theme invites.
+</Callout>
+
+Pillars are capped at three or four for the same reason a positioning statement has seven slots and not twenty — a content system with an open-ended list of allowed themes will eventually pick the wrong one for the moment; a short, fixed list is something both a human reviewer and an automated check can hold in full.
+
+</Section>

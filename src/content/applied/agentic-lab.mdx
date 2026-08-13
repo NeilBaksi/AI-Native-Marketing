@@ -1,21 +1,107 @@
-_Stub — outline below; full prose to come._
+<Section index="01" kicker="The exercise" title="Why six agents">
 
-## Why six agents
+The Agentic Lab is a separate, self-contained exercise: teams of five, one session, a synthetic e-commerce retailer whose cross-sell engine is ordinary collaborative filtering — backward-looking, segment-level, and blind to a customer's actual moment. It can't tell that a shopper buying baby products for three months has fundamentally different needs than a college student buying the same bedding. Team 6's assignment, Scenario B, is a Life-Stage Basket Optimizer built to fix that — and to do it without crossing from personalization into surveillance.
 
-TODO(content): Explain the design rationale for splitting basket-optimization across six specialized agents rather than one monolithic system.
+<PullQuote
+  quote="If an agent cannot say no it is an automation. The kill-switch and escalation rule are design rules not safety features you bolt on at the end."
+  attribution="Agentic Lab brief"
+/>
 
-## GATE, STRATA, APEX, SENTINEL, LENS, ARC
+Every agent in the design has to specify ten things — name, persona, skill, trigger, input fields, reasoning logic, output, autonomy level, escalation rule, kill-switch condition — plus an eleventh Team 6 added on its own: what it must *not* do. One monolithic agent can't hold six distinct kill-switch conditions and stay auditable; splitting the pipeline is what makes each boundary checkable on its own, independent of the others. Autonomy level for each agent runs the same [cost-of-error, value-of-speed calculation](/spine/economics-of-error) as everywhere else in this handbook, just labeled by level instead of by name.
 
-TODO(content): Define each of the six agents by name — GATE, STRATA, APEX, SENTINEL, LENS, ARC — and the specific role each plays in the pipeline.
+<DefinitionList items={[
+  { term: 'L1 — Inform', body: 'The agent surfaces information only. A person holds full decision authority.' },
+  { term: 'L2 — Recommend', body: 'The agent proposes an action; a person approves it before anything ships.' },
+  { term: 'L3 — Act with override', body: 'The agent acts on its own; a person monitors and can intervene mid-flight.' },
+  { term: 'L4 — Autonomous', body: 'A person sets the rules up front and reviews outcomes after the fact, not before each action.' },
+]} />
 
-## Basket optimization across life stages
+Two findings from profiling the data before any prompt was written drove the entire six-agent shape — one about which rules actually predict a life stage, and one sharper finding about what a system should never infer from a customer's purchase history. Both show up below.
 
-TODO(content): Describe how the system adapts basket recommendations to a customer's different life stages, and what changes agent-to-agent as that context shifts.
+</Section>
 
-## The sensitive-signal trap
+<Section index="02" kicker="The pipeline" title="GATE, STRATA, APEX, SENTINEL, LENS, ARC">
 
-TODO(content): Detail the key finding — a risk where a sensitive personal signal leaks through the agent pipeline in an unintended way — and how the team discovered it.
+<Figure
+  d="D91"
+  caption="The six-agent pipeline — a request passes through a hard consent gate, splits into two independent classifiers, funnels through a pool guardrail, then resolves into a two-slot recommendation."
+  alt="Five-stage pipeline: Init, then GATE (a hard consent gate that terminates before any reasoning agent fires), then STRATA and APEX running in parallel on independent data (purchase history and session events), then SENTINEL (a pool guardrail applying five blocking rules before ARC sees anything), then ARC producing a two-slot output — session-driven and biography-driven, never merged."
+>
+  <FlowChain nodes={['Init', 'GATE — consent gate', 'STRATA + APEX (parallel)', 'SENTINEL — pool guardrail', 'ARC — two-slot output']} />
+</Figure>
 
-## The three-layer guardrail pattern
+<ComparisonTable
+  caption="The six agents, one line each"
+  columns={['Job', 'Temperature', 'Never does']}
+  rows={[
+    { label: 'GATE', cells: ['Entry validator and hard consent gate — terminates before any reasoning agent fires', '0.0', "Assign a life stage or infer intent"] },
+    { label: 'STRATA', cells: ['Biographical life-stage classifier — the HISTORICAL view, from purchase history', '0.2', "Guess past a 0.55 confidence threshold — defaults to 'general' instead"] },
+    { label: 'APEX', cells: ['Real-time session-intent scorer — the NOW view, from browsing behavior', '0.2', 'Assign a life stage, or block anything downstream'] },
+    { label: 'SENTINEL', cells: ['Candidate-pool guardrail — five blocking rules, applied in order, before ARC sees anything', '0.0', 'Infer a customer’s sensitive status from purchase history'] },
+    { label: 'LENS', cells: ['Persona-weighted review summarizer — the only agent producing customer-facing prose', '0.4', 'Fabricate confidence — withholds rather than guesses'] },
+    { label: 'ARC', cells: ['Two-slot recommendation engine — session-driven and biography-driven, never merged', '0.3', 'Merge the two slots, or let biography drive the session-driven one'] },
+  ]}
+/>
 
-TODO(content): Explain the three-layer guardrail pattern built to close the sensitive-signal trap, and how each layer catches what the one before it misses.
+STRATA and APEX run in parallel on genuinely independent data — purchase history against session events — with no shared state between them. SENTINEL is a required gate: there is no path by which ARC receives a candidate pool without passing through it first. LENS runs alongside STRATA and APEX and feeds ARC directly with a review summary, not a candidate list — it never touches who gets recommended, only how the recommendation reads.
+
+<PullQuote quote="When in doubt, withhold. A confident wrong summary is worse than no summary." attribution="LENS agent prompt" />
+
+</Section>
+
+<Section index="03" kicker="The adaptation" title="Basket optimization across life stages">
+
+STRATA classifies into five life-stage codes — new_parent, college_bound, homeowner, pet_owner, gift_giver — plus a deliberate default, general, that fires below a 0.55 confidence threshold rather than force a guess.
+
+<Stat id="agentic-lab-confidence-calibration" />
+
+APEX works on a different axis entirely: a real-time strength score built from five primary and five secondary session signals — high engagement, cart intent, search-query intent, repeat consideration across sessions, and recent cart abandonment among the primaries. That score, not a life stage, is what decides how aggressively ARC is allowed to personalize in the moment.
+
+<ComparisonTable
+  caption="ARC's four scenarios — what each slot gets, by classification and session state"
+  columns={['Classification', 'Session state (APW)', 'Session-driven slot', 'Biography-driven slot']}
+  rows={[
+    { label: 'Scenario 1', cells: ['Available', 'Active', 'APW-driven', 'Biography-driven'] },
+    { label: 'Scenario 2', cells: ['Available', 'Not active', { text: 'null — slot inactive', state: 'gap' }, 'Biography-driven'] },
+    { label: 'Scenario 3', cells: ['None or suppressed', 'Active', 'APW-driven', 'Collaborative filtering, no life-stage framing'] },
+    { label: 'Scenario 4', cells: ['None or suppressed', 'Not active', { text: 'null — slot inactive', state: 'gap' }, 'Bestsellers, no life-stage framing'] },
+  ]}
+/>
+
+A weak or absent classification doesn't make ARC guess anyway — it collapses the recommendation back to neutral collaborative filtering with no life-stage language at all. Restraint is the default state, not an exception the system reaches for occasionally.
+
+</Section>
+
+<Section index="04" kicker="The finding" title="The sensitive-signal trap">
+
+Profiling the retailer's data before writing a single prompt surfaced the first warning sign: naive life-stage rules, taken straight from the brief, perform badly against the dataset's hidden ground-truth labels.
+
+<Stat id="agentic-lab-naive-precision" />
+
+That's what pushed STRATA's actual homeowner rule to trade recall for precision deliberately, rather than follow the brief's looser version. The second finding is sharper, and it's the single most important result in the whole exercise.
+
+<Example id="agentic-lab-sensitive-trap">
+The obvious proxy for "this is a sensitive customer" is "this customer bought a sensitive product" — a crib, a baby monitor, nursery safety gear. Checked against the dataset's hidden flag, that proxy performs *worse than doing nothing*: customers who bought a sensitive product turn out slightly less likely to actually be in the protected category than customers who never did. The obvious signal points backward.
+</Example>
+
+The conclusion Team 6 wrote directly into SENTINEL's prompt: suppression has to live on the product side — don't aggressively cross-sell crib safety gear, full stop, regardless of who's shopping — never as a behavioral inference about the customer. That became a hard prohibition with its own dedicated kill-switch, not a soft guideline a later prompt revision could quietly soften.
+
+</Section>
+
+<Section index="05" kicker="Defense in depth" title="The three-layer guardrail pattern">
+
+Three separate checkpoints catch what the others miss, rather than one checkpoint trying to catch everything.
+
+<DefinitionList items={[
+  { term: 'Layer 1 — Consent, at the front', body: 'GATE hard-terminates on an opt-out before any reasoning agent fires. No downstream agent ever sees data about a customer who opted out — not a warning after the fact, a stop before the start.' },
+  { term: 'Layer 2 — Pool integrity, mid-pipeline', body: 'SENTINEL strips sensitive, quality-degraded, and fake-review-cluster SKUs from the candidate pool before ARC ever receives it — the ranking agent never has the option to rank something that should never have been a candidate.' },
+  { term: 'Layer 3 — Surface check, at the end', body: 'ARC carries its own kill-switches as a last line of defense — a sensitive SKU reaching a non-new-parent, a slot populated without justification, biography language on a customer STRATA never actually classified.' },
+]} />
+
+Eight branch-coverage test cases exercise every path through that pattern — the clean case, the sensitive-product-to-non-new-parent case, the anonymous shopper, the serial returner, the opt-out, the out-of-stock product — each with a named expected outcome, saved as evidence for the governance appendix rather than left as an informal spot-check.
+
+</Section>
+
+## Where this leads
+
+Both applied projects run on the same underlying discipline: a kill-switch specified at design time, not bolted on after something breaks, and restraint — withhold, don't guess — as the default rather than the exception. The [Auranis](/applied/auranis) sequence shows what happens when that discipline is missing from a single claim; the [Toolkit](/toolkit) turns the guardrails file that fixed it into a template anyone can start from.

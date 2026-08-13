@@ -1,5 +1,16 @@
-_Stub — outline below; full prose to come._
+This is a static site with no backend, no accounts, and no forms. There's nothing here to write a real privacy policy about, so this page just says plainly what is and isn't true of it, rather than reaching for boilerplate that doesn't apply.
 
-## Privacy
+## What this site doesn't do
 
-TODO(content): State plainly that this site uses no cookies, no analytics, and no third-party trackers.
+<DefinitionList items={[
+  { term: 'No analytics', body: "No analytics script is loaded on any page — nothing tracks page views, clicks, or time on page. Check the page source if you'd rather verify that than take it on faith." },
+  { term: 'No cookies', body: 'The site sets none. Search and navigation state live entirely in the browser tab, not in a cookie or any server-side session.' },
+  { term: 'No accounts or forms', body: "There's no login, no signup, no comment box, no newsletter field — nothing that would ask for or store a name, an email address, or anything else about you." },
+  { term: 'No third-party requests', body: "Fonts are self-hosted rather than pulled from a font CDN, and every script the site ships is bundled at build time. Nothing calls out to a third-party server at runtime." },
+]} />
+
+## What actually happens when you visit
+
+The site is a set of static files hosted on GitHub Pages and served straight to your browser — there's no application server in between, and nothing about your visit is logged anywhere the author controls. GitHub's own hosting infrastructure sees standard web server logs (the same as any GitHub Pages site), governed by [GitHub's own privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement), not anything this project adds on top.
+
+Search is a client-side lookup over the page manifest that runs entirely in your browser — typing a query never sends it anywhere.

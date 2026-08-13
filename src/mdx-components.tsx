@@ -13,6 +13,17 @@ import {
   DefinitionList,
   Figure,
   FlowChain,
+  LayerStack,
+  Matrix2x2,
+  Scorecard,
+  Timeline,
+  BeforeAfter,
+  Checklist,
+  StepList,
+  Formula,
+  SelfCheck,
+  DecisionTree,
+  Prompt,
 } from './components/ui'
 
 /**
@@ -25,10 +36,15 @@ export const mdxComponents: MDXComponents = {
   h2: (props) => <h2 className="text-h2 text-ink" {...props} />,
   h3: (props) => <h3 className="text-h3 text-ink" {...props} />,
   h4: (props) => <h4 className="text-h4 text-ink" {...props} />,
-  p: (props) => <p className="prose-body" {...props} />,
+  p: (props) => <p className="prose-body break-words" {...props} />,
   ul: (props) => <ul className="ml-5 flex list-disc flex-col gap-2 text-base text-ink-soft" {...props} />,
   ol: (props) => <ol className="ml-5 flex list-decimal flex-col gap-2 text-base text-ink-soft" {...props} />,
-  li: (props) => <li className="max-w-prose leading-relaxed" {...props} />,
+  // `break-words` is a safety net, never the primary fix — reword an unbroken
+  // token (a slash-chain, a long hyphenated compound) at the source first.
+  // It's here because plain markdown prose has no other component wrapping it
+  // the way every purpose-built block (Formula, PrevNextPager, Prompt's <pre>)
+  // already gets one.
+  li: (props) => <li className="max-w-prose break-words leading-relaxed" {...props} />,
   a: (props) => (
     <a className="text-ember-deep underline decoration-rule underline-offset-2 hover:decoration-ember-deep" {...props} />
   ),
@@ -52,4 +68,15 @@ export const mdxComponents: MDXComponents = {
   DefinitionList,
   Figure,
   FlowChain,
+  LayerStack,
+  Matrix2x2,
+  Scorecard,
+  Timeline,
+  BeforeAfter,
+  Checklist,
+  StepList,
+  Formula,
+  SelfCheck,
+  DecisionTree,
+  Prompt,
 }

@@ -1,17 +1,60 @@
-_Stub — outline below; full prose to come._
+Before National Australia Bank unified its decisioning, its product teams ran independently — home loans, cards, deposits, and wealth management each pursuing their own outreach with no arbitration between them. The failure mode this produces isn't hypothetical: a customer who called the hardship assistance line for mortgage relief could receive a credit-limit-increase offer from a different team the next morning. Compliance review happened after content was already produced, which meant it could only catch a mistake, never prevent one.
 
-## What happened
+<Section index="01" kicker="What happened" title="One decisioning brain, 350 billion decisions a year">
 
-TODO(content): narrate how National Australia Bank runs its policy stack at enterprise scale — 350 billion decisions — with compliance co-designed into the system from the start.
+NAB's fix was architectural, not procedural. It implemented Pega's Customer Decision Hub as a single orchestration engine — internally, "the customer brain" — ingesting roughly 1,000 customer data attributes and running them through what course sources describe, inconsistently, as somewhere between 800 and 2,000 adaptive machine learning models, evaluating potential actions for every customer at every touchpoint simultaneously. The ambition wasn't more messages. It was ensuring no action fires without a complete picture of that customer's current state — financial stress, recent service contact, product eligibility — behind it.
 
-## Where it fits the framework
+<Stat id="nab-policy-stack-scale" />
 
-TODO(content): map NAB's policy stack to the Orchestrate workflow, specifically how compliance is built into the orchestration layer rather than added as a post-hoc check.
+</Section>
 
-## What went right or wrong
+<Section index="02" kicker="Where it fits the framework" title="Compliance as a gate inside Orchestrate, not a review after it">
 
-TODO(content): explain why co-designing compliance into the orchestration system from day one worked at NAB's scale, versus the more common pattern of bolting compliance on afterward.
+<Timeline
+  entries={[
+    { marker: 'Gate 1', title: 'Product eligibility', body: 'Checked against the customer\'s segment and credit profile.' },
+    { marker: 'Gate 2', title: 'Lifecycle eligibility', body: 'Blocks on an open hardship record, an active dispute, or a cooling-off period.' },
+    { marker: 'Gate 3', title: 'Regulatory compliance', body: 'Checked against APRA and responsible-lending rules.' },
+    { marker: 'Gate 4', title: 'Channel frequency caps', body: 'Stays within a defined contact window for that customer.' },
+  ]}
+  footnote="Any single gate failing stops the action — clearing three of four is not sufficient."
+/>
 
-## What to take away
+This is [Orchestrate](/workflows/orchestrate)'s policy-stack pattern at genuinely large scale, and the hardship case is the clearest illustration of what it changes. Under the old model, a hardship flag generated a CRM note a compliance officer *might* review before the next campaign went out. Under the new model, the hardship flag trips Layer 2 directly — the system generates no acquisition offer at all for that customer, full stop, with no human decision required to prevent it.
 
-TODO(content): state the transferable lesson about designing compliance into an Orchestrate system from inception, for organizations operating decisions at similar scale.
+</Section>
+
+<Section index="03" kicker="What went right or wrong" title="Why co-design, not a bigger compliance team, is what worked">
+
+The organizational shift matters as much as the architecture. Post-production review is adversarial by structure: marketing produces, legal evaluates, and friction is close to inevitable because the two functions only meet at the point of disagreement.
+
+<BeforeAfter
+  beforeLabel="Post-production review"
+  afterLabel="Rules co-designed before launch"
+  rows={[
+    { dimension: 'When compliance gets involved', before: 'After content is already produced, reviewing what marketing already sent', after: 'Before the system runs, writing the Layer 2 and Layer 3 rules together with marketing technology' },
+    { dimension: 'What a hardship flag triggers', before: 'A CRM note a compliance officer might review before the next campaign', after: 'No acquisition offer generated at all — no human decision required to prevent it' },
+    { dimension: 'Legal and marketing\'s relationship', before: 'Adversarial by structure — the two functions meet only at the point of disagreement', after: 'Co-architects of the same decision logic, which then runs without per-action review' },
+  ]}
+  verdict="Compliance stopped being a check applied to marketing's output and became a rule marketing's output has to clear before it exists."
+/>
+
+Once those rules were embedded as decision logic, they run continuously without requiring legal to review any individual action. Legal became a co-architect of the system rather than a gatekeeper standing at the end of it.
+
+<Callout kind="key" title="The scale result, not just the compliance one">
+  75% of customer interactions were covered by the new engine within 24 months, running 150+ next-best-actions. In home lending specifically, the more complete view of each customer's state drove a 50% increase in customer conversations and 3x more opportunities surfaced for bankers — a result that reads as a sales lift but is actually downstream of the same policy stack that suppresses the hardship-customer acquisition offer: better state awareness produces both outcomes from the same architecture.
+</Callout>
+
+</Section>
+
+<Section index="04" kicker="What to take away" title="The transferable lesson">
+
+The generalizable move isn't "buy a decisioning platform" — it's designing compliance into the decision logic itself, before the system runs, with legal and marketing writing the rules together rather than legal reviewing marketing's output afterward. Concretely, that means asking, for any regulated action: what upstream gate would have to fail for this action to never fire, rather than what review step would catch it after it's already been produced. A hardship flag that silently suppresses an offer is a gate. A hardship flag that generates an advisory note someone might check is not — and the difference is exactly the one that used to let a struggling customer receive a credit-limit-increase pitch.
+
+What doesn't transfer as directly: NAB's four-layer stack is specific to a heavily regulated industry (APRA, responsible lending law) with genuinely severe consequences for getting a gate wrong, which is what justified the scale of the co-design investment. An organization in a lighter-touch regulatory environment can still adopt the pattern — compliance embedded as decision logic, not applied after — but the case for spending years building a 1,000-attribute customer brain to enforce it is weaker without NAB's regulatory stakes behind it.
+
+</Section>
+
+## Where this leads
+
+NAB shows the policy stack solving a compliance problem at scale. [Peloton](/cases/peloton) shows a different discipline inside the same [Orchestrate](/workflows/orchestrate) workflow — not which action clears a compliance gate, but which state a customer is actually in, and what that state should determine about whether the next action comes from a system or a person.

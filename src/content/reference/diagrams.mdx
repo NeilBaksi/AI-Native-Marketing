@@ -1,9 +1,166 @@
-_Stub — outline below; full prose to come._
-
-## What's here
-
-TODO(content): Present the gallery of the 39 diagrams actually built across the site, each deep-linked back to the page that hosts it.
+37 diagrams are live across the site today, each carrying a D-number back to Appendix A's inventory of 90 candidate diagrams for the course material. 23 of those 37 come from the 39-diagram v1 scope the build brief set out; the other 14 exist because a chapter needed a shape the original plan hadn't anticipated — CLAUDE.md's rule ("build the one the chapter needs") takes priority over the plan once a chapter is actually being written. 16 diagrams from the original 39-diagram scope haven't been drawn yet; they're listed as a backlog below, not hidden alongside the finished ones.
 
 ## How it's organized
 
-TODO(content): Lay out the remaining ~51 diagrams from the original plan as an honest "not yet drawn" backlog, distinct from and not hidden alongside the 39 completed ones.
+Live diagrams are grouped by the Part where they were first built, in reading order, each linking back to every chapter that uses it — several diagrams (D1, D72, D81, D90) appear on more than one page. One representative diagram per Part is reproduced below, inline, exactly as it renders on its host chapter — the same component, the same props, so nothing here can drift from the page it's quoting. The rest of each Part's diagrams are listed by D-number and link; the backlog table after that covers only the 16 unbuilt diagrams from the original 39-diagram scope, not the remaining 51 diagrams in Appendix A's full 90-diagram inventory that were never part of v1 to begin with — those live in the build-planning backlog, not here.
+
+## Live — Part I, Foundations
+
+- **D6** — The Four Symptoms. [The Problem](/foundations/the-problem).
+- **D1** — The Seven Workflows. [What Is I-MOS](/foundations/what-is-imos), [The Seven Workflows](/spine/seven-workflows).
+
+<Figure
+  d="D6"
+  caption="The four symptoms — each disconnected failure enables the next, in a loop that keeps resetting rather than compounding."
+  alt="Four connected stages — Insight without action, Content without context, Measurement without learning, Tools without governance — arranged in a cycle, each one enabling the next, looping back to the first rather than closing into a system that learns."
+>
+  <FlowChain
+    nodes={['Insight w/o action', 'Content w/o context', 'Measurement w/o learning', 'Tools w/o governance']}
+    loopBackLabel="Each symptom enables the next — the cycle resets instead of compounding"
+  />
+</Figure>
+
+As it renders on [The Problem](/foundations/the-problem).
+
+## Live — Part II, The Spine
+
+- **D14** — The Output Chain. [The Seven Workflows](/spine/seven-workflows).
+- **D3** — The Four-Layer I-MOS Stack. [The Four-Layer Stack](/spine/four-layer-stack).
+- **D62** — One Signal, Full System. [The Four-Layer Stack](/spine/four-layer-stack).
+- **D11** — Signal → Interpretation → Insight → Action (the Insight Gap). [The Insight Gap](/spine/insight-gap).
+- **D21** — Collect → Resolve → Interpret → Surface. [The Insight Gap](/spine/insight-gap).
+- **D12** — The Autonomy Ladder. [The Economics of Error](/spine/economics-of-error).
+- **D13** — The Economics of Error 2x2. [The Economics of Error](/spine/economics-of-error).
+- **D23** — The Five Insight Objects. [Shared Memory](/spine/shared-memory).
+- **D78** — The Learning Flywheel. [Shared Memory](/spine/shared-memory).
+- **D66** — Three Governance Modes. [The Govern Envelope](/spine/govern-envelope).
+
+<Figure
+  d="D3"
+  caption="The four-layer stack — Governance Envelope wraps Orchestration Plane, which sequences Agentic Services, which read and write Shared Memory."
+  alt="Four stacked bands, top to bottom: Governance Envelope (the immune system, drawn apart with a dashed border since it wraps the other three rather than sitting as a fourth peer layer), Orchestration Plane (the nervous system), Agentic Services (the organs), Shared Memory (the brain)."
+>
+  <LayerStack
+    layers={[
+      { name: 'Governance Envelope', metaphor: 'The immune system', role: 'Consent gates, claims verification, bias detection, kill-switches, audit logging — constrains every decision at every step, not applied as an end-of-process gate.' },
+      { name: 'Orchestration Plane', metaphor: 'The nervous system', role: 'Sequences service invocations, manages dependencies, handles exceptions, routes escalations across workflows.' },
+      { name: 'Agentic Services', metaphor: 'The organs', role: 'Six coordinated agent teams delivering marketing capability — Signal, Decisioning, Content Assembly, Journey Orchestration, Activation, Experimentation & Measurement.' },
+      { name: 'Shared Memory', metaphor: 'The brain', role: 'The persistent substrate every agent reads and writes — identity, state, decision, content, and learning objects, unified in real time.' },
+    ]}
+  />
+</Figure>
+
+As it renders on [The Four-Layer Stack](/spine/four-layer-stack).
+
+<Figure
+  d="D13"
+  caption="The Economics of Error 2x2 — Cost of Error (vertical) against Value of Speed (horizontal), with the four tiers placed by their characteristic combination."
+  alt="Two-by-two matrix. Vertical axis: Cost of Error, high at top. Horizontal axis: Value of Speed, high at right. Top-left (high cost, low speed value): Human in Command — brand strategy, crisis response, pricing architecture. Top-right (high cost, high speed value): Human in the Loop — regulated claims, high-value creative, launch messaging. Bottom-left (low cost, low speed value): Human on the Loop — audience targeting, content personalization. Bottom-right (low cost, high speed value): Fully Autonomous — bid optimization, send-time selection, frequency capping."
+>
+  <Matrix2x2
+    xLabel="Value of Speed"
+    yLabel="Cost of Error"
+    quadrants={[
+      { tier: 'Human in Command', description: 'Brand strategy, crisis response, pricing architecture — errors are costly and hard to reverse regardless of how fast a decision arrives.' },
+      { tier: 'Human in the Loop', description: 'Regulated claims, high-value creative, launch messaging — cost stays high, but speed genuinely matters, so AI recommends and a person approves before it ships.' },
+      { tier: 'Human on the Loop', description: 'Audience targeting, content personalization — moderate, correctable cost; AI executes inside boundaries, a person monitors and intervenes on exception.' },
+      { tier: 'Fully Autonomous', description: 'Bid optimization, send-time selection, frequency capping — low cost, rapidly detectable, and the value of deciding in real time dominates.' },
+    ]}
+  />
+</Figure>
+
+As it renders on [The Economics of Error](/spine/economics-of-error).
+
+## Live — Part III, The Workflows
+
+- **D19** — The Four Signal Families. [Sense](/workflows/sense).
+- **D20** — Triangulation. [Sense](/workflows/sense).
+- **D25** — ICP = Fit × Readiness − Friction. [Focus](/workflows/focus).
+- **D27** — The Personalization Spectrum. [Focus](/workflows/focus).
+- **D36** — The Machine-Readability Test. [Design](/workflows/design).
+- **D41** — The Three-Layer Prompt Architecture. [Design](/workflows/design).
+- **D45** — The Three Eras of Discovery. [Attract](/workflows/attract).
+- **D47** — The Four Citation Signals. [Attract](/workflows/attract).
+- **D70** — Signal → Decide → Brief → Act → Learn. [Orchestrate](/workflows/orchestrate).
+- **D71** — The Seven Archetypal Journey States. [Orchestrate](/workflows/orchestrate).
+- **D72** — The Policy Stack. [Orchestrate](/workflows/orchestrate), [National Australia Bank](/cases/nab).
+- **D54** — The Three Levels / Two Translations. [Build](/workflows/build).
+- **D56** — The Six Agentic Services. [Build](/workflows/build).
+- **D57** — The Ontology Schema. [Build](/workflows/build).
+- **D58** — The Four-Pass Decomposition Method. [Deep Dive: The Four-Pass Decomposition Method](/workflows/build/deep-dive/four-pass-decomposition).
+- **D59** — The Focus Workflow Sub-Workflow Map. [Deep Dive: The Four-Pass Decomposition Method](/workflows/build/deep-dive/four-pass-decomposition).
+- **D60** — The 12 Agents of Focus. [Deep Dive: The Four-Pass Decomposition Method](/workflows/build/deep-dive/four-pass-decomposition).
+- **D76** — The Campaign Lifecycle's Flaw. [Execute & Learn](/workflows/execute-and-learn).
+- **D77** — Incrementality. [Execute & Learn](/workflows/execute-and-learn).
+- **D81** — The Six Risks and Their Controls. [Govern](/workflows/govern), [Six Governance Failures](/cases/governance-failures).
+- **D82** — Kill Switch Design. [Govern](/workflows/govern).
+
+<Figure
+  d="D19"
+  caption="The four signal families — what each one answers, and what it structurally cannot see on its own."
+  alt="Four signal families: Behavioral (what are customers actually doing — revealed preference from usage and purchase patterns), Qualitative (why are they behaving this way — the emotional and cultural why from reviews and support transcripts), Intent (what will they do next — predictive signal from search and pricing-page activity), and Environmental (what external forces are shaping behavior — competitor moves, regulation, seasonality)."
+>
+  <DefinitionList items={[
+    { term: 'Behavioral — what are they doing?', body: 'Revealed preference: usage, clicks, purchases, cart adds and abandons. Highest fidelity, but blind to why.' },
+    { term: 'Qualitative — why?', body: 'Interviews, support transcripts, reviews, social posts. Reveals the reason, but at small sample sizes — no sense of scale.' },
+    { term: 'Intent — what next?', body: 'Search behavior, pricing-page visits, third-party intent data. Predictive, but noisy — a download could mean a buyer or a curious intern.' },
+    { term: 'Environmental — what context?', body: "Competitor moves, regulation, seasonality, macro trends. Without it the system optimizes as if the customer exists in a vacuum." },
+  ]} />
+</Figure>
+
+As it renders on [Sense](/workflows/sense).
+
+<Figure
+  d="D72"
+  caption="The policy stack — all four gates must clear before the system ranks what's left and the winner goes out."
+  alt="Four sequential gates, all required: Right Customer (is this the kind of customer we actually want), Right Moment (right state, enough time since last touch), Compliance (opted in, claim survives a check, regional rules clear), Frequency Caps (not over-contacted on any channel). After all four clear, remaining options are ranked by expected value and the winner ships."
+>
+  <FlowChain nodes={['Right Customer', 'Right Moment', 'Compliance', 'Frequency Caps', 'Rank by expected value → ship']} />
+</Figure>
+
+As it renders on [Orchestrate](/workflows/orchestrate) and [National Australia Bank](/cases/nab).
+
+## Live — Part IV, Cases
+
+- **D90** — The L'Oréal / Coca-Cola / Eloqua Tech Stacks. [L'Oréal](/cases/loreal), [Coca-Cola](/cases/coca-cola).
+- **D89** — The OpenAI Failure Autopsy. [The OpenAI Sycophancy Incident](/cases/openai-sycophancy).
+- **D86** — Yelp Strategy Comparison. [Yelp](/cases/yelp).
+- **D73** — Peloton's Five-State Model. [Peloton](/cases/peloton).
+
+<Figure
+  d="D73"
+  caption="Five states, each with an observable trigger, an escalating cost of intervention, and a human at the one state where automation would cost more than it saves."
+  alt="Five-state journey: Active (3+ workouts a week for 30 days, gets a challenge invite or milestone celebration), Slipping (ride frequency drops 40% or more against a 30-day baseline, gets a personalized push with no discount), Dormant (no workout in 14 days, gets a progress recap with social proof), At-Risk (no workout in 28 days plus a visit to the cancellation page, gets a human member-success call, not an automated message), Lapsed (subscription cancelled, gets a 30-day pause offer, then win-back content at 60 days, then permanent suppression at 12 months)."
+>
+  <FlowChain
+    nodes={['Active', 'Slipping', 'Dormant', 'At-Risk — human call', 'Lapsed']}
+    loopBackLabel="A returning member re-enters at Active; the model doesn't assume decline is linear"
+  />
+</Figure>
+
+As it renders on [Peloton](/cases/peloton).
+
+Parts V and VI — Applied and Toolkit — carry no diagrams of their own; the applied projects and toolkit templates reuse the diagrams already built for the workflow chapters they operationalize.
+
+## Backlog — planned, not yet drawn
+
+These 16 were scoped into the original 39-diagram v1 set but haven't been built. Each still has a primitive assignment from the build brief, so drawing one is composition work against an existing shape, not a new design decision.
+
+| D# | Title | Scoped for |
+|---|---|---|
+| D2 | The Seven Workflows as a closed loop | Foundations & Spine |
+| D4 | The Six-Step Strategy Decay Chain | Foundations & Spine |
+| D5 | Strategic vs. Operating Architecture Across Disciplines | Foundations & Spine |
+| D9 | The I-MOS Maturity Model | Foundations & Spine |
+| D24 | The Human–AI Sensing Workflow | Sense |
+| D28 | The Decision Narrative Persona | Focus |
+| D30 | Trust Boundaries | Focus |
+| D31 | The Messaging Architecture | Focus |
+| D37 | The Three-Level Messaging Hierarchy | Design |
+| D38 | The Four Content Blocks | Design |
+| D43 | Governance Zones | Design |
+| D49 | The Two-Stage LLM Citation Model | Attract |
+| D50 | Zero-Click Economics | Attract |
+| D64 | The Three Implementation Archetypes | Build |
+| D68 | Funnel vs. State Model | Orchestrate |
+| D79 | The Channel Reallocation Table | Execute & Learn |

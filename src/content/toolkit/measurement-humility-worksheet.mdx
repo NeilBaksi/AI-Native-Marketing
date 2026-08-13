@@ -1,25 +1,67 @@
-_Stub — outline below; full prose to come._
+<Section index="01" kicker="Falsification, filled in first" title="What it's for">
 
-## What it's for
+[Execute & Learn](/workflows/execute-and-learn) draws the line between a descriptive number and a causal one — the whole reason a holdout exists is that spend and revenue both rising together proves nothing about which one caused the other. This worksheet operationalizes that discipline as a forcing function: before a causal claim gets written down, state what would prove it wrong. Not as a caveat added afterward — as the first field on the page, filled in before the claim itself.
 
-TODO(content): Explain that this worksheet documents the known limitations and uncertainty in a measurement approach before results get presented as fact, so stakeholders see the confidence bounds alongside the number.
+</Section>
 
-## When to use it
+<Section index="02" kicker="Before a causal claim ships" title="When to use it">
 
-TODO(content): Describe when to fill this out — before presenting any attribution, ROMI, or performance result to stakeholders, especially when the measurement method has known blind spots.
+Fill this out before any sentence that says a channel or campaign "drove," "caused," or "generated" a result ships to a stakeholder — whether or not a holdout actually exists behind the number.
 
-## Worked example
+- Before presenting an attribution, ROMI, or lift figure that a budget decision will lean on.
+- Any time a result "obviously" supports the story someone already wanted to tell — that's precisely when a stated falsification test matters most.
 
-TODO(content): Walk through a filled-in worksheet for a realistic measurement result, documenting its data gaps, attribution assumptions, and confidence level.
+</Section>
 
-## Blank version
+<Section index="03" kicker="An email-lift claim, tested" title="Worked example">
 
-TODO(content): Present the blank measurement humility worksheet with fields for known limitations, data gaps, assumptions, and confidence level.
+A claim under review: "Customers on our email list who purchased engaged 17 points higher, on average, than non-purchasers — email is driving the lift."
 
-## Downloads
+<ComparisonTable
+  caption="Measurement humility worksheet, filled in against an email-lift claim."
+  columns={['Filled in']}
+  rows={[
+    { label: 'What the data shows', cells: ['Email-list purchasers have a materially higher engagement score than non-purchasers.'] },
+    { label: 'What would falsify this claim', cells: ['A matched holdout — customers equally eligible and equally engaged, who received no email — buying at a statistically similar rate. If they do, engagement predicted the purchase; email didn\'t cause it.'] },
+    { label: 'What it would take to actually prove it', cells: ['That exact holdout, run for a full purchase cycle, with the lift measured as the gap between treatment and control — not the gap between purchasers and non-purchasers within the treatment group alone.'] },
+    { label: 'Confidence given what exists today', cells: ['Low. The 17-point gap is consistent with email causing it and equally consistent with pre-existing engagement predicting both the opt-in and the purchase — selection bias, not proof.'] },
+  ]}
+/>
 
-TODO(content): note this needs a downloadable .md/.csv or .xlsx version once the content is written
+<PullQuote quote="97% of converting paths touch the website because purchase happens on the website — that's a tracking artifact, not a channel-value statement." attribution="course material, applied-projects case notes" />
 
-## Design decision
+That line is the same failure in a different shape: a number that looks like proof of a channel's value but is actually just describing how the funnel is built. Both examples fail the same test — neither one names, in advance, what result would have shown the claim was wrong.
 
-TODO(content): Pull from the course material why this worksheet exists as a mandatory companion to results rather than an optional caveat, and what failure mode it's designed to prevent.
+</Section>
+
+<Section index="04" kicker="Copy this, per claim" title="Blank version">
+
+<ComparisonTable
+  caption="Blank measurement humility worksheet — fill in before the claim ships."
+  columns={['Your answer']}
+  rows={[
+    { label: 'The claim under review', cells: ['(state the causal sentence exactly as it would appear in the deck)'] },
+    { label: 'What the data shows', cells: ['(fill in — the observation itself, no causal language yet)'] },
+    { label: 'What would falsify this claim', cells: ['(fill in first, before writing the recommendation)'] },
+    { label: 'What it would take to actually prove it', cells: ['(fill in — the test that would settle it)'] },
+    { label: 'Confidence given what exists today', cells: ['(fill in — high only if the falsification test has actually been run)'] },
+  ]}
+/>
+
+Or have an assistant run the same falsification discipline against a result someone else already reported:
+
+<Prompt id="execute-incrementality-check" />
+
+</Section>
+
+<Section index="05" kicker="For now" title="Downloads">
+
+The blank table above copies directly into a spreadsheet — one row per field, one column per claim under review. A dedicated .md/.csv export is on the list for when the toolkit ships a bulk download page.
+
+</Section>
+
+<Section index="06" kicker="Why falsification comes first" title="Design decision">
+
+The field order is the whole design decision. "What would falsify this claim" sits before "what it would take to prove it" and before the confidence rating — deliberately, so it gets written while the claim is still being formed, not bolted on as a caveat paragraph after the recommendation is already drafted and psychologically final. A humility check filled in last is easy to write around; a falsification test that has to exist on paper before the claim does is much harder to quietly skip.
+
+</Section>

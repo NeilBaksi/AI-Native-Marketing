@@ -1,25 +1,73 @@
-_Stub — outline below; full prose to come._
+<Section index="01" kicker="Four questions, documented" title="What it's for">
 
-## What it's for
+[The Economics of Error](/spine/economics-of-error) defines the formula — cost of error weighed against value of speed — and the four diagnostic questions that turn it into an autonomy tier. This page doesn't redefine any of that. It's the worksheet: a fixed set of prompts you run a real decision through, so the tier it lands on is a documented answer to four questions rather than a gut call made once and never revisited.
 
-TODO(content): Explain that this worksheet calculates cost-of-error multiplied by value-of-speed for a specific decision, producing the input needed to place that decision into one of the four autonomy tiers.
+<Callout kind="note" title="Read the framework first">
+This worksheet assumes you already know what the four tiers are and why cost-of-error and value-of-speed are the two variables. If either of those is new, start at [The Economics of Error](/spine/economics-of-error) — this page only operationalizes it.
+</Callout>
 
-## When to use it
+</Section>
 
-TODO(content): Describe when to run this worksheet — before assigning any marketing decision to an AI agent, to determine how much autonomy that decision should be given.
+<Section index="02" kicker="Before autonomy gets set" title="When to use it">
 
-## Worked example
+Run this worksheet before a decision gets handed to an AI agent for the first time — not after something has already gone wrong with it. It's also the right tool when two people disagree about how much autonomy a decision deserves: instead of arguing preferences, both sides answer the same four questions and see where the disagreement actually lives.
 
-TODO(content): Walk through a filled-in worksheet for a realistic decision (e.g. approving an ad spend increase or sending a customer-facing email), showing the cost-of-error and value-of-speed inputs and the resulting tier placement.
+- Scoping a new agent or workflow, before any autonomy level gets set in configuration.
+- Revisiting a decision that's drifted — a Fully Autonomous action that started causing damage, or a Human-in-Command decision that's become a bottleneck.
+- Settling a dispute about whether something "should" be automated, by making the inputs explicit instead of arguing conclusions.
 
-## Blank version
+</Section>
 
-TODO(content): Present the blank economics-of-error worksheet with fields for cost-of-error, value-of-speed, and the resulting autonomy tier calculation.
+<Section index="03" kicker="Pause vs. resume, split apart" title="Worked example">
 
-## Downloads
+A subtlety the worksheet is built to catch: what looks like one decision is often two, and the two halves can land on different tiers. Take "should the system be allowed to react to a paid social campaign's performance without a person approving it first?" Run the four questions separately for *pausing* underperforming spend and *resuming* it.
 
-TODO(content): note this needs a downloadable .md/.csv or .xlsx version once the content is written
+<ComparisonTable
+  caption="The four diagnostic questions, run separately for pausing vs. resuming a campaign."
+  columns={['Pausing a campaign', 'Resuming a paused campaign']}
+  rows={[
+    { label: 'Cost of a wrong decision', cells: ['Low — a few hours of paused delivery on a campaign that was actually fine.', 'High — re-spending into whatever caused the pause, compounding a problem nobody has diagnosed yet.'] },
+    { label: 'Is it reversible?', cells: ['Yes, in minutes — turn it back on.', 'Not cheaply — money is already spent again before anyone confirms the cause is fixed.'] },
+    { label: 'Value of acting faster', cells: ['High — every hour of continued bad spend is a real loss.', 'Low — there is no offsetting value in resuming quickly if the underlying cause was never found.'] },
+    { label: "AI's confidence in this call", cells: ['High — "CPA crossed a threshold" is exactly the pattern-detection AI is good at.', 'Low — "why did CPA spike, and is it fixed" is a diagnostic judgment, not a pattern match.'] },
+  ]}
+/>
 
-## Design decision
+Answer the same four questions for each half and the tiers split apart: pausing clears Fully Autonomous, resuming lands at Human in the Loop or higher. Treating "campaign reaction" as one decision with one tier would have either left bad spend running for hours, or gated every pause behind a person — the wrong failure in both directions.
 
-TODO(content): Pull from the course material why cost-of-error and value-of-speed are multiplied rather than added or scored separately, and how that formula maps onto the four autonomy tiers.
+</Section>
+
+<Section index="04" kicker="Copy this, per decision" title="Blank version">
+
+<ComparisonTable
+  caption="Blank worksheet — fill in one column per decision (or sub-decision) under evaluation."
+  columns={['Your decision']}
+  rows={[
+    { label: 'Decision under evaluation', cells: ['Name the specific action — not the whole workflow it sits inside.'] },
+    { label: 'Cost of a wrong decision', cells: ['What actually breaks if this goes wrong, and for whom?'] },
+    { label: 'Is it reversible?', cells: ['How long, and at what cost, to undo a bad call?'] },
+    { label: 'Value of acting faster', cells: ['What is genuinely lost by routing this through a person first?'] },
+    { label: "AI's confidence in this call", cells: ['Is this pattern detection, or judgment the model has no real basis for?'] },
+    { label: 'Resulting tier', cells: ['Human in Command / Human in the Loop / Human on the Loop / Fully Autonomous'] },
+  ]}
+/>
+
+Before filling it in, ask whether the thing you wrote on the first row is actually one decision. If any of your four answers feels like it's arguing with itself, that's usually the worksheet telling you to split the row and run it twice — the way pause and resume split above.
+
+Or run the four questions against a decision you're actually facing right now:
+
+<Prompt id="economics-of-error-run" />
+
+</Section>
+
+<Section index="05" kicker="For now" title="Downloads">
+
+The blank table above is the whole worksheet — copy its rows into a shared doc or spreadsheet per decision under evaluation. A dedicated .md/.csv export is on the list for when the toolkit ships a bulk download page.
+
+</Section>
+
+<Section index="06" kicker="A decision is rarely atomic" title="Design decision">
+
+The one habit this worksheet is built to force: don't assume a decision is atomic. A single-looking action — "react to campaign performance," "respond to a support signal," "adjust a bid" — routinely bundles a cheap, reversible half with an expensive, hard-to-reverse one. Scoring the bundle as a single tier always gets one half wrong. Running the four questions per sub-action, and letting the tiers land wherever they land — even asymmetrically, one high and one low, on what reads as a single workflow step — is what keeps the worksheet honest instead of just producing whatever tier the person filling it out already wanted.
+
+</Section>
