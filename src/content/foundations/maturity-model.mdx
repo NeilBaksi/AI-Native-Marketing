@@ -29,28 +29,27 @@ Full I-MOS is the course's own name for the aspirational endpoint — nobody has
   ]}
 />
 
-Placing an organization on this ladder is exactly what the self-diagnostic below does — one question per workflow family, scored by the weakest answer.
+Placing an organization on this ladder means reading it one workflow family at a time — the ladder is only as high as the weakest family, not the average of all four.
 
-<SelfCheck
-  label="Self-diagnostic"
-  levels={[
-    'Point Tools — no shared memory, every handoff manual',
-    'Partial Integration — real but pairwise connections',
-    'Workflow Orchestration — one connected system',
-    'Full I-MOS — continuous, governance included',
-  ]}
-  dimensions={[
-    { id: 'understand', question: 'Sense and Focus — how connected is customer understanding across the two?' },
-    { id: 'build', question: 'Design and Attract — how connected is content production and discovery?' },
-    { id: 'run', question: 'Orchestrate, Execute, and Learn — how connected is delivery and measurement?' },
-    { id: 'govern', question: 'Governance — do consent, claims, and bias checks run continuously, or as a periodic audit?' },
-  ]}
-  verdicts={[
-    'Point Tools. Each tool holds its own disconnected copy of the truth, and nothing written in one is readable by another without a person moving it by hand.',
-    'Partial Integration. Real connections exist, but pairwise — a handful of expensively-built pipelines sitting next to workflows that still operate like Stage 1.',
-    'Workflow Orchestration. The seven-workflow loop runs as one connected system, but Governance usually still lags — a periodic audit, not a continuous check.',
-    'Full I-MOS. All four layers, including Governance, running continuously at the same speed. The course is explicit that this is aspirational — no organization is fully here yet.',
+<DefinitionList
+  items={[
+    {
+      term: 'Sense and Focus',
+      body: 'Point Tools: each holds its own disconnected read of the customer. Full I-MOS: one shared, continuously updated customer understanding both workflows read from.',
+    },
+    {
+      term: 'Design and Attract',
+      body: 'Point Tools: content production and discovery run as separate, uncoordinated efforts. Full I-MOS: production is driven directly by what discovery is currently learning.',
+    },
+    {
+      term: 'Orchestrate, Execute, and Learn',
+      body: "Point Tools: delivery and measurement are handled in different systems that don't talk. Full I-MOS: Learn's output reaches Sense automatically, closing the loop without a person moving it by hand.",
+    },
+    {
+      term: 'Governance',
+      body: 'Point Tools: consent, claims, and bias checks happen as a periodic audit, if at all. Full I-MOS: the same checks run continuously, inside every execution, at the same speed as everything else.',
+    },
   ]}
 />
 
-That's Part I. The next part goes underneath the diagram — the seven workflows and the four-layer stack in real depth, plus the two ideas that decide how much of any of this an organization should actually let AI run on its own.
+An organization's stage on the ladder above is set by the family sitting furthest back — a system that orchestrates fast but governs slow is a Stage 3 system, not a Stage 4 one, no matter how far ahead the other three families are.

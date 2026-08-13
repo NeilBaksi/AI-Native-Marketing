@@ -55,7 +55,7 @@ function Branch({ b, isLast }: { b: DecisionOutcome & { next?: DecisionNode }; i
       {/* continuation stem down to the next sibling's elbow, omitted on the last branch */}
       {!isLast && <span aria-hidden className="absolute bottom-0 left-0 top-[1.15rem] w-px bg-rule" />}
       <div className="py-2.5">
-        <p className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-cobalt-deep">If · {b.when}</p>
+        <p className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-pine-deep">If · {b.when}</p>
         <p
           className={clsx(
             'mt-1 flex items-center gap-1.5 font-display text-base font-semibold',

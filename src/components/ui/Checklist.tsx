@@ -86,7 +86,7 @@ export function Checklist({ label, items }: ChecklistProps) {
                 type="checkbox"
                 checked={checked[it.text] ?? false}
                 onChange={() => toggle(it.text)}
-                className="peer mt-[3px] size-[18px] shrink-0 accent-cobalt"
+                className="peer mt-[3px] size-[18px] shrink-0 accent-pine"
               />
               {/* Ticked rows drop to `muted` — never strikethrough, which is a
                   to-do-app tic and makes completed items harder to re-read. */}
@@ -103,7 +103,7 @@ export function Checklist({ label, items }: ChecklistProps) {
           <button
             type="button"
             onClick={clear}
-            className="inline-flex min-h-[44px] items-center font-mono text-[0.7rem] uppercase tracking-[0.16em] text-cobalt-deep underline decoration-rule underline-offset-4 hover:decoration-cobalt-deep"
+            className="inline-flex min-h-[44px] items-center font-mono text-[0.7rem] uppercase tracking-[0.16em] text-pine-deep underline decoration-rule underline-offset-4 hover:decoration-pine-deep"
           >
             Clear ticks
           </button>

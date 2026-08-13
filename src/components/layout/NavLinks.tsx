@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ChevronRight } from 'lucide-react'
@@ -28,6 +28,22 @@ export function NavLinks({ layoutId, onNavigate }: NavLinksProps) {
   const currentPart = PAGES.find((p) => p.slug === currentSlug)?.part
 
   const [openParts, setOpenParts] = useState<Set<PartId>>(new Set(currentPart ? [currentPart] : ['foundations']))
+
+  // The initial useState above only runs once at mount, so it only auto-opens the
+  // right group on a cold load. Every subsequent SPA navigation (clicking a link,
+  // the pager, search) needs this effect to open the group for wherever landed.
+  // Keyed on `currentSlug`, not `currentPart` — next/back between two pages in
+  // the SAME part doesn't change currentPart, so keying on that misses exactly
+  // the case where the reader manually collapsed the current part's group and
+  // then paged to a sibling page inside it: currentPart never changes, so an
+  // effect keyed on it never re-fires, and the group stays wrongly collapsed.
+  // Unconditional add (not "add if missing") for the same reason: every actual
+  // navigation should force the current part open even if the reader closed it
+  // by hand a moment ago — that's the whole point of this fix.
+  useEffect(() => {
+    if (!currentPart) return
+    setOpenParts((prev) => new Set(prev).add(currentPart))
+  }, [currentSlug])
 
   const toggle = (part: PartId) => {
     setOpenParts((prev) => {

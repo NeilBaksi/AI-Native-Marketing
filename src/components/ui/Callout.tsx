@@ -3,8 +3,8 @@ import { Info, Sparkles, AlertTriangle } from 'lucide-react'
 import type { CalloutKind } from '../../types'
 
 const CONFIG: Record<CalloutKind, { icon: typeof Info; accent: string; label: string; tint: boolean }> = {
-  // note = an aside about mechanism, so cobalt. key/caution = stakes, so ember.
-  note: { icon: Info, accent: 'text-cobalt-deep', label: 'Note', tint: false },
+  // note = an aside about mechanism, so pine. key/caution = stakes, so ember.
+  note: { icon: Info, accent: 'text-pine-deep', label: 'Note', tint: false },
   key: { icon: Sparkles, accent: 'text-ember-deep', label: 'Key', tint: true },
   caution: { icon: AlertTriangle, accent: 'text-ember-deep', label: 'Caution', tint: true },
 }

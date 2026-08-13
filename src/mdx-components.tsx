@@ -21,7 +21,6 @@ import {
   Checklist,
   StepList,
   Formula,
-  SelfCheck,
   DecisionTree,
   Prompt,
 } from './components/ui'
@@ -76,7 +75,6 @@ export const mdxComponents: MDXComponents = {
   Checklist,
   StepList,
   Formula,
-  SelfCheck,
   DecisionTree,
   Prompt,
 }

@@ -28,7 +28,7 @@ export function Formula({ name, expression, terms, note }: FormulaProps) {
   return (
     <div className="py-1">
       <p className="font-mono text-[0.95rem] leading-[1.7] text-ink sm:text-[1.05rem]">
-        <span className="text-cobalt-deep">{name}</span>
+        <span className="text-pine-deep">{name}</span>
         <span className="mx-2 text-muted">=</span>
         <span>{expression}</span>
       </p>
@@ -37,7 +37,7 @@ export function Formula({ name, expression, terms, note }: FormulaProps) {
         <dl className="mt-3 border-t border-rule pt-3">
           {terms.map((t) => (
             <div key={t.symbol} className="flex flex-col py-1 sm:flex-row sm:gap-x-4">
-              <dt className="font-mono text-[0.75rem] uppercase tracking-wider text-cobalt-deep sm:w-44 sm:shrink-0">
+              <dt className="font-mono text-[0.75rem] uppercase tracking-wider text-pine-deep sm:w-44 sm:shrink-0">
                 {t.symbol}
               </dt>
               <dd className="min-w-0 max-w-prose text-sm leading-relaxed text-ink-soft">{t.meaning}</dd>

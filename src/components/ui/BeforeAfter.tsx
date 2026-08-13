@@ -31,7 +31,7 @@ export function BeforeAfter({ beforeLabel, afterLabel, rows, verdict }: BeforeAf
         <p className="py-2.5 pr-5 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-muted">
           {beforeLabel}
         </p>
-        <p className="border-l border-rule py-2.5 pl-5 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-cobalt-deep">
+        <p className="border-l border-rule py-2.5 pl-5 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-pine-deep">
           {afterLabel}
         </p>
       </div>
@@ -52,7 +52,7 @@ export function BeforeAfter({ beforeLabel, afterLabel, rows, verdict }: BeforeAf
                 <p className="text-base leading-relaxed text-ink-soft">{r.before}</p>
               </div>
               <div className="mt-3 min-w-0 border-t border-rule pt-3 sm:mt-0 sm:border-l sm:border-t-0 sm:pl-5 sm:pt-0">
-                <span className="mb-1 block font-mono text-[0.65rem] uppercase tracking-[0.16em] text-cobalt-deep sm:hidden">
+                <span className="mb-1 block font-mono text-[0.65rem] uppercase tracking-[0.16em] text-pine-deep sm:hidden">
                   {afterLabel}
                 </span>
                 <p className="text-base leading-relaxed text-ink-soft">{r.after}</p>

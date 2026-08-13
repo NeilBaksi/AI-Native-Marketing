@@ -24,7 +24,7 @@ export function StepList({ steps }: StepListProps) {
     <ol className="flex flex-col">
       {steps.map((s, i) => (
         <li key={s.title} className="flex gap-4 border-t border-rule py-5 last:border-b sm:gap-6">
-          <span className="w-8 shrink-0 font-display text-h3 leading-none tabular-nums text-cobalt sm:w-10">
+          <span className="w-8 shrink-0 font-display text-h3 leading-none tabular-nums text-pine sm:w-10">
             {i + 1}
           </span>
           <div className="min-w-0 flex-1">

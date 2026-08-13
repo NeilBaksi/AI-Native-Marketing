@@ -36,7 +36,7 @@ export function Timeline({ entries, footnote }: TimelineProps) {
           <li key={e.marker} className="flex gap-4 sm:gap-6">
             {/* rail — marker, right-aligned into the margin */}
             <div className="w-[4.5rem] shrink-0 pt-[3px] text-right sm:w-24">
-              <span className="font-mono text-[0.7rem] uppercase leading-5 tracking-[0.14em] text-cobalt-deep">
+              <span className="font-mono text-[0.7rem] uppercase leading-5 tracking-[0.14em] text-pine-deep">
                 {e.marker}
               </span>
             </div>
@@ -46,7 +46,7 @@ export function Timeline({ entries, footnote }: TimelineProps) {
               {/* bg-paper collar knocks the spine out behind the dot — a tonal
                   step, not a shadow or ring, so the dot reads as sitting on the axis */}
               <span className="block bg-paper py-1">
-                <span className="block size-[7px] rounded-full bg-cobalt" />
+                <span className="block size-[7px] rounded-full bg-pine" />
               </span>
               <span className={clsx('w-px flex-1', isLast ? 'bg-transparent' : 'bg-rule')} />
             </div>

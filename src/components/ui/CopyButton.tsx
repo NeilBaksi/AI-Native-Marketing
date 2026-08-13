@@ -43,7 +43,7 @@ export function CopyButton({ text, label }: CopyButtonProps) {
         onClick={handleClick}
         // `rounded-[4px]`, not the sibling project's `rounded-lg`: this sits inside a
         // square-cornered slab, and a soft radius here reads as a mini-card.
-        className="inline-flex min-h-[44px] items-center gap-1.5 rounded-[4px] border border-rule bg-surface px-3 font-mono text-[0.7rem] uppercase tracking-wider text-cobalt-deep transition-colors hover:border-cobalt hover:text-cobalt"
+        className="inline-flex min-h-[44px] items-center gap-1.5 rounded-[4px] border border-rule bg-surface px-3 font-mono text-[0.7rem] uppercase tracking-wider text-pine-deep transition-colors hover:border-pine hover:text-pine"
       >
         {status === 'copied' ? <Check size={16} aria-hidden /> : <Copy size={16} aria-hidden />}
         {visibleLabel}

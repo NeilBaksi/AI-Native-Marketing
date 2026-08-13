@@ -16,24 +16,28 @@ export default {
         'ink-soft': 'oklch(0.335 0.012 78.2 / <alpha-value>)', // body text           ≈ #3A3630
         muted: 'oklch(0.520 0.017 80.7 / <alpha-value>)', // captions/meta only  ≈ #6E685E
         // Two accents, each rationed. EMBER marks consequence — risk, stakes, the
-        // claim asserted, the fabricated figure. COBALT marks construction —
+        // claim asserted, the fabricated figure. PINE marks construction —
         // sequence, structure, formulas, the parts of a system. Most components
         // use neither; hierarchy still comes from ink weight and spacing.
         //
-        // Cobalt never appears as inline prose text: body links are `ember-deep`,
+        // Pine never appears as inline prose text: body links are `ember-deep`,
         // and a second dark accent in the text flow would read as a link.
         // It lives in mono rails, numerals, markers, control accents, hairlines.
         //
-        // Hue 258 is chosen so the pair survives colour-vision deficiency. Under
-        // protanopia/deuteranopia ember collapses to olive-yellow and cobalt to
-        // blue-violet — opposite poles of the surviving blue-yellow axis. Their
-        // post-simulation luminance ratio is only ~1.25:1 though, so the two
-        // accents must never be the SOLE difference between two things a reader
-        // has to tell apart; always pair with position, an icon, or a label.
+        // Was a saturated cobalt blue (hue 258) — corrected 2026-08-13, it read
+        // as generic SaaS-dashboard blue against a warm cream/ink editorial
+        // palette. Hue 192 is a deep pine/ledger teal: still on the blue side of
+        // the CVD confusion lines (protanopia/deuteranopia both collapse ember
+        // to olive-yellow and pine to blue-green — opposite poles of the
+        // surviving blue-yellow axis), but desaturated and green-shifted enough
+        // to sit next to burnt-orange ember without the corporate-blue read.
+        // Contrast improved in the swap too (was 5.14/7.24 on paper). The two
+        // accents must still never be the SOLE difference between two things a
+        // reader has to tell apart; always pair with position, an icon, or a label.
         ember: 'oklch(0.553 0.174 38.4 / <alpha-value>)', // accent — rare       ≈ #C2410C
         'ember-deep': 'oklch(0.470 0.143 37.3 / <alpha-value>)', // AA-safe small accent ≈ #9A3412
-        cobalt: 'oklch(0.520 0.152 258.0 / <alpha-value>)', // structural accent  ≈ #2966BE (5.14:1 on paper)
-        'cobalt-deep': 'oklch(0.440 0.132 258.0 / <alpha-value>)', // AA-safe accent text ≈ #1C509A (7.24:1)
+        pine: 'oklch(0.470 0.125 192.0 / <alpha-value>)', // structural accent  ≈ #006F6D (5.52:1 on paper)
+        'pine-deep': 'oklch(0.400 0.105 192.0 / <alpha-value>)', // AA-safe accent text ≈ #005856 (7.62:1)
       },
       fontFamily: {
         display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],

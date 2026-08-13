@@ -6,7 +6,7 @@ import { prompts, type PromptId } from '../../data/prompts'
  * `[bracketed]` spans render as marks. This is the one place on the site where
  * colour carries an *instruction* rather than a category: the prompt body is a
  * template with slots, and an unmarked template gets pasted into a model with
- * `[PASTE TRANSCRIPTS]` still in it. Ember, not cobalt — a placeholder is what
+ * `[PASTE TRANSCRIPTS]` still in it. Ember, not pine — a placeholder is what
  * *you* must supply, which is a stake, not a mechanism.
  *
  * The brackets are literal characters in the text, so with colour stripped the
@@ -44,7 +44,7 @@ export function Prompt({ id }: { id: PromptId }) {
     <section aria-labelledby={titleId} className="border-y border-rule">
       <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-3 border-b border-rule py-3">
         <div className="min-w-0">
-          <p className="kicker text-cobalt-deep">Prompt</p>
+          <p className="kicker text-pine-deep">Prompt</p>
           <h4 id={titleId} className="mt-1 font-display text-h4 leading-snug text-ink">
             {p.title}
           </h4>

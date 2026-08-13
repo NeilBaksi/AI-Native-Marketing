@@ -12,7 +12,7 @@ The point isn't a pass/fail grade across every field. Some gaps are launch-block
 
 Run this before committing to build any workflow, agent, or automation that assumes Shared Memory objects already exist and are trustworthy — not after the build starts and the gaps surface as production bugs.
 
-- Early in an I-MOS adoption effort, right after the [maturity-model](/foundations/maturity-model) self-diagnostic places you at a stage.
+- Early in an I-MOS adoption effort, right after the [maturity-model](/foundations/maturity-model) ladder places you at a stage.
 - Before scaling autonomy on any workflow — an agent making Fully Autonomous decisions on a Propensity Score built from stale, fragmented identity data is a governance failure waiting to happen, not a data-quality footnote.
 - When a workflow's outputs look wrong and the suspicion is the object it read, not the logic that read it.
 
@@ -42,27 +42,17 @@ Three of the five — Identity, Decision, Learning — are launch-blocking here:
 
 </Section>
 
-<Section index="04" kicker="Score your own five objects" title="Blank version">
+<Section index="04" kicker="Run it against your own five objects" title="Blank version">
 
-<SelfCheck
-  label="Data readiness self-check"
-  levels={['Blocking', 'Limits, not blocking', 'Ready']}
-  dimensions={[
-    { id: 'identity', question: 'Identity — one resolved customer record across web, email, CRM, and support?' },
-    { id: 'state', question: 'State — a near-real-time behavioral event stream?' },
-    { id: 'decision', question: 'Decision — a shared log of which policy fired, for which customer, and why?' },
-    { id: 'content', question: 'Content — modular, tagged Core/Proof/Offer/Risk blocks an agent can assemble?' },
-    { id: 'learning', question: 'Learning — holdout-tested results written back automatically after every campaign?' },
-  ]}
-  verdicts={[
-    "At least one object type is blocking — don't scale autonomy on any workflow that depends on it until this is fixed.",
-    'Nothing is blocking, but at least one object type limits what a workflow can safely do — note the constraint before building against it.',
-    "Every object type is ready. The gaps that remain, if any, are worth watching but wouldn't stop a workflow from launching.",
-  ]}
-  rule="Your placement is the worst object type, not the average — one blocking gap stops the loop from writing anywhere, no matter how ready the other four are."
-/>
+Copy the worked example's table shape — five rows, three columns (what it requires / what we actually have / verdict) — and fill it in against a written inventory of your own systems, object by object:
 
-Or run the audit against a written inventory of your own systems instead of scoring from memory:
+- **Identity** — one resolved customer record across web, email, CRM, and support?
+- **State** — a near-real-time behavioral event stream?
+- **Decision** — a shared log of which policy fired, for which customer, and why?
+- **Content** — modular, tagged Core/Proof/Offer/Risk blocks an agent can assemble?
+- **Learning** — holdout-tested results written back automatically after every campaign?
+
+The placement rule from the worked example still applies: the audit's verdict is set by the worst object type, not the average — one blocking gap stops the loop from writing anywhere, no matter how ready the other four are.
 
 <Prompt id="data-readiness-audit-run" />
 
@@ -70,7 +60,7 @@ Or run the audit against a written inventory of your own systems instead of scor
 
 <Section index="05" kicker="For now" title="Downloads">
 
-The self-check above doesn't save your answers between visits. For a version that persists, the worked example's table shows the shape to copy — five rows, three columns (what it requires / what we have / verdict). A dedicated .md/.csv export is on the list for when the toolkit ships a bulk download page.
+The table above is meant to be copied into a written inventory, not filled in from memory on this page. A dedicated .md/.csv export is on the list for when the toolkit ships a bulk download page.
 
 </Section>
 
