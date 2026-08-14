@@ -2,16 +2,16 @@
 
 <Section index="01" kicker="Autonomy, made auditable" title="What it's for">
 
-A governance table documents what's automated, what needs human review, and — the part most teams skip — what was deliberately left out and why. Filled out honestly, it's the artifact a compliance review or an incident postmortem actually wants to see: not a values statement about responsible AI, but a specific mechanism per agent that someone can check against what actually shipped.
+A governance table documents three things: what's automated, what needs human review, and what was deliberately left out and why. That's the part most teams skip. Filled out honestly, it's the artifact a compliance review or an incident postmortem actually wants to see. It isn't a values statement about responsible AI. It's a specific mechanism per agent that someone can check against what actually shipped.
 
 </Section>
 
 <Section index="02" kicker="Before an agent goes live" title="When to use it">
 
-Fill this out when standing up a new agentic workflow, before it touches customer-facing output, and revisit it at any compliance or audit review of an existing one. If a workflow can't produce a filled row — a named failure mode, a control, a measurable trigger — it isn't ready to run unsupervised, regardless of how well it tested in a demo.
+Fill this out when standing up a new agentic workflow, before it touches customer-facing output. Revisit it at any compliance or audit review of an existing one. A workflow that can't produce a filled row isn't ready to run unsupervised, regardless of how well it tested in a demo. A filled row names a specific failure mode, a control, and a measurable trigger.
 
 <Checklist
-  label="Ready to go live — all four required, per agent"
+  label="Ready to go live: all four required, per agent"
   items={[
     { text: 'A named failure mode exists for this agent or content type', hint: 'Specific, not "something could go wrong."' },
     { text: 'A zone is assigned (1, 2, or 3) per the Economics of Error' },
@@ -61,7 +61,7 @@ Fill this out when standing up a new agentic workflow, before it touches custome
         'Zone 3',
         'Makes an unsubstantiated claim about a named competitor',
         'Legal review required before any draft starts',
-        'Not applicable — agent has no drafting permission for this category',
+        'Not applicable. Agent has no drafting permission for this category.',
       ],
     },
   ]}
@@ -73,11 +73,11 @@ Fill this out when standing up a new agentic workflow, before it touches custome
   rows={[
     {
       label: 'Full autonomy on pricing-page copy',
-      cells: ["Pricing errors carry Zone 3-adjacent stakes even though the copy itself reads like routine Zone 1 content — cost of error is too high to automate the whole path yet."],
+      cells: ["Pricing errors carry Zone 3-adjacent stakes even though the copy itself reads like routine Zone 1 content. The cost of error is too high to automate the whole path yet."],
     },
     {
       label: 'An automated fact-checker that grades its own drafts',
-      cells: ['Self-grading collapses the control and the thing being controlled into the same system — no independent check remains if the grader hallucinates too.'],
+      cells: ['Self-grading collapses the control and the thing being controlled into the same system. No independent check remains if the grader hallucinates too.'],
     },
   ]}
 />
@@ -95,10 +95,10 @@ Fill this out when standing up a new agentic workflow, before it touches custome
 />
 
 <ComparisonTable
-  caption="Blank exclusions table — fill in at least two rows."
+  caption="Blank exclusions table. Fill in at least two rows."
   columns={['Why it was left out']}
   rows={[
-    { label: '[what was deliberately not automated or not controlled]', cells: ['[the risk of that omission, named — not just "not a priority yet"]'] },
+    { label: '[what was deliberately not automated or not controlled]', cells: ['[the risk of that omission, named, not just "not a priority yet"]'] },
   ]}
 />
 
@@ -111,7 +111,7 @@ Or draft the rows from a description of the agent instead of starting from empty
 <Section index="05" kicker="For now" title="Downloads">
 
 <Callout kind="note" title="Copy the blank version above">
-Both tables map directly to two spreadsheet tabs — a working `.csv` pair once the toolkit ships file assets.
+Both tables map directly to two spreadsheet tabs: a working `.csv` pair once the toolkit ships file assets.
 </Callout>
 
 </Section>
@@ -121,7 +121,7 @@ Both tables map directly to two spreadsheet tabs — a working `.csv` pair once 
 <PullQuote quote="Not an ethics statement — a specific mechanism per agent: one named failure, one control, one measurable kill-switch." attribution="governance design principle" />
 
 <Callout kind="key" title="Naming what you didn't cover is the harder half">
-The main table is the part every team eventually fills in under audit pressure. The exclusions table is the part that gets skipped, because admitting a gap feels like handing a reviewer ammunition. It's the opposite: an unnamed gap is a gap nobody's watching; a named one, with its risk stated, is a gap someone made a deliberate call about — the same discipline the [decision-narrative persona](/toolkit/decision-narrative-persona) template applies to its negative persona, pointed at governance instead of targeting.
+The main table is the part every team eventually fills in under audit pressure. The exclusions table is the part that gets skipped, because admitting a gap feels like handing a reviewer ammunition. An unnamed gap is a gap nobody's watching. A named one, with its risk stated, is a gap someone made a deliberate call about. That's the same discipline the [decision-narrative persona](/toolkit/decision-narrative-persona) template applies to its negative persona, pointed at governance instead of targeting.
 </Callout>
 
 </Section>

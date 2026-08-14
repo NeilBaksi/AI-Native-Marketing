@@ -1,12 +1,12 @@
 <Section index="01" kicker="The fields a state needs" title="What it's for">
 
-[Orchestrate](/workflows/orchestrate) defines what makes a journey state real rather than a funnel stage relabeled — it has to be observable, exclusive, and actionable — and names the seven archetypal states built on that test. This page doesn't re-run that argument. It's the fillable template: the fields a state actually needs before an orchestration engine can trigger off it, applied to a state of your own.
+[Orchestrate](/workflows/orchestrate) defines what makes a journey state real rather than a funnel stage relabeled: it has to be observable, exclusive, and actionable. It also names the seven archetypal states built on that test. This page doesn't re-run that argument. It's the fillable template: the fields a state actually needs before an orchestration engine can trigger off it, applied to a state of your own.
 
 </Section>
 
 <Section index="02" kicker="Before wiring any triggers" title="When to use it">
 
-Fill this out any time a new state needs defining — not just for the seven named archetypes, but for any sub-state a real journey needs that those seven don't name individually.
+Fill this out for any new state. That covers more than the seven named archetypes. It's also for any sub-state a real journey needs that those seven don't name individually.
 
 - Designing a new orchestration workflow and defining its states before wiring any triggers.
 - Replacing a linear funnel stage that can't express branching, looping, or "customer moved backward" — the exact behavior a funnel structurally can't hold.
@@ -30,7 +30,7 @@ A state that sits inside "Considering" for a subscription product: a free trial 
   ]}
 />
 
-Each field maps back to one of the three tests Orchestrate names: Entry and Exit are what make the state observable — a system can detect them without a person judging. The fact that Purchase and day-14-no-purchase can't both be true is what keeps it exclusive. Content/NBA is what makes it actionable — nothing about being "nearing expiry" matters if no move is attached to it.
+Each field maps back to one of the three tests Orchestrate names. Entry and Exit make the state observable, since a system can detect them without a person judging. Purchase and day-14-no-purchase can't both be true, which keeps this state exclusive. Content/NBA is the piece that makes it actionable. Nothing about being "nearing expiry" matters if no move is attached to it.
 
 </Section>
 
@@ -58,12 +58,12 @@ Or draft a state definition from a real behavior instead of filling in each fiel
 
 <Section index="05" kicker="For now" title="Downloads">
 
-The blank table above copies directly into a spreadsheet — one row per field, one column per state. A dedicated .md/.csv export is on the list for when the toolkit ships a bulk download page.
+This copies straight into a spreadsheet. One row goes per field, one column per state. A dedicated .md/.csv export is on the list for when the toolkit ships a bulk download page.
 
 </Section>
 
 <Section index="06" kicker="What keeps a state machine calm" title="Design decision">
 
-Dwell minimum and the regression cooldown are the two fields most journey-state designs skip, and they're the ones that keep a state machine calm in production. Without a dwell minimum, a customer whose activation score wobbles across a threshold gets re-evaluated on every event and can flicker between states within minutes. Without a cooldown on regression, a customer who drops out of a state and immediately re-qualifies bounces straight back in, and the system spends its effort reacting to noise instead of orchestrating anything real. Naming both explicitly, for every state, is what separates a template that survives contact with real data from one that only ever worked in the design doc.
+Dwell minimum and the regression cooldown are the two fields most journey-state designs skip, and they're the ones that keep a state machine calm in production. Without a dwell minimum, a customer whose activation score wobbles across a threshold gets re-evaluated on every event and can flicker between states within minutes. Without a cooldown on regression, a customer who drops out of a state and immediately re-qualifies bounces straight back in. The system then spends its effort reacting to noise, instead of orchestrating anything real. Name both explicitly, for every state. Then the template survives contact with real data, instead of only ever working in the design doc.
 
 </Section>

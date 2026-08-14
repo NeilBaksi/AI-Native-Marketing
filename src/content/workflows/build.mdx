@@ -1,4 +1,4 @@
-Every chapter so far has described what a workflow does. This one is the second of two translations the course names explicitly: Strategy becomes Architecture — that's I-MOS itself, everything from Part II — and Architecture becomes Stack, which is this chapter's job. An architecture names capabilities. A stack specifies what actually gets built, by which agents, on what data.
+A stack is what actually gets built: which agents, doing what, on what data. An architecture names capabilities. Turning one into the other is this chapter's job — the second of two translations: Strategy to Architecture, which is I-MOS itself, and Architecture to Stack, which is here.
 
 <Section index="01" kicker="Two translations" title="The four-layer stack, made concrete">
 
@@ -10,13 +10,13 @@ Every chapter so far has described what a workflow does. This one is the second 
   <FlowChain nodes={['Level 1 — Strategic Architecture', 'Level 2 — Operating Architecture (I-MOS)', 'Level 3 — Operating Stack']} />
 </Figure>
 
-Part II's four layers were the operating architecture — what each layer is *for*. This chapter is what gets built inside each one: which agents, doing which tasks, connected how. Remove the translation and the architecture stays a diagram nobody can implement.
+Part II's four layers were the operating architecture. That's what each layer is *for*. This chapter is what gets built inside each one: which agents, doing which tasks, connected how. Remove the translation and the architecture stays a diagram nobody can implement.
 
 </Section>
 
 <Section index="02" kicker="Six teams, not one tool" title="The six agentic services">
 
-An agentic service is a coordinated team of autonomous agents delivering one marketing capability — not a single AI tool bolted onto a workflow. The scale of what "team" means here is the concrete part most descriptions skip:
+An agentic service is a coordinated team of autonomous agents delivering one marketing capability, distinct from a single AI tool bolted onto a workflow. The scale of what "team" means here is the concrete part most descriptions skip:
 
 <Figure
   d="D56"
@@ -39,13 +39,13 @@ An agentic service is a coordinated team of autonomous agents delivering one mar
 
 <Stat id="imos-agent-scale" />
 
-Decisioning Service — the one behind Focus's ICP scoring — is a useful size reference: 12 agents organized into 5 sub-workflows, 3 of them requiring human sign-off before anything downstream fires. That's small next to Signal's 19, and it's still not "one AI tool," which is the entire point of naming it a service instead of a feature.
+Decisioning Service sets the scale. It's the one behind Focus's ICP scoring: 12 agents organized into 5 sub-workflows, 3 of them requiring human sign-off before anything downstream fires. That's small next to Signal's 19, but still a coordinated service, not a single tool.
 
 </Section>
 
 <Section index="03" kicker="The shared vocabulary" title="The ontology layer">
 
-Every service above has to interoperate with every other one, and interoperation needs a common schema before it needs a single line of agent code. Five entity types, formally, describe any I-MOS workflow at any level of depth — each one nested inside the last, not a sequence a workflow passes through:
+Every service above has to interoperate with every other one, and interoperation needs a common schema before it needs a single line of agent code. Five entity types, formally, describe any I-MOS workflow at any level of depth, each one nested inside the last, not a sequence a workflow passes through:
 
 <StepList steps={[
   { title: 'Workflow', body: 'The seven top-level marketing outcomes, plus Govern as a cross-cutting envelope.' },
@@ -61,7 +61,7 @@ This is the schema the Four-Pass Decomposition Method walks through, workflow by
 
 <Section index="04" kicker="Same architecture, different technology" title="Implementation archetypes">
 
-There's no universal winner here, and the course is explicit about that: three archetypes implement the identical I-MOS architecture on different technology, and the right choice depends on where an organization's data already lives.
+There's no universal winner here: three archetypes implement the identical I-MOS architecture on different technology, and the right choice depends on where an organization's data already lives.
 
 <ComparisonTable
   caption="Three implementation archetypes — same four layers, different spine."
@@ -73,7 +73,7 @@ There's no universal winner here, and the course is explicit about that: three a
   ]}
 />
 
-Many organizations run hybrids rather than picking one cleanly — the CDW build from the previous chapter sits closer to Salesforce-plus-composable than to any pure archetype, which is normal, not a sign the framework doesn't fit.
+Many organizations run hybrids rather than picking one cleanly. The CDW build from the previous chapter sits closer to Salesforce-plus-composable than to any pure archetype. That's normal. It's not a sign the framework doesn't fit.
 
 <Prompt id="build-archetype-selector" />
 

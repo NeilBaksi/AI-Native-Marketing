@@ -1,8 +1,8 @@
-The four-layer stack named Shared Memory as the substrate every workflow reads and writes. This chapter is the specific version of that claim: which objects, written by which workflow, read by which one next.
+Every object written to Shared Memory carries an implicit contract. One workflow writes it. A named workflow downstream reads it, the instant it exists. Sense writes an object and Focus can act on it before anyone converts it into a slide. That write-then-read mechanic, repeated across all seven workflows, is what turns the four-layer stack's Shared Memory into an operating system rather than a database.
 
 <Section index="01" kicker="The pattern" title="The object-writing pattern">
 
-Every workflow's contribution to the loop is a defined set of objects it writes — not a report, not a deck, a structured record another workflow's agents can read without a person translating it first. The five object types from the four-layer stack (identity, state, decision, content, learning) are the schema; what varies by workflow is which specific objects within that schema each one is responsible for.
+Every workflow's contribution to the loop is a defined set of objects it writes, not a report, not a deck, but a structured record another workflow's agents can read without a person translating it first. The five object types from the four-layer stack (identity, state, decision, content, learning) are the schema; what varies by workflow is which specific objects within that schema each one is responsible for.
 
 This is what makes the difference between "Sense produces research" and "Sense writes five specific objects Focus can read the moment they exist" load-bearing rather than semantic. A report can sit unread. An object in Shared Memory is available to every downstream agent the instant it's written.
 
@@ -13,11 +13,11 @@ This is what makes the difference between "Sense produces research" and "Sense w
 Sense writes five insight objects, and Focus reads all five:
 
 <DefinitionList items={[
-  { term: 'Identity Profile', body: 'Who this person is, resolved across every touchpoint into one record — not five fragments in five systems.' },
+  { term: 'Identity Profile', body: 'Who this person is, resolved across every touchpoint into one record, not five fragments in five systems.' },
   { term: 'Engagement History', body: 'Recency, frequency, and depth of interaction across every channel.' },
-  { term: 'Propensity Score', body: 'Likelihood to convert, expand, or churn — updated continuously, not on a quarterly refresh.' },
+  { term: 'Propensity Score', body: 'Likelihood to convert, expand, or churn, updated continuously rather than on a quarterly refresh.' },
   { term: 'Need State', body: "What job this person is trying to get done right now, inferred from triangulated signal, not assumed from a segment label." },
-  { term: 'Consent + Constraints', body: 'What the system is actually permitted to do — channel limits, privacy preferences, regulatory bounds.' },
+  { term: 'Consent + Constraints', body: 'What the system is actually permitted to do: channel limits, privacy preferences, regulatory bounds.' },
 ]} />
 
 <Figure
@@ -28,42 +28,42 @@ Sense writes five insight objects, and Focus reads all five:
   <FlowChain nodes={['Sense', 'Identity · Engagement · Propensity · Need State · Consent', 'Focus']} />
 </Figure>
 
-Focus, in turn, writes five objects of its own for every workflow downstream of it to read: **ICP Score** (Fit × Readiness − Friction, the single number deciding who gets served which play), **Persona + Need State** (the job the buyer is doing, their anxieties, the proof they trust), **Positioning Payload** (which value pillar leads, which claims are highlighted, per customer), **Personalization Policy** (how far AI may personalize for this person — the trust-boundary rule as code, not a guideline), and **Segment Membership** (which service tier — high-touch, programmatic, nurture). Get the ICP wrong here and every object downstream inherits the error: positioning targets a customer who doesn't exist, journeys personalize at scale for the wrong audience, spend routes to accounts that never close.
+Focus, in turn, writes five objects of its own for every workflow downstream of it to read: **ICP Score** (Fit × Readiness − Friction, the single number deciding who gets served which play), **Persona + Need State** (the job the buyer is doing, their anxieties, the proof they trust), **Positioning Payload** (which value pillar leads, which claims are highlighted, per customer), **Personalization Policy** (how far AI may personalize for this person: the trust-boundary rule as code, not a guideline), and **Segment Membership** (which service tier: high-touch, programmatic, nurture). Get the ICP wrong here and every object downstream inherits the error: positioning targets a customer who doesn't exist, journeys personalize at scale for the wrong audience, spend routes to accounts that never close.
 
 </Section>
 
 <Section index="03" kicker="Build and Run" title="What Design and later workflows write">
 
-Design writes four objects that make it, in the course's own framing, the "legislative branch" of I-MOS — the layer that has to be complete before anything downstream can run: a **Brand DNA Specification** (machine-readable tone rules, visual grammar, proof standards, claims constraints — not a PDF a person re-interprets per asset), a **Messaging Architecture** (master narrative and message pillars mapped to ICP and journey state), **Modular Content Blocks** (Core, Proof, Offer, and Risk blocks, versioned and tagged for assembly on demand), and **Governance Zones** (which content auto-publishes, which needs review, which requires a human author).
+Design writes four objects that make it the "legislative branch" of I-MOS, the layer that has to be complete before anything downstream can run: a **Brand DNA Specification** (machine-readable tone rules, visual grammar, proof standards, claims constraints, not a PDF a person re-interprets per asset), a **Messaging Architecture** (master narrative and message pillars mapped to ICP and journey state), **Modular Content Blocks** (Core, Proof, Offer, and Risk blocks, versioned and tagged for assembly on demand), and **Governance Zones** (which content auto-publishes, which needs review, which requires a human author).
 
-Execute and Learn close the loop through a five-step cycle the course calls the Learning Flywheel — and the object that matters most is the one written in step four:
+Execute and Learn close the loop through a five-step cycle called the Learning Flywheel, and the object that matters most is the one written in step four:
 
 <Figure
   d="D78"
-  caption="The Learning Flywheel — Update is the step that writes winning parameters back to Shared Memory."
+  caption="The Learning Flywheel: Update is the step that writes winning parameters back to Shared Memory."
   alt="Five-step closed loop: Act (fire a campaign or trigger), Measure (capture incremental outcomes against a holdout), Analyze (isolate which variable drove the lift), Update (write winning parameters back to Shared Memory), Improve (the next cycle starts with better priors). Update feeds back into Act."
 >
   <FlowChain
     nodes={['Act', 'Measure', 'Analyze', 'Update', 'Improve']}
-    loopBackLabel="Update writes winning parameters back to Shared Memory — Improve starts the next cycle already smarter"
+    loopBackLabel="Update writes winning parameters back to Shared Memory, and Improve starts the next cycle already smarter"
   />
 </Figure>
 
 <Example id="booking-com-experiments">
-  Booking.com runs this loop at a scale most organizations don't attempt: over a thousand experiments concurrently, 25,000-plus a year, roughly seventy launched on an average day. Nobody needs to approve a test to launch it, and a winner reaches 75 countries in under an hour — because the repository that decides what "winning" means is shared, searchable, and always current, not rebuilt from memory each time.
+  Booking.com runs this loop at a scale most organizations don't attempt: over a thousand experiments concurrently, 25,000-plus a year, roughly seventy launched on an average day. Nobody needs to approve a test to launch it, and a winner reaches 75 countries in under an hour, because the repository that decides what "winning" means is shared, searchable, and always current, not rebuilt from memory each time.
 </Example>
 
 </Section>
 
 <Section index="04" kicker="The real failure mode" title="Why shared memory is what keeps the loop honest">
 
-It's tempting to assume the risk in all of this is a *wrong* object — a bad ICP score, a miscalibrated propensity model. The more common and more expensive failure is a *missing* one: an object that should exist in one shared place but instead exists three times, incompletely, in three systems that don't know about each other.
+It's tempting to assume the risk in all of this is a *wrong* object, a bad ICP score, a miscalibrated propensity model. The more common and more expensive failure is a *missing* one: an object that should exist in one shared place but instead exists three times, incompletely, in three systems that don't know about each other.
 
 <Example id="ab-inbev-three-consumers">
-  AB InBev ran 500+ brands through separate agency relationships for much of the 2010s, each with its own data and campaign logic. A single consumer who bought Budweiser, Corona, and Stella Artois — all AB InBev brands — was treated as three different consumers by three different systems that had no knowledge of each other. The data to answer "was this person over-messaged this quarter?" existed across five agency data warehouses and zero shared databases. Not a bad model — a structurally unanswerable question, because no single Identity Profile object existed for that consumer anywhere.
+  AB InBev ran 500+ brands through separate agency relationships for much of the 2010s, each with its own data and campaign logic. A single consumer who bought Budweiser, Corona, and Stella Artois, all AB InBev brands, was treated as three different consumers by three different systems that had no knowledge of each other. The data to answer "was this person over-messaged this quarter?" existed across five agency data warehouses and zero shared databases. This was not a bad model. It was a structurally unanswerable question, because no single Identity Profile object existed for that consumer anywhere.
 </Example>
 
-Every case in this chapter — the five insight objects, Focus's five, Design's four, the Learning Flywheel's write-back — is the same argument made concrete, workflow by workflow: the loop only compounds if what one workflow learns is actually available, as a structured object, to the next one that needs it.
+Every case in this chapter makes the same argument concrete, workflow by workflow: the five insight objects, Focus's five, Design's four, the Learning Flywheel's write-back. The loop only compounds if what one workflow learns is actually available, as a structured object, to the next one that needs it.
 
 <Prompt id="shared-memory-object-audit" />
 

@@ -1,43 +1,43 @@
-The seven workflows name the work. This chapter names what the work runs on — and the course is explicit that this isn't optional detail: remove any one of the four layers below and the system breaks, no matter how well the workflows themselves are designed.
+The seven workflows name the work. This chapter names what the work runs on, and none of it is optional. Remove any one of the four layers below and the system breaks, no matter how well the workflows themselves are designed.
 
 <Section index="01" kicker="Layer 1" title="Shared Memory: the hard drive">
 
-Today, customer truth is fragmented across a CDP, a CRM, a data lake, an identity graph, and a consent platform — different vendors, brittle integrations, conflicting customer IDs for the same person. Shared Memory replaces all five with one logical layer that every agent reads and writes in real time, organized into five object types: identity, state, decision, content, and learning.
+Today, customer truth is fragmented across a CDP, a CRM, a data lake, an identity graph, and a consent platform, each from a different vendor, stitched together with brittle integrations and conflicting customer IDs for the same person. Shared Memory replaces all five with one logical layer that every agent reads and writes in real time, organized into five object types: identity, state, decision, content, and learning.
 
-That fifth type is the one easy to miss. Learning objects are what Session 10 called the write-back — incrementality by channel, drift alerts, model performance by segment — the layer where Learn's output becomes next cycle's starting input instead of a slide nobody revisits.
+That fifth type is the one easy to miss: the write-back. Incrementality by channel, drift alerts, model performance by segment. It is the layer where Learn's output becomes next cycle's starting input instead of a slide nobody revisits.
 
 <Figure
   d="D3"
-  caption="The four-layer stack — Governance Envelope wraps Orchestration Plane, which sequences Agentic Services, which read and write Shared Memory."
+  caption="The four-layer stack: Governance Envelope wraps Orchestration Plane, which sequences Agentic Services, which read and write Shared Memory."
   alt="Four stacked bands, top to bottom: Governance Envelope (the immune system, drawn apart with a dashed border since it wraps the other three rather than sitting as a fourth peer layer), Orchestration Plane (the nervous system), Agentic Services (the organs), Shared Memory (the brain)."
 >
   <LayerStack
     layers={[
-      { name: 'Governance Envelope', metaphor: 'The immune system', role: 'Consent gates, claims verification, bias detection, kill-switches, audit logging — constrains every decision at every step, not applied as an end-of-process gate.' },
+      { name: 'Governance Envelope', metaphor: 'The immune system', role: 'Consent gates, claims verification, bias detection, kill-switches, and audit logging, constraining every decision at every step rather than applying at an end-of-process gate.' },
       { name: 'Orchestration Plane', metaphor: 'The nervous system', role: 'Sequences service invocations, manages dependencies, handles exceptions, routes escalations across workflows.' },
-      { name: 'Agentic Services', metaphor: 'The organs', role: 'Six coordinated agent teams delivering marketing capability — Signal, Decisioning, Content Assembly, Journey Orchestration, Activation, Experimentation & Measurement.' },
-      { name: 'Shared Memory', metaphor: 'The brain', role: 'The persistent substrate every agent reads and writes — identity, state, decision, content, and learning objects, unified in real time.' },
+      { name: 'Agentic Services', metaphor: 'The organs', role: 'Six coordinated agent teams delivering marketing capability, spanning Signal, Decisioning, Content Assembly, Journey Orchestration, Activation, and Experimentation & Measurement.' },
+      { name: 'Shared Memory', metaphor: 'The brain', role: 'The persistent substrate every agent reads and writes, spanning identity, state, decision, content, and learning objects, unified in real time.' },
     ]}
   />
 </Figure>
 
 <Example id="martech-fragmentation">
-  This is the gap the four layers exist to close, stated as a number rather than an abstraction: the average enterprise runs 91 martech tools out of an industry catalog of nearly 10,000, and roughly a quarter of them are actually connected to each other. Buying more tools doesn't fix this — nothing in a typical stack is *responsible* for the connecting.
+  This is the gap the four layers exist to close, stated as a number rather than an abstraction: the average enterprise runs 91 martech tools out of an industry catalog of nearly 10,000, and roughly a quarter of them are actually connected to each other. Buying more tools doesn't fix this. Nothing in a typical stack is *responsible* for the connecting.
 </Example>
 
 </Section>
 
 <Section index="02" kicker="Layer 2" title="Agentic Services: the applications">
 
-An agentic service isn't one AI tool bolted onto a workflow — it's a coordinated team of autonomous agents, each with a defined scope, communicating with each other through Shared Memory rather than through a person relaying context between them. The course's own comparison: an ER department, where a triage nurse, a specialist, a technician, and a pharmacist each have a clear role, and the shared patient record is what keeps all of them aligned without a meeting.
+An agentic service is not one AI tool bolted onto a workflow. It is a coordinated team of autonomous agents, each with a defined scope, communicating with each other through Shared Memory rather than through a person manually relaying context between them. One useful comparison: an ER department, where a triage nurse, a specialist, a technician, and a pharmacist each have a clear role, and the shared patient record is what keeps all of them aligned without a meeting.
 
-Six services cover the seven workflows between them (Focus and Orchestrate each get their own; Attract and Execute share Activation): Signal (Sense), Decisioning (Focus + Orchestrate), Content Assembly (Design), Journey Orchestration (Orchestrate), Activation (Attract + Execute), and Experimentation & Measurement (Learn) — the only service whose output flows backward to update the others, rather than forward to the next one.
+Six services cover the seven workflows between them (Focus and Orchestrate each get their own; Attract and Execute share Activation): Signal (Sense), Decisioning (Focus + Orchestrate), Content Assembly (Design), Journey Orchestration (Orchestrate), Activation (Attract + Execute), and Experimentation & Measurement (Learn), the only service whose output flows backward to update the others rather than forward to the next one.
 
 </Section>
 
 <Section index="03" kicker="Layer 3" title="Orchestration: the conductor">
 
-Session 10 states this layer's absence bluntly: most martech stacks today are an orchestra of brilliant instruments with no conductor. Every individual tool can be excellent and the system can still fail to produce coherent output, because nothing is deciding what runs when, in what order, or what happens when a step fails.
+This layer's absence is stark: most martech stacks today are an orchestra of brilliant instruments with no conductor. Every individual tool can be excellent and the system can still fail to produce coherent output, because nothing is deciding what runs when, in what order, or what happens when a step fails.
 
 Orchestration does five things, in this order, for every goal it runs:
 
@@ -47,7 +47,7 @@ Orchestration does five things, in this order, for every goal it runs:
     { title: 'Sequence the services', body: 'Decides which service executes each step, and in what order.' },
     { title: 'Manage the handoffs', body: 'Checks every handoff between services for the right shape, in the right place, logged.' },
     { title: 'Handle exceptions', body: 'Catches and routes what happens when a step fails, rather than letting the failure propagate silently.' },
-    { title: 'Coordinate across workflows', body: "Routes Sense's output to Focus, Design, Orchestrate, Execute, Learn, and Govern — not just to the next workflow in line." },
+    { title: 'Coordinate across workflows', body: "Routes Sense's output to Focus, Design, Orchestrate, Execute, Learn, and Govern, not just to the next workflow in line." },
   ]}
 />
 
@@ -55,14 +55,14 @@ Orchestration does five things, in this order, for every goal it runs:
 
 <Section index="04" kicker="Layer 4" title="Governance: the immune system">
 
-Governance is the layer easiest to misdraw as a gate at the end — a review step before launch. The course's framing is the opposite: it's an envelope running continuously across every other layer, checking consent, claims, and bias while decisions are being made, not after.
+Governance is the layer easiest to misdraw as a gate at the end, a review step before launch. That's backwards: it's an envelope running continuously across every other layer, checking consent, claims, and bias while decisions are being made, not after.
 
 <DefinitionList items={[
   { term: 'Consent gates', body: "No consent, no run. If it can't be confirmed, the system stops rather than proceeding on an assumption." },
-  { term: 'Claims verification', body: 'If the AI says it, it has to be on the approved list — no exceptions for phrasing that sounds close enough.' },
+  { term: 'Claims verification', body: 'If the AI says it, it has to be on the approved list, with no exceptions for phrasing that sounds close enough.' },
   { term: 'Bias detection', body: 'Watches who a model favors and who it leaves out, with accuracy thresholds checked per group, not just in aggregate.' },
-  { term: 'Kill-switch protocols', body: 'A defined halt mechanism with real thresholds — e.g. a consent-check outage past 60 seconds halts everything, not just the affected service.' },
-  { term: 'Audit logging', body: "Every decision logged end to end. The course's line: the trail is what makes AI marketing defensible, not the policy document." },
+  { term: 'Kill-switch protocols', body: 'A defined halt mechanism with real thresholds. For example, a consent-check outage past 60 seconds halts everything, not just the affected service.' },
+  { term: 'Audit logging', body: "Every decision logged end to end. The trail is what makes AI marketing defensible, not the policy document." },
 ]} />
 
 <Stat id="governance-gates-44" />
@@ -71,24 +71,24 @@ Governance is the layer easiest to misdraw as a gate at the end — a review ste
 
 <Section index="05" kicker="One trace" title="From strategic decision to running stack">
 
-Put the four layers on one timeline and they stop being an org chart and start being a trace. A single web event — one visit, one click — moves through all four layers in order, and every stop is a real agent doing real, bounded work.
+Put the four layers on one timeline and they stop being an org chart and start being a trace. A single web event, one visit, one click, moves through all four layers in order, and every stop is a real agent doing real, bounded work.
 
 <Figure
   d="D62"
-  caption="One signal, full system — a single web event traced through Governance, Signal Service, Shared Memory, Decisioning, Orchestration, and back out through Activation and Measurement."
+  caption="One signal moves through the full system, a single web event traced through Governance, Signal Service, Shared Memory, Decisioning, Orchestration, and back out through Activation and Measurement."
   alt="Seven-step trace of one web event: Governance (L4) verifies consent before any processing starts; Signal Service (L2) captures, validates, and routes the event; Shared Memory (L1) writes an enriched, consent-checked identity profile; Decisioning Service (L2) assigns a segment and priority score; Orchestration Plane (L3) dispatches services in parallel and manages convergence; Activation Service (L2) delivers to the right channel and message; Measurement Service (L2) measures incrementality and writes learning objects back to Shared Memory."
 >
   <FlowChain
     nodes={['Governance verifies consent', 'Signal captures + routes', 'Shared Memory writes profile', 'Decisioning scores + segments', 'Orchestration dispatches', 'Activation delivers', 'Measurement writes back']}
-    loopBackLabel="Measurement's output becomes Shared Memory's next learning object — the trace closes into the next cycle, not a report"
+    loopBackLabel="Measurement's output becomes Shared Memory's next learning object, closing the trace into the next cycle rather than into a report"
   />
 </Figure>
 
 <Example id="cdw-marko">
-  CDW didn't build this on a blank slate — it already ran Marketo, 6sense, Adobe CDP, Adobe Target, and SFMC, and the CMO's stated problem was "islands of improvement with no system-level benefit." Marko, the multi-agent system they built on top of that stack, proved itself on one narrow use case before scaling, with governance agents at every step rather than one review at the end. That sequencing — prove narrow, then expand the architecture — is the same shape as the trace above, just at the scale of an actual $22B organization instead of one signal.
+  CDW didn't build this on a blank slate. It already ran Marketo, 6sense, Adobe CDP, Adobe Target, and SFMC, and the CMO's stated problem was "islands of improvement with no system-level benefit." Marko, the multi-agent system they built on top of that stack, proved itself on one narrow use case before scaling, with governance agents at every step rather than one review at the end. Prove narrow, then expand the architecture. That is the same sequencing behind the trace above, just at the scale of an actual $22B organization instead of one signal.
 </Example>
 
-A strategic decision — which segment to prioritize, which claim is safe to make — isn't separate from this stack. It's the thing the stack exists to carry, correctly, from the moment a signal arrives to the moment a customer sees the result.
+A strategic decision, such as which segment to prioritize or which claim is safe to make, is not separate from this stack. It's the thing the stack exists to carry, correctly, from the moment a signal arrives to the moment a customer sees the result.
 
 <Prompt id="four-layer-stack-trace-audit" />
 

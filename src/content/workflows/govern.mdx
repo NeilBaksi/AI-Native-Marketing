@@ -1,8 +1,8 @@
-`/spine/govern-envelope` named five components in outline and stopped there on purpose — orientation, not depth, so the constraint was on the table before Part III's workflow detail rather than a Session-19 surprise at the end. This chapter is the depth that page deliberately deferred: not what governance does in general, but the six specific ways an AI-native marketing system actually fails, what stops each one, how a kill switch gets designed before it's needed, and which regulations are actually asking for this.
+Air Canada's chatbot invented a bereavement-fare policy that never existed, and a tribunal held the airline liable for what its own agent said. `/spine/govern-envelope` named five components in outline and stopped there on purpose, orientation, not depth, so the constraint was on the table before Part III's workflow detail rather than a Session-19 surprise at the end. This chapter is that depth: not what governance does in general, but the six specific ways an AI-native marketing system actually fails, what stops each one, how a kill switch gets designed before it's needed, and which regulations are actually asking for this.
 
 <Section index="01" kicker="Six ways this actually breaks" title="The six risks">
 
-Every one of these has already happened, publicly, to a real company — not a hypothetical risk register:
+Every one of these has already happened, publicly, to a real company, not a hypothetical risk register:
 
 <Figure
   d="D81"
@@ -26,11 +26,11 @@ Every one of these has already happened, publicly, to a real company — not a h
 Two of these are worth sitting with longer than a table row allows:
 
 <Example id="air-canada-chatbot">
-  A customer asked Air Canada's chatbot about bereavement fares. The chatbot invented a policy that didn't exist and told the customer it was real. Air Canada argued in tribunal that the chatbot was effectively a separate entity, responsible for its own statements. The tribunal disagreed — the airline was held liable for what its own agent said, which is the entire argument for a kill switch that can actually stop an agent before it speaks for the brand again.
+  A customer asked Air Canada's chatbot about bereavement fares. The chatbot invented a policy that didn't exist and told the customer it was real. Air Canada argued in tribunal that the chatbot was effectively a separate entity, responsible for its own statements. The tribunal disagreed. The airline was held liable for what its own agent said.
 </Example>
 
 <Example id="meta-hud-bias">
-  Nobody instructed Meta's ad-delivery model to discriminate. It learned the pattern from training data — nursing ads skewing toward women, janitorial ads skewing toward men of color — and repeated it at scale, invisibly, until a HUD lawsuit made it visible. A fairness check run on every output before delivery, not sampled after the fact, is specifically designed to catch exactly this: a pattern nobody wrote down anywhere, reproduced faithfully by a system that has no concept of having done anything wrong.
+  Nobody instructed Meta's ad-delivery model to discriminate. It learned the pattern from training data, nursing ads skewing toward women, janitorial ads skewing toward men of color, and repeated it at scale, invisibly, until a HUD lawsuit made it visible. A fairness check run on every output before delivery, not sampled after the fact, is specifically designed to catch exactly this: a pattern nobody wrote down anywhere, reproduced faithfully by a system that has no concept of having done anything wrong.
 </Example>
 
 </Section>
@@ -48,7 +48,7 @@ A kill switch designed after an incident is a postmortem action item. Designed i
 </Figure>
 
 <Example id="spotify-ai-dj-trust">
-  Spotify's AI DJ generates spoken commentary between songs, and early versions referenced a listener's inferred location and current activity. "I see you are at the gym" tested well in a demo and unsettling in practice — personalization had crossed from delightful to surveilled. The fix wasn't a bigger disclaimer; it was capping what the system could reference at all — mood stays in, inferred location comes out — with skip-rate monitored in real time as an early-warning signal. AI DJ runs at over 70% positive sentiment since. Governance prevented the problem here; it didn't clean up after it.
+  Spotify's AI DJ generates spoken commentary between songs, and early versions referenced a listener's inferred location and current activity. "I see you are at the gym" tested well in a demo and unsettling in practice. Personalization had crossed from delightful to surveilled. The fix capped what the system could reference at all rather than adding a bigger disclaimer: mood stays in, inferred location comes out, with skip-rate monitored in real time as an early-warning signal. AI DJ has run at over 70% positive sentiment ever since the change. Governance prevented the problem here. It didn't clean up after it.
 </Example>
 
 <Prompt id="govern-kill-switch-design" />
@@ -57,7 +57,7 @@ A kill switch designed after an incident is a postmortem action item. Designed i
 
 <Section index="03" kicker="What regulators are actually asking" title="Regulation">
 
-Every major regulatory framework touching this system reduces to a version of the same demand: prove it.
+Every major regulatory framework touching this system reduces to a version of the same demand. Prove it.
 
 <ComparisonTable
   caption="What four major regulatory frameworks require."
@@ -70,7 +70,7 @@ Every major regulatory framework touching this system reduces to a version of th
   ]}
 />
 
-None of these four frameworks ask for a different governance architecture than the one this chapter already described — a policy layer upstream of execution, claims verified before delivery, a complete audit trail, and a kill switch with defined authority. They ask for the same system, provably running.
+None of these four frameworks ask for a different governance architecture than the one this chapter already described — a policy layer upstream of execution, claims verified before delivery, a complete audit trail, and a kill switch with defined authority. They ask for the same system. Provably running.
 
 <Prompt id="govern-regulatory-gap-check" />
 

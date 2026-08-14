@@ -24,7 +24,7 @@ export default function Home() {
         The AI-Native Marketing Handbook
       </motion.h1>
       <motion.p variants={item} className="mt-5 max-w-prose text-lg leading-relaxed text-ink-soft">
-        A field guide to the Intelligent Marketing Operating System — for a marketer
+        A field guide to the Intelligent Marketing Operating System, for a marketer
         who's never touched AI, an engineer who's never touched marketing, or anyone
         else starting from zero.
       </motion.p>
@@ -59,7 +59,7 @@ export default function Home() {
               Read the problem first
             </Link>
             <p className="mt-1 text-sm text-ink-soft">
-              The four symptoms of a disconnected marketing operation — why this exists at all.
+              The four symptoms of a disconnected marketing operation, and why this exists at all.
             </p>
           </li>
           <li>
@@ -67,7 +67,7 @@ export default function Home() {
               Start from a real case
             </Link>
             <p className="mt-1 text-sm text-ink-soft">
-              Eight organisations that built one of these loops, or failed to — for anyone who
+              Real organizations that built one of these loops, or failed to, for anyone who
               learns better from a worked example than from a framework.
             </p>
           </li>

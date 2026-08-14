@@ -1,11 +1,11 @@
-Design sits where the course calls it the "legislative branch" of I-MOS — Orchestrate and Execute apply what Design writes, Govern audits it, and neither of the other two can run until Design's laws exist. This chapter is what those laws actually look like.
+Most brand guidelines today read as adjectives and mood boards, not enforceable rules. Design fixes that: it functions as the "legislative branch" of I-MOS. Orchestrate and Execute apply whatever Design writes, Govern audits it, and neither Orchestrate nor Execute can run until Design's laws exist.
 
 <Section index="01" kicker="Operating code, not a PDF" title="Brand DNA">
 
-A conventional brand guideline is written for a person to interpret. An AI agent can't read a PDF meaningfully — it needs rules specific and binary enough to enforce, not adjectives to feel its way toward. Brand DNA is five components, each written to a standard an agent can actually check against: **tone-of-voice rules** specific enough to test ("max sentence 25 words," not "confident and approachable"), **visual grammar** as hex codes and pixel specs, not mood-board language, **proof cues** drawn from an approved evidence library rather than "use compelling data," **claims boundaries** as a binary permitted/prohibited list, and **required disclaimers** applied automatically by claim type and market — non-negotiable, and not removable by the assembly engine.
+A conventional brand guideline is written for a person to interpret. An AI agent can't read a PDF meaningfully. It needs rules specific and binary enough to enforce, not adjectives to feel its way toward. Brand DNA is five components, each written to a standard an agent can actually check against: **tone-of-voice rules** specific enough to test ("max sentence 25 words," not "confident and approachable"), **visual grammar** as hex codes and pixel specs, not mood-board language, **proof cues** drawn from an approved evidence library rather than "use compelling data," **claims boundaries** as a binary permitted/prohibited list, and **required disclaimers** applied automatically by claim type and market, non-negotiable, and not removable by the assembly engine.
 
 <Example id="unilever-branddnai">
-  Unilever runs 400+ brands through separate shoots per social, e-commerce, TV, and local market — five fragmented pipelines per product line before BrandDNAi. Encoding each brand's guidelines, visual identity, and regulatory constraints as an AI layer instead of a PDF took TRESemmé Thailand from a handful of assets per product to 400, 20 times the output, 65% faster, at 87% lower cost — and every one of them brand-consistent without a person reviewing it first.
+  Unilever runs 400+ brands through separate shoots per social, e-commerce, TV, and local market — five fragmented pipelines per product line before BrandDNAi. Encoding each brand's guidelines, visual identity, and regulatory constraints as an AI layer instead of a PDF took TRESemmé Thailand from a handful of assets per product to 400, 20 times the output, 65% faster, at 87% lower cost. Every one of them was brand-consistent without a person reviewing it first.
 </Example>
 
 </Section>
@@ -25,7 +25,7 @@ The test is one question, applied line by line: can an agent act on this without
     rows={[
       { label: '"Should feel fresh and vibrant"', cells: ['FAIL', 'Overhead angle, white plate, natural light. Saturation 70–85%. No stock. Min. 300 DPI.'] },
       { label: '"Friendly, neighborhood feel"', cells: ['FAIL', 'Active voice. First person plural. Max 12 words/sentence. Reading level: grade 6.'] },
-      { label: '"Max 2 promo emails per week"', cells: ['PASS', 'Already binary and numeric — nothing to rewrite.'] },
+      { label: '"Max 2 promo emails per week"', cells: ['PASS', 'Already binary and numeric. Nothing to rewrite.'] },
       { label: '"Highlight our sustainability commitment"', cells: ['FAIL', 'Every 3rd email includes one verified sourcing fact from the proof library. No unverified green claims.'] },
     ]}
   />
@@ -43,12 +43,12 @@ Brand DNA and the messaging hierarchy above it decompose into four block types, 
 
 <StepList steps={[
   { title: 'Core', body: 'The primary message. Required in every output.' },
-  { title: 'Proof', body: 'Verified evidence from the approved library — never AI-generated, only ever sourced. Included when the brief specifies it.' },
+  { title: 'Proof', body: 'Verified evidence from the approved library, never AI-generated, only ever sourced. Included when the brief specifies it.' },
   { title: 'Offer', body: 'Conditional. Included only when the Decisioning Engine has approved eligibility.' },
   { title: 'Risk', body: 'Mandatory disclaimers, never removable by AI in a regulated category. Never omitted where regulation requires it.' },
 ]} />
 
-The same block renders differently by channel without becoming a different message — an email gets the full block at 180 words with a compliance footer; paid social gets a headline and the proof stat as an image overlay at 90 characters; a push notification gets under 100 characters and a deep link. What stays invariant across all of them is the proof stat itself, verbatim, and whatever disclaimer the channel requires — the rendering changes, the claim underneath it doesn't.
+The same block renders differently by channel without becoming a different message: an email gets the full block at 180 words with a compliance footer; paid social gets a headline and the proof stat as an image overlay at 90 characters; a push notification gets under 100 characters and a deep link. What stays invariant across all of them is the proof stat itself, verbatim, and whatever disclaimer the channel requires. The rendering changes. The claim underneath it doesn't.
 
 </Section>
 
@@ -64,7 +64,7 @@ Brand DNA and content blocks are the source of truth; the three-layer prompt arc
   <FlowChain nodes={['System Prompt — Brand DNA', 'Context Prompt — the brief', 'Asset Prompt — which blocks, exactly']} />
 </Figure>
 
-The System layer never changes within a brand; the Context layer changes per job; the Asset layer is the most specific of the three, naming the exact blocks to generate and which to withhold. Nothing about this requires a large model or a novel technique — the leverage is entirely in having Brand DNA specific enough to be layer one in the first place.
+The System layer never changes within a brand; the Context layer changes per job; the Asset layer is the most specific of the three, naming the exact blocks to generate and which to withhold. Nothing about this requires a large model or a novel technique. The leverage is entirely in having Brand DNA specific enough to be layer one in the first place.
 
 </Section>
 
@@ -73,11 +73,11 @@ The System layer never changes within a brand; the Context layer changes per job
 Part II already gave the volume split across the three zones and a case where the wrong one got applied. What decides which zone a given piece of content sits in is a specific question asked of every asset type, not a judgment call made fresh each time:
 
 <DefinitionList items={[
-  { term: 'Zone 1 test', body: 'Would an error here cause legal, financial, or reputational damage? If no, it\'s full autonomy — product descriptions, routine transactional email, in-app education.' },
-  { term: 'Zone 2 test', body: 'Does this involve a sensitive claim, a vulnerable audience, or genuinely novel territory? If yes, a human reviews before it ships — health claims, financial offers, culturally sensitive messaging.' },
-  { term: 'Zone 3 test', body: 'Would a mistake here make front-page news or permanently damage brand trust? If yes, a human authors it — crisis communications, brand manifestos, new-market launch messaging.' },
+  { term: 'Zone 1 test', body: 'Would an error here cause legal, financial, or reputational damage? If no, it\'s full autonomy: product descriptions, routine transactional email, in-app education.' },
+  { term: 'Zone 2 test', body: 'Does this involve a sensitive claim, a vulnerable audience, or genuinely novel territory? If yes, a human reviews before it ships: health claims, financial offers, culturally sensitive messaging.' },
+  { term: 'Zone 3 test', body: 'Would a mistake here make front-page news or permanently damage brand trust? If yes, a human authors it: crisis communications, brand manifestos, new-market launch messaging.' },
 ]} />
 
-Answer those three questions for a new asset type once, and the zone falls out — the same discipline as the Economics of Error, applied specifically to what Design produces.
+Answer those three questions for a new asset type once, and the zone falls out. It's the same discipline as the Economics of Error, applied here to what Design produces.
 
 </Section>

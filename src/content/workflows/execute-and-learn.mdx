@@ -1,8 +1,8 @@
-Every workflow so far has been about deciding. Execute and Learn are where a decision either proves itself or doesn't — and where the results either become next cycle's starting priors or, as usually happens, a PDF nobody opens again.
+A decision ships. Execute and Learn are where it either proves itself or doesn't. The results become next cycle's starting priors, or, as usually happens, a PDF nobody opens again.
 
 <Section index="01" kicker="Three fracture points" title="Always-on execution vs. campaign-based">
 
-The conventional cycle — plan, create, launch, monitor, review — breaks in three specific places, not vaguely: budgets lock quarterly and can't answer a real-time signal; optimization happens too late, after the money is already spent; and the loop stays open, because results land in a review deck that never touches the next campaign's starting assumptions.
+The conventional cycle runs plan, create, launch, monitor, review, and it breaks in three specific places, not vaguely: budgets lock quarterly and can't answer a real-time signal; optimization happens too late, after the money is already spent; and the loop stays open, because results land in a review deck that never touches the next campaign's starting assumptions.
 
 <Figure
   d="D76"
@@ -20,11 +20,11 @@ The conventional cycle — plan, create, launch, monitor, review — breaks in t
     { dimension: 'Optimization', before: 'Post-mortem — arrives after the money is already spent.', after: 'Continuous — happens throughout the flight, not after it closes.' },
     { dimension: 'Budget', before: 'Locked by committee, reallocated on a fixed schedule.', after: 'Fluid — follows performance inside pre-set guardrails.' },
   ]}
-  verdict="Always-on execution isn't the same activity done faster — it changes when the system decides, not just how quickly it acts."
+  verdict="Always-on execution changes when the system decides, not merely how quickly it acts. The shift is in kind, not in speed."
 />
 
 <Example id="airbnb-experimentation">
-  In 2016, every Airbnb A/B test took an engineer two to four weeks by hand, and running one test at a time across search, pricing, onboarding, and messaging built a two-year decision backlog. Automating variant assignment and winner deployment — replacing manual sign-off with pre-approved criteria — took hypothesis-to-deployed-winner from weeks down to 48 to 72 hours, a tenfold rise in test velocity from an operational change, not a smarter model.
+  In 2016, every Airbnb A/B test took an engineer two to four weeks by hand, and running one test at a time across search, pricing, onboarding, and messaging built a two-year decision backlog. Automating variant assignment and winner deployment, replacing manual sign-off with pre-approved criteria, took hypothesis-to-deployed-winner from weeks down to 48 to 72 hours, a tenfold rise in test velocity from an operational change, not a smarter model.
 </Example>
 
 </Section>
@@ -51,7 +51,7 @@ The only way to get the "without" side isn't to guess — it's a control group: 
   />
 </Figure>
 
-Most dashboards skip the control group entirely — spend and revenue both rise across a quarter, alongside seasonal demand nobody isolated, and the rise gets reported as the campaign's result. That's descriptive, not causal, and the difference matters most exactly when someone's about to defend a budget with the number.
+Most dashboards skip the control group entirely. Spend and revenue both rise across a quarter, alongside seasonal demand nobody isolated, and the rise gets reported as the campaign's result. That's descriptive, not causal, and the difference matters most exactly when someone's about to defend a budget with the number.
 
 </Section>
 
@@ -59,7 +59,7 @@ Most dashboards skip the control group entirely — spend and revenue both rise 
 
 <Formula name="iROAS" expression="Incremental Revenue ÷ Marketing Spend" />
 
-Stated plainly once, here, because later toolkit pages restate this convention rather than redefine it: iROAS divides by spend, and the numerator is *incremental* revenue — the treatment-minus-control gap, not gross attributed revenue. A channel earns its budget by clearing this bar every cycle. If iROAS falls below 1, the spend cost more than it produced, full stop, regardless of what a last-touch attribution report claims elsewhere.
+Stated plainly once, here, because later toolkit pages restate this convention rather than redefine it: iROAS divides by spend, and the numerator is *incremental* revenue, the treatment-minus-control gap, not gross attributed revenue. A channel earns its keep. It clears this bar every cycle. If iROAS falls below 1, the spend cost more than it produced, full stop, regardless of what a last-touch attribution report claims elsewhere.
 
 <Example id="instacart-iroas">
   Instacart sat between CPG brands and retailers with a last-touch attribution model that overcredited paid search and starved upper-funnel brand work. Replacing it with geo-based holdout testing — matched store clusters, some running ads and some not, lift measured in actual units sold — produced an average verified iROAS of 4.5x across categories. Causal proof became the platform's actual competitive moat against Amazon Ads and Walmart Connect, not a reporting nicety.
@@ -73,12 +73,12 @@ Stated plainly once, here, because later toolkit pages restate this convention r
 
 <Formula name="ROMI" expression="Incremental Contribution Margin ÷ Marketing Spend" />
 
-Same underlying proof as iROAS, restated in the currency finance actually tracks: margin, not revenue. iROAS answers "did this spend produce incremental revenue"; ROMI answers "did this spend produce incremental profit," which is the question a CFO is actually asking. Report iROAS to a growth-stage marketing team optimizing for revenue; report ROMI to a board deciding whether a channel is worth its cost once margin, not just top line, is on the table. The two numbers can disagree — a channel can clear an iROAS bar on low-margin products and fail a ROMI bar on the same spend.
+Same underlying proof as iROAS, restated in the currency finance actually tracks: margin, not revenue. iROAS answers "did this spend produce incremental revenue"; ROMI answers "did this spend produce incremental profit," which is the question a CFO is actually asking. Report iROAS to a growth-stage marketing team optimizing for revenue; report ROMI to a board deciding whether a channel is worth its cost once margin, not just top line, is on the table. The two numbers can disagree. A channel can clear an iROAS bar on low-margin products and fail a ROMI bar on the same spend.
 
 </Section>
 
 <Section index="05" kicker="Where the proof goes" title="The Learning Flywheel">
 
-Part II already named the mechanism that makes any of this compound instead of reset — the [Learning Flywheel](/spine/shared-memory), Act through Improve, with Update writing winning parameters back to Shared Memory. What's specific to this chapter: the incremental lift and iROAS numbers above are exactly what Update writes. Not "the campaign performed well" as a sentence in a deck — a specific number, tagged to a specific variable, available to Sense's Propensity Score and Focus's ICP weights the next time either one runs.
+Part II already named the mechanism that makes any of this compound instead of reset: the [Learning Flywheel](/spine/shared-memory), Act through Improve, with Update writing winning parameters back to Shared Memory. What's specific to this chapter: the incremental lift and iROAS numbers above are exactly what Update writes. Not "the campaign performed well" as a sentence in a deck: a specific number, tagged to a specific variable, available to Sense's Propensity Score and Focus's ICP weights the next time either one runs.
 
 </Section>

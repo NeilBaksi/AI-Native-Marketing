@@ -1,12 +1,12 @@
-The Insight Gap says where human judgment is conceptually required. It doesn't say how much supervision a given decision needs — a brand-strategy call and a bid-optimization tweak both sit inside a gap, but nobody treats them the same way. What decides that is a calculation, not a philosophy.
+Economics of Error is a calculation, not a philosophy. A brand-strategy call and a bid-optimization tweak both sit inside the same zone of required human judgment, yet nobody treats them the same way. What decides the difference is a formula built on two variables, not instinct.
 
 <Section index="01" kicker="The formula" title="Cost of error x value of speed">
 
-The right level of AI autonomy is a function of how costly, visible, and reversible an error would be — weighed against how much is gained by deciding faster. Not "should AI be trusted here," which is a values question with no stable answer. A risk calculation, with two variables: **Cost of Error** (what's lost if the agent gets it wrong) and **Value of Speed** (what's gained from a faster autonomous decision).
+The right level of AI autonomy is a function of how costly, visible, and reversible an error would be, weighed against how much is gained by deciding faster. Not "should AI be trusted here," which is a values question with no stable answer. A risk calculation, with two variables: **Cost of Error** (what's lost if the agent gets it wrong) and **Value of Speed** (what's gained from a faster autonomous decision).
 
 <DecisionTree
   root={{
-    question: 'How costly, visible, and reversible would an error be — against how much is gained by deciding faster?',
+    question: 'How costly, visible, and reversible would an error be, against how much is gained by deciding faster?',
     branches: [
       {
         when: 'High cost, hard to reverse, speed barely matters',
@@ -42,17 +42,17 @@ Plot the same four tiers against the two variables and the ordering stops being 
 
 <Figure
   d="D13"
-  caption="The Economics of Error 2x2 — Cost of Error (vertical) against Value of Speed (horizontal), with the four tiers placed by their characteristic combination."
+  caption="The Economics of Error 2x2, Cost of Error (vertical) against Value of Speed (horizontal), with the four tiers placed by their characteristic combination."
   alt="Two-by-two matrix. Vertical axis: Cost of Error, high at top. Horizontal axis: Value of Speed, high at right. Top-left (high cost, low speed value): Human in Command — brand strategy, crisis response, pricing architecture. Top-right (high cost, high speed value): Human in the Loop — regulated claims, high-value creative, launch messaging. Bottom-left (low cost, low speed value): Human on the Loop — audience targeting, content personalization. Bottom-right (low cost, high speed value): Fully Autonomous — bid optimization, send-time selection, frequency capping."
 >
   <Matrix2x2
     xLabel="Value of Speed"
     yLabel="Cost of Error"
     quadrants={[
-      { tier: 'Human in Command', description: 'Brand strategy, crisis response, pricing architecture — errors are costly and hard to reverse regardless of how fast a decision arrives.' },
-      { tier: 'Human in the Loop', description: 'Regulated claims, high-value creative, launch messaging — cost stays high, but speed genuinely matters, so AI recommends and a person approves before it ships.' },
-      { tier: 'Human on the Loop', description: 'Audience targeting, content personalization — moderate, correctable cost; AI executes inside boundaries, a person monitors and intervenes on exception.' },
-      { tier: 'Fully Autonomous', description: 'Bid optimization, send-time selection, frequency capping — low cost, rapidly detectable, and the value of deciding in real time dominates.' },
+      { tier: 'Human in Command', description: 'Brand strategy, crisis response, and pricing architecture carry errors that are costly and hard to reverse, regardless of how fast a decision arrives.' },
+      { tier: 'Human in the Loop', description: 'Regulated claims, high-value creative, and launch messaging keep cost high, but speed genuinely matters, so AI recommends and a person approves before it ships.' },
+      { tier: 'Human on the Loop', description: 'Audience targeting and content personalization carry moderate, correctable cost. AI executes inside boundaries, and a person monitors and intervenes on exception.' },
+      { tier: 'Fully Autonomous', description: 'Bid optimization, send-time selection, and frequency capping carry low, rapidly detectable cost, and the value of deciding in real time dominates.' },
     ]}
   />
 </Figure>
@@ -61,19 +61,19 @@ Plot the same four tiers against the two variables and the ordering stops being 
 
 <Section index="03" kicker="Applied" title="Reading the tiers against a real decision">
 
-The formula is only useful if it's specific enough to catch a mistake before it ships, not just after. Design's Governance Zones are the economics of error applied to one workflow's content: roughly 50% of content volume sits in Zone 1 (full autonomy — product descriptions, routine transactional email), 30% in Zone 2 (human in the loop — health claims, financial offers, culturally sensitive messaging), and 20% in Zone 3 (human-only — crisis communications, brand manifestos). The split isn't arbitrary; it's the same cost/speed calculation, applied content type by content type.
+The formula is only useful if it's specific enough to catch a mistake before it ships, not just after. Design's Governance Zones are the economics of error applied to one workflow's content: roughly 50% of content volume sits in Zone 1 (full autonomy: product descriptions, routine transactional email), 30% in Zone 2 (human in the loop: health claims, financial offers, culturally sensitive messaging), and 20% in Zone 3 (human-only: crisis communications, brand manifestos). The split isn't arbitrary; it's the same cost/speed calculation, applied content type by content type.
 
 <Example id="coca-cola-holiday-ad">
-  Every brand-compliance rule passed. What was missing was a checkpoint for emotional resonance on content that should never have been Zone 1 in the first place — a holiday ad carries brand-equity stakes closer to a manifesto than a product description. This is autonomy inflation by another name: a Human-in-the-Loop decision (does this feel true to the brand?) got treated as Fully Autonomous because the rules-based checks all passed.
+  Every brand-compliance rule passed. What was missing was a checkpoint for emotional resonance on content that should never have been Zone 1 in the first place. A holiday ad carries brand-equity stakes closer to a manifesto than a product description. This is autonomy inflation by another name: a Human-in-the-Loop decision (does this feel true to the brand?) got treated as though it were Fully Autonomous, simply because the rules-based checks all happened to pass.
 </Example>
 
-That's one symmetrical error. The other runs the opposite direction — **autonomy deflation**: requiring human sign-off on genuinely low-stakes, rapidly-correctable decisions, which destroys the velocity AI exists to provide without buying any real governance benefit.
+That's one symmetrical error. The other runs the opposite direction, **autonomy deflation**, requiring human sign-off on genuinely low-stakes, rapidly-correctable decisions and destroying the velocity AI exists to provide without buying any real governance benefit.
 
 <Example id="netflix-ab-tests">
-  Netflix runs over a thousand A/B tests at once, and a result never waits for a person to read a report — it updates the recommendation model directly. Routing that through human approval wouldn't make it safer; the cost of a wrong send-time or a losing test variant is low and self-correcting. Gating it anyway would be autonomy deflation at scale.
+  Netflix runs over a thousand A/B tests at once, and a result never waits for a person to read a report. It updates the recommendation model directly. Routing that through human approval wouldn't make it safer; the cost of a wrong send-time or a losing test variant is low and self-correcting. Gating it anyway would be autonomy deflation at scale.
 </Example>
 
-The earlier chapter's Honda case is the canonical autonomy-inflation failure for the same reason Coca-Cola's ad is: a decision that needed a checkpoint (verifying consent) had that checkpoint quietly removed because removing it was efficient — until it wasn't.
+The earlier chapter's Honda case is the canonical autonomy-inflation failure for the same reason Coca-Cola's ad is: a decision that needed a checkpoint (verifying consent) had that checkpoint quietly removed because removing it was efficient, until it wasn't.
 
 </Section>
 
@@ -84,11 +84,11 @@ Every later workflow chapter runs the same calculation, and it compresses to fou
 <DefinitionList items={[
   { term: 'What is the cost of a wrong decision?', body: "An ICP error means the entire downstream system targets the wrong audience. A frequency-capping error means one person gets one extra email. Not the same decision." },
   { term: 'Is it reversible?', body: 'Rebuilding audience packages and re-aligning execution after a bad ICP call is expensive and slow to undo. Adjusting a bid in real time is not.' },
-  { term: 'What is the value of acting faster?', body: 'Speed matters at the point of applying a criterion, not usually at the point of defining one — getting the criterion right once beats getting it fast.' },
+  { term: 'What is the value of acting faster?', body: 'Speed matters at the point of applying a criterion, not usually at the point of defining one. Getting the criterion right once beats getting it fast.' },
   { term: 'How confident is the AI?', body: 'Pattern detection produces candidates, not answers. Strategic fit, brand ambition, and competitive positioning are areas where the model has no informed opinion to be confident about.' },
 ]} />
 
-Run those four questions against any decision and the tier falls out — which is the actual point of turning a philosophy into a formula.
+Run those four questions against any decision, and the tier falls out on its own.
 
 <Prompt id="economics-of-error-autonomy-classifier" />
 

@@ -1,336 +1,391 @@
 # Graph Report - .  (2026-08-14)
 
 ## Corpus Check
-- 49 files · ~78,964 words
+- 57 files · ~78,234 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 728 nodes · 919 edges · 82 communities (48 shown, 34 thin omitted)
-- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 53 edges (avg confidence: 0.82)
-- Token cost: 0 input · 0 output
+- 802 nodes · 1163 edges · 84 communities (62 shown, 22 thin omitted)
+- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 41 edges (avg confidence: 0.77)
+- Token cost: 24,000 input · 15,000 output
 
 ## Community Hubs (Navigation)
-- Sidebar & Layout Components
-- ESLint Toolchain
-- Agentforce Six-Agent System
-- Autonomy Inflation & Economics of Error
-- Governance & Hallucination Guardrails
-- Focus Workflow Failure Modes
-- Table & Comparison UI Components
-- Frontend Dependencies
-- TypeScript App Config
-- Build & Content-Integrity Gate
-- Content Gate Fact Checks
-- Vite/Node TS Config
-- Checklist & Decision-Tree UI
-- Example & Scorecard UI
-- Attract & Execute Workflows
-- Auranis Hallucination Case Study
-- Further Reading Citations
-- I-MOS Four-Layer Stack
-- Governance Envelope Design
-- Accordion & Tabs UI
-- Prompt & Copy Button UI
-- Cross-Industry Operating Layers
-- Coca-Cola & OpenAI Cases
-- Diagram Backlog
-- Spine Reference Diagrams
-- ROMI & iROAS Measurement
-- Sense Workflow & Signal Service
-- Verified Stat Citations
-- CDW & Oracle Eloqua Cases
-- Nike & Bias-Risk Cases
-- Maturity Model Stages
-- Agentforce Capstone Team
-- Learn Workflow & Flywheel
-- Callout UI Component
+- Diagram Inventory (Live + Backlog)
+- devDependencies
+- Glossary (88-term index)
+- Toolkit Index (15 templates)
+- Methodology page
+- Economics of Error (cost-of-error / valu
+- Statistics / Provenance reference page
+- dependencies
+- compilerOptions
+- Focus Workflow
+- check-content.mjs
+- Page.tsx
+- The Problem (four symptoms chapter)
+- compilerOptions
+- ui/index.ts
+- Scorecard.tsx
+- layout/index.ts
+- mdx-components.tsx
+- Four-Stage Maturity Model
+- The Seven Workflows (Sense, Focus, Desig
+- L'Oréal case
+- Accordion.tsx
+- Prompt.tsx
+- Six Governance Failures case
+- CommandPalette.tsx
+- motion.ts
+- Cases Index
+- The Four-Layer Stack (spine page)
+- App.tsx
+- Orchestrate Workflow
 - Experiment Design Checklist
-- Design Palette & App Shell
-- FlowChain UI Component
-- LayerStack UI Component
-- Tabs UI Component
-- ICP Scoring Rubric
-- Policy Stack (D72)
-- Honda ICO Fine
-- Zero-Click Search Study
-- Meta Ad-Delivery Bias
-- Provenance Marks System
-- TS Project References
-- Insight Without Action
-- Autonomy Deflation
-- Ontology & Strategy Translation
-- Personalization Spectrum
-- Chicago Sun-Times Case
-- Lensa Uncanny Valley Case
-- MDX Type Declarations
+- OpenAI Sycophancy Incident case
+- Yelp case
+- README.md project overview
+- ErrorBoundary
+- Design Governance Zones
+- PageHeader.tsx
+- DecisionTree.tsx
+- MKTG 468: AI-Native Marketing
+- Coca-Cola case
+- Further Examples
+- Five Govern Components
+- ICP Formula (Fit x Readiness - Friction)
+- Content Integrity Check (scripts/check-c
+- ComparisonTable.tsx
+- Intelligent Marketing Operating System (
+- Attract Workflow
+- index.html entry point
+- FlowChain.tsx
+- LayerStack.tsx
+- Matrix2x2.tsx
+- Tabs.tsx
+- Timeline.tsx
+- Five Object Types (Identity/State/Decisi
+- Signal Families
+- Airbnb Project Lighthouse
+- Kotler: Marketing Management (1967)
+- 900-Employee Logistics Company Worked Ex
+- Implementation Archetypes
+- tsconfig.json
+- Anthropic: Model Context Protocol (MCP) 
+- Martech Fragmentation (91 of ~10,000 too
+- Christensen et al: Know Your Customers' 
+- Primary/Secondary/Negative Persona Trio
+- Referral-Banner Test Worked Example
+- Ridgeline Content-Generation Agent Worke
+- Observable, Exclusive, Actionable Tests
+- Ridgeline Positioning Worked Example
+- Answer Engine Optimization (AEO)
+- vite-env.d.ts
 - Two-Paragraph Chunking Rule
-- MKTG 468 Framework Credit
-- Content Without Context
-- Measurement Without Learning
-- Strategic Architecture
-- Cost of Error Variable
-- Value of Speed Variable
-- Audit Trail
-- Claims Verification
-- Consent Checks
-- Cultural Resonance Gap
-- Interpretive Ambiguity Gap
-- Messaging Architecture Object
-- Persona + Need State Object
-- Personalization Policy Object
-- Positioning Payload Object
-- Segment Membership Object
-- Handbook Structure
-- Provenance Signal
-- Recency Signal
-- Structure Signal
-- Seven Journey States
-- Behavioral Signal
-- Environmental Signal
-- Intent Signal
-- Qualitative Signal
+- I-MOS / Insight Gap / Economics of Error
+- Christensen et al: Competing Against Luc
+- FTC: BetterHelp Privacy Practices Return
+- Further Reading (Citations Index)
+- Moorman: When AI Investments Pay Off in 
+- Fishkin/SparkToro: 2024 Zero-Click Searc
+- Stengel, Lamberton, Favaro: How Brand Bu
+- Thaler & Sunstein: Nudge (2008)
+- Exclusions Table
+- No Stat Without a Source (design decisio
 
 ## God Nodes (most connected - your core abstractions)
-1. `Further Reading Index — verified citations plus MKTG 468 course-material source list` - 19 edges
-2. `compilerOptions` - 17 edges
-3. `compilerOptions` - 16 edges
-4. `The Toolkit (15 Templates)` - 15 edges
-5. `Intelligent Marketing Operating System (I-MOS)` - 14 edges
-6. `Glossary Index — 88 terms taught on the live site, grouped by Part and chapter (subset of Appendix A's ~255-term inventory)` - 13 edges
-7. `Diagrams Index — 37 live diagrams across the site, D-numbered against Appendix A's 90-diagram inventory` - 10 edges
-8. `The Economics of Error` - 10 edges
-9. `Agentic Lab exercise (Scenario B)` - 10 edges
-10. `ICP Score Formula (Fit x Readiness - Friction)` - 10 edges
+1. `Glossary (88-term index)` - 89 edges
+2. `Diagram Inventory (Live + Backlog)` - 53 edges
+3. `Statistics / Provenance reference page` - 41 edges
+4. `compilerOptions` - 17 edges
+5. `Economics of Error (cost-of-error / value-of-speed formula)` - 17 edges
+6. `compilerOptions` - 16 edges
+7. `Intelligent Marketing Operating System (I-MOS)` - 16 edges
+8. `Toolkit Index (15 templates)` - 15 edges
+9. `The Insight Gap` - 13 edges
+10. `The Problem (four symptoms chapter)` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `Vite/React/Tailwind Stack` --references--> `framer-motion`  [EXTRACTED]
+  src/content/about/methodology.mdx → package.json
 - `No analytics / no cookies / no accounts / no third-party requests` --semantically_similar_to--> `Self-Hosted Fonts, No Third-Party Requests at Runtime`  [INFERRED] [semantically similar]
   src/content/about/privacy.mdx → README.md
+- `framer-motion` --references--> `Content Security Policy`  [EXTRACTED]
+  package.json → src/content/about/methodology.mdx
 - `index.html entry point` --references--> `Favicon — three connected circles, one in ember accent`  [EXTRACTED]
   index.html → public/favicon.svg
 - `Favicon — three connected circles, one in ember accent` --shares_data_with--> `Ink & Ember Design Palette (light-mode only)`  [EXTRACTED]
   public/favicon.svg → CLAUDE.md
-- `Four-gate policy stack` --semantically_similar_to--> `Three-layer guardrail pattern`  [INFERRED] [semantically similar]
-  src/content/cases/nab.mdx → src/content/applied/agentic-lab.mdx
-- `The Policy Stack (Right Customer/Moment/Compliance/Frequency Caps)` --semantically_similar_to--> `Governance Zones (Zone 1/2/3 tests)`  [INFERRED] [semantically similar]
-  src/content/workflows/orchestrate.mdx → src/content/workflows/design.mdx
 
 ## Import Cycles
 - None detected.
 
 ## Hyperedges (group relationships)
-- **Seven I-MOS workflows governed continuously by Govern** — src_content_foundations_what_is_imos_sense, src_content_foundations_what_is_imos_focus, src_content_foundations_what_is_imos_design, src_content_foundations_what_is_imos_attract, src_content_foundations_what_is_imos_orchestrate, src_content_foundations_what_is_imos_execute, src_content_foundations_what_is_imos_learn, src_content_foundations_what_is_imos_govern [EXTRACTED 1.00]
-- **Agentic Lab's six-agent pipeline (GATE → STRATA/APEX → SENTINEL → LENS/ARC)** — src_content_applied_agentic_lab_gate, src_content_applied_agentic_lab_strata, src_content_applied_agentic_lab_apex, src_content_applied_agentic_lab_sentinel, src_content_applied_agentic_lab_lens, src_content_applied_agentic_lab_arc [EXTRACTED 1.00]
-- **Agentforce capstone's six-agent system (INTAKE, STATE, PULSE, ROUTER, WARDEN, LEDGER)** — src_content_applied_agentforce_capstone_intake, src_content_applied_agentforce_capstone_state, src_content_applied_agentforce_capstone_pulse, src_content_applied_agentforce_capstone_router, src_content_applied_agentforce_capstone_warden, src_content_applied_agentforce_capstone_ledger [EXTRACTED 1.00]
-- **The Six Agentic Services (Build's implementation of Layer 2)** — src_content_workflows_build_signal_service, src_content_workflows_build_decisioning_service, src_content_workflows_build_content_assembly_service, src_content_workflows_build_journey_orchestration_service, src_content_workflows_build_activation_service, src_content_workflows_build_experimentation_measurement_service [INFERRED 0.85]
-- **The Six Ways an AI-Native Marketing System Breaks** — src_content_workflows_govern_consent_boundaries_risk, src_content_workflows_govern_uncanny_valley_risk, src_content_workflows_govern_bias_risk, src_content_workflows_govern_ai_sameness_risk, src_content_workflows_govern_claims_ip_risk, src_content_workflows_govern_agentic_drift_risk [EXTRACTED 1.00]
-- **Toolkit: Governance & Risk Template Group** — src_content_toolkit_governance_table, src_content_toolkit_ai_hallucination_guardrails, src_content_toolkit_economics_of_error_worksheet [EXTRACTED 1.00]
-- **The site's two independently link-verified citations (P&G, Honda), each represented in both the Further Reading and Statistics indexes** — src_content_reference_further_reading_adweek_pg, src_content_reference_further_reading_am_online_honda, src_content_reference_statistics_pg_200m, src_content_reference_statistics_honda_289k [EXTRACTED 1.00]
-- **Three independent sources describing the same Honda ICO enforcement event** — src_content_reference_further_reading_am_online_honda, src_content_reference_further_reading_ico_honda_enforcement, src_content_reference_statistics_honda_289k [INFERRED 0.85]
-- **Diagrams reused across more than one chapter/case page (D1, D72, D81, D90)** — src_content_reference_diagrams_d1_seven_workflows, src_content_reference_diagrams_d72_policy_stack, src_content_reference_diagrams_d81_six_risks_controls, src_content_reference_diagrams_d90_tech_stacks [INFERRED 0.85]
-- **Ridgeline Fictional Case Study Across Toolkit** — src_content_toolkit_decision_narrative_persona_ridgeline, src_content_toolkit_governance_table_ridgeline_content_agent_example, src_content_toolkit_messaging_pillar_spec_ridgeline_pillars_example, src_content_toolkit_positioning_statement_ridgeline_positioning_example [INFERRED 0.85]
-- **Toolkit Fill-In Worksheet Pattern** — src_content_toolkit_economics_of_error_worksheet_economics_of_error_worksheet, src_content_toolkit_experiment_design_checklist_experiment_design_checklist, src_content_toolkit_governance_table_governance_table, src_content_toolkit_icp_scoring_rubric_icp_scoring_rubric, src_content_toolkit_measurement_humility_worksheet_measurement_humility_worksheet, src_content_toolkit_messaging_pillar_spec_messaging_pillar_spec, src_content_toolkit_positioning_statement_positioning_statement_template, src_content_toolkit_romi_formulas_romi_formula [INFERRED 0.85]
+- **Three-layer guardrail defense in depth** — src_content_applied_agentic_lab_gate_agent, src_content_applied_agentic_lab_sentinel_agent, src_content_applied_agentic_lab_arc_agent [EXTRACTED 1.00]
+- **Auranis four-beat arc: method fixed, claim caught, control hardened, habit formed** — src_content_applied_auranis_v1_draft, src_content_applied_auranis_v2_revision, src_content_applied_auranis_super_serum_hallucination, src_content_applied_auranis_guardrails_file [EXTRACTED 0.90]
+- **Four governance failure modes needing pre-execution controls** — src_content_cases_governance_failures_digit, src_content_cases_governance_failures_lensa, src_content_cases_governance_failures_jaguar, src_content_cases_governance_failures_chicago_sun_times [INFERRED 0.80]
+- **Governance Envelope, Orchestration Plane, Agentic Services, and Shared Memory form the I-MOS Four-Layer Stack** — src_content_spine_four_layer_stack_governance, src_content_spine_four_layer_stack_orchestration, src_content_spine_four_layer_stack_agentic_services, src_content_spine_shared_memory_shared_memory [EXTRACTED 1.00]
+- **Shared Memory write-back, the Learning Flywheel, and the Learn-to-Sense feedback arc all implement the same compounding-vs-resetting loop** — src_content_spine_shared_memory_shared_memory, src_content_spine_shared_memory_learning_flywheel, src_content_spine_seven_workflows_learn_to_sense_feedback [INFERRED 0.80]
+- **Six Agentic Services Mapped to Their Workflows** — src_content_workflows_build_six_agentic_services, src_content_workflows_sense_workflow, src_content_workflows_focus_workflow, src_content_workflows_orchestrate_workflow, src_content_workflows_design_workflow, src_content_workflows_attract_workflow, src_content_workflows_execute_and_learn_workflow [EXTRACTED 1.00]
+- **Positioning Falls Out of ICP, Persona, and Personalization Spectrum** — src_content_workflows_focus_positioning, src_content_workflows_focus_icp_formula, src_content_workflows_focus_persona, src_content_workflows_focus_personalization_spectrum [EXTRACTED 1.00]
+- **Sense's Triangulated Signal-to-Insight-Object Pipeline** — src_content_workflows_sense_signal_families, src_content_workflows_sense_triangulation, src_content_workflows_sense_propensity_score, src_content_workflows_sense_need_state [EXTRACTED 1.00]
 
-## Communities (82 total, 34 thin omitted)
+## Communities (84 total, 22 thin omitted)
 
-### Community 0 - "Sidebar & Layout Components"
-Cohesion: 0.05
-Nodes (54): App(), CommandPalette(), CommandPaletteProps, ErrorBoundary, ErrorBoundaryProps, ErrorBoundaryState, MobileDrawer(), MobileDrawerProps (+46 more)
+### Community 0 - "Diagram Inventory (Live + Backlog)"
+Cohesion: 0.06
+Nodes (38): D19: The Four Signal Families, D2: The Seven Workflows as a closed loop (backlog), D20: Triangulation, D24: The Human-AI Sensing Workflow (backlog), D25: ICP = Fit x Readiness minus Friction, D27: The Personalization Spectrum, D28: The Decision Narrative Persona (backlog), D30: Trust Boundaries (backlog) (+30 more)
 
-### Community 1 - "ESLint Toolchain"
+### Community 1 - "devDependencies"
 Cohesion: 0.05
 Nodes (37): autoprefixer, eslint, @eslint/js, eslint-plugin-react-hooks, eslint-plugin-react-refresh, globals, @mdx-js/rollup, devDependencies (+29 more)
 
-### Community 2 - "Agentforce Six-Agent System"
+### Community 2 - "Glossary (88-term index)"
 Cohesion: 0.07
-Nodes (37): Four-state rep journey, INTAKE agent, LEDGER agent, PULSE agent, ROUTER agent, Six-agent system: INTAKE, STATE, PULSE, ROUTER, WARDEN, LEDGER, STATE agent, WARDEN agent (kill-switch) (+29 more)
+Nodes (36): Internal Marketing, Rep Enablement, Agent Design, Defense in Depth, Sensitive-Signal Leakage, Guardrails, Full I-MOS (Stage 4), Point Tools (Stage 1) (+28 more)
 
-### Community 3 - "Autonomy Inflation & Economics of Error"
-Cohesion: 0.06
-Nodes (35): Honda's 289,790-email ICO fine (2017), Tools without governance, Economics-of-Error Autonomy Classifier (prompt), Autonomy Inflation (failure mode), Coca-Cola Holiday Ad (autonomy-inflation example), Economics of Error (Cost of Error x Value of Speed), Fully Autonomous (autonomy tier), Honda Case (consent-checkpoint removal) (+27 more)
-
-### Community 4 - "Governance & Hallucination Guardrails"
+### Community 3 - "Toolkit Index (15 templates)"
 Cohesion: 0.07
-Nodes (34): Brand DNA Specification (Design-written object), Modular Content Blocks (Design-written object), Verified Claims Registry, Guardrails Draft Check (Prompt), AI Hallucination Guardrails Checklist, Ridgeline Fabricated Stat (worked example), Source-of-Truth Hierarchy, Brand DNA Draft (Prompt) (+26 more)
+Nodes (35): Claims Fabrication, Hallucination Laundering, AI Hallucination Guardrails, Authoritative (source-of-truth tier), Conditionally Usable (source-of-truth tier), Not Authoritative (source-of-truth tier), Brand DNA Spec, Violation-Words List (append-only) (+27 more)
 
-### Community 5 - "Focus Workflow Failure Modes"
+### Community 4 - "Methodology page"
 Cohesion: 0.07
-Nodes (29): Focus (workflow), Korn Ferry ICP Replacement (example), Naming and Narrative (Focus failure mode), Strategic Fit vs. Statistical Fit (Focus failure mode), Strategic Judgment (gap form), Win/Loss Calibration (Focus failure mode), AB InBev Three-Consumers Failure (example), Consent + Constraints (object) (+21 more)
+Nodes (34): Prof. Mohanbir Sawhney, Applied Threads Report, Astro, check-content build gate script, Claude Code, Concept Inventory Report, GitHub Pages, AI-Native-Marketing GitHub repository (+26 more)
 
-### Community 6 - "Table & Comparison UI Components"
+### Community 5 - "Economics of Error (cost-of-error / valu"
 Cohesion: 0.09
-Nodes (19): BeforeAfter(), BeforeAfterProps, ComparisonTable(), ComparisonTableProps, STATE, TableCell, DefinitionList(), DefinitionListProps (+11 more)
+Nodes (32): Four-state rep journey (Trained-but-Stuck to Fluent Advocate), Regression rule + 14-day cooldown, Six-agent system (INTAKE, STATE, PULSE, ROUTER, WARDEN, LEDGER), WARDEN kill-switch, Agentic Lab exercise, APEX agent (session-intent scorer), ARC agent (two-slot recommendation engine), GATE agent (consent gate) (+24 more)
 
-### Community 7 - "Frontend Dependencies"
-Cohesion: 0.08
-Nodes (25): clsx, framer-motion, lucide-react, @mdx-js/react, dependencies, clsx, framer-motion, lucide-react (+17 more)
+### Community 6 - "Statistics / Provenance reference page"
+Cohesion: 0.07
+Nodes (28): Statistics / Provenance reference page, Air Canada Chatbot, Airbnb Experimentation, Amazon Next-Best-Action, BetterHelp FTC Fine, Casper / Saatva AEO, Coca-Cola Fizzion, Dark Social Share (+20 more)
 
-### Community 8 - "TypeScript App Config"
+### Community 7 - "dependencies"
+Cohesion: 0.07
+Nodes (26): clsx, framer-motion, lucide-react, @mdx-js/react, dependencies, clsx, framer-motion, lucide-react (+18 more)
+
+### Community 8 - "compilerOptions"
 Cohesion: 0.08
 Nodes (24): DOM, DOM.Iterable, mdx, src, vite/client, compilerOptions, allowImportingTsExtensions, erasableSyntaxOnly (+16 more)
 
-### Community 9 - "Build & Content-Integrity Gate"
-Cohesion: 0.09
-Nodes (24): Content Integrity Check (scripts/check-content.mjs build gate), Typed Fact/Provenance Registry (src/data/facts.ts), Site Tech Stack (Vite+React+TS+Tailwind+framer-motion+HashRouter), CI Build Job, CI Deploy Job (GitHub Pages), CC BY-NC-SA 4.0 License (written content & facts), MIT License (site code), README.md project overview (+16 more)
+### Community 9 - "Focus Workflow"
+Cohesion: 0.12
+Nodes (23): Machine-Readability Test, Do-Not-Say Line (design decision), Ridgeline Three Pillars Worked Example, Messaging Pillar Spec, Constraint Beats Latitude (design decision), Positioning Statement, Positioning Statement Template, Six Agentic Services (+15 more)
 
-### Community 10 - "Content Gate Fact Checks"
+### Community 10 - "check-content.mjs"
 Cohesion: 0.09
 Nodes (19): contentDir, factBlocks, factIds, factsFile, factsSrc, knownComponents, mdxComponentsFile, mdxComponentsSrc (+11 more)
 
-### Community 11 - "Vite/Node TS Config"
+### Community 11 - "Page.tsx"
+Cohesion: 0.18
+Nodes (16): NavLinksProps, PART_ORDER, PageHeader(), getPage(), PAGES, pager(), SearchResult, BODIES (+8 more)
+
+### Community 12 - "The Problem (four symptoms chapter)"
+Cohesion: 0.14
+Nodes (22): Content without context, Honda ICO consent fine, Insight without action, Measurement without learning, P&G $200M ad-spend removal, The Problem (four symptoms chapter), Tools without governance, Finance general-ledger/close-process operating layer (+14 more)
+
+### Community 13 - "compilerOptions"
 Cohesion: 0.10
 Nodes (20): node, vite.config.ts, compilerOptions, allowImportingTsExtensions, erasableSyntaxOnly, lib, module, moduleDetection (+12 more)
 
-### Community 12 - "Checklist & Decision-Tree UI"
-Cohesion: 0.10
-Nodes (14): Checklist(), ChecklistProps, DecisionNode, DecisionOutcome, DecisionTree(), DecisionTreeProps, Formula(), FormulaProps (+6 more)
-
-### Community 13 - "Example & Scorecard UI"
-Cohesion: 0.20
-Nodes (13): Example(), ExampleProps, ProvenanceChip(), COLS, Scorecard(), ScorecardProps, StatCallout(), FactId (+5 more)
-
-### Community 14 - "Attract & Execute Workflows"
-Cohesion: 0.15
-Nodes (14): iROAS convention (incremental return / incremental cost), Chicago Sun-Times fabricated reading list, L'Oréal, ModiFace, Attract (workflow), Execute (workflow), Casper vs. Saatva AEO Citation Gap (example), The Four Citation Signals (+6 more)
-
-### Community 15 - "Auranis Hallucination Case Study"
+### Community 14 - "ui/index.ts"
 Cohesion: 0.14
-Nodes (14): Intermediate brand-voice file as hallucination vector, Case A v1 — clean initial draft, Case A v2 — methodologically improved, factually contaminated, Case C memo — clean final version, Auranis (fictional teaching company), Auranis DermLab Serum, Auranis guardrails / pre-submission checklist, Opt-in selection-bias catch (+6 more)
+Nodes (12): DefinitionList(), DefinitionListProps, Figure(), FigureProps, Formula(), FormulaProps, PullQuote(), PullQuoteProps (+4 more)
 
-### Community 16 - "Further Reading Citations"
-Cohesion: 0.17
-Nodes (13): Anthropic, 'Model Context Protocol (MCP): Connecting AI Models to the World,' November 2024, Christensen, Hall, Dillon & Duncan, Competing Against Luck, HarperBusiness, 2016, Christensen, Hall, Dillon & Duncan, 'Know Your Customers' Jobs to Be Done,' HBR, Sept 2016, Further Reading Index — verified citations plus MKTG 468 course-material source list, Google, 'Agent2Agent (A2A) Protocol,' Google GitHub Repository, 2025, Kotler & Keller, Marketing Management, 15th ed., Pearson, 2016, Kotler, Marketing Management, 1967 (origin of the STP framework), Levitt, 'Marketing Myopia,' HBR, 1960 (+5 more)
+### Community 15 - "Scorecard.tsx"
+Cohesion: 0.21
+Nodes (12): Example(), ExampleProps, ProvenanceChip(), COLS, Scorecard(), ScorecardProps, StatCallout(), FactId (+4 more)
 
-### Community 17 - "I-MOS Four-Layer Stack"
-Cohesion: 0.17
-Nodes (13): Agentic Services (Layer 2, the organs), CDW / Marko Multi-Agent System (example), Governance Envelope (Layer 4, the immune system), Learning Objects (the write-back), Martech Fragmentation (91 tools, ~25% connected), Orchestration Plane (Layer 3, the nervous system), Shared Memory (Layer 1, the brain), Four-Layer-Stack Trace Audit (prompt) (+5 more)
+### Community 16 - "layout/index.ts"
+Cohesion: 0.19
+Nodes (10): MobileHeader(), MobileHeaderProps, NavLinks(), PageSkeleton(), PagerLink, PrevNextPager(), PrevNextPagerProps, Sidebar() (+2 more)
 
-### Community 18 - "Governance Envelope Design"
-Cohesion: 0.15
-Nodes (13): Blocking vs. Advisory (governance check test), Envelope, Not Gate (design principle), Kill-Switch Protocol, Airbnb Project Lighthouse (example), I-MOS (the operating loop), Learn -> Sense Feedback Arc, Understand / Build / Run (three phases), Three Reading Paths (front-to-back / by-workflow / by-case) (+5 more)
+### Community 17 - "mdx-components.tsx"
+Cohesion: 0.12
+Nodes (11): BeforeAfter(), BeforeAfterProps, Callout(), CalloutProps, CONFIG, Checklist(), ChecklistProps, StepList() (+3 more)
 
-### Community 19 - "Accordion & Tabs UI"
+### Community 18 - "Four-Stage Maturity Model"
+Cohesion: 0.16
+Nodes (15): Four-Stage Maturity Model, Stage 1: Point Tools, Stage 2: Partial Integration, Stage 3: Workflow Orchestration, Stage 4: Full I-MOS, What Is I-MOS chapter, D1: The Seven Workflows, Sawhney: Don't Just Add AI to Marketing. Rebuild Marketing for AI (MIT Sloan, 2026) (+7 more)
+
+### Community 19 - "The Seven Workflows (Sense, Focus, Desig"
+Cohesion: 0.16
+Nodes (15): D14: The Output Chain, D23: The Five Insight Objects, D78: The Learning Flywheel, Learn-to-Sense Feedback Arc, The Output Chain, The Seven Workflows (Sense, Focus, Design, Attract, Orchestrate, Execute, Learn), Understand / Build / Run, The Five Insight Objects (+7 more)
+
+### Community 20 - "L'Oréal case"
+Cohesion: 0.23
+Nodes (13): In-platform deployment (Amazon, Sephora app, Instagram), L'Oréal case, ModiFace, SkinConsult AI, TrendSpotter, Execute (workflow), Execute & Learn (combined workflow page), Focus (workflow) (+5 more)
+
+### Community 21 - "Accordion.tsx"
 Cohesion: 0.23
 Nodes (9): Accordion(), AccordionItem(), AccordionItemData, AccordionProps, SourcesDisclosure(), SourcesDisclosureProps, ExpandAllContext, useExpandAll() (+1 more)
 
-### Community 20 - "Prompt & Copy Button UI"
+### Community 22 - "Prompt.tsx"
 Cohesion: 0.23
 Nodes (9): CopyButton(), CopyButtonProps, highlight(), Prompt(), PROMPT_IDS, PromptId, prompts, registry (+1 more)
 
-### Community 21 - "Cross-Industry Operating Layers"
+### Community 23 - "Six Governance Failures case"
+Cohesion: 0.17
+Nodes (12): Air Canada chatbot incident, Brand-voice-lock control, Chicago Sun-Times fabricated reading list, Claims-library control, Real-time consent-boundary control, Digit consent-boundary incident, Six Governance Failures case, Jaguar AI-sameness rebrand incident (+4 more)
+
+### Community 24 - "CommandPalette.tsx"
+Cohesion: 0.36
+Nodes (7): CommandPalette(), CommandPaletteProps, MobileDrawer(), MobileDrawerProps, useFocusTrap(), useLockBodyScroll(), search()
+
+### Community 25 - "motion.ts"
+Cohesion: 0.25
+Nodes (7): PageTransitionProps, Reveal(), RevealProps, Section(), SectionProps, slugify(), EASE_OUT_EXPO
+
+### Community 26 - "Cases Index"
+Cohesion: 0.25
+Nodes (11): Cases Index, Hardship-flag suppression mechanism, National Australia Bank case, Pega Customer Decision Hub ('the customer brain'), NAB four-gate policy stack, Peloton five-state journey model, At-Risk human-escalation design, Peloton case (+3 more)
+
+### Community 27 - "The Four-Layer Stack (spine page)"
 Cohesion: 0.18
-Nodes (11): Finance's operating layer (GL/close process), Jet-engine-on-a-carriage metaphor, Manufacturing's operating layer (MES/ERP), Operating architecture, Software engineering's operating layer (CI/CD), Agentic Services (layer), Governance (layer), Intelligent Marketing Operating System (I-MOS) (+3 more)
+Nodes (11): D3: The Four-Layer I-MOS Stack, D62: One Signal, Full System, D66: Three Governance Modes, Agentic Services (layer), The Four-Layer Stack (spine page), Governance (layer), One Signal, Full System (trace), Orchestration (layer) (+3 more)
 
-### Community 22 - "Coca-Cola & OpenAI Cases"
+### Community 28 - "App.tsx"
 Cohesion: 0.24
-Nodes (10): Coca-Cola, Coca-Cola 2024 holiday ad (AI remake), Cases index page, GPT-4o April 2025 sycophancy update, OpenAI, RLHF reward-hacking mechanism, Yelp, Destination Upgrade (+2 more)
+Nodes (7): App(), PageTransition(), SidebarLayout(), container, Home(), item, WORKFLOWS
 
-### Community 23 - "Diagram Backlog"
+### Community 29 - "Orchestrate Workflow"
 Cohesion: 0.20
-Nodes (10): Diagram Backlog — 16 scoped-but-undrawn diagrams from the original 39-diagram v1 set, D19 — The Four Signal Families, D1 — The Seven Workflows, D6 — The Four Symptoms, D73 — Peloton's Five-State Model, D81 — The Six Risks and Their Controls, D90 — The L'Oréal / Coca-Cola / Eloqua Tech Stacks, Diagrams Index — 37 live diagrams across the site, D-numbered against Appendix A's 90-diagram inventory (+2 more)
+Nodes (10): Nine Sub-Criteria, Not Ninety (design decision), ICP Scoring Rubric, Dwell Minimum & Regression Cooldown (design decision), Journey State Model Template, Amazon Next-Best-Action Example, JPMorgan Policy Stack Example, Next-Best-Action Selection, Policy Stack (+2 more)
 
-### Community 24 - "Spine Reference Diagrams"
-Cohesion: 0.20
-Nodes (10): D3 — The Four-Layer I-MOS Stack, Four-Layer Stack — Shared Memory, Agentic Services, Orchestration, Governance, Four-Pass Decomposition — sub-workflows, tasks, agents, connections, Glossary Index — 88 terms taught on the live site, grouped by Part and chapter (subset of Appendix A's ~255-term inventory), Govern Envelope — continuous consent/claims/bias/audit/kill-switch layer, I-MOS — Intelligent Marketing Operating System, Incrementality / iROAS / ROMI, Maturity Model — Point Tools, Partial Integration, Workflow Orchestration, Full I-MOS (+2 more)
+### Community 30 - "Experiment Design Checklist"
+Cohesion: 0.28
+Nodes (9): Experiment Design Checklist, Decision Enabled Field (design decision), Holdout Test Discipline, Email-Lift Claim Worked Example, What Would Falsify This Claim Field, Falsification-First Field Order (design decision), Measurement Humility Worksheet, Incrementality Testing (+1 more)
 
-### Community 25 - "ROMI & iROAS Measurement"
-Cohesion: 0.22
-Nodes (10): ROMI worked at three COGS levels ($50k spend, $180k incremental revenue), Instacart 4.5x verified iROAS example, iROAS convention restated as reference, ROMI Formula (Incremental Contribution Margin / Marketing Spend), Dark Social, Zero-Click Economics, Incrementality Testing (treatment vs. control), Instacart Geo-Based Holdout iROAS (example) (+2 more)
-
-### Community 26 - "Sense Workflow & Signal Service"
-Cohesion: 0.22
-Nodes (9): SkinConsult AI, TrendSpotter, Sense (workflow), Sense Loop (Collect/Resolve/Interpret/Surface), Starbucks Deep Brew (example, real-time ingestion), Signal Service (19 agents / 39 tasks), The Four Signal Families (Behavioral/Qualitative/Intent/Environmental), Starbucks Deep Brew (example, four-signal composition) (+1 more)
-
-### Community 27 - "Verified Stat Citations"
-Cohesion: 0.25
-Nodes (9): Adweek — P&G $200M digital ad spend cut, Airbnb, 'Measuring Discrimination on the Airbnb Platform' (2020) and '2024 Project Lighthouse Update' (2024), Brinker & Riemersma, chiefmartec.com martech landscape research, FTC — 'FTC Returns More Than $7.8 Million to Consumers Who Were Deceived by BetterHelp's Privacy Practices,' March 2024, Stat: Airbnb Project Lighthouse discrimination-measurement figures, Stat: BetterHelp FTC $7.8M fine, Stat: Martech tool count — '91 of 9,932' (course, Session 10) vs. chiefmartec's larger 2025 figure of 15,384 (discrepancy), Stat: P&G cut $200M in digital ad spend, marketing became 10% more effective (verified) (+1 more)
-
-### Community 28 - "CDW & Oracle Eloqua Cases"
-Cohesion: 0.25
-Nodes (8): Buying-committee model (Eloqua), CDW, The Four-Layer Stack (page), ServiceNow intent platform / role-based content briefs, Marko (CDW's multi-agent orchestration system), Oracle Eloqua, Further Examples page, ServiceNow
-
-### Community 29 - "Nike & Bias-Risk Cases"
-Cohesion: 0.25
-Nodes (8): Consumer Direct Offense, Nike, SNKRS drop system, Air Canada chatbot fare-policy incident, Digit, Meta ad platform delivery bias, Six Governance Failures page, Govern (continuous band)
-
-### Community 30 - "Maturity Model Stages"
-Cohesion: 0.32
-Nodes (8): Stage 4: Full I-MOS, Roadmap 30-60-90 Draft (Prompt), Maturity Model (referenced), Org Shift (roadmap column), 30/60/90 Roadmap, Stage 1: Point Tools, Stage 2: Partial Integration, Stage 3: Workflow Orchestration
-
-### Community 31 - "Agentforce Capstone Team"
+### Community 31 - "OpenAI Sycophancy Incident case"
 Cohesion: 0.29
-Nodes (7): Agentforce, Consumption confusion, Fighting Fires rep persona, Natural Adapter rep persona, Salesforce, Team 6 — Internal Marketing / Revenue Model Transition capstone, Trained-but-Stuck rep persona
+Nodes (8): Five-layer failure autopsy, GPT-4o, OpenAI, OpenAI Sycophancy Incident case, RLHF mechanism, April 2025 sycophancy incident, Govern (workflow band), D89: The OpenAI Failure Autopsy
 
-### Community 32 - "Learn Workflow & Flywheel"
+### Community 32 - "Yelp case"
+Cohesion: 0.36
+Nodes (8): Destination Upgrade strategy, Answer-engine disintermediation, Influence Dashboard strategy, Source Layer Pivot strategy, Yelp case, Attract (workflow), Build phase, D86: Yelp Strategy Comparison
+
+### Community 33 - "README.md project overview"
+Cohesion: 0.33
+Nodes (7): Site Tech Stack (Vite+React+TS+Tailwind+framer-motion+HashRouter), MIT License (site code), README.md project overview, Self-Hosted Fonts, No Third-Party Requests at Runtime, CC BY-NC-SA 4.0 (written content license), Neil Baksi (site author), No analytics / no cookies / no accounts / no third-party requests
+
+### Community 34 - "ErrorBoundary"
 Cohesion: 0.29
-Nodes (7): Learn (workflow), Booking.com Experimentation Scale (example), The Learning Flywheel (Act/Measure/Analyze/Update/Improve), Experimentation & Measurement Service (12 agents / 30 tasks, backward-flowing), Journey Orchestration Service (15 agents / 35 tasks, the I-MOS spine), The Learning Flywheel (Update writes back), Core Operating Loop (Signal/Decide/Brief/Act/Learn)
+Nodes (3): ErrorBoundary, ErrorBoundaryProps, ErrorBoundaryState
 
-### Community 33 - "Callout UI Component"
+### Community 35 - "Design Governance Zones"
+Cohesion: 0.29
+Nodes (7): Resulting Autonomy Tier, A Decision Is Rarely Atomic (design decision), Four Diagnostic Questions, Pause vs. Resume Worked Example, Economics of Error Worksheet, Governance Table, Design Governance Zones
+
+### Community 36 - "PageHeader.tsx"
+Cohesion: 0.33
+Nodes (5): container, item, PageHeaderLink, PageHeaderMeta, PageHeaderProps
+
+### Community 37 - "DecisionTree.tsx"
+Cohesion: 0.33
+Nodes (4): DecisionNode, DecisionOutcome, DecisionTree(), DecisionTreeProps
+
+### Community 38 - "MKTG 468: AI-Native Marketing"
+Cohesion: 0.33
+Nodes (6): Attribution page, Kellogg School of Management, Northwestern University, AI-Native Marketing Handbook, Kellogg School of Management, MKTG 468: AI-Native Marketing, Privacy page
+
+### Community 39 - "Coca-Cola case"
+Cohesion: 0.53
+Nodes (6): 2024 Coca-Cola holiday ad incident, Adobe, Coca-Cola case, Project Fizzion, Fizzion six-layer stack (Observe/Encode/Govern/Distribute/Generate/Audit), Design (workflow)
+
+### Community 40 - "Further Examples"
+Cohesion: 0.33
+Nodes (6): CDW Marko multi-agent orchestration, Further Examples, Nike (Consumer Direct Offense), Nike SNKRS drop eligibility stack, Oracle Eloqua buying-committee model, ServiceNow intent platform
+
+### Community 41 - "Five Govern Components"
+Cohesion: 0.33
+Nodes (6): Audit Trail, Bias Detection, Claims Verification, Consent Checks, Five Govern Components, Kill-Switch Protocol
+
+### Community 42 - "ICP Formula (Fit x Readiness - Friction)"
 Cohesion: 0.40
-Nodes (4): Callout(), CalloutProps, CONFIG, CalloutKind
+Nodes (6): ICP Scoring Rubric, Learning Flywheel (Act-Improve), ICP Formula (Fit x Readiness - Friction), Persona (decision-narrative), Need State, Propensity Score
 
-### Community 34 - "Experiment Design Checklist"
+### Community 43 - "Content Integrity Check (scripts/check-c"
 Cohesion: 0.40
-Nodes (5): Experiment Design Checklist (pre-launch gate), Referral-Banner Test worked example, Seven Required Fields (Hypothesis, What Changes, Metrics, Design, Duration, Success Threshold, Decision Enabled), Email-lift claim tested against falsification worked example, Measurement Humility Worksheet
+Nodes (5): Content Integrity Check (scripts/check-content.mjs build gate), Typed Fact/Provenance Registry (src/data/facts.ts), CI Build Job, CI Deploy Job (GitHub Pages), CC BY-NC-SA 4.0 License (written content & facts)
 
-### Community 35 - "Design Palette & App Shell"
+### Community 44 - "ComparisonTable.tsx"
+Cohesion: 0.40
+Nodes (4): ComparisonTable(), ComparisonTableProps, STATE, TableCell
+
+### Community 45 - "Intelligent Marketing Operating System ("
+Cohesion: 0.90
+Nodes (5): Agentic Services layer, Governance layer, Intelligent Marketing Operating System (I-MOS), Orchestration layer, Shared Memory layer
+
+### Community 46 - "Attract Workflow"
+Cohesion: 0.50
+Nodes (5): Four Citation Signals, Dark Social, HubSpot AEO Example, Attract Workflow, Zero-Click Economics
+
+### Community 47 - "index.html entry point"
 Cohesion: 0.67
 Nodes (4): Ink & Ember Design Palette (light-mode only), index.html entry point, 404.html hash-routing redirect logic, Favicon — three connected circles, one in ember accent
 
-### Community 36 - "FlowChain UI Component"
+### Community 48 - "FlowChain.tsx"
 Cohesion: 0.67
 Nodes (3): FlowChain(), FlowChainProps, isDense()
 
-### Community 37 - "LayerStack UI Component"
+### Community 49 - "LayerStack.tsx"
 Cohesion: 0.50
 Nodes (3): Layer, LayerStack(), LayerStackProps
 
-### Community 38 - "Tabs UI Component"
+### Community 50 - "Matrix2x2.tsx"
+Cohesion: 0.50
+Nodes (3): Matrix2x2(), Matrix2x2Props, Quadrant
+
+### Community 51 - "Tabs.tsx"
 Cohesion: 0.50
 Nodes (3): TabItem, Tabs(), TabsProps
 
-### Community 39 - "ICP Scoring Rubric"
+### Community 52 - "Timeline.tsx"
 Cohesion: 0.50
-Nodes (4): Fit Tiers (Tier 1 prioritize / Tier 2 programmatic / Tier 3 deprioritize), ICP Scoring Rubric, 900-employee logistics company scored worked example, Nine Sub-Criteria (Fit, Readiness, Friction, 0-5 each)
+Nodes (3): Timeline(), TimelineEntry, TimelineProps
 
-### Community 40 - "Policy Stack (D72)"
+### Community 53 - "Five Object Types (Identity/State/Decisi"
+Cohesion: 0.50
+Nodes (4): AB InBev Three-Consumers Failure (example, retold), Blank Audit Version (template), Five Object Types (Identity/State/Decision/Content/Learning), Subscription Retailer Worked Example
+
+### Community 54 - "Signal Families"
+Cohesion: 0.50
+Nodes (4): Retail Bank Churn Lag Example, Signal Families, Starbucks Deep Brew Example, Triangulation
+
+### Community 55 - "Airbnb Project Lighthouse"
 Cohesion: 0.67
-Nodes (3): D72 — The Policy Stack, Policy Stack — Right Customer, Right Moment, Compliance, Frequency Caps gates, Stat: NAB adaptive-model count, registered as '800–2,000' (Reading 11 vs. Session 11 discrepancy)
+Nodes (3): Airbnb: Measuring Discrimination on the Airbnb Platform (2020), Airbnb: 2024 Project Lighthouse Update, Airbnb Project Lighthouse
 
-### Community 41 - "Honda ICO Fine"
-Cohesion: 1.00
-Nodes (3): AM-online — Honda fined over 'illegal' marketing emails, UK ICO Enforcement Notice against Honda Motor Europe Limited, 2022, Stat: Honda sent 289,790 unlawful marketing emails (verified, per UK ICO enforcement notice)
-
-### Community 42 - "Zero-Click Search Study"
+### Community 56 - "Kotler: Marketing Management (1967)"
 Cohesion: 0.67
-Nodes (3): Fishkin & SparkToro (with Datos), '2024 Zero-Click Search Study,' July 2024 (~900M-query analysis), SEO to AEO — shift from search ranking to answer-engine citation, Stat: Zero-click search rate (from SparkToro's ~900M-query study)
+Nodes (3): Kotler & Keller: Marketing Management, 15th ed (2016), Kotler: Marketing Management (1967), Smith: Product Differentiation and Market Segmentation (Journal of Marketing, 1956)
 
-### Community 43 - "Meta Ad-Delivery Bias"
-Cohesion: 1.00
-Nodes (3): Bias Detection, Bias Risk, Meta Ad-Delivery HUD Lawsuit (example)
-
-### Community 44 - "Provenance Marks System"
+### Community 57 - "900-Employee Logistics Company Worked Ex"
 Cohesion: 0.67
-Nodes (3): Provenance Marks (Verified / Course-sourced / Synthetic), Specificity Signal (verifiable claim), No Stat Without a Source (enforcement rule)
+Nodes (3): ICP Fit Tiers, ICP Score Sub-Criteria Formula, 900-Employee Logistics Company Worked Example
+
+### Community 58 - "Implementation Archetypes"
+Cohesion: 0.67
+Nodes (3): Four-Layer Stack (Two Translations), Implementation Archetypes, Build Workflow
 
 ## Knowledge Gaps
-- **335 isolated node(s):** `CommandPaletteProps`, `MobileDrawerProps`, `MobileHeaderProps`, `PageHeaderLink`, `PageHeaderMeta` (+330 more)
+- **334 isolated node(s):** `CommandPaletteProps`, `ErrorBoundaryProps`, `ErrorBoundaryState`, `MobileDrawerProps`, `MobileHeaderProps` (+329 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **34 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **22 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `The Economics of Error` connect `Agentforce Six-Agent System` to `Build & Content-Integrity Gate`, `Governance & Hallucination Guardrails`, `Coca-Cola & OpenAI Cases`?**
-  _High betweenness centrality (0.079) - this node is a cross-community bridge._
-- **Why does `Intelligent Marketing Operating System (I-MOS)` connect `Cross-Industry Operating Layers` to `Learn Workflow & Flywheel`, `Agentforce Six-Agent System`, `Focus Workflow Failure Modes`, `Build & Content-Integrity Gate`, `Attract & Execute Workflows`, `Auranis Hallucination Case Study`, `Sense Workflow & Signal Service`, `Maturity Model Stages`?**
-  _High betweenness centrality (0.076) - this node is a cross-community bridge._
-- **Why does `MKTG 468: AI-Native Marketing` connect `Build & Content-Integrity Gate` to `Agentforce Six-Agent System`, `Cross-Industry Operating Layers`?**
-  _High betweenness centrality (0.052) - this node is a cross-community bridge._
-- **What connects `CommandPaletteProps`, `MobileDrawerProps`, `MobileHeaderProps` to the rest of the system?**
-  _335 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Sidebar & Layout Components` be split into smaller, more focused modules?**
-  _Cohesion score 0.05 - nodes in this community are weakly interconnected._
-- **Should `ESLint Toolchain` be split into smaller, more focused modules?**
+- **Why does `Glossary (88-term index)` connect `Glossary (88-term index)` to `Diagram Inventory (Live + Backlog)`, `Toolkit Index (15 templates)`, `Economics of Error (cost-of-error / valu`, `Five Govern Components`, `Focus Workflow`, `ICP Formula (Fit x Readiness - Friction)`, `The Problem (four symptoms chapter)`, `Intelligent Marketing Operating System (`, `Attract Workflow`, `Four-Stage Maturity Model`, `The Seven Workflows (Sense, Focus, Desig`, `Signal Families`, `Implementation Archetypes`, `The Four-Layer Stack (spine page)`, `Orchestrate Workflow`?**
+  _High betweenness centrality (0.201) - this node is a cross-community bridge._
+- **Why does `Methodology page` connect `Methodology page` to `MKTG 468: AI-Native Marketing`?**
+  _High betweenness centrality (0.102) - this node is a cross-community bridge._
+- **Why does `AI-Native Marketing Handbook` connect `MKTG 468: AI-Native Marketing` to `Methodology page`, `Statistics / Provenance reference page`?**
+  _High betweenness centrality (0.094) - this node is a cross-community bridge._
+- **What connects `CommandPaletteProps`, `ErrorBoundaryProps`, `ErrorBoundaryState` to the rest of the system?**
+  _334 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `Diagram Inventory (Live + Backlog)` be split into smaller, more focused modules?**
+  _Cohesion score 0.05547652916073969 - nodes in this community are weakly interconnected._
+- **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.05405405405405406 - nodes in this community are weakly interconnected._
-- **Should `Agentforce Six-Agent System` be split into smaller, more focused modules?**
-  _Cohesion score 0.06756756756756757 - nodes in this community are weakly interconnected._
+- **Should `Glossary (88-term index)` be split into smaller, more focused modules?**
+  _Cohesion score 0.06825396825396825 - nodes in this community are weakly interconnected._

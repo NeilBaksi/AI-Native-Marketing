@@ -1,27 +1,27 @@
-[Design](/workflows/design) names five Brand DNA components and the test they have to pass — can an agent act on this without a human translating it first? This spec is the fillable version: five fields plus two mechanics that make the whole thing enforceable rather than aspirational.
+This spec is the fillable version of [Design](/workflows/design)'s five Brand DNA components. Five fields, plus two mechanics that make the whole thing enforceable rather than aspirational. Every field has to pass one test. Can an agent act on it without a human translating first?
 
 <Section index="01" kicker="A spec, not a mood board" title="What it's for">
 
-The five components — tone-of-voice rules, visual grammar, proof cues, claims boundaries, required disclaimers — are already defined in Design; this template doesn't re-explain them, it gives each one a field an agent can actually check its own output against before generation, the same standard the [Machine-Readability Test](/workflows/design) applies line by line.
+Design already defines the five components: tone-of-voice rules, visual grammar, proof cues, claims boundaries, and required disclaimers. This template doesn't re-explain them. It gives each one a field an agent can check its own output against before generation, the same standard the [Machine-Readability Test](/workflows/design) applies line by line.
 
 </Section>
 
 <Section index="02" kicker="Before the pipeline connects" title="When to use it">
 
-Fill this out before connecting a brand to any AI content-generation workflow, or the moment an existing brand guide turns out to be adjectives a person has to interpret rather than rules a system can enforce — "fresh and vibrant" is a guideline; "saturation 70–85%, no stock" is a spec.
+Fill this out before connecting a brand to any AI content-generation workflow. Also fill it out the moment an existing brand guide turns out to be adjectives a person must interpret, not rules a system can enforce. "Fresh and vibrant" is a guideline. "Saturation 70–85%, no stock" is a spec.
 
 </Section>
 
 <Section index="03" kicker="Filled in, for a fictional coffee brand" title="Worked example">
 
-Wayfarer Coffee Roasters, a fictional direct-to-consumer coffee subscription brand — used here to show the spec filled in for a brand distinct from the haircare example Design already worked through.
+Wayfarer Coffee Roasters is a fictional direct-to-consumer coffee subscription brand. This example shows the spec filled in for a brand distinct from the haircare example Design already worked through.
 
 <DefinitionList items={[
   { term: 'Tone-of-voice rules', body: 'Max 18 words per sentence. Second person. No exclamation points. Approved verbs: roast, source, ship. Not approved: elevate, unlock, obsess.' },
-  { term: 'Visual grammar', body: 'Primary #2B1B12, accent #C67F3E. Product photography always on unfinished oak, natural light only — no studio white background.' },
-  { term: 'Proof cues', body: "Farm name, altitude, and harvest date pulled from the sourcing database only — never estimated or written from memory." },
-  { term: 'Claims boundaries', body: 'Permitted: "single-origin," "direct-trade," "roasted within 10 days of shipping" — each verifiable per batch. Prohibited: "organic" (uncertified), "fair trade" (no certification on file), "healthiest coffee."' },
-  { term: 'Required disclaimers', body: 'Any mention of subscription pricing auto-appends "cancel anytime, prorated" — not removable by the assembly engine.' },
+  { term: 'Visual grammar', body: 'Primary #2B1B12, accent #C67F3E. Product photography always on unfinished oak, natural light only. No studio white background.' },
+  { term: 'Proof cues', body: "Farm name, altitude, and harvest date pulled from the sourcing database only. Never estimated or written from memory." },
+  { term: 'Claims boundaries', body: 'Permitted: "single-origin," "direct-trade," "roasted within 10 days of shipping." Each verifiable per batch. Prohibited: "organic" (uncertified), "fair trade" (no certification on file), "healthiest coffee."' },
+  { term: 'Required disclaimers', body: 'Any mention of subscription pricing auto-appends "cancel anytime, prorated." It is not removable by the assembly engine.' },
 ]} />
 
 Two mechanics make the spec enforceable rather than descriptive:
@@ -47,12 +47,12 @@ The violation-words list behind that second draft — "elevate," "unlock," "obse
 <Section index="04" kicker="Copy this" title="Blank version">
 
 <DefinitionList items={[
-  { term: 'Tone-of-voice rules', body: '[a binary, testable rule — sentence length, person, punctuation, an approved/not-approved verb list — not an adjective]' },
+  { term: 'Tone-of-voice rules', body: '[a binary, testable rule: sentence length, person, punctuation, an approved/not-approved verb list — not an adjective]' },
   { term: 'Visual grammar', body: '[hex codes and pixel specs, not mood-board language]' },
-  { term: 'Proof cues', body: '[the single approved source this brand draws evidence from — named, not described]' },
+  { term: 'Proof cues', body: '[the single approved source this brand draws evidence from, named, not described]' },
   { term: 'Claims boundaries', body: '[a binary permitted/prohibited list, with the reason each prohibited claim fails]' },
   { term: 'Required disclaimers', body: '[the exact text, and the trigger condition that auto-appends it]' },
-  { term: 'Violation words (append-only)', body: '[start empty — add an entry the first time a draft uses it, never remove one]' },
+  { term: 'Violation words (append-only)', body: '[start empty. Add an entry the first time a draft uses it, never remove one]' },
 ]} />
 
 Or turn an existing style guide into a first-draft spec instead of starting from empty fields:
@@ -72,7 +72,7 @@ The definition-list format above maps to a two-column spreadsheet (field, filled
 <Section index="06" kicker="What machine-readable costs, and buys" title="Design decision">
 
 <Callout kind="key" title="An enforceable spec is a narrower spec">
-Structured fields cost real nuance — "feels fresh and vibrant" captures something a hex code and an f-stop range never will. The trade is deliberate: a spec that keeps the adjective is unusable at generation time, so nothing in it actually governs the ten thousandth asset the way it governed the first. A narrower spec that an agent can check itself against beats a richer one that only a person can interpret, because only one of them scales past a human review queue.
+Structured fields cost real nuance. "Feels fresh and vibrant" captures something a hex code and an f-stop range never will. The trade is deliberate: a spec that keeps the adjective is unusable at generation time, so nothing in it actually governs the ten thousandth asset the way it governed the first. A narrower spec that an agent can check itself against beats a richer one that only a person can interpret, because only one of them scales past a human review queue.
 </Callout>
 
 </Section>

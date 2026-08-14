@@ -1,19 +1,19 @@
 <Section index="01" kicker="An audit, not a scorecard" title="What it's for">
 
-[Shared Memory](/spine/shared-memory) names the schema every workflow reads and writes: identity, state, decision, content, and learning objects. That chapter doesn't ask whether your organization's actual data can populate them — it assumes the objects exist. This audit is the question it skips: for each of the five object types, does the data you actually have support it, or does the object exist only on a slide?
+[Shared Memory](/spine/shared-memory) names the schema every workflow reads and writes: identity, state, decision, content, and learning objects. That chapter doesn't ask whether your organization's actual data can populate them. It assumes the objects exist. This audit is the question it skips. For each of the five object types: does the data you actually have support it, or does the object exist only on a slide?
 
 <Callout kind="caution" title="An audit, not a scorecard">
-The point isn't a pass/fail grade across every field. Some gaps are launch-blocking; some are cosmetic imperfections nobody should lose a week fixing. The worked example below draws that line explicitly, on purpose.
+This isn't a pass/fail grade across every field. Some gaps are launch-blocking; some are cosmetic imperfections nobody should lose a week fixing. The worked example below draws that line explicitly, on purpose.
 </Callout>
 
 </Section>
 
 <Section index="02" kicker="Before the build starts" title="When to use it">
 
-Run this before committing to build any workflow, agent, or automation that assumes Shared Memory objects already exist and are trustworthy — not after the build starts and the gaps surface as production bugs.
+Run this before committing to build any workflow, agent, or automation that assumes Shared Memory objects already exist and are trustworthy. Not after the build starts and the gaps surface as production bugs.
 
 - Early in an I-MOS adoption effort, right after the [maturity-model](/foundations/maturity-model) ladder places you at a stage.
-- Before scaling autonomy on any workflow — an agent making Fully Autonomous decisions on a Propensity Score built from stale, fragmented identity data is a governance failure waiting to happen, not a data-quality footnote.
+- This matters most before scaling autonomy on any workflow. An agent making Fully Autonomous decisions on a Propensity Score built from stale, fragmented identity data is a governance failure waiting to happen, not a data-quality footnote.
 - When a workflow's outputs look wrong and the suspicion is the object it read, not the logic that read it.
 
 </Section>
@@ -23,36 +23,36 @@ Run this before committing to build any workflow, agent, or automation that assu
 A mid-size subscription retailer runs the audit across its five object types before greenlighting its first agentic workflow.
 
 <ComparisonTable
-  caption="Data readiness audit — one subscription retailer, five object types."
+  caption="Data readiness audit: one subscription retailer, five object types."
   columns={['What it requires', 'What we actually have', 'Verdict']}
   rows={[
     { label: 'Identity', cells: ['One resolved customer record across web, email, CRM, and support.', 'Separate IDs per system; roughly 30% match rate on email hash alone.', { text: 'Blocking', state: 'major-gap' }] },
-    { label: 'State', cells: ['A near-real-time behavioral event stream.', 'Nightly batch ETL from web analytics — state is always ~24 hours stale.', { text: 'Limits, not blocking', state: 'gap' }] },
+    { label: 'State', cells: ['A near-real-time behavioral event stream.', 'Nightly batch ETL from web analytics. State is always ~24 hours stale.', { text: 'Limits, not blocking', state: 'gap' }] },
     { label: 'Decision', cells: ['A shared log of which policy fired, for which customer, and why.', 'Each platform logs its own decisions natively; nothing centralized across them.', { text: 'Blocking', state: 'major-gap' }] },
-    { label: 'Content', cells: ['Modular, tagged Core/Proof/Offer/Risk blocks an agent can assemble.', 'A DAM holding finished, whole assets — nothing decomposed into blocks.', { text: 'Limits, not blocking', state: 'gap' }] },
+    { label: 'Content', cells: ['Modular, tagged Core/Proof/Offer/Risk blocks an agent can assemble.', 'A DAM holding finished, whole assets. Nothing decomposed into blocks.', { text: 'Limits, not blocking', state: 'gap' }] },
     { label: 'Learning', cells: ['Holdout-tested results written back automatically after every campaign.', 'A quarterly BI dashboard a person reads; nothing writes back on its own.', { text: 'Blocking', state: 'major-gap' }] },
   ]}
 />
 
 <Example id="ab-inbev-three-consumers">
-  The Identity gap above is the same failure at a much larger scale: a single AB InBev consumer, buying across three of the company's own brands, was invisible as one person to three separate campaign systems — not because any model was wrong, but because no Identity object existed anywhere for that consumer to be recognized as one.
+  The Identity gap above is the same failure at a much larger scale. A single AB InBev consumer, buying across three of the company's own brands, was invisible as one person to three separate campaign systems. Not because any model was wrong, but because no Identity object existed anywhere for that consumer to be recognized as one.
 </Example>
 
-Three of the five — Identity, Decision, Learning — are launch-blocking here: without them, autonomy can't scale past a demo, because there's nowhere for the loop to write its results. State and Content are real gaps but not blocking; a workflow can launch with 24-hour-stale state and whole-asset content, and tighten both later.
+Three of the five — Identity, Decision, Learning — are launch-blocking. Without them, autonomy can't scale past a demo, because there's nowhere for the loop to write its results. State and Content are real gaps but not blocking; a workflow can launch with 24-hour-stale state and whole-asset content, and tighten both later.
 
 </Section>
 
 <Section index="04" kicker="Run it against your own five objects" title="Blank version">
 
-Copy the worked example's table shape — five rows, three columns (what it requires / what we actually have / verdict) — and fill it in against a written inventory of your own systems, object by object:
+Copy the worked example's table shape: five rows, three columns (what it requires / what we actually have / verdict). Fill it in against a written inventory of your own systems, object by object:
 
-- **Identity** — one resolved customer record across web, email, CRM, and support?
-- **State** — a near-real-time behavioral event stream?
-- **Decision** — a shared log of which policy fired, for which customer, and why?
-- **Content** — modular, tagged Core/Proof/Offer/Risk blocks an agent can assemble?
-- **Learning** — holdout-tested results written back automatically after every campaign?
+- **Identity**: one resolved customer record across web, email, CRM, and support?
+- **State**: a near-real-time behavioral event stream?
+- **Decision**: a shared log of which policy fired, for which customer, and why?
+- **Content**: modular, tagged Core/Proof/Offer/Risk blocks an agent can assemble?
+- **Learning**: holdout-tested results written back automatically after every campaign?
 
-The placement rule from the worked example still applies: the audit's verdict is set by the worst object type, not the average — one blocking gap stops the loop from writing anywhere, no matter how ready the other four are.
+The placement rule from the worked example still applies: the audit's verdict is set by the worst object type, not the average. One blocking gap stops the loop from writing anywhere, no matter how ready the other four are.
 
 <Prompt id="data-readiness-audit-run" />
 
@@ -66,6 +66,6 @@ The table above is meant to be copied into a written inventory, not filled in fr
 
 <Section index="06" kicker="Not every gap is a blocker" title="Design decision">
 
-The verdict column forces a real distinction most data audits skip: not every imperfection is a blocker. A field that's slightly stale, or a category share that's off by a rounding error, doesn't deserve the same response as an object that structurally doesn't exist anywhere. Treating every gap as equally urgent trains a team to either ignore the audit entirely or stall a launch over something that was never going to matter — this audit asks the launch-blocking question explicitly, row by row, instead of producing one undifferentiated list of problems.
+The verdict column forces a real distinction most data audits skip: not every imperfection is a blocker. A field that's slightly stale, or a category share that's off by a rounding error, doesn't deserve the same response as an object that structurally doesn't exist anywhere. Treating every gap as equally urgent trains a team to either ignore the audit entirely or stall a launch over something that was never going to matter. This audit asks the launch-blocking question explicitly, row by row, instead of producing one undifferentiated list of problems.
 
 </Section>

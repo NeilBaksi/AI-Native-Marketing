@@ -1,4 +1,4 @@
-Peloton's product generates a behavioral signal on every workout, which sounds like an advantage until you notice what it doesn't tell you: whether a member who skipped this week is a traveler who'll be back on Monday or a subscriber quietly disengaging toward cancellation. Before Peloton built a state model, churn was identified from billing data *after* the cancellation had already happened, and the response was a single win-back email — active and at-risk members received the identical content schedule, because nothing distinguished them until it was too late to matter.
+Peloton's product generates a behavioral signal on every workout, which sounds like an advantage until you notice what it doesn't tell you: whether a member who skipped this week is a traveler who'll be back on Monday or a subscriber quietly disengaging toward cancellation. Before Peloton built a state model, churn was identified from billing data *after* the cancellation had already happened, and the response was a single win-back email. Active and at-risk members received the identical content schedule, because nothing distinguished them until it was too late to matter.
 
 <Section index="01" kicker="What happened" title="Five states, not one undifferentiated subscriber base">
 
@@ -13,14 +13,14 @@ Peloton's product generates a behavioral signal on every workout, which sounds l
   footnote="A returning member re-enters at Active — the model doesn't assume decline is linear."
 />
 
-Each state has an observable, behavioral entry trigger — not a judgment call. At-Risk requires two signals together, inactivity *and* a cancellation-page visit, not either alone. That specificity is the entire point: a vague trigger like "seems disengaged" can't fire an action without a person deciding what it means first, which defeats the purpose of building a state model at all.
+Each state has an observable, behavioral entry trigger, not a judgment call. At-Risk requires two signals together, inactivity *and* a cancellation-page visit, not either alone. A vague trigger like "seems disengaged" can't fire an action without a person deciding what it means first, which defeats the purpose of building a state model at all.
 
 </Section>
 
 <Section index="02" kicker="Where it fits the framework" title="Orchestrate's next-best-action logic, tuned to cost of error">
 
 <Example id="peloton-five-state-model">
-  The sequencing is economically deliberate, not just behaviorally descriptive. A discount offered to a Slipping member who would have re-engaged on their own destroys margin for nothing — so Slipping gets a free instructor-personalized push instead. The same discount offered at At-Risk is competing against an actual cancellation, which is far more costly to lose, so cost becomes justified exactly where the state model says the risk is highest. The system reserves its most expensive intervention for the moment it has the best return, instead of spending it evenly across everyone who looks disengaged.
+  The sequencing is economically deliberate. It isn't just behaviorally descriptive. A discount offered to a Slipping member who would have re-engaged on their own destroys margin for nothing, so Slipping gets a free instructor-personalized push instead. The same discount offered at At-Risk is competing against an actual cancellation, which is far more costly to lose, so cost becomes justified exactly where the state model says the risk is highest. The system reserves its most expensive intervention for the moment it has the best return, instead of spending it evenly across everyone who looks disengaged.
 </Example>
 
 This is [Orchestrate](/workflows/orchestrate)'s journey-state design applied with real discipline: the state determines the next-best-action, and the action's cost scales with the state's risk, not with how the marketing team feels about a given week's retention numbers.
@@ -29,7 +29,7 @@ This is [Orchestrate](/workflows/orchestrate)'s journey-state design applied wit
 
 <Section index="03" kicker="What went right or wrong" title="Human escalation as a designed action, not a fallback">
 
-The detail that makes the At-Risk state worth studying on its own isn't the trigger — it's what happens next. When the system detects 28 days of inactivity plus a cancellation-page visit, it doesn't try harder automation. It routes to a human member-success representative. That's not a failure of the automated system reaching its limits; it's the deliberate, economically justified next-best-action for that specific state.
+The detail that makes the At-Risk state worth studying on its own is what happens next, not the trigger. When the system detects 28 days of inactivity plus a cancellation-page visit, it doesn't try harder automation. It routes to a human member-success representative. That's not a failure of the automated system reaching its limits; it's the deliberate, economically justified next-best-action for that specific state.
 
 The reasoning follows the same [cost-of-error calculation](/spine/economics-of-error) that runs through every workflow, applied per state rather than once for the whole journey:
 
@@ -53,18 +53,18 @@ The reasoning follows the same [cost-of-error calculation](/spine/economics-of-e
   caption="At-Risk is the second branch: high stakes, low reversibility, so automation stops and a person takes over."
 />
 
-Every factor at At-Risk points the same direction — toward a human, not away from one — which is exactly what the design does.
+Every signal points to a human. None of them point away from it.
 
 <PullQuote quote="Human escalation is not a failure mode. It is a designed next-best-action, chosen because a skilled person reading the situation beats a faster automated guess at this specific point in the journey." />
 
-That principle traces back further than the orchestration build itself — to an insight the course names directly: Peloton's real barrier to exercise was never motivation, it was isolation while exercising. The leaderboard, the live instructor, and the on-screen high-fives all solve a social need, not a willpower one. The At-Risk state's human call is the same insight applied to retention: the moment someone is quietly disengaging, the fix that actually respects why they joined in the first place is human contact, not a sharper algorithm.
+That principle traces back further than the orchestration build itself. Peloton's real barrier to exercise was never motivation, it was isolation while exercising. The leaderboard, the live instructor, and the on-screen high-fives all solve a social need, not a willpower one. The At-Risk state's human call is the same insight applied to retention: the moment someone is quietly disengaging, the fix that actually respects why they joined in the first place is human contact, not a sharper algorithm.
 
 </Section>
 
 <Section index="04" kicker="What to take away" title="The transferable lesson">
 
-The generalizable practice: when designing next-best-action logic for any journey state, treat "route to a human" as one candidate action to evaluate on the same cost-of-error terms as every automated option — not as the thing you do once automation has already failed. If the cost of a wrong automated action at a given state is high and the decision isn't easily reversible, that's the state where a human belongs by design, decided in advance, not discovered mid-incident.
+The generalizable practice: when designing next-best-action logic for any journey state, treat "route to a human" as one candidate action to evaluate on the same cost-of-error terms as every automated option, not as the thing you do once automation has already failed. If the cost of a wrong automated action at a given state is high and the decision isn't easily reversible, that's the state where a human belongs by design, decided in advance, not discovered mid-incident.
 
-What doesn't transfer as cleanly: Peloton's model depends on having genuinely rich behavioral signal — every workout is a data point — which not every business generates at that density. A company with sparser behavioral signal (an annual-purchase category, say) can still adopt the state-and-NBA structure, but its entry triggers will necessarily be less precise, and the state boundaries will carry more uncertainty than Peloton's ride-frequency thresholds do.
+What doesn't transfer as cleanly: Peloton's model depends on having genuinely rich behavioral signal. Every workout is its own data point, and not every business generates that density of signal. A company with sparser behavioral signal (an annual-purchase category, say) can still adopt the state-and-NBA structure, but its entry triggers will necessarily be less precise, and the state boundaries will carry more uncertainty than Peloton's ride-frequency thresholds do.
 
 </Section>

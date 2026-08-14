@@ -1,23 +1,23 @@
-This is the most technical page in the handbook, and it earns that by being the one page that doesn't skip a step. Everything in the last chapter — six services, a five-entity ontology — is the vocabulary. This page is the actual method that turns one workflow into a buildable set of agents, run start to finish against Focus.
+Skip this page and a workflow stays a diagram: six services, a five-entity ontology, but no way to turn either into a buildable set of agents. This page is the method that closes that gap, run start to finish against Focus.
 
 <Section index="01" kicker="One method, four passes" title="The four-pass decomposition method">
 
 <StepList steps={[
   {
     title: 'Workflow → Sub-workflows',
-    body: 'Identify 3 to 6 operational phases within the workflow, sequential or parallel. This produces the structural skeleton — the answer to "what are the distinct jobs inside this one workflow," before any task-level detail.',
+    body: 'Identify 3 to 6 operational phases within the workflow, sequential or parallel. This produces the structural skeleton. That’s the answer to "what are the distinct jobs inside this one workflow," before any task-level detail.',
   },
   {
     title: 'Sub-workflows → Tasks',
-    body: 'For each sub-workflow, identify 3 to 8 atomic tasks — specific enough to actually implement, but platform-agnostic, not yet tied to a particular tool or model. This is where the real intellectual work happens: naming the tasks correctly is harder than assigning them to agents afterward.',
+    body: 'For each sub-workflow, identify 3 to 8 atomic tasks, specific enough to actually implement, but platform-agnostic, not yet tied to a particular tool or model. This is where the real intellectual work happens: naming the tasks correctly is harder than assigning them to agents afterward.',
   },
   {
     title: 'Tasks → Agents',
-    body: 'Map tasks to agent types. Some tasks share one agent; some need their own. Autonomy level for each agent gets set here, using the Economics of Error — cost of error and value of speed, task by task, not workflow by workflow.',
+    body: 'Map tasks to agent types. Some tasks share one agent; some need their own. Autonomy level for each agent gets set here, using the Economics of Error, weighing cost of error against value of speed, task by task, not workflow by workflow.',
   },
   {
     title: 'Agent Connections',
-    body: 'Map every connection: within a sub-workflow, across sub-workflows, across workflows, to Shared Memory, and to governance agents. This is the knowledge graph — the part that makes six independent agent teams into one coordinated service instead of six unrelated tools.',
+    body: 'Map every connection: within a sub-workflow, across sub-workflows, across workflows, to Shared Memory, and to governance agents. This is the knowledge graph. It’s the part that makes six independent agent teams into one coordinated service instead of six unrelated tools.',
   },
 ]} />
 
@@ -27,7 +27,7 @@ This is the most technical page in the handbook, and it earns that by being the 
 
 <Section index="02" kicker="All four passes, one workflow" title="Worked walkthrough: decomposing Focus into agents">
 
-Run the method against Focus and the output is the Decisioning Service from the last chapter — 12 agents, 5 sub-workflows, 27 tasks, not as a round estimate but as what falls out of actually running the four passes.
+Run the method against Focus and the output is the Decisioning Service from the last chapter: 12 agents, 5 sub-workflows, 27 tasks, not as a round estimate but as what falls out of actually running the four passes.
 
 <Figure
   d="D59"
@@ -69,18 +69,18 @@ Run the method against Focus and the output is the Decisioning Service from the 
   />
 </Figure>
 
-★ marks the two human-in-the-loop agents — the system recommends, a person decides. That both sit at exactly the points Part II's Insight Gap chapter named (naming and narrative at ICP Scorer, strategic vs. statistical fit at Positioning Strategist) isn't a coincidence; it's the Economics of Error from Pass 3, applied.
+★ marks the two human-in-the-loop agents: the system recommends, a person decides. That both sit at exactly the points Part II's Insight Gap chapter named (naming and narrative at ICP Scorer, strategic vs. statistical fit at Positioning Strategist) is the Economics of Error from Pass 3, applied directly.
 
-**The B2B sequence, end to end (Meridian Healthcare, ~4 minutes total):** Segmentation Engineer spots a healthcare vertical with an engagement spike and assigns it to an active segment. Thirty seconds later, ICP Scorer computes Fit 95%, Revenue 88%, Tech 72%, Intent 74% — a Priority Score of 78, Tier 1 — and routes for human confirmation before anything downstream sees it. In parallel, Buying Group Evaluator finds CISO and CTO covered but CFO missing, flagging the gap for Orchestrate to build a targeted engagement journey. Positioning Strategist reads a competitor's price increase off Shared Memory and proposes a specific angle; a human approves it. Consent Filter and Suppression Manager clear in parallel. Audience Composer and Activator wait for SW-3 and SW-4 to converge, then compose and syndicate the finished audience — to CRM, to Journey Service, to Learn tracking, all at once.
+**The B2B sequence, end to end (Meridian Healthcare, ~4 minutes total):** Segmentation Engineer spots a healthcare vertical with an engagement spike and assigns it to an active segment. Thirty seconds later, ICP Scorer computes Fit 95%, Revenue 88%, Tech 72%, Intent 74% — a Priority Score of 78, Tier 1 — and routes for human confirmation before anything downstream sees it. In parallel, Buying Group Evaluator finds CISO and CTO covered but CFO missing, flagging the gap for Orchestrate to build a targeted engagement journey. Positioning Strategist reads a competitor's price increase off Shared Memory and proposes a specific angle; a human approves it. Consent Filter and Suppression Manager clear in parallel. Audience Composer and Activator wait for SW-3 and SW-4 to converge, then compose and syndicate the finished audience, to CRM, to Journey Service, to Learn tracking, all at once.
 
-Nothing in that sequence required a person to manually hand anything to the next step. The four passes are what made that true — not a faster team, a differently connected one.
+Nothing in that sequence required a person to manually hand anything to the next step. The four passes are what made that true, not a faster team, a differently connected one.
 
 </Section>
 
 <Section index="03" kicker="Focus-specific vs. universal" title="What the walkthrough generalizes to">
 
-The specific numbers here are Focus's — 12 agents, 5 sub-workflows, this exact table. What generalizes to every other workflow in this handbook is the method that produced them, not the count. Sense's Signal Service runs the same four passes and lands at 19 agents across 6 sub-workflows; Design's Content Assembly Service lands at 14 across a different structure entirely. The sub-workflow names, the task list, the agent count — all workflow-specific. Pass 1 through Pass 4, in that order, applied to the workflow's actual job rather than skipped in favor of guessing at an agent count directly — that's the part that doesn't change.
+The specific numbers here are Focus's: 12 agents, 5 sub-workflows, this exact table. What generalizes to every other workflow in this handbook is the method that produced them, not the count. Sense's Signal Service runs the same four passes and lands at 19 agents across 6 sub-workflows; Design's Content Assembly Service lands at 14 across a different structure entirely. The sub-workflow names, the task list, the agent count, all workflow-specific. Pass 1 through Pass 4, in that order, applied to the workflow's actual job rather than skipped in favor of guessing at an agent count directly. That doesn't change.
 
-The one discipline worth carrying forward explicitly: Pass 2 before Pass 3. Skipping straight from sub-workflows to agents — deciding "who does this" before deciding "what exactly needs doing" — is where agent designs fail at task boundaries, because the boundary was never actually specified.
+The one discipline worth carrying forward explicitly: Pass 2 before Pass 3. Skipping straight from sub-workflows to agents, deciding "who does this" before deciding "what exactly needs doing," is where agent designs fail at task boundaries, because the boundary was never actually specified.
 
 </Section>

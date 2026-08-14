@@ -85,7 +85,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'spine/seven-workflows',
     title: 'The Seven Workflows',
-    question: 'What does each workflow actually do, and how does the loop close?',
+    question: 'How does the loop close, and what does each workflow actually do?',
     part: 'spine',
     kind: 'chapter',
     index: '01',
@@ -101,7 +101,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'spine/four-layer-stack',
     title: 'The Four-Layer Stack',
-    question: 'What technical stack does a strategic I-MOS decision actually run on?',
+    question: 'On what technical stack does a strategic I-MOS decision actually run?',
     part: 'spine',
     kind: 'chapter',
     index: '02',
@@ -183,7 +183,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'workflows/sense',
     title: 'Sense',
-    question: 'What does Sense write to Shared Memory, and where does it come from?',
+    question: "Where does Sense's data come from, and what does it write to Shared Memory?",
     part: 'workflows',
     kind: 'chapter',
     index: '01',
@@ -356,7 +356,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'cases/loreal',
     title: "L'Oréal",
-    question: 'What does the full I-MOS loop look like when it’s built in the right sequence?',
+    question: 'When it’s built in the right sequence, what does the full I-MOS loop look like?',
     part: 'cases',
     kind: 'case',
     index: '01',
@@ -386,7 +386,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'cases/openai-sycophancy',
     title: 'The OpenAI Sycophancy Incident',
-    question: 'What happens when a Learn loop runs correctly with no governance definition of “good”?',
+    question: 'With no governance definition of “good,” what happens when a Learn loop runs correctly?',
     part: 'cases',
     kind: 'case',
     index: '03',
@@ -416,7 +416,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'cases/nab',
     title: 'National Australia Bank',
-    question: 'What does the policy stack look like at 350 billion decisions?',
+    question: 'At 350 billion decisions, what does the policy stack look like?',
     part: 'cases',
     kind: 'case',
     index: '05',
@@ -494,7 +494,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'applied/agentforce-capstone',
     title: 'Agentforce Capstone',
-    question: 'What happens when the customer for internal marketing is the rep, not the buyer?',
+    question: 'When the customer for internal marketing is the rep, not the buyer, what happens?',
     part: 'applied',
     kind: 'applied',
     index: '02',

@@ -1,12 +1,12 @@
 <Section index="01" kicker="The gate, not the standard" title="What it's for">
 
-[Execute & Learn](/workflows/execute-and-learn) establishes why a holdout test is the only causal proof in this handbook — treatment against a matched control, not a before/after comparison riding on whatever else happened that quarter. This checklist is the pre-launch gate that turns that discipline into something a team actually runs before a test ships, not a standard they agree with in the abstract and skip under deadline pressure.
+[Execute & Learn](/workflows/execute-and-learn) establishes why a holdout test is the only causal proof in this handbook. It means treatment against a matched control, not a before/after comparison riding on whatever else happened that quarter. This checklist is the pre-launch gate that turns that discipline into something a team actually runs before a test ships. It isn't a standard they agree with in the abstract and skip under deadline pressure.
 
 </Section>
 
 <Section index="02" kicker="Immediately before launch" title="When to use it">
 
-Run this checklist immediately before launching any holdout, A/B, or incrementality test — as a go/no-go gate the test has to clear, not a report filled out afterward to explain what happened.
+Run this checklist immediately before launching any holdout, A/B, or incrementality test. It's a go/no-go gate the test has to clear, not a report filled out afterward to explain what happened.
 
 - Any test that will inform a real budget or targeting decision, not just a curiosity check.
 - Any test where the launch is close enough to a deadline that the temptation is to skip straight to "launch it and see."
@@ -27,24 +27,24 @@ A test proposal for adding a referral-incentive banner to the post-purchase conf
     { label: 'Design', cells: ['Randomized, customer-level holdout, matched on cohort and average order value.'] },
     { label: 'Duration', cells: ['90 days — long enough for a full referral cycle to mature.'] },
     { label: 'Success threshold', cells: ['≥8% lift, significant at the pre-registered threshold set before launch.'] },
-    { label: 'Decision enabled', cells: ['Clears: roll out to 100%. Misses: kill the banner concept — don’t relaunch the same copy without a new hypothesis.'] },
+    { label: 'Decision enabled', cells: ['Clears: roll out to 100%. Misses: kill the banner concept. Don’t relaunch the same copy without a new hypothesis.'] },
   ]}
 />
 
 <PullQuote quote="Test the decisions you haven't made yet — not the ones you already have." attribution="course material, applied-projects case notes" />
 
-That line names the failure this checklist is built to prevent: a test proposed to confirm a decision that's effectively already been made produces a confirmation, not evidence — the checklist's Decision Enabled field exists specifically to catch it before launch.
+That's the failure this checklist prevents. A test proposed to confirm a decision that's effectively already been made produces a confirmation, not evidence. Decision Enabled catches it before launch.
 
 </Section>
 
 <Section index="04" kicker="Copy this, per test" title="Blank version">
 
 <Checklist
-  label="Pre-launch gate — all seven required"
+  label="Pre-launch gate: all seven required"
   items={[
     { text: 'Hypothesis (falsifiable, names a number)', hint: 'Must name a specific number, not a direction.' },
     { text: 'What changes' },
-    { text: 'Metrics — primary and guardrail' },
+    { text: 'Metrics: primary and guardrail' },
     { text: 'Design' },
     { text: 'Duration' },
     { text: 'Success threshold' },
@@ -60,12 +60,12 @@ Or draft the seven fields from a test idea instead of filling them in cold:
 
 <Section index="05" kicker="For now" title="Downloads">
 
-The seven fields above map directly onto a spreadsheet — one row per required field. The checklist here doesn't save your ticks between visits; the worked example's table above shows the row-per-field shape to copy. A dedicated .md/.csv export is on the list for when the toolkit ships a bulk download page.
+The seven fields above map directly onto a spreadsheet, one row per required field. The checklist here doesn't save your ticks between visits; the worked example's table above shows the row-per-field shape to copy. A dedicated .md/.csv export is on the list for when the toolkit ships a bulk download page.
 
 </Section>
 
 <Section index="06" kicker="The two fields that get skipped" title="Design decision">
 
-Two fields do the real work here, and both are easy to skip under deadline pressure. The hypothesis has to name a number, not just a direction — "the banner will help" can never fail, but "at least 8% lift" can, and only a hypothesis that can fail is actually being tested. Decision Enabled is the other one: stating, before launch, exactly what happens on a pass and on a miss. A test with no pre-committed decision attached to its result doesn't produce an action when it finishes — it produces a debate about what the number means, which is the outcome the checklist exists to rule out.
+Two fields do the real work here. Both are easy to skip under deadline pressure. The hypothesis has to name a number, not just a direction. "The banner will help" can never fail. "At least 8% lift" can — and only a hypothesis that can fail is actually being tested. Decision Enabled is the other one: stating, before launch, exactly what happens on a pass and on a miss. A test with no pre-committed decision attached to its result doesn't produce an action when it finishes. It produces a debate about what the number means instead.
 
 </Section>

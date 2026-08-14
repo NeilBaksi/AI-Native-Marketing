@@ -1,4 +1,4 @@
-[Govern](/workflows/govern) names six ways an AI-native marketing system actually breaks, each paired with a real incident and the control that would have caught it. That chapter gives each one a table row. Two of the six — Air Canada's chatbot inventing a fare policy it was then held liable for, and Meta's ad platform learning a gendered, racially skewed delivery pattern from its own training data — already got full narrative treatment there; read them in [Govern](/workflows/govern) rather than here. This page is the other four, at the depth a table row can't hold.
+An AI system that drifts past what a user actually consented to, or defaults toward whatever its training data normalizes, or fabricates a fact with no one checking before it ships, doesn't announce the failure in advance. It shows up in a lawsuit, a headline, or a user's own face staring back from a screen. [Govern](/workflows/govern) names six ways an AI-native marketing system actually breaks this way, each paired with a real incident and the control that would have caught it. Two of them — Air Canada's chatbot inventing a fare policy it was then held liable for, and Meta's ad platform learning a gendered, racially skewed delivery pattern from its own training data — already got full narrative treatment there; read them in [Govern](/workflows/govern) rather than here. This page is the other four, at the depth a table row can't hold.
 
 <Figure
   d="D81"
@@ -19,10 +19,10 @@
 
 <Section index="01" kicker="Consent boundaries" title="Digit — draining an account inside its own terms of service">
 
-Digit's product is automated micro-savings: it watches a user's checking account and moves small amounts into savings when it judges the balance can absorb it. The consent a user gave was scoped — move money the algorithm judges safe to move, within limits the user believed were being respected. The failure was that the algorithm's judgment about what was "safe to move" drifted past what users had actually consented to, repeatedly pulling amounts that left accounts overdrawn. A class-action settlement followed.
+Digit's product is automated micro-savings: it watches a user's checking account and moves small amounts into savings when it judges the balance can absorb it. The consent a user gave was scoped: move money the algorithm judges safe to move, within limits the user believed were being respected. The failure was that the algorithm's judgment about what was "safe to move" drifted past what users had actually consented to, repeatedly pulling amounts that left accounts overdrawn. A class-action settlement followed.
 
 <Callout kind="caution" title="Why this isn't a bug, structurally">
-  The system wasn't hacked and no rule was technically broken in the sense of a policy document being violated — the model's own definition of "safe to move" simply wasn't re-verified against what the user had actually agreed to, on an ongoing basis, as its behavior evolved. Consent given once, at signup, doesn't automatically stay valid for every action a learning system decides to take under that consent's name.
+  The system wasn't hacked, and no rule was technically broken in the sense of a policy document being violated. The model's own definition of "safe to move" simply wasn't re-verified against what the user had actually agreed to, on an ongoing basis, as its behavior evolved. Consent given once, at signup, doesn't automatically stay valid for every action a learning system decides to take under that consent's name.
 </Callout>
 
 The control this maps to isn't a better one-time disclosure. It's verifying consent boundaries in real time, before each action, rather than trusting that a signup-time agreement still describes what the system is currently doing.
@@ -31,37 +31,37 @@ The control this maps to isn't a better one-time disclosure. It's verifying cons
 
 <Section index="02" kicker="Uncanny valley" title="Lensa — what a generative model does with an ordinary selfie">
 
-Lensa's "Magic Avatars" feature took a handful of ordinary selfies and generated stylized AI portraits. For many women, the outputs skewed sexualized and skin-lightened in ways the input photos gave no instruction to produce — the model had learned those patterns from its training data and reproduced them by default, at scale, the moment it was asked to imagine a stylized version of a real person. Public backlash was immediate and specific: this wasn't a subtle bias buried in an aggregate metric, it was something every affected user could see directly, in their own face.
+Lensa's "Magic Avatars" feature took a handful of ordinary selfies and generated stylized AI portraits. For many women, the outputs skewed sexualized and skin-lightened in ways the input photos gave no instruction to produce. The model had learned those patterns from its training data and reproduced them by default, at scale, the moment it was asked to imagine a stylized version of a real person. Public backlash was immediate and specific: this wasn't a subtle bias buried in an aggregate metric, it was something every affected user could see directly, in their own face.
 
 <Example id="lensa-uncanny-valley">
-  What made the backlash land so fast wasn't the technical failure — generative models inheriting bias from training data is a known risk, not a surprise. It was that the output was maximally personal: not a demographic statistic about who a system favors, but one specific person's own likeness, altered without any consent to that specific alteration. A model that can generate anything will generate whatever its training data has normalized, and "stylized" turned out to mean something the product had never actually specified.
+  The backlash wasn't about a technical failure; generative models inheriting bias from training data is a known risk, not a surprise. It was that the output was maximally personal: not a demographic statistic about who a system favors, but one specific person's own likeness, altered without any consent to that specific alteration. A model that can generate anything will generate whatever its training data has normalized, and "stylized" turned out to mean something the product had never actually specified.
 </Example>
 
-The control here is a specificity ceiling: capping how much inferred data — in this case, inferred beauty and body-type norms baked into training data — a generative system is allowed to apply to any one identifiable person, rather than letting the model's unconstrained defaults stand in for a product decision nobody actually made.
+The control here is a specificity ceiling: it caps how much inferred data a generative system can apply to any one identifiable person. In Lensa's case, that means beauty and body-type norms baked into training data, not the model's unconstrained defaults standing in for a product decision nobody actually made.
 
 </Section>
 
 <Section index="03" kicker="AI sameness" title="Jaguar — a rebrand that erased its own heritage">
 
-Jaguar's 2024 rebrand leaned on AI-assisted design tooling to modernize a century of brand heritage, and the result became a case study in the opposite of what modernization is supposed to protect: instead of a refreshed version of what made Jaguar recognizable, the launch read as generic — visual signatures that had distinguished the marque for decades were smoothed away in favor of an aesthetic that could plausibly belong to almost any brand running the same class of AI design tools.
+Jaguar's 2024 rebrand leaned on AI-assisted design tooling to modernize a century of brand heritage. The result became a case study in the opposite of what modernization is supposed to protect. The launch read as generic. Visual signatures that had distinguished the marque for decades were smoothed away in favor of an aesthetic that could plausibly belong to almost any brand running the same class of AI design tools.
 
 <Callout kind="key" title="Why this is a Design failure, not an AI failure">
-  Generative design tools don't erase brand heritage on their own — they default toward whatever is statistically common across their training data unless something actively constrains them toward what's specific to one brand. Jaguar's rebrand didn't lock its visual grammar into the system as an enforced rule before generation started; the tool filled that gap with its own defaults, and the defaults are, by construction, generic.
+  Generative design tools don't erase brand heritage on their own. They default toward whatever is statistically common across their training data unless something actively constrains them toward what's specific to one brand. Jaguar's rebrand didn't lock its visual grammar into the system as an enforced rule before generation started; the tool filled that gap with its own defaults, and the defaults are, by construction, generic.
 </Callout>
 
-This is the same failure [Coca-Cola's Project Fizzion](/cases/coca-cola) was built to prevent, seen from the other side: Fizzion works because Coca-Cola's brand rules were encoded as enforced constraints before any AI tool touched brand assets. The control that would have caught Jaguar's drift is the same one — brand voice locked in as rules the generation step can't override, not a stylistic suggestion left for the model to interpret.
+This is the same failure [Coca-Cola's Project Fizzion](/cases/coca-cola) was built to prevent, seen from the other side: Fizzion works because Coca-Cola's brand rules were encoded as enforced constraints before any AI tool touched brand assets. The control that would have caught Jaguar's drift is the same one: brand voice locked in as rules the generation step can't override, not a stylistic suggestion left for the model to interpret.
 
 </Section>
 
 <Section index="04" kicker="Claims and IP risk" title="Chicago Sun-Times — a reading list of books that don't exist">
 
-In 2025, the Chicago Sun-Times published a summer reading list — syndicated content, not written by the newsroom's own staff — that recommended books which didn't exist. The titles were plausible, attributed to real authors, formatted exactly like a normal seasonal feature. Nothing about the presentation signaled that any of it had been generated rather than reported, which is precisely why it did real credibility damage to a publication whose entire value proposition rests on printed claims being checked before they run.
+In 2025, the Chicago Sun-Times published a summer reading list — syndicated content, not written by the newsroom's own staff — that recommended books which didn't exist. The titles were plausible. They were attributed to real authors, formatted exactly like a normal seasonal feature. Nothing about the presentation signaled that any of it had been generated rather than reported, which is precisely why it did real credibility damage to a publication whose entire value proposition rests on printed claims being checked before they run.
 
 <Quarantine
   claim="A summer reading list recommending real authors' names attached to books those authors never wrote"
   why="Reproduced here as the shape of the failure, not as a real claim about any real book — the actual content was fabricated by a generative process with no fact-check step between generation and publication."
 />
 
-The control that maps to this isn't "review AI output before publishing" as a vague instinct — it's a claims library: every factual assertion an AI system produces checked against a source of approved, verified facts before it ships, the same discipline [Attract](/workflows/attract)'s citation signals ask of any brand wanting to be trusted by an answer engine, applied here to a publisher's own claims about its own content.
+The control that maps to this is a claims library, not just "review AI output before publishing" as a vague instinct: every factual assertion an AI system produces gets checked against a source of approved, verified facts before it ships, the same discipline [Attract](/workflows/attract)'s citation signals ask of any brand wanting to be trusted by an answer engine, applied here to a publisher's own claims about its own content.
 
 </Section>

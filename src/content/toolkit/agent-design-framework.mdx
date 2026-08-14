@@ -1,16 +1,16 @@
 <Section index="01" kicker="The blank passes, not the walkthrough" title="What it's for">
 
-[The Four-Pass Decomposition Method](/workflows/build/deep-dive/four-pass-decomposition) is the site's most technical page, and it earns that depth running the method against Focus: 12 agents, 5 sub-workflows, 27 tasks. This page doesn't repeat that walkthrough. It's the blank version of the same four passes — Workflow → Sub-workflows → Tasks → Agents → Connections — built to run against a workflow of your own, not Focus's.
+[The Four-Pass Decomposition Method](/workflows/build/deep-dive/four-pass-decomposition) is the site's most technical page, and it earns that depth running the method against Focus: 12 agents, 5 sub-workflows, 27 tasks. This page doesn't repeat that walkthrough. It's the blank version of the same four passes, Workflow → Sub-workflows → Tasks → Agents → Connections, built to run against a workflow of your own, not Focus's.
 
 <Callout kind="note" title="Read the method first">
-Pass 2 before Pass 3 is the one discipline that page insists on: name what needs doing before deciding who does it. This template enforces the same order — skipping straight to "which agent handles this" is the most common way this framework gets misused.
+Pass 2 before Pass 3 is the one discipline that page insists on: name what needs doing before deciding who does it. This template enforces the same order. Skipping straight to "which agent handles this" is the most common way this framework gets misused.
 </Callout>
 
 </Section>
 
 <Section index="02" kicker="Before the first agent prompt" title="When to use it">
 
-Fill this out before writing a single agent prompt or system message — at the point where a workflow exists as an idea, not yet as anything buildable.
+Fill this out before writing a single agent prompt or system message. That's the point where a workflow exists as an idea, not yet as anything buildable.
 
 - Scoping a new AI-driven workflow from scratch, before any tool, model, or vendor decision gets made.
 - Auditing an existing agent setup that grew ad hoc, to check whether its task boundaries and connections were ever actually decided or just accreted.
@@ -30,7 +30,7 @@ A smaller, deliberately different workflow than Focus's: a post-purchase review-
   ]}
 />
 
-Three agents, one sub-workflow shorter than Focus's — the count isn't the point. What generalizes is running Pass 1 through Pass 4 in order against your own workflow's actual jobs, the same discipline the deep-dive names as universal.
+Three agents, one sub-workflow shorter than Focus's. But the count isn't the point. Run Pass 1 through Pass 4 in order against your own workflow's actual jobs. That's the discipline the deep-dive names as universal.
 
 </Section>
 
@@ -53,12 +53,12 @@ Or run the four passes against a description of your own workflow instead of sta
 
 <Section index="05" kicker="For now" title="Downloads">
 
-The four passes above map directly onto a spreadsheet — one row per pass, expanded into as many sub-rows as your workflow needs. A dedicated .md/.csv export is on the list for when the toolkit ships a bulk download page.
+The four passes above map directly onto a spreadsheet, one row per pass, expanded into as many sub-rows as your workflow needs. A dedicated .md/.csv export is on the list for when the toolkit ships a bulk download page.
 
 </Section>
 
 <Section index="06" kicker="The row most specs skip" title="Design decision">
 
-Pass 3 above carries a field the deep-dive's own worked table doesn't show: what the agent must *not* do, named alongside what it's responsible for. Most agent specs only state scope in the positive — inputs, outputs, the job. The forbidden action is what actually bounds an agent's autonomy in practice, because the failure mode that gets an organization in trouble is almost never "the agent didn't do its job." It's the agent doing something adjacent to its job that nobody explicitly ruled out, because nobody wrote it down as off-limits in the first place.
+Pass 3 above carries a field the deep-dive's own worked table doesn't show: what the agent must *not* do, named alongside what it's responsible for. Most agent specs only state scope in the positive. Inputs, outputs, the job. The forbidden action bounds an agent's autonomy, because the failure mode that gets an organization in trouble is almost never "the agent didn't do its job." It's the agent doing something adjacent to its job that nobody explicitly ruled out, because nobody wrote it down as off-limits in the first place.
 
 </Section>

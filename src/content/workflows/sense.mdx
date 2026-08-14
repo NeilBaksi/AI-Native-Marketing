@@ -1,8 +1,8 @@
-Sense is where the loop starts, and where every later workflow's quality ceiling gets set — Focus can't build a living ICP on signal that's stale, incomplete, or misread. This chapter is what "always-on listening" actually consists of.
+Sense runs first. It watches four signal families, continuously, and everything downstream inherits what it hears. Focus cannot build a living ICP on signal that's stale, incomplete, or misread.
 
 <Section index="01" kicker="Not one stream" title="Signal families">
 
-Four families of signal, each answering a different question and each blind to something the others catch. No single family is sufficient on its own — that's the argument for the next section, not a caveat to skip past.
+Four signal families exist, each answering a different question and each blind to something the others catch. No single family is sufficient on its own. The next section explains why.
 
 <Figure
   d="D19"
@@ -11,14 +11,14 @@ Four families of signal, each answering a different question and each blind to s
 >
   <DefinitionList items={[
     { term: 'Behavioral — what are they doing?', body: 'Revealed preference: usage, clicks, purchases, cart adds and abandons. Highest fidelity, but blind to why.' },
-    { term: 'Qualitative — why?', body: 'Interviews, support transcripts, reviews, social posts. Reveals the reason, but at small sample sizes — no sense of scale.' },
-    { term: 'Intent — what next?', body: 'Search behavior, pricing-page visits, third-party intent data. Predictive, but noisy — a download could mean a buyer or a curious intern.' },
+    { term: 'Qualitative — why?', body: 'Interviews, support transcripts, reviews, social posts. Reveals the reason, but at small sample sizes, with no sense of scale.' },
+    { term: 'Intent — what next?', body: 'Search behavior, pricing-page visits, third-party intent data. Predictive, but noisy. A download could mean a buyer or a curious intern.' },
     { term: 'Environmental — what context?', body: "Competitor moves, regulation, seasonality, macro trends. Without it the system optimizes as if the customer exists in a vacuum." },
   ]} />
 </Figure>
 
 <Example id="retail-bank-churn-lag">
-  This isn't a hypothetical cost. A retail bank's models correctly flagged 40,000 customers as churn risks — real signal, correctly detected. Nearly a third of them left before any campaign built off that signal ever launched, because the finding sat in a dashboard instead of writing to an object Focus could read the moment it existed. The signal wasn't the problem. The architecture carrying it was.
+  This isn't a hypothetical cost. A retail bank's models correctly flagged 40,000 customers as churn risks. The signal was real and correctly detected. Nearly a third of them left before any campaign built off that signal ever launched, because the finding sat in a dashboard instead of writing to an object Focus could read the moment it existed. The signal wasn't the problem. The architecture carrying it was.
 </Example>
 
 <Prompt id="sense-signal-audit" />
@@ -27,7 +27,7 @@ Four families of signal, each answering a different question and each blind to s
 
 <Section index="02" kicker="Why no family stands alone" title="Triangulation">
 
-Each family's blind spot is exactly what another family covers: behavioral sees *what* but not *why*; qualitative sees *why* but not *how much*; intent sees *next* but not how *certain*; environmental sees *context* but not *cause*. Combine them and two distinct things can happen — and the system should do something different in each case.
+Each family's blind spot is exactly what another family covers: behavioral sees *what* but not *why*; qualitative sees *why* but not *how much*; intent sees *next* but not how *certain*; environmental sees *context* but not *cause*. Combine them and two distinct things can happen. The system should do something different in each case.
 
 <Figure
   d="D20"
@@ -40,17 +40,17 @@ Each family's blind spot is exactly what another family covers: behavioral sees 
   </div>
 </Figure>
 
-The contradiction case is the one worth sitting with: read behavioral data alone — engagement climbing — and the system would file this customer as healthy, maybe even upsell-ready. That's the false positive a single-signal system produces with total confidence. Add the review and the competitor-browsing pattern and the read flips from *growing* to *at risk of leaving*. Triangulation didn't just add detail here; it reversed the conclusion.
+The contradiction case is the one worth sitting with. Read behavioral data alone, engagement climbing, and the system would file this customer as healthy, maybe even upsell-ready. That's the false positive a single-signal system produces with total confidence. Add the review and the competitor-browsing pattern and the read flips from *growing* to *at risk of leaving*. Triangulation didn't just add detail here; it reversed the conclusion.
 
 <Example id="starbucks-deep-brew">
-  Deep Brew's real value shows up in composition, not any one feed: a customer's habitual morning latte now includes weekday afternoon cold brews (behavioral); she's browsed the summer Refreshers menu three times without ordering (intent); a barista's observation, confirmed by the regional manager, places the second drink as an office run, not a personal treat (qualitative); a heat wave hits her zip code the same week a competitor launches a cold-brew promotion (environmental). No single feed justifies an offer. Together, they do — an AI found the pattern, but a person is still the one who confirmed what the office-run observation meant.
+  Deep Brew's real value shows up in composition, not any one feed: a customer's habitual morning latte now includes weekday afternoon cold brews (behavioral); she's browsed the summer Refreshers menu three times without ordering (intent); a barista's observation, confirmed by the regional manager, places the second drink as an office run, not a personal treat (qualitative); a heat wave hits her zip code the same week a competitor launches a cold-brew promotion (environmental). No single feed justifies an offer. Together, they do. An AI found the pattern. A person confirmed what the office-run observation meant.
 </Example>
 
 </Section>
 
 <Section index="03" kicker="Where the objects come from" title="The five insight objects, sourced">
 
-Part II already named what Sense writes — Identity Profile, Engagement History, Propensity Score, Need State, and Consent + Constraints — and who reads them. What that chapter didn't cover is where each one's evidence actually originates and where it lands next:
+Part II already named what Sense writes: Identity Profile, Engagement History, Propensity Score, Need State, and Consent + Constraints. It also named who reads each one. What it didn't cover is where each one's evidence actually originates, and where it lands next:
 
 <ComparisonTable
   caption="Each insight object's primary signal source and downstream reader."
@@ -64,6 +64,6 @@ Part II already named what Sense writes — Identity Profile, Engagement History
   ]}
 />
 
-No object here is the product of one signal family working alone — which is the same triangulation argument from the last section, just traced object by object instead of case by case.
+No object in that table comes from one signal family working alone.
 
 </Section>

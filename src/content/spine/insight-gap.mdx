@@ -1,39 +1,39 @@
-Every workflow in the last two chapters reads and writes Shared Memory. What decides how much of that reading and writing a system can safely do on its own — versus where a person has to sit inside the loop — is the subject of this chapter and the next.
+Data does not interpret itself. Something has to turn a signal into a judgment about what marketing should do next, and this chapter, together with the next, works out how much of that turn a system can safely make on its own, and where a person has to sit inside the loop instead.
 
 <Section index="01" kicker="The chain" title="Signal, interpretation, insight, action">
 
-Four stages, in order: **Signal** is observable, measurable data — a click, a return, a search query. **Interpretation** is what the pattern means for this customer, this brand, in this moment. **Insight** is an actionable understanding of what marketing should do. **Action** is the actual decision — what to create, send, test, or stop. The Insight Gap sits between Signal and Insight: it's where data ends and judgment begins.
+Four stages, in order: **Signal** is observable, measurable data, a click, a return, a search query. **Interpretation** is what the pattern means for this customer, this brand, in this moment. **Insight** is an actionable understanding of what marketing should do. **Action** is the actual decision, what to create, send, test, or stop. The Insight Gap sits between Signal and Insight: it's where data ends and judgment begins.
 
 <Figure
   d="D11"
-  caption="Signal → Interpretation → Insight → Action, with the Insight Gap shaded between Signal and Insight — the region AI narrows but does not close."
+  caption="Signal → Interpretation → Insight → Action, with the Insight Gap shaded between Signal and Insight, the region AI narrows but does not close."
   alt="Four-stage horizontal chain: Signal, Interpretation, Insight, Action. A shaded region spans from Signal through Interpretation to Insight, labeled the Insight Gap — the space where human judgment operates."
 >
   <FlowChain nodes={['Signal', 'Interpretation', 'Insight', 'Action']} />
 </Figure>
 
 <Example id="sephora-shade-skin">
-  Signal: a customer buys foundation shade 3W1, returns it within a week, searches "foundation for dry skin." AI triangulates the pattern correctly and flags a formulation mismatch with high confidence — that's real narrowing of the gap. What still required a person: recognizing her actual job wasn't "match my shade," it was "make my skin look healthy" — a brand-strategy reframe from shade-finder to skin-advisor that the pattern-match alone doesn't produce.
+  Signal: a customer buys foundation shade 3W1, returns it within a week, searches "foundation for dry skin." AI triangulates the pattern correctly and flags a formulation mismatch with high confidence. That is real narrowing of the gap. What still required a person: recognizing her actual job wasn't "match my shade," it was "make my skin look healthy," a brand-strategy reframe from shade-finder to skin-advisor that the pattern-match alone doesn't produce.
 </Example>
 
 </Section>
 
 <Section index="02" kicker="Where AI earns its keep" title="Where the chain compresses well">
 
-The Insight Gap isn't a reason to distrust AI in sensing — it's a reason to be precise about which part of the chain AI is actually good at. Sense runs a four-step loop, continuously: **Collect** (ingest behavioral, intent, qualitative, and environmental signal), **Resolve** (tie a signal to one identity, not four fragmented ones), **Interpret** (detect the pattern, flag contradictions), **Surface** (post a synthesized, confidence-scored insight to wherever a person will actually see it). Every cycle writes back to Shared Memory rather than resetting.
+The Insight Gap isn't a reason to distrust AI in sensing. It's a precision tool, naming which part of the sensing chain AI is actually good at. Sense runs a four-step loop, continuously: **Collect** (ingest behavioral, intent, qualitative, and environmental signal), **Resolve** (tie a signal to one identity, not four fragmented ones), **Interpret** (detect the pattern, flag contradictions), **Surface** (post a synthesized, confidence-scored insight to wherever a person will actually see it). Every cycle writes back to Shared Memory rather than resetting.
 
 <Figure
   d="D21"
-  caption="Collect → Resolve → Interpret → Surface — the sensing loop, writing to Shared Memory every cycle rather than resetting."
+  caption="Collect → Resolve → Interpret → Surface, the sensing loop, writing to Shared Memory every cycle rather than resetting."
   alt="Four-step circular process: Collect, Resolve, Interpret, Surface, looping back to Collect. Each step writes to a Shared Memory core at the center of the loop."
 >
   <FlowChain
     nodes={['Collect', 'Resolve', 'Interpret', 'Surface']}
-    loopBackLabel="Writes to Shared Memory every cycle — the loop compounds instead of resetting"
+    loopBackLabel="Writes to Shared Memory every cycle, compounding the loop instead of resetting it"
   />
 </Figure>
 
-The first three steps are where AI compresses the chain hardest: collecting volume no team could read manually, resolving identity across sources, and detecting a pattern or a contradiction between signal families. Interpret is also where the gap starts to reopen — AI can flag *that* a pattern exists and *that* two signals disagree, without being able to say why, or what the strategic response should be.
+The first three steps are where AI compresses the chain hardest: collecting volume no team could read manually, resolving identity across sources, and detecting a pattern or a contradiction between signal families. Interpret is also where the gap starts to reopen. AI can flag *that* a pattern exists and *that* two signals disagree, without being able to say why, or what the strategic response should be.
 
 </Section>
 
@@ -42,29 +42,29 @@ The first three steps are where AI compresses the chain hardest: collecting volu
 Three forms of the gap recur across every workflow, not just Sense:
 
 <DefinitionList items={[
-  { term: 'Interpretive ambiguity', body: "AI detects a pattern correctly but the same signal supports opposite meanings. A prospect who stops visiting the pricing page three days before a sales call might have lost interest — or finished research and be ready to negotiate. The signal is identical; the correct next action isn't." },
-  { term: 'Strategic judgment', body: "A decision requires brand ambition or risk tolerance the data doesn't contain. Which segment to designate the ICP isn't a statistical exercise — it's a bet about where the company wants to grow, and no scoring model carries that authority." },
+  { term: 'Interpretive ambiguity', body: "AI detects a pattern correctly but the same signal supports opposite meanings. A prospect who stops visiting the pricing page three days before a sales call might have lost interest, or might have finished research and be ready to negotiate. The signal is identical; the correct next action isn't." },
+  { term: 'Strategic judgment', body: "A decision requires brand ambition or risk tolerance the data doesn't contain. Which segment to designate the ICP is not a statistical exercise. It is a bet about where the company wants to grow, and no scoring model carries that authority." },
   { term: 'Cultural and contextual resonance', body: "Content can be factually accurate, on-brand by specification, and grammatically correct, and still miss the tonal register that makes it land. Correctness and resonance are different tests." },
 ]} />
 
-Focus is where this shows up as a specific, named failure mode — false confidence that looks like precision:
+Focus is where this shows up as a specific, named failure mode, false confidence that looks like precision:
 
 <DefinitionList items={[
   { term: 'Naming and narrative', body: 'AI outputs "a cluster with similar RFM scores and product usage." A human renames it "barrier-fatigue loyalists who need permission to slow down." Wrong naming sends the right data in the wrong direction, and nothing in the system flags that it happened.' },
-  { term: 'Strategic fit vs. statistical fit', body: 'A segment scores high on Fit × Readiness − Friction from historical win rates. A human recognizes that winning it on price would contradict the brand\'s premium positioning. The model scores fit — not whether that fit is worth having.' },
-  { term: 'Win/loss calibration', body: "Current ICP weights keep routing accounts the same way until a person notices 40% of high-Fit accounts are stalling at proposal — revealing an under-weighted variable the model has no way to notice on its own." },
+  { term: 'Strategic fit vs. statistical fit', body: 'A segment scores high on Fit × Readiness − Friction from historical win rates. A human recognizes that winning it on price would contradict the brand\'s premium positioning. The model scores fit. It does not score whether that fit is worth having.' },
+  { term: 'Win/loss calibration', body: "Current ICP weights keep routing accounts the same way until a person notices 40% of high-Fit accounts are stalling at proposal, revealing an under-weighted variable the model has no way to notice on its own." },
 ]} />
 
 <Example id="korn-ferry-6sense">
-  Korn Ferry's old ICP was static and firmographic — industry, size, title, refreshed quarterly — and sales and marketing routinely disagreed on lead quality because they had no shared definition of what made an account good. Replacing it with one model, scored on Fit × Intent × Engagement, didn't remove the judgment call; it gave both teams the same number to argue from instead of two different ones.
+  Korn Ferry's old ICP was static and firmographic: industry, size, title, refreshed quarterly. Sales and marketing routinely disagreed on lead quality because they had no shared definition of what made an account good. Replacing it with one model, scored on Fit × Intent × Engagement, didn't remove the judgment call; it gave both teams the same number to argue from instead of two different ones.
 </Example>
 
 </Section>
 
 <Section index="04" kicker="Not a maturity problem" title="Why this gap resists full automation">
 
-It's tempting to read all of the above as a capability gap that a better model closes eventually. The course's position is the opposite: this is a structural feature of the work, not a temporary limitation. AI narrows the Insight Gap — it collects more, resolves faster, flags contradictions a person would miss — but closing it entirely would mean the system could decide, on its own, what a signal means for *this* brand in *this* moment. If it could do that reliably, marketing would already be fully automated. It isn't, and the reason isn't that the models aren't good enough yet.
+It's tempting to read all of the above as a capability gap that a better model closes eventually. That reading is backwards: this is a structural feature of the work, not a temporary limitation. AI narrows the Insight Gap. It collects more, resolves faster, and flags contradictions a person would miss. But closing the gap entirely would mean the system could decide, on its own, what a signal means for *this* brand in *this* moment. If it could do that reliably, marketing would already be fully automated. It isn't, and the reason isn't that the models aren't good enough yet.
 
-That's a separate question from *where* the gap is: given that the gap is permanent, how much of any given decision should still be let run on AI's own judgment anyway — and how much should require a person to sign off first. That question has a much more concrete answer.
+That's a separate question from *where* the gap is: given that the gap is permanent, how much of any given decision should still be let run on AI's own judgment anyway, and how much should require a person to sign off first. That question has a much more concrete answer.
 
 </Section>

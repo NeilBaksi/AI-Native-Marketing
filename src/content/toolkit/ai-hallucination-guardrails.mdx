@@ -1,30 +1,30 @@
-[Govern](/workflows/govern) names claims and IP risk as one of six ways an AI-native marketing system breaks in public — a hallucinated stat or an invented feature reaching a customer-facing asset. This checklist is the concrete, pre-submission control that catches it before publish, not after a correction.
+A hallucinated stat or an invented feature can reach a customer-facing asset before anyone catches it. [Govern](/workflows/govern) names claims and IP risk as one of six ways an AI-native marketing system breaks in public. This checklist is the concrete, pre-submission control that catches it before publish — not after a correction.
 
 <Section index="01" kicker="A pre-publish check, not a policy" title="What it's for">
 
-Every check here answers one question: does this claim trace to a named, dated source, or was it generated? A model that produces a coherent draft has no internal signal for which of its own sentences it invented — the checklist supplies the discipline the model doesn't have on its own.
+Every check here answers one question: does this claim trace to a named, dated source, or was it generated? A model that produces a coherent draft has no internal signal for which of its own sentences it invented. The checklist supplies the discipline the model doesn't have on its own.
 
 </Section>
 
 <Section index="02" kicker="Any point a draft moves toward publish" title="When to use it">
 
-Run this checklist at the moment AI-generated copy moves from draft to submission — before a blog post, a sales one-pager, or any claims-sensitive asset ships. It's the control a [Governance Table](/toolkit/governance-table) row cites when it names "unsourced claim" as a risk: this is what that row's control actually does.
+Run this checklist at the moment AI-generated copy moves from draft to submission, before a blog post, a sales one-pager, or any claims-sensitive asset ships. It's the control a [Governance Table](/toolkit/governance-table) row cites when it names "unsourced claim" as a risk: this is what that row's control actually does.
 
 </Section>
 
 <Section index="03" kicker="Catching a fabricated stat" title="Worked example">
 
-A draft blog post for Ridgeline, the fictional expense-automation platform used elsewhere in this toolkit, includes the line: *"94% of finance teams using Ridgeline close their books 3 days faster."* The verified claims registry has no such figure — only a customer-reported average close-time drop across 40 onboarded accounts, with no "94%" anywhere in it.
+A draft blog post for Ridgeline, the fictional expense-automation platform used elsewhere in this toolkit, includes the line: *"94% of finance teams using Ridgeline close their books 3 days faster."* The registry has no such figure. It has only a customer-reported average close-time drop across 40 onboarded accounts, with no "94%" anywhere in it.
 
 <ComparisonTable
   caption="Guardrail check results on the draft."
   columns={['Result on this draft']}
   rows={[
-    { label: 'Every number traces to a named, dated source', cells: ['FAIL — "94%" has no entry in the claims registry; cut'] },
+    { label: 'Every number traces to a named, dated source', cells: ['FAIL. "94%" has no entry in the claims registry; cut'] },
     { label: 'Every product/feature claim matches the current spec sheet', cells: ['PASS'] },
     { label: 'No claim uses a word from the forbidden-phrase list', cells: ['PASS'] },
-    { label: 'Quotes or testimonials are verbatim and attributed', cells: ['N/A — none in this draft'] },
-    { label: 'Comparative or competitive claims are cleared by legal', cells: ['N/A — none in this draft'] },
+    { label: 'Quotes or testimonials are verbatim and attributed', cells: ['N/A. None in this draft.'] },
+    { label: 'Comparative or competitive claims are cleared by legal', cells: ['N/A. None in this draft.'] },
     { label: 'Every disclaimer required for this claim type is present', cells: ['PASS'] },
   ]}
 />
@@ -54,9 +54,9 @@ Or have an assistant run the check against a specific draft before you tick anyt
 Behind the checklist, a source-of-truth hierarchy decides what "traces to a source" is even allowed to mean:
 
 <DefinitionList items={[
-  { term: 'Authoritative', body: 'The verified claims registry and the current product spec sheet — nothing else counts as a citation.' },
-  { term: 'Conditionally usable', body: 'A previously published asset — re-verify the specific number before reusing it, don\'t assume it\'s still current.' },
-  { term: 'Not authoritative', body: 'A prior AI draft, or a brand-voice file an AI system generated — a claim that traces only to one of these has traced to nothing.' },
+  { term: 'Authoritative', body: 'The verified claims registry and the current product spec sheet. Nothing else counts as a citation.' },
+  { term: 'Conditionally usable', body: 'A previously published asset. Re-verify the specific number before reusing it, and don\'t assume it\'s still current.' },
+  { term: 'Not authoritative', body: 'A prior AI draft, or a brand-voice file an AI system generated. A claim that traces only to one of these has traced to nothing.' },
 ]} />
 
 </Section>
@@ -64,7 +64,7 @@ Behind the checklist, a source-of-truth hierarchy decides what "traces to a sour
 <Section index="05" kicker="For now" title="Downloads">
 
 <Callout kind="note" title="Copy the blank version above">
-The six checks above map to a spreadsheet as one row each with a pass/fail column, for a per-draft log that persists — the checklist here doesn't save your ticks between visits.
+The six checks above map to a spreadsheet as one row each with a pass/fail column, for a per-draft log that persists. It doesn't save your ticks between visits.
 </Callout>
 
 </Section>
@@ -72,13 +72,13 @@ The six checks above map to a spreadsheet as one row each with a pass/fail colum
 <Section index="06" kicker="Where this sits relative to autonomy" title="Design decision">
 
 <Callout kind="key" title="A citation requirement, not a vibe check">
-Most claims-review guidance says "fact-check the copy," which gives a reviewer nothing concrete to look for. Naming the source hierarchy — and explicitly marking a prior AI draft as *not* authoritative — closes the specific failure where a hallucinated claim gets copied from one AI-generated file into the next, each copy looking more credible for having survived a previous pass.
+Most claims-review guidance says "fact-check the copy," which gives a reviewer nothing concrete to look for. Naming the source hierarchy, and explicitly marking a prior AI draft as *not* authoritative, closes a specific failure. A hallucinated claim otherwise gets copied from one AI-generated file into the next, each copy looking more credible for having survived a previous pass.
 </Callout>
 
 <PullQuote quote="Diff every claim against source. Before any new claim ships, find the literal citation. No citation → cut." attribution="claims-verification guardrail" />
 
 <PullQuote quote="When in doubt, withhold. A confident wrong summary is worse than no summary." attribution="agent design principle" />
 
-This checklist is the pre-publish control for content that sits in [Governance](/workflows/govern)'s Zone 1 or Zone 2 — [Economics of Error](/spine/economics-of-error) is what decided it needed a checkpoint at all, not a values statement layered on afterward.
+This checklist is the pre-publish control for content that sits in [Governance](/workflows/govern)'s Zone 1 or Zone 2. [Economics of Error](/spine/economics-of-error) decided this content needed a checkpoint — not a values statement layered on afterward.
 
 </Section>
