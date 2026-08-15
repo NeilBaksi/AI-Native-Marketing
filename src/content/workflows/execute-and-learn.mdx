@@ -23,6 +23,23 @@ The conventional cycle runs plan, create, launch, monitor, review, and it breaks
   verdict="Always-on execution changes when the system decides, not merely how quickly it acts. The shift is in kind, not in speed."
 />
 
+Fluid budget means three things are decided in advance, not negotiated in the moment: an annual envelope instead of a quarterly one, pre-approved authority to move spend inside that envelope mid-quarter without a fresh sign-off each time, and finance co-designing the guardrail itself rather than auditing the result after the fact.
+
+<Figure
+  d="D79"
+  caption="The three gates a mid-quarter budget move has to clear before it counts as fluid allocation."
+  alt="A three-item checklist for moving budget mid-quarter: does the signal sit inside the pre-approved envelope, or does it need a new sign-off (if it needs one, this is a committee decision on a faster clock, not fluid allocation); does the lift clear an incrementality bar rather than a raw revenue rise; and has finance signed off on the guardrail this move sits inside, before the move, not after it."
+>
+  <Checklist
+    label="Before moving budget mid-quarter"
+    items={[
+      { text: 'Does the signal sit inside the pre-approved envelope, or does it need a new sign-off?', hint: 'If it needs a new sign-off, this is not fluid allocation yet — it is a committee decision on a faster clock.' },
+      { text: 'Does the lift clear an incrementality bar (Section 02), not just a raw revenue rise?' },
+      { text: 'Has finance signed off on the guardrail this move sits inside, before the move — not after it?' },
+    ]}
+  />
+</Figure>
+
 <Example id="airbnb-experimentation">
   In 2016, every Airbnb A/B test took an engineer two to four weeks by hand, and running one test at a time across search, pricing, onboarding, and messaging built a two-year decision backlog. Automating variant assignment and winner deployment, replacing manual sign-off with pre-approved criteria, took hypothesis-to-deployed-winner from weeks down to 48 to 72 hours, a tenfold rise in test velocity from an operational change, not a smarter model.
 </Example>
@@ -33,7 +50,9 @@ The conventional cycle runs plan, create, launch, monitor, review, and it breaks
 
 <Formula name="Incrementality" expression="Revenue with marketing − Revenue without marketing" />
 
-The only way to get the "without" side isn't to guess — it's a control group: a matched set of customers, same segment, same history, same lifecycle state, who simply didn't receive the campaign. The gap between treatment and control is the only number in this whole handbook that actually proves causation rather than describing a correlation.
+Picture the audit version of this that doesn't hold up: every metric in the quarterly deck is up, and nobody in the room can produce a control group for a single one of them. That's not a hypothetical — it's the exact gap a holdout closes, and the reason the number below counts as proof only once one exists.
+
+The only way to get the "without" side is a control group: a matched set of customers, same segment, same history, same lifecycle state, who simply didn't receive the campaign. <Mark>The gap between treatment and control is the only number in this whole handbook that actually proves causation rather than describing a correlation.</Mark>
 
 <Figure
   d="D77"
@@ -53,6 +72,8 @@ The only way to get the "without" side isn't to guess — it's a control group: 
 
 Most dashboards skip the control group entirely. Spend and revenue both rise across a quarter, alongside seasonal demand nobody isolated, and the rise gets reported as the campaign's result. That's descriptive, not causal, and the difference matters most exactly when someone's about to defend a budget with the number.
 
+Course material names this cluster the Measurement Gap: descriptive without causal (the failure above), attribution assigns credit rather than cause (the iROAS convention below exists to correct it), and the open loop (Section 01's third fracture point, results that never touch the next cycle's assumptions). A fourth trap sits alongside those three: what reads as a false positive changes by objective, since a lift that clears significance on click-through can vanish on revenue at the same sample size — which objective a test was actually powered for has to be checked before trusting either read.
+
 </Section>
 
 <Section index="03" kicker="The exact convention" title="iROAS">
@@ -61,9 +82,15 @@ Most dashboards skip the control group entirely. Spend and revenue both rise acr
 
 Stated plainly once, here, because later toolkit pages restate this convention rather than redefine it: iROAS divides by spend, and the numerator is *incremental* revenue, the treatment-minus-control gap, not gross attributed revenue. A channel earns its keep. It clears this bar every cycle. If iROAS falls below 1, the spend cost more than it produced, full stop, regardless of what a last-touch attribution report claims elsewhere.
 
+Platform-reported win rates are exactly the kind of number this bar is built to see through. A programmatic exchange can log a full bid-and-win cycle for an impression that never rendered on a real page — inflated delivery and win-rate numbers with no matching lift in a holdout group. iROAS doesn't care what a dashboard reports winning; it only cares what the control group didn't get that the treatment group did. The Trade Desk saw the same distortion across $10B+ of managed spend: clients running 12+ channels frequently watched attributed ROAS top 100%, multiple channels each claiming credit for one conversion, until a switch to incrementality-based buying corrected it.
+
+<Stat id="trade-desk-over-attribution" />
+
 <Example id="instacart-iroas">
   Instacart sat between CPG brands and retailers with a last-touch attribution model that overcredited paid search and starved upper-funnel brand work. Replacing it with geo-based holdout testing — matched store clusters, some running ads and some not, lift measured in actual units sold — produced an average verified iROAS of 4.5x across categories. Causal proof became the platform's actual competitive moat against Amazon Ads and Walmart Connect, not a reporting nicety.
 </Example>
+
+<Stat id="zillow-attribution-correction" />
 
 <Prompt id="execute-incrementality-check" />
 
@@ -71,14 +98,29 @@ Stated plainly once, here, because later toolkit pages restate this convention r
 
 <Section index="04" kicker="The finance-native version" title="ROMI">
 
-<Formula name="ROMI" expression="Incremental Contribution Margin ÷ Marketing Spend" />
+<Formula name="ROMI" expression="(Incremental Contribution Margin − Marketing Spend) ÷ Marketing Spend" />
 
 Same underlying proof as iROAS, restated in the currency finance actually tracks: margin, not revenue. iROAS answers "did this spend produce incremental revenue"; ROMI answers "did this spend produce incremental profit," which is the question a CFO is actually asking. Report iROAS to a growth-stage marketing team optimizing for revenue; report ROMI to a board deciding whether a channel is worth its cost once margin, not just top line, is on the table. The two numbers can disagree. A channel can clear an iROAS bar on low-margin products and fail a ROMI bar on the same spend.
+
+Four principles keep this practical rather than merely definitional:
+
+<DefinitionList
+  items={[
+    { term: 'Count only what you caused', body: 'Build ROMI on the incremental number above, never on gross attributed revenue.' },
+    { term: 'Anchor on contribution margin', body: 'The number a P&L actually recognizes, not top-line revenue that ignores cost of goods.' },
+    { term: 'Defend on LTV', body: "A channel that loses money on the first purchase can still be the right spend, if the customer's lifetime value clears the bar later." },
+    { term: 'Make reallocation obvious', body: 'The number should point straight at a budget decision — if it needs a second meeting to interpret, it has already failed its job.' },
+  ]}
+/>
 
 </Section>
 
 <Section index="05" kicker="Where the proof goes" title="The Learning Flywheel">
 
 Part II already named the mechanism that makes any of this compound instead of reset: the [Learning Flywheel](/spine/shared-memory), Act through Improve, with Update writing winning parameters back to Shared Memory. What's specific to this chapter: the incremental lift and iROAS numbers above are exactly what Update writes. Not "the campaign performed well" as a sentence in a deck: a specific number, tagged to a specific variable, available to Sense's Propensity Score and Focus's ICP weights the next time either one runs.
+
+None of this is bookkeeping. <Mark>A channel that compounds through Update instead of resetting every quarter is not a cost line being managed down — it's a productive asset being built up</Mark>, cycle over cycle, and iROAS is how that asset's return gets read. Adidas attributes a 12% paid search ROI lift to "Odyssey," its own implementation of this same Learn-workflow.
+
+<Stat id="adidas-odyssey-roi" />
 
 </Section>

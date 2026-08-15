@@ -1,4 +1,4 @@
-Air Canada's chatbot invented a bereavement-fare policy that never existed, and a tribunal held the airline liable for what its own agent said. `/spine/govern-envelope` named five components in outline and stopped there on purpose, orientation, not depth, so the constraint was on the table before Part III's workflow detail rather than a Session-19 surprise at the end. This chapter is that depth: not what governance does in general, but the six specific ways an AI-native marketing system actually fails, what stops each one, how a kill switch gets designed before it's needed, and which regulations are actually asking for this.
+Air Canada's chatbot invented a bereavement-fare policy that never existed, and <Mark>a tribunal held the airline liable for what its own agent said</Mark>. `/spine/govern-envelope` named five components in outline and stopped there on purpose, orientation, not depth, so the constraint was on the table before Part III's workflow detail rather than a Session-19 surprise at the end. This chapter is that depth: not what governance does in general, but the six specific ways an AI-native marketing system actually fails, what stops each one, how a kill switch gets designed before it's needed, and which regulations are actually asking for this.
 
 <Section index="01" kicker="Six ways this actually breaks" title="The six risks">
 
@@ -14,11 +14,11 @@ Every one of these has already happened, publicly, to a real company, not a hypo
     columns={['What happened', 'Control that catches it']}
     rows={[
       { label: 'Consent boundaries', cells: ['Digit drained accounts beyond consented limits — class-action settlement', 'Verify opt-in in real time before every action, not a paper trail'] },
-      { label: 'Uncanny valley', cells: ['Lensa AI generated sexualized, skin-lightened avatars from ordinary selfies', 'Cap how much inferred data the system can use about one person'] },
+      { label: 'Uncanny valley (feels invasive, not helpful)', cells: ['Lensa AI generated sexualized, skin-lightened avatars from ordinary selfies', 'Cap how much inferred data the system can use about one person'] },
       { label: 'Bias', cells: ['Meta delivered nursing ads to women, janitorial ads to men of color — HUD lawsuit', 'Fairness check on every model output before delivery; auto-suppress'] },
       { label: 'AI sameness', cells: ["Jaguar's AI-assisted rebrand erased its own brand heritage", 'Lock brand voice into the system as enforced rules, not suggestions'] },
       { label: 'Claims & IP risk', cells: ['Chicago Sun-Times published a reading list with hallucinated book titles', 'A claims library — every output checked against approved facts'] },
-      { label: 'Agentic drift', cells: ["Air Canada's chatbot invented a fare policy; the airline was held liable", 'A kill switch with pre-defined triggers, scope, authority, recovery'] },
+      { label: 'Agentic drift (acting past its actual authorization)', cells: ["Air Canada's chatbot invented a fare policy; the airline was held liable", 'A kill switch with pre-defined triggers, scope, authority, recovery'] },
     ]}
   />
 </Figure>
@@ -72,6 +72,102 @@ Every major regulatory framework touching this system reduces to a version of th
 
 None of these four frameworks ask for a different governance architecture than the one this chapter already described — a policy layer upstream of execution, claims verified before delivery, a complete audit trail, and a kill switch with defined authority. They ask for the same system. Provably running.
 
+That sentence is the four elements continuous governance operations actually run on, named directly: Policy (checks upstream of execution, not a review after the fact), Claims (verified against an approved list before anything ships), Audit trail (every decision logged, not just the exceptions), and Escalation (the kill switch above, with defined authority to pull it). Six risks, one architecture, four operations running on every decision rather than sampled after some of them.
+
+<Prompt id="govern-claims-audit" />
+
 <Prompt id="govern-regulatory-gap-check" />
+
+</Section>
+
+<Section index="04" kicker="What ran through every workflow" title="The five course themes">
+
+Five threads run under every workflow this handbook has covered, named here together for the first time rather than left implicit in each chapter:
+
+<DefinitionList
+  items={[
+    { term: 'Speed', body: "The loop closing in real time — Orchestrate's Signal to Act inside the same session a customer is in, not the next planning cycle." },
+    { term: 'Scale', body: 'One system deciding for every customer at once, the agentic services layer running continuously rather than a person re-deciding per campaign.' },
+    { term: 'The Insight Gap', body: 'What stays a human job at every workflow: turning a signal into a decision that means something to the person receiving it.' },
+    { term: 'Orchestration', body: 'One system arbitrating across every channel and product line — a policy stack, not six teams deciding separately.' },
+    { term: 'Ethics', body: 'A policy layer, a claims library, an audit trail, and a kill switch, built in before an incident, not assembled after one.' },
+  ]}
+/>
+
+Session19's own closing claim is that marketing now has both architectures, strategic and operating, and that each strategic idea in this handbook has an operating counterpart actually running it:
+
+<Figure
+  d="D84"
+  caption="Marketing now has both architectures — each strategic framework paired with the operating counterpart actually running it."
+  alt="Four strategic frameworks paired with their operating counterparts: Two Architectures pairs with I-MOS, the four-layer stack that makes an operating layer real. The Insight Gap pairs with Sense's triangulation, Focus's ICP, and Orchestrate's next-best-action — the gap closed at each workflow, not just named once. Economics of Error pairs with the policy stack from Orchestrate and kill-switch design from this chapter — autonomy tiers enforced as running code, not a chart. Shared Memory pairs with Execute and Learn's Update step, writing incremental lift back for Sense and Focus to read on the next cycle."
+>
+  <ComparisonTable
+    caption="Each strategic framework, and what runs it continuously."
+    columns={['Strategic framework', 'Operating counterpart']}
+    rows={[
+      { label: 'Two Architectures', cells: ['I-MOS — the four-layer stack that makes an operating layer real'] },
+      { label: 'The Insight Gap', cells: ["Sense's triangulation, Focus's ICP, Orchestrate's next-best-action — the gap closed at each workflow, not just named once"] },
+      { label: 'Economics of Error', cells: ['The policy stack (Orchestrate) and kill-switch design (this chapter) — autonomy tiers enforced as running code, not a chart'] },
+      { label: 'Shared Memory', cells: ["Execute and Learn's Update step, writing incremental lift back for Sense and Focus to read on the next cycle"] },
+    ]}
+  />
+</Figure>
+
+</Section>
+
+<Section index="05" kicker="What the job becomes" title="Ten roles, five skills, one translation">
+
+Course material names ten marketing roles that didn't exist five years ago. Three carry the shape of the shift for anyone reading this handbook specifically:
+
+<DefinitionList
+  items={[
+    { term: 'Marketing AI Architect', body: 'Owns the system this handbook describes, not a single campaign — which workflow gets autonomy, where the policy stack sits, what Shared Memory tracks. The closest prior role is marketing ops; the job now includes architecture decisions that used to sit with engineering.' },
+    { term: 'Brand DNA Engineer', body: "Owns the machine-readable version of brand voice — Design's content blocks and governance zones, kept current as the single source every generative system checks against, not a guidelines PDF revisited once a year." },
+    { term: 'AEO Lead', body: "Owns visibility inside an answer engine's citation, not a rank on a results page — Attract's citation signals, measured by whether an AI overview quotes the brand, not by where a link sits." },
+  ]}
+/>
+
+The other seven follow the same pattern: each takes a task this handbook already assigned to a workflow — Sense, Focus, Orchestrate, Govern — and turns it into a named job description. What holds across all ten, named or not, are five durable skills none of them get to skip:
+
+<DefinitionList
+  items={[
+    { term: 'Systems thinking', body: 'Seeing the loop, not the campaign — the same shift Orchestrate and Execute and Learn both argue for from opposite ends.' },
+    { term: 'Brand DNA codification', body: "Turning a brand's identity into something a machine can actually check an output against, not a slide deck nobody opens." },
+    { term: 'Causal reasoning', body: 'iROAS thinking: knowing the difference between what a dashboard reports and what a holdout group proves.' },
+    { term: 'Agent design', body: 'Writing the policy stack, the guardrails, the kill-switch triggers — the actual decisions this chapter has been describing.' },
+    { term: 'The So-What', body: "The one the other four don't replace." },
+  ]}
+/>
+
+Every workflow on this site eventually produces a number, a segment, a signal. None of it ships on its own — someone still has to say what it actually means to the person receiving it, why a message reads as authentic instead of algorithmic, which cultural moment makes an insight true this quarter and false the next. Course material calls that translation step the So-What. It's the same idea this handbook has taught since [the Insight Gap](/spine/insight-gap) — Signal, Interpretation, Insight, Action — under a name built for saying out loud in a room: given everything the system just found, so what?
+
+</Section>
+
+<Section index="06" kicker="Where the line actually sits" title="Where AI leads, and the close">
+
+Five things stay outside what any of this automates, however good the models get: framing the right question in the first place, bearing responsibility when a decision is wrong, translating a finding into something that means something to a person, anchoring a message in the culture it has to land in, and reasoning across domains no training set ever connected. All five are the So-What, applied at a different point in the loop.
+
+<Figure
+  d="D85"
+  caption="Where AI can lead versus where the five durable skills still have to."
+  alt="Four dimensions comparing what AI leads against what you lead. Scale: AI runs every customer, every channel, every cycle, Sense through Learn, continuously; you decide which signal is worth building the system around in the first place. Speed: AI delivers a decision the moment a signal arrives; you decide whether that decision is the right one to automate at all. Pattern: AI finds the correlation across a data set no person could hold in their head; you know which correlation is causation, and which is a lift dressed up as one. Execution: AI assembles and ships the asset once Brief specifies it; you judge whether the asset is true to the brand, culturally, not just on-policy."
+>
+  <ComparisonTable
+    caption="Where AI leads, and where the five durable skills still have to."
+    columns={['AI leads', 'You lead']}
+    rows={[
+      { label: 'Scale', cells: ['Every customer, every channel, every cycle — Sense through Learn, running continuously', 'Which signal is worth building the system around in the first place'] },
+      { label: 'Speed', cells: ['A decision the moment a signal arrives', 'Whether the decision is the right one to automate at all — Economics of Error'] },
+      { label: 'Pattern', cells: ['Finding the correlation across a data set no person could hold in their head', 'Knowing which correlation is causation, and which is a lift dressed up as one'] },
+      { label: 'Execution', cells: ['Assembling and shipping the asset once Brief specifies it', 'Whether the asset is true to the brand, culturally, not just on-policy'] },
+    ]}
+  />
+</Figure>
+
+The course's own closing image for this division of labor is jugalbandi — a Hindustani classical duet between two soloists on different instruments, each taking the lead in turn, neither one accompanying the other. Not a tool and an operator: two lead voices, trading the line back and forth in real time, both responsible for the piece working.
+
+<PullQuote quote="You can delegate tasks to AI. You cannot delegate responsibility." attribution="course material, Session10" />
+
+<Mark>Air Canada, at the top of this chapter, is what that line looks like tested in a tribunal instead of a workshop.</Mark>
 
 </Section>

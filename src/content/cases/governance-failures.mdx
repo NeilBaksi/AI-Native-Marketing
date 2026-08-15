@@ -1,4 +1,4 @@
-An AI system that drifts past what a user actually consented to, or defaults toward whatever its training data normalizes, or fabricates a fact with no one checking before it ships, doesn't announce the failure in advance. It shows up in a lawsuit, a headline, or a user's own face staring back from a screen. [Govern](/workflows/govern) names six ways an AI-native marketing system actually breaks this way, each paired with a real incident and the control that would have caught it. Two of them — Air Canada's chatbot inventing a fare policy it was then held liable for, and Meta's ad platform learning a gendered, racially skewed delivery pattern from its own training data — already got full narrative treatment there; read them in [Govern](/workflows/govern) rather than here. This page is the other four, at the depth a table row can't hold.
+Each failure below was preventable by a specific, nameable control, not bad luck, which is the practical takeaway for any team shipping an AI feature without checking whether that control already exists. An AI system that drifts past what a user actually consented to, or defaults toward whatever its training data normalizes, or fabricates a fact with no one checking before it ships, doesn't announce the failure in advance. <Mark>It shows up in a lawsuit, a headline, or a user's own face staring back from a screen.</Mark> [Govern](/workflows/govern) names six ways an AI-native marketing system actually breaks this way, each paired with a real incident and the control that would have caught it. Two of them — Air Canada's chatbot inventing a fare policy it was then held liable for, and Meta's ad platform learning a gendered, racially skewed delivery pattern from its own training data — already got full narrative treatment there; read them in [Govern](/workflows/govern) rather than here. This page is the other four, at the depth a table row can't hold.
 
 <Figure
   d="D81"
@@ -34,7 +34,7 @@ The control this maps to isn't a better one-time disclosure. It's verifying cons
 Lensa's "Magic Avatars" feature took a handful of ordinary selfies and generated stylized AI portraits. For many women, the outputs skewed sexualized and skin-lightened in ways the input photos gave no instruction to produce. The model had learned those patterns from its training data and reproduced them by default, at scale, the moment it was asked to imagine a stylized version of a real person. Public backlash was immediate and specific: this wasn't a subtle bias buried in an aggregate metric, it was something every affected user could see directly, in their own face.
 
 <Example id="lensa-uncanny-valley">
-  The backlash wasn't about a technical failure; generative models inheriting bias from training data is a known risk, not a surprise. It was that the output was maximally personal: not a demographic statistic about who a system favors, but one specific person's own likeness, altered without any consent to that specific alteration. A model that can generate anything will generate whatever its training data has normalized, and "stylized" turned out to mean something the product had never actually specified.
+  The backlash wasn't about a technical failure; generative models inheriting bias from training data is a known risk, not a surprise. It was that the output was maximally personal: not a demographic statistic about who a system favors, but one specific person's own likeness, altered without any consent to that specific alteration. <Mark>A model that can generate anything will generate whatever its training data has normalized</Mark>, and "stylized" turned out to mean something the product had never actually specified.
 </Example>
 
 The control here is a specificity ceiling: it caps how much inferred data a generative system can apply to any one identifiable person. In Lensa's case, that means beauty and body-type norms baked into training data, not the model's unconstrained defaults standing in for a product decision nobody actually made.
@@ -63,5 +63,22 @@ In 2025, the Chicago Sun-Times published a summer reading list — syndicated co
 />
 
 The control that maps to this is a claims library, not just "review AI output before publishing" as a vague instinct: every factual assertion an AI system produces gets checked against a source of approved, verified facts before it ships, the same discipline [Attract](/workflows/attract)'s citation signals ask of any brand wanting to be trusted by an answer engine, applied here to a publisher's own claims about its own content.
+
+</Section>
+
+<Section index="05" kicker="Cross-reference" title="Which control catches which failure">
+
+Each of the four controls named above is scoped to the failure it addresses. None is a general-purpose fix for the other three.
+
+<ComparisonTable
+  caption="Each of the four failures on this page, mapped to the control named here that would have caught it."
+  columns={['Control named on this page', 'Why it would have caught this one']}
+  rows={[
+    { label: 'Digit', cells: ['Real-time consent verification (Section 01)', "Checks the algorithm's current behavior against what the user actually consented to, on every action, not just once at signup — exactly where Digit's drift went unchecked."] },
+    { label: 'Lensa', cells: ['A specificity ceiling on inferred personal data (Section 02)', 'Caps how much a generative model can apply to one identifiable person, which would have stopped unrequested beauty and skin-tone defaults from reaching individual faces.'] },
+    { label: 'Jaguar', cells: ['Brand voice locked in as enforced generation rules (Section 03)', "Forces the tool to draw from a brand's own visual grammar instead of training-data defaults, the same mechanism Coca-Cola's Project Fizzion already runs."] },
+    { label: 'Chicago Sun-Times', cells: ['A claims library, checked before publish (Section 04)', 'Verifies every factual assertion against approved source facts before it ships, which would have caught fabricated book titles before publication.'] },
+  ]}
+/>
 
 </Section>

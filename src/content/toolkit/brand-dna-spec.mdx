@@ -1,4 +1,4 @@
-This spec is the fillable version of [Design](/workflows/design)'s five Brand DNA components. Five fields, plus two mechanics that make the whole thing enforceable rather than aspirational. Every field has to pass one test. Can an agent act on it without a human translating first?
+This spec is the fillable version of [Design](/workflows/design)'s five Brand DNA components. Five fields, plus two mechanics that make the whole thing enforceable rather than aspirational. <Mark>Every field has to pass one test. Can an agent act on it without a human translating first?</Mark>
 
 <Section index="01" kicker="A spec, not a mood board" title="What it's for">
 
@@ -8,7 +8,7 @@ Design already defines the five components: tone-of-voice rules, visual grammar,
 
 <Section index="02" kicker="Before the pipeline connects" title="When to use it">
 
-Fill this out before connecting a brand to any AI content-generation workflow. Also fill it out the moment an existing brand guide turns out to be adjectives a person must interpret, not rules a system can enforce. "Fresh and vibrant" is a guideline. "Saturation 70–85%, no stock" is a spec.
+Fill this out before connecting a brand to any AI content-generation workflow. Also fill it out the moment an existing brand guide turns out to be adjectives a person must interpret, not rules a system can enforce. <Mark>"Fresh and vibrant" is a guideline. "Saturation 70–85%, no stock" is a spec.</Mark>
 
 </Section>
 
@@ -72,7 +72,9 @@ The definition-list format above maps to a two-column spreadsheet (field, filled
 <Section index="06" kicker="What machine-readable costs, and buys" title="Design decision">
 
 <Callout kind="key" title="An enforceable spec is a narrower spec">
-Structured fields cost real nuance. "Feels fresh and vibrant" captures something a hex code and an f-stop range never will. The trade is deliberate: a spec that keeps the adjective is unusable at generation time, so nothing in it actually governs the ten thousandth asset the way it governed the first. A narrower spec that an agent can check itself against beats a richer one that only a person can interpret, because only one of them scales past a human review queue.
+Structured fields cost real nuance. "Feels fresh and vibrant" captures something a hex code and an f-stop range never will. The trade is deliberate: a spec that keeps the adjective is unusable at generation time, so nothing in it actually governs the ten thousandth asset the way it governed the first. A spec written in binary, checkable fields is something both an agent and a person can hold a draft against — the agent catching a violation at machine speed on every one of ten thousand assets, so a person's review time goes to the judgment calls a checklist can't make instead of re-flagging the same forbidden word by hand.
 </Callout>
+
+Filled in, this spec is what loads as the System Prompt layer in [Design](/workflows/design)'s three-layer prompt architecture — the rule set applied to every generation call, before a brief or an asset list narrows anything further.
 
 </Section>

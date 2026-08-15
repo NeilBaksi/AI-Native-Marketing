@@ -1,4 +1,4 @@
-Focus is the highest-leverage workflow in the handbook. The reason isn't sentimental: every object it writes becomes an input every downstream workflow inherits without re-checking. Get the ICP wrong here and Design, Attract, Orchestrate, and Execute all inherit the mistake at machine speed, correctly executing a decision that was wrong from the start.
+Focus is the highest-leverage workflow in the handbook. The reason isn't sentimental: every object it writes becomes an input every downstream workflow inherits without re-checking. Get the ICP wrong here and Design, Attract, Orchestrate, and Execute all inherit the mistake at machine speed, <Mark>correctly executing a decision that was wrong from the start</Mark>.
 
 <Section index="01" kicker="The single number" title="The ICP formula">
 
@@ -15,15 +15,17 @@ Focus is the highest-leverage workflow in the handbook. The reason isn't sentime
 
 This is a different claim than a segmentation study. Segmentation describes who *exists* in the market: a cluster map, descriptive, useful for understanding. The ICP describes who the business can win, retain, and grow profitably.
 
+The weights behind Fit, Readiness, and Friction aren't set once and left alone. They get recalibrated from win/loss outcomes each cycle: a stalling pattern in high-Fit, low-Readiness accounts, more of them stuck at the same stage than expected, signals that Friction was under-weighted, and the model's weights shift in response on the next pass.
+
 <Prompt id="focus-icp-builder" />
 
 </Section>
 
 <Section index="02" kicker="Mechanical, not authored" title="From ICP to persona">
 
-A persona built from Sense's Need State object skips the demographic sketch and the stock photo. It's five fields written as system instructions an AI agent can actually act on: **JTBD** (the job they're hiring the product to do, in their context), **Anxiety** (what they fear about buying or switching, the objection before it's raised), **Proof** (what evidence makes the claim believable to them specifically), **Channel** (where and in what format they consume information), and **Tone** (the register a credible source would use with them).
+A persona built from Sense's Need State object is five fields written as system instructions an AI agent can actually act on: **JTBD** (the job they're hiring the product to do, in their context), **Anxiety** (what they fear about buying or switching, the objection before it's raised), **Proof** (what evidence makes the claim believable to them specifically), **Channel** (where and in what format they consume information), and **Tone** (the register a credible source would use with them).
 
-Every ICP produces three personas, not one, and the distinction is a suppression rule as much as a targeting one: a **primary** persona to build for and lead with, a **secondary** persona to also serve without optimizing around, and a **negative** persona, actively excluded. Cost of acquisition exceeds lifetime value, high churn potential, low expansion ceiling: the system filters these out before spend is wasted on them. Knowing who not to pursue is itself the strategic decision.
+Every ICP produces three personas, not one, and the distinction is a suppression rule as much as a targeting one: a **primary** persona to build for and lead with, a **secondary** persona to also serve without optimizing around, and a **negative** persona, actively excluded. Cost of acquisition exceeds lifetime value, high churn potential, low expansion ceiling: the system filters these out before spend is wasted on them. <Mark>Knowing who not to pursue is itself the strategic decision.</Mark>
 
 </Section>
 
@@ -41,9 +43,17 @@ Four tiers, rising together in effort, precision, and risk:
 
 Personalization creates real value by cutting three kinds of friction: relevance ("stop showing me noise"), choice ("help me decide faster"), and effort ("remember me, don't make me repeat myself"). Each tier past Contextual trades rising precision for rising exposure if the underlying trust boundary breaks. Where an organization stops on this spectrum is a leadership decision. The technology to go further usually exists before the judgment to use it responsibly does.
 
+<Stat id="amazon-recommendation-economics" />
+
+Contextual is where most organizations should actually start. It captures most of the conversion value the spectrum offers, needs no identity resolution, and carries close to zero trust risk if a read comes out wrong. Individual and Anticipatory tiers only pay off once the infrastructure and governance beneath them are mature enough to survive being wrong occasionally — a maturity question, not a technology one.
+
 <Example id="betterhelp-ftc-fine">
   Spotify Wrapped and BetterHelp used the same underlying mechanism — behavioral data turned into a personalized moment — with opposite outcomes. Wrapped's users know Spotify tracks listening; the personalization becomes a gift they choose to share. BetterHelp's users shared mental-health intake data trusting confidentiality; the company shared that data with Facebook and Snapchat for ad targeting, buried in a ToS few read. Same input, same technical capability. The difference was context, and whether consent was actually informed. A Trust Boundary check exists to catch that gap before a feature ships, not after a regulator does.
 </Example>
+
+<Stat id="betterhelp-settlement-scope" />
+
+The BetterHelp case generalizes into a standalone test: would the customer be surprised to learn how their data was used? Surprise means consent was performative, whatever the ToS technically authorized. Legitimacy, not legal compliance, is the bar a personalization tier has to clear before it ships.
 
 </Section>
 
@@ -55,6 +65,84 @@ Positioning isn't a fourth, independent decision. It falls out of the ICP, the p
   Gong was "call recording" until it reframed around the job sales leaders actually needed done: stop flying blind on why deals close, stall, or die. "Revenue Intelligence Platform" isn't a rebrand. It changed the competitor set (from other recording tools to the ignorance itself), the buyer, and the price point, on the way to a $7.2B valuation. Feature positioning invites a features comparison. JTBD positioning invites a different question entirely: does this solve my actual problem.
 </Example>
 
+Gong's reframe moved more than the words: it moved the category a buyer filed the company under, from a call-recording tool to a revenue-intelligence category with a different competitor set entirely. That category is the **Frame of Reference**, the mental bucket a customer assigns a brand to before any feature comparison starts. Left unnamed, AI-generated copy defaults to whatever generic category language is most common in its training data, and the reframe a positioning statement worked to create quietly disappears back into the crowd it was written to escape.
+
 Getting from that one-sentence positioning statement to a full messaging system is enough material for its own chapter, not a section. The layered architecture of pillars, claims, objections, and stories that AI actually composes from is what comes next. `workflows/focus/deep-dive/messaging-and-positioning` picks up there.
+
+</Section>
+
+<Section index="05" kicker="The scaffold underneath" title="STP, named">
+
+Everything Focus just built, the ICP formula, the decision-narrative persona, the positioning contract, sits on a fifty-year-old framework: Segmentation, Targeting, Positioning. Kotler's original version divides a market into groups, chooses which group to pursue, and defines how the product should be perceived by that group relative to competitors. STP names what to decide. Focus is what decides it continuously, instead of once a year in a strategy deck nobody reopens.
+
+The mapping runs directly onto what's above. Segmentation becomes the six signal dimensions the next section names. Targeting becomes the Fit × Readiness − Friction score, recomputed on every account rather than assigned once. Positioning becomes the system contract from the section above, enforced by an architecture instead of a slide.
+
+<DefinitionList items={[
+  { term: 'Segmentation → Six Signal Dimensions', body: 'A market study repeated annually becomes a live, multi-dimensional read the system re-runs on every incoming signal.' },
+  { term: 'Targeting → ICP Score', body: 'A one-time call about which segment to chase becomes a formula the system runs on every account, every cycle.' },
+  { term: 'Positioning → System Contract', body: 'A slide nobody reopens becomes the guardrail every generated sentence is checked against before it ships.' },
+]} />
+
+Classical segmentation still fails on its own, for four specific reasons: the signal underneath it moves faster than the research cycle that produced it; a study's clean cluster boundaries create false certainty about a messier reality; a customer's segment membership is fixed at the moment of research and blind to where they actually are today; and different teams reading the same segmentation study land on different conclusions about who to target. STP set the destination. What Focus adds is what keeps the map from going stale.
+
+</Section>
+
+<Section index="06" kicker="What Segment actually reads" title="The Six ICP Signal Dimensions">
+
+The formula in Section 01 is the score. Six signal dimensions are what feed it, and the two most frameworks quietly drop are exactly where most ICP failures start.
+
+<DefinitionList items={[
+  { term: 'Need intensity', body: "How acute the customer's problem is right now, not whether it exists in principle." },
+  { term: 'Constraint profile', body: 'Budget, procurement process, technical environment: the boundaries any solution has to fit inside.' },
+  { term: 'Lifecycle triggers', body: 'The events that open a buying window: a new hire, a renewal date, a competitor stumble, a regulatory change.' },
+  { term: 'Behavioral patterns', body: 'What the account actually does, distinct from what its firmographic profile predicts it should do.' },
+  { term: 'Media Repertoire', body: 'Where and in what format this customer actually consumes information. Skip it and Focus can score an account correctly while Orchestrate has no channel that reaches it.' },
+  { term: 'Win/Loss Calibration', body: "The feedback loop that updates the other five dimensions' weights from outcomes. Without it the model keeps predicting last cycle's wins, not this cycle's." },
+]} />
+
+Media Repertoire and Win/Loss Calibration are the two dimensions most segmentation frameworks never name: neither shows up in a market-research deck, because both only exist as a byproduct of running the system rather than commissioning a study. The weight recalibration described in Section 01, shifting because high-Fit, low-Readiness accounts are stalling more than expected, is Win/Loss Calibration in practice; this is where that behavior gets its name.
+
+</Section>
+
+<Section index="07" kicker="Segment, Score, Select" title="The ICP Engine">
+
+Turning six signal dimensions into a live score is a three-stage pipeline, not one model doing everything. Segment groups accounts by shared characteristics, using clustering methods like K-Means, Latent Class Analysis, or hierarchical clustering. Score ranks accounts within and across those groups, using propensity models, LTV/BG-NBD, and intent scoring. Select is where a person applies judgment to the ranked output, because a number alone can't tell an account that fits the formula from one that fits the business.
+
+<Example id="korn-ferry-6sense">
+  Korn Ferry ran the same three stages against a stalled disagreement, not a blank slate: the old ICP was firmographic and static, refreshed quarterly, and sales and marketing routinely scored the same account differently because nothing forced them onto one number. Segmenting and scoring on Fit × Intent × Engagement gave both teams the same ranked list to argue from, tiered into high-touch, programmatic, and nurture. Select still required a person to set where each tier's line fell.
+</Example>
+
+Two tests gate whether a segment produced by Segment and Score is actually usable before Select runs on it. The Interpretability Test: can the team explain, in plain language, why these customers win. The Actionability Test: can the team reach, message, and measure this group as a distinct set. A cluster that fails either one is a statistical artifact, however cleanly it scores.
+
+</Section>
+
+<Section index="08" kicker="What keeps the score current" title="The Agentic ICP Loop">
+
+The ICP Engine scores individual accounts as they arrive. A second, standing loop is what keeps the model doing that scoring from going stale, running on its own schedule rather than inside any single account's pass through Segment → Score → Select.
+
+<StepList steps={[
+  {
+    title: 'Signal Agent',
+    body: 'Watches Shared Memory for the pattern that means the current model is wrong: win rate slipping in a segment, a new lifecycle trigger appearing, a channel losing reach.',
+  },
+  {
+    title: 'Analysis Agent',
+    body: 'Builds a candidate model against that pattern: reweighted signal dimensions, a resegmented cluster, an adjusted score threshold.',
+  },
+  {
+    title: 'Human Review',
+    body: "Mandatory, not optional. A person checks the candidate model against context the data alone can't carry before anything downstream inherits it.",
+  },
+  {
+    title: 'Policy Update',
+    body: 'Once approved, the revised model propagates automatically to every workflow reading the ICP Score, with no manual re-wiring required.',
+  },
+]} />
+
+This loop is distinct from the ICP Scorer's own human-review gate described in [Build's four-pass decomposition](/workflows/build/deep-dive/four-pass-decomposition): that gate approves one account's score as it moves through the pipeline in real time. This loop periodically revises the model those per-account scores are computed from. The system proposes the revision either way. A person still decides whether it ships.
+
+<Example id="salesforce-einstein-scoring">
+  Salesforce Einstein runs the same two-speed split at production scale: an individual lead's score can move from 0.7 to 0.9 in two days off two pricing-page visits and a competitive-comparison download, while the model producing that score only retrains every ten days. Fast per-account scoring, slow model revision, the same architecture this loop runs on, just visible in Salesforce's own numbers.
+</Example>
 
 </Section>

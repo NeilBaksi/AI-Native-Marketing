@@ -12,6 +12,8 @@ One assumption underlies all of Design's work. Brand DNA, content blocks, the me
 
 Being present at the moment of discovery no longer means ranking on a results page. It means being the source an AI system cites when it synthesizes an answer, with no click required and no ad unit to buy your way into it. Keyword density doesn't move this needle; semantic authority does.
 
+Citation share is the successor metric to organic rank: the share of relevant answer-engine responses that cite a given source. Unlike rank it can go negative in a meaningful sense — a competitor cited by name as the better alternative to you is a worse outcome than not being mentioned at all. And "the AI system" isn't one thing: Google's AI Overviews sit inside a conventional results page, while AI Mode is the fully conversational end state, a synthesized answer with no results page underneath it at all.
+
 <Example id="casper-saatva-aeo">
   Search "best mattress for back pain" on Google and Casper holds four of the top six slots — paid placement, affiliate reviews, a dedicated landing page. Ask Gemini the same question and Casper gets one passing mention as "a bed-in-a-box pioneer," not a recommendation; Saatva, Helix, and Tempur-Pedic get cited instead, sourced to Wirecutter and Consumer Reports. Same query, opposite winner. Casper's pages read as ad copy, and the LLM had nothing extractable to lift and compare against the alternatives' firmness ratings and chiropractor endorsements.
 </Example>
@@ -19,6 +21,28 @@ Being present at the moment of discovery no longer means ranking on a results pa
 </Section>
 
 <Section index="02" kicker="What actually gets you cited" title="The four citation signals">
+
+Underneath, every answer engine runs the same shape of pipeline: a query, a retrieval pass across candidate sources, a citation decision, then the synthesized answer.
+
+<Figure
+  d="D46"
+  caption="The four-step citation pipeline every answer engine runs underneath, from query to synthesized answer."
+  alt="Four-step citation pipeline: Query, then Retrieval — a pass across candidate sources, then Citation Decision, then Answer, the synthesized response."
+>
+  <FlowChain nodes={['Query', 'Retrieval', 'Citation Decision', 'Answer']} />
+</Figure>
+
+That citation decision itself resolves in two stages — Discovery, whether a source surfaces as a candidate at all, and Authority Validation, whether it's trustworthy enough to actually cite.
+
+<Figure
+  d="D49"
+  caption="The two-stage LLM citation model — a source has to clear Discovery before Authority Validation is even checked."
+  alt="Two-stage citation model: Stage 1, Discovery — does the source surface as a candidate at all. Stage 2, Authority Validation — is the source trustworthy enough to actually cite."
+>
+  <FlowChain nodes={['Stage 1 — Discovery: does it surface as a candidate?', 'Stage 2 — Authority Validation: is it trustworthy enough to cite?']} />
+</Figure>
+
+The four signals below are what a source needs to clear both stages, not just get discovered, and they diverge by platform: ChatGPT, Perplexity, and Google's AI Overviews each draw from different retrieval indexes and weight authority differently, so a source built to win one of them doesn't automatically win the others.
 
 <Figure
   d="D47"
@@ -47,7 +71,11 @@ The same four signals govern citation on a retail media network and a recommenda
 
 <Stat id="zero-click-rate" />
 
-Zero-click doesn't mean content stopped creating value. It means the value moved to where it's captured. A brand cited in a synthesized answer builds awareness and trust the analytics stack will later misattribute to "direct traffic" or a branded search a week later, not to the citation that actually caused it. The value is real. The attribution is broken. That's a measurement problem downstream of Attract, not a reason to discount what Attract is doing.
+Zero-click doesn't mean content stopped creating value. It means the value moved to where it's captured: position-one organic click-through falls 65% (1.76% to 0.61%) the moment an AI Overview appears on a query. A brand cited in a synthesized answer builds awareness and trust the analytics stack will later misattribute to "direct traffic" or a branded search a week later, not to the citation that actually caused it. <Mark>The value is real. The attribution is broken.</Mark> That's a measurement problem downstream of Attract, not a reason to discount what Attract is doing.
+
+<Stat id="ai-overviews-ctr-collapse" />
+
+Because the citation itself isn't directly observable, branded search volume becomes the proxy signal worth tracking in its place: a lift in searches for the brand name specifically, in the days after a content push, is indirect evidence a citation reached someone, even with no way to trace which individual instance caused it.
 
 </Section>
 
@@ -55,8 +83,84 @@ Zero-click doesn't mean content stopped creating value. It means the value moved
 
 <Stat id="dark-social-share" />
 
-Dark social is content moving through channels no analytics stack observes: a Slack message, a forwarded email, a private LinkedIn DM. A CFO shares a competitor comparison in an executive Slack channel; three colleagues visit the site the next day; the CRM logs three sessions of direct traffic with no source — the referral that actually put the brand on a shortlist is invisible by construction, not by a fixable tracking gap.
+Dark social is content moving through channels no analytics stack observes: a Slack message, a forwarded email, a private LinkedIn DM. Gartner estimates 70% of the B2B buying journey now happens in exactly these invisible channels, and 81% of buyers already have a vendor of choice before the first sales meeting. A CFO shares a competitor comparison in an executive Slack channel; three colleagues visit the site the next day; the CRM logs three sessions of direct traffic with no source — the referral that actually put the brand on a shortlist is invisible by construction, not by a fixable tracking gap.
+
+<Stat id="b2b-dark-funnel-trio" />
 
 The instinct is to treat this as a measurement problem to solve with better attribution tooling. It's more accurately an Attract problem: the question isn't only how to track conversations a brand is excluded from, but whether the content itself is engineered to survive being forwarded: specific enough to be worth sharing, structured enough to read cleanly as a link preview, authoritative enough that a practitioner forwards it rather than paraphrasing it into something weaker.
+
+</Section>
+
+<Section index="05" kicker="Where the digital record starts" title="The identity handoff">
+
+Not every attract signal originates online. A shopper scans a QR code at a shelf, a barista taps a receipt into a loyalty scanner, a podcast host reads a promo code on air — all of it is discovery activity, and none of it means anything to a marketing system until the moment resolves into an identified record. <Mark>If the moment doesn't end with an identity handoff, it didn't happen</Mark>, at least not anywhere Focus or Orchestrate can act on it.
+
+<DefinitionList items={[
+  { term: 'QR-at-shelf', body: 'A code on packaging or a shelf-talker that resolves to a landing page built to capture an email or a loyalty-account match, not just to display product information.' },
+  { term: 'In-store scan', body: 'A staff-assisted or self-serve scan — a kiosk, a sales-associate tablet — tied to a loyalty ID or phone number at the point of interaction.' },
+  { term: 'Receipt enrollment', body: 'A code or link printed on the receipt itself, redeemed after the purchase is already complete, trading a small incentive for an identified record of a sale that would otherwise stay anonymous.' },
+  { term: 'Event badge scan', body: 'A conference or trade-show badge scanned at a booth, carrying whatever identity data the attendee consented to share at registration.' },
+  { term: 'Podcast mention', body: 'A spoken promo code or vanity URL, the weakest link in the taxonomy since it depends on the listener taking a deliberate extra step to redeem it.' },
+]} />
+
+Each of these is a physical attract signal with no inherent identity attached — the handoff is the design work. Downstream, Orchestrate needs more than a raw identity match to act on the moment: a minimum spec of known state, an ICP match score, which pillar signal triggered it, and channel-plus-consent status travels with the handoff, or Orchestrate is guessing at what to do with a name it just received.
+
+<Figure
+  d="D51"
+  caption="The identity handoff — five physical signals converge into one identity record, which then branches into what Orchestrate needs to act."
+  alt="Convergence: QR-at-shelf, in-store scan, receipt enrollment, event badge scan, and podcast mention all resolve into a single Identity Record. Branch: the Identity Record then carries four things downstream — known state, ICP match score, which pillar signal triggered it, and channel-plus-consent status."
+>
+  <FlowChain nodes={['QR-at-shelf', 'In-store scan', 'Receipt enrollment', 'Event badge scan', 'Podcast mention', 'Identity Record']} />
+  <FlowChain nodes={['Identity Record', 'Known state', 'ICP match score', 'Pillar signal', 'Channel + consent status']} />
+</Figure>
+
+</Section>
+
+<Section index="06" kicker="The answer engine doesn't have to be a chatbot" title="Retail and commerce media networks">
+
+Amazon Ads, Walmart Connect, Target's Roundel, and Kroger Precision run the same citation-style judgment as an AI chat answer, just inside a shopping surface instead of a conversation. A shopper searching inside Amazon is asking a question — "best noise-canceling headphones under $200" — and the retail media network's ranking model is deciding which product gets to be the answer, the same underlying test of trust, structure, specificity, and recency as any chatbot citation, just paid for and executed as an ad auction rather than earned as an organic result.
+
+Creator platforms run a parallel version of the same mechanism. LTK, ShopMy, and Creator IQ are where an individual creator's recommendation functions as a citation-signal surface in its own right — a human answer engine deciding, query by query, which product gets named. The four citation signals from Section 02 apply here as much as they do inside an LLM: a creator, like an algorithm, cites what's structured, specific, and provably true over what's merely well-produced.
+
+</Section>
+
+<Section index="07" kicker="How you actually check" title="The AEO Audit Framework">
+
+Most of what precedes this section explains why AEO matters. This is the operational answer to how to actually do it — a four-step audit cycle, repeated on a cadence rather than run once.
+
+<Figure
+  d="D52"
+  caption="The AEO Audit Framework — step four feeds back into step one; this runs continuously, not once."
+  alt="Four-step cycle, not a one-time sequence: Visibility Audit, then Content Diagnosis, then Content Remediation, then Ongoing Monitoring, which feeds back into Visibility Audit — step four closes the loop back to step one, running continuously rather than ending at step four."
+>
+  <StepList steps={[
+    {
+      title: 'Visibility Audit',
+      body: "Query the target answer engines — ChatGPT, Perplexity, Google's AI Overviews and AI Mode, Gemini — with the questions an ICP customer actually asks, and record whether the brand is cited at all. This sets the baseline platform by platform, since coverage on one engine says nothing about coverage on another.",
+    },
+    {
+      title: 'Content Diagnosis',
+      body: 'For every query the brand should be cited on and isn\'t, score the underlying page against the four citation signals — provenance, structure, specificity, recency — to find which one is actually failing. A page can be technically accurate and still be uncitable.',
+    },
+    {
+      title: 'Content Remediation',
+      body: 'Rewrite against whichever signal failed: attribute claims to a named source, restructure prose into direct Q&A with schema markup, replace a superlative with a sourced statistic, refresh a page carrying last year\'s numbers.',
+    },
+    {
+      title: 'Ongoing Monitoring',
+      body: "Re-run the visibility audit on a fixed cadence, not once. Answer engines re-crawl, re-rank, and re-decide citations continuously, and a model update can undo remediation work overnight — the cycle closes back to step one, not a finish line.",
+    },
+  ]} />
+</Figure>
+
+Treat it like a recurring audit, not a project with an end date. An SEO audit run annually is defensible; an AEO audit run annually means finding out about a lost citation months after a competitor already claimed it.
+
+</Section>
+
+<Section index="08" kicker="The proof standards were the point all along" title="Brand DNA is your AEO asset">
+
+Design's proof cues and claims boundaries were built to keep an AI-generated asset honest — named evidence, verified statistics, a binary permitted/prohibited claims list (see [Brand DNA](/workflows/design)). Those are the exact inputs a citation model is checking for under Section 02's four signals: provenance, specificity, and the traceability that lets a claim survive scrutiny. Design didn't build proof infrastructure for AEO's sake, but it built the only thing AEO actually runs on.
+
+<PullQuote quote="Visibility used to be enough — showing up anywhere on page one. Citability is the narrower thing it takes to become the answer: content specific and structured enough for an answer engine to lift and quote directly." />
 
 </Section>

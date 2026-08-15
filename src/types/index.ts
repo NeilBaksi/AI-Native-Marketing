@@ -71,6 +71,12 @@ export interface PageMeta {
   kind: PageKind
   /** Mono rail label, e.g. '01'. */
   index: string
+  /**
+   * Exact substring of `title` to circle with the hand-drawn CircleWord mark.
+   * Reserved for part-openers — one per part, not every chapter, or the mark
+   * stops reading as emphasis (.impeccable.md Principle 5).
+   */
+  circleWord?: string
   difficulty?: 'foundational' | 'intermediate' | 'advanced'
   readingTime?: number
   /** Slugs of pages that should be read first — rendered as linked chips. */

@@ -83,7 +83,7 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
             // animates `y` here and writes an inline `style.transform`, which beats Tailwind's
             // class-level `--tw-translate-x: -50%` — so the panel rendered a half-viewport to
             // the right. Margin auto owes nothing to transform.
-            className="fixed inset-x-0 top-24 mx-auto w-[min(560px,92vw)] rounded-2xl border border-rule bg-paper shadow-xl"
+            className="fixed inset-x-0 top-24 mx-auto w-[min(560px,92vw)] rounded-2xl rounded-bl-none rounded-tr-none border border-rule bg-paper shadow-xl"
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}

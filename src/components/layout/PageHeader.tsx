@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { getPage } from '../../data/pages'
 import { EASE_OUT_EXPO } from '../../lib/motion'
+import { CircleWord } from '../ui'
 
 interface PageHeaderMeta {
   label: string
@@ -17,6 +18,8 @@ interface PageHeaderLink {
 interface PageHeaderProps {
   kicker?: string
   title: string
+  /** Exact substring of `title` to wrap in the hand-drawn CircleWord mark. */
+  circleWord?: string
   /** The chapter's contract sentence — the one question this page answers. */
   question?: string
   subtitle?: string
@@ -25,6 +28,19 @@ interface PageHeaderProps {
   prerequisites?: string[]
   prev?: PageHeaderLink
   next?: PageHeaderLink
+}
+
+/**
+ * Splits `title` around the first occurrence of `word` so the middle piece
+ * can be wrapped in <CircleWord>. Plain substring match, not a regex — title
+ * text is authored, not user input, and a literal match is all `circleWord`
+ * values ever need (see the 7 part-opener entries in data/pages.ts).
+ */
+function splitOnWord(title: string, word: string | undefined): [string, string, string] | null {
+  if (!word) return null
+  const i = title.indexOf(word)
+  if (i === -1) return null
+  return [title.slice(0, i), word, title.slice(i + word.length)]
 }
 
 // Orchestrated one-shot entrance. Framer collapses this for reduced-motion users.
@@ -47,6 +63,7 @@ const item = {
 export function PageHeader({
   kicker,
   title,
+  circleWord,
   question,
   subtitle,
   meta,
@@ -55,6 +72,7 @@ export function PageHeader({
   next,
 }: PageHeaderProps) {
   const prereqPages = (prerequisites ?? []).map((slug) => getPage(slug)).filter((p) => p !== undefined)
+  const titleParts = splitOnWord(title, circleWord)
 
   return (
     <motion.header className="pt-14 pb-10 sm:pt-20 sm:pb-14" variants={container} initial="hidden" animate="show">
@@ -97,7 +115,15 @@ export function PageHeader({
       )}
 
       <motion.h1 variants={item} className="mt-3 text-display-lg text-ink">
-        {title}
+        {titleParts ? (
+          <>
+            {titleParts[0]}
+            <CircleWord>{titleParts[1]}</CircleWord>
+            {titleParts[2]}
+          </>
+        ) : (
+          title
+        )}
       </motion.h1>
 
       {question && (

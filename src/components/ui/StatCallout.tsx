@@ -9,7 +9,7 @@ import { ProvenanceChip } from './ProvenanceChip'
 export function StatCallout({ id }: { id: FactId }) {
   const fact = facts[id]
   return (
-    <div className="rounded-2xl border border-rule bg-surface p-6">
+    <div className="rounded-2xl rounded-bl-none rounded-tr-none border border-rule bg-surface p-6">
       <p className="font-display text-h1 leading-none text-ink">{fact.value}</p>
       <p className="mt-2 max-w-prose text-base text-ink-soft">{fact.label}</p>
       {fact.context && <p className="mt-1 text-sm text-muted">{fact.context}</p>}

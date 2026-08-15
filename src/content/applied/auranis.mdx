@@ -1,6 +1,6 @@
 <Section index="01" kicker="The premise" title="A synthetic company, not a real one">
 
-Auranis is a fictional company, written by Prof. Mohanbir Sawhney for MKTG 468 at Kellogg. No business by this name exists. The case carries its own disclaimer that any resemblance to a real company is coincidental. Auranis DermLab Serum sits at the center of it, a "barrier comfort" serum whose entire authorized claim surface is four short phrases: designed to support comfort, helps reduce the look of dryness, fragrance-free, dermatologist reviewed. That tight a claim set, on a real skincare product, would be unusually conservative. On a teaching case, it's deliberate. It turns any invented clinical language into an easy, checkable trap.
+Auranis is a fictional company, written by Prof. Mohanbir Sawhney for MKTG 468 at Kellogg. No business by this name exists. The case carries its own disclaimer that any resemblance to a real company is coincidental. Auranis DermLab Serum sits at the center of it, a "barrier comfort" serum whose entire authorized claim surface is four short phrases: designed to support comfort, helps reduce the look of dryness, fragrance-free, dermatologist reviewed. That tight a claim set, on a real skincare product, would be unusually conservative. On a teaching case, it's deliberate. <Mark>It turns any invented clinical language into an easy, checkable trap.</Mark>
 
 What follows is a four-beat arc, not the two-beat "bad draft, good revision" story it looks like from a distance. A clean first draft gets audited. Its real methodological flaw gets fixed in the revision, and the same revision quietly introduces a fabricated clinical claim that wasn't in the flawed draft at all.
 
@@ -12,14 +12,18 @@ The audit scored the first draft's positioning statement 92 out of 100 and prais
 
 <Section index="02" kicker="The clean draft" title="v1 — the clean initial draft">
 
-The first Case A memo names an ICP called "Skincare Enthusiasts," built from a sixteen-variable feature set that, without anyone flagging it at the time, mixes behavioral signals in with outcome variables: revenue, orders, average order value, returns. It produces three segments (277 / 255 / 293 customers) and a positioning statement that stays entirely inside the claim budget: "designed to calm, not correct." Three pillar names, Calm is the New Active, Simplify Don't Start Over, Science You Can Trust, carry no invented evidence anywhere in the draft.
+The first Case A memo names an ICP called "Skincare Enthusiasts," built from a sixteen-variable feature set that, without anyone flagging it at the time, mixes behavioral signals in with outcome variables: revenue, orders, average order value, returns. It produces three segments (277 / 255 / 293 customers) and a positioning statement that stays entirely inside the claim budget: "designed to calm, not correct." Three pillar names, Calm is the New Active, Simplify Don't Start Over, Science You Can Trust, carry no invented evidence anywhere in the draft. The ICP choice itself wasn't uncontested: a grader flagged "beauty explorers with dryness, unmet barrier fatigue" as a potentially stronger candidate than the established-routine customer the memo settled on.
 
 <Stat id="auranis-v1-rubric" />
 
-A self-audit against the grading rubric catches the real problem, and it isn't the claims. Revenue, orders, and returns had been let into the clustering step as if they were just more signal, and the result only avoided a degenerate outcome through non-reproducible seed luck.
+A self-audit against the grading rubric catches the real problem, and it isn't the claims. Revenue, orders, and returns had been let into the clustering step as if they were just more signal, and the result only avoided a degenerate outcome through non-reproducible seed luck (a random starting point in the clustering algorithm).
 
 <Example id="auranis-outcome-contamination">
 Re-run the same four outcome variables deliberately and the lowest-inertia solution collapses into an eleven-customer "whale" cluster. The algorithm sorts customers by how much they'd already spent, not by what they actually needed from a barrier-comfort serum. The v1 memo's real segments avoided that collapse by chance, not by design.
+</Example>
+
+<Example id="auranis-workbook-unused-tab">
+A second tab in the same AI-generated workbook already excluded revenue, orders, AOV, and returns from clustering, the methodologically correct feature set by the case's own guardrails. It went unused. The memo shipped the sixteen-variable version instead, and the outcome-contamination problem it produced wasn't caught until the self-audit above. The AI's better answer was sitting in an adjacent tab, unused.
 </Example>
 
 Fixing that gap is the entire, explicit goal of the next draft. It succeeds at exactly that. It also breaks something the auditor never asked it to touch.
@@ -63,7 +67,7 @@ Grader feedback on the Case A and Case B drafts flags "Super Serum" as a halluci
   attribution="Oversight catch, Case B v2 brief"
 />
 
-That is the sharpest lesson in the whole sequence: the artifact that looked like a control became the vector. A brand-voice file reads as something downstream drafts are supposed to trust, not diff against. Once it absorbed the fabricated claims, nothing stopped them from propagating quietly into the next draft.
+That is the sharpest lesson in the whole sequence: <Mark>the artifact that looked like a control became the vector</Mark>. A brand-voice file reads as something downstream drafts are supposed to trust, not diff against. Once it absorbed the fabricated claims, nothing stopped them from propagating quietly into the next draft.
 
 <DefinitionList items={[
   { term: 'Forbidden-phrase list', body: 'Append-only. Once a hallucinated phrase is named, it never leaves the list, even after the draft that contained it is fixed.' },
@@ -72,7 +76,7 @@ That is the sharpest lesson in the whole sequence: the artifact that looked like
   { term: 'Pre-submission checklist', body: 'Twenty boxes, all of them mandatory. If any is unchecked, the draft does not go out.' },
 ]} />
 
-The guardrails file that comes out of this catch isn't a lesson written down after the fact — it's the standing pre-flight checklist every subsequent Auranis draft runs against before submission.
+Every subsequent Auranis draft runs against the guardrails file that comes out of this catch as a standing pre-flight checklist before submission.
 
 <Prompt id="govern-claims-audit" />
 
@@ -82,9 +86,18 @@ The guardrails file that comes out of this catch isn't a lesson written down aft
 
 Case B v2 reverts to v1's clean positioning language and pillar names, replaces its central idea with "Calm doesn't mean compromise," and states its truth anchor as exactly the four authorized claim phrases and the Case A product description, nothing else. It documents a catch the guardrails file hadn't anticipated: "polite-word overclaim," where words like restore, heal, and rebuild read as harmless but imply the same medical-treatment claims the authorized list forbids.
 
-The Case C memo, written entirely under the guardrails, is the strongest artifact in the sequence. Six weeks after launch, it reports a campaign that is profitable in aggregate while concentrating real contribution loss in specific, identifiable cells.
+The Case C memo, written entirely under the guardrails, is the strongest artifact in the sequence. Six weeks after launch, it reports a campaign that is profitable in aggregate while concentrating real contribution loss — revenue net of cost of goods and returns, [defined precisely on the ROMI worksheet](/toolkit/romi-formulas) — in specific, identifiable cells.
 
 <Stat id="auranis-case-c-headline" />
+
+<Example id="auranis-case-c-wasted-spend-confusion">
+An early AI draft read this as "wastes 57% of spend," the share of total spend sitting in negative-contribution cells, $696K. That's not the same number as the actual contribution loss inside those cells, $342K, 28% of spend. A CMO hearing "57% wasted" would overreact roughly 2x against the real figure, and the catch reframed the finding around the $342K number specifically so the reallocation math it drove reconciled.
+</Example>
+
+<DefinitionList items={[
+  { term: '"P2 is the worst pillar"', body: 'Re-cut by audience, the claim held: P2 underperforms in every audience segment, not just in aggregate.' },
+  { term: '"Variant C is concentrated in broad audience"', body: 'The same re-cut showed variant C performing evenly across audiences, worse in all of them but concentrated in none — the diagnosis was wrong. The kill decision built on it was still directionally correct, which is its own governance risk: right call, wrong reason.' },
+]} />
 
 Its most sophisticated catch is a causal-reasoning one, not a claims problem. Email's opt-in list showed a large gap between converters and non-converters, and the first AI-generated read treated that gap as proof of incremental lift.
 

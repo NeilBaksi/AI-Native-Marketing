@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Figure, FlowChain } from '../components/ui'
+import { Figure, FlowChain, CircleWord, Swoosh } from '../components/ui'
 import { EASE_OUT_EXPO } from '../lib/motion'
 
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } } }
@@ -19,9 +19,16 @@ const WORKFLOWS = ['Sense', 'Focus', 'Design', 'Attract', 'Orchestrate', 'Execut
  */
 export default function Home() {
   return (
-    <motion.div className="pt-14 pb-10 sm:pt-20 sm:pb-14" variants={container} initial="hidden" animate="show">
+    <motion.div
+      className="relative pt-14 pb-10 sm:pt-20 sm:pb-14"
+      variants={container}
+      initial="hidden"
+      animate="show"
+    >
+      <Swoosh variant={1} />
+
       <motion.h1 variants={item} className="max-w-[16ch] text-display-xl text-ink">
-        The AI-Native Marketing Handbook
+        The <CircleWord>AI-Native</CircleWord> Marketing Handbook
       </motion.h1>
       <motion.p variants={item} className="mt-5 max-w-prose text-lg leading-relaxed text-ink-soft">
         A field guide to the Intelligent Marketing Operating System, for a marketer
@@ -47,15 +54,21 @@ export default function Home() {
         <h2 className="text-h3 text-ink">Three ways in</h2>
         <ul className="mt-6 flex flex-col gap-8">
           <li>
-            <Link to="/start-here" className="font-display text-h4 text-ember-deep hover:underline">
+            <Link
+              to="/start-here"
+              className="inline-flex min-h-[44px] items-center rounded-xl rounded-bl-none rounded-tr-none bg-ember px-6 font-display text-h4 text-paper transition-colors hover:bg-ember-deep"
+            >
               Start here
             </Link>
-            <p className="mt-1 text-sm text-ink-soft">
+            <p className="mt-2 max-w-prose text-sm text-ink-soft">
               How to use this handbook, and three reading paths matched to your background.
             </p>
           </li>
           <li>
-            <Link to="/foundations/the-problem" className="font-display text-h4 text-ember-deep hover:underline">
+            <Link
+              to="/foundations/the-problem"
+              className="font-display text-h4 text-ink underline decoration-ember-deep/70 decoration-2 underline-offset-[0.15em] transition-colors hover:decoration-ember-deep"
+            >
               Read the problem first
             </Link>
             <p className="mt-1 text-sm text-ink-soft">
@@ -63,7 +76,10 @@ export default function Home() {
             </p>
           </li>
           <li>
-            <Link to="/cases" className="font-display text-h4 text-ember-deep hover:underline">
+            <Link
+              to="/cases"
+              className="font-display text-h4 text-ink underline decoration-ember-deep/70 decoration-2 underline-offset-[0.15em] transition-colors hover:decoration-ember-deep"
+            >
               Start from a real case
             </Link>
             <p className="mt-1 text-sm text-ink-soft">

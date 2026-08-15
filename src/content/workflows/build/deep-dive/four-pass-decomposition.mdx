@@ -1,4 +1,4 @@
-Skip this page and a workflow stays a diagram: six services, a five-entity ontology, but no way to turn either into a buildable set of agents. This page is the method that closes that gap, run start to finish against Focus.
+<Mark>Skip this page and a workflow stays a diagram: six services, a five-entity ontology, but no way to turn either into a buildable set of agents.</Mark> This page is the method that closes that gap, run start to finish against Focus.
 
 <Section index="01" kicker="One method, four passes" title="The four-pass decomposition method">
 
@@ -71,15 +71,21 @@ Run the method against Focus and the output is the Decisioning Service from the 
 
 ★ marks the two human-in-the-loop agents: the system recommends, a person decides. That both sit at exactly the points Part II's Insight Gap chapter named (naming and narrative at ICP Scorer, strategic vs. statistical fit at Positioning Strategist) is the Economics of Error from Pass 3, applied directly.
 
-**The B2B sequence, end to end (Meridian Healthcare, ~4 minutes total):** Segmentation Engineer spots a healthcare vertical with an engagement spike and assigns it to an active segment. Thirty seconds later, ICP Scorer computes Fit 95%, Revenue 88%, Tech 72%, Intent 74% — a Priority Score of 78, Tier 1 — and routes for human confirmation before anything downstream sees it. In parallel, Buying Group Evaluator finds CISO and CTO covered but CFO missing, flagging the gap for Orchestrate to build a targeted engagement journey. Positioning Strategist reads a competitor's price increase off Shared Memory and proposes a specific angle; a human approves it. Consent Filter and Suppression Manager clear in parallel. Audience Composer and Activator wait for SW-3 and SW-4 to converge, then compose and syndicate the finished audience, to CRM, to Journey Service, to Learn tracking, all at once.
+Two L2 agents out of twelve also makes Focus the highest human-in-the-loop density of any of the six services; every other service clears its equivalent checkpoints with fewer proportional stops. That's a comment on how much interpretive judgment ICP and positioning specifically still require, not a sign Focus's agents are less capable than the rest.
 
-Nothing in that sequence required a person to manually hand anything to the next step. The four passes are what made that true, not a faster team, a differently connected one.
+**The B2B sequence, end to end (Meridian Healthcare, ~4 minutes total):** Segmentation Engineer spots a healthcare vertical with an engagement spike and assigns it to an active segment. Thirty seconds later, ICP Scorer computes Industry 95%, Revenue 88%, Tech 72%, Intent 74% — a Priority Score of 78, Tier 1, a weighted composite calibrated to this org's own win history rather than a fixed formula — and routes for human confirmation before anything downstream sees it. In parallel, Buying Group Evaluator finds CISO and CTO covered but CFO missing, flagging the gap for Orchestrate to build a targeted engagement journey. Positioning Strategist reads a competitor's price increase off Shared Memory and proposes a specific angle; a human approves it. Consent Filter and Suppression Manager clear in parallel. Audience Composer and Activator wait for SW-3 and SW-4 to converge, then compose and syndicate the finished audience, to CRM, to Journey Service, to Learn tracking, all at once.
+
+<Mark>Nothing in that sequence required a person to manually hand anything to the next step.</Mark> The four passes are what made that true, not a faster team, a differently connected one.
 
 </Section>
 
 <Section index="03" kicker="Focus-specific vs. universal" title="What the walkthrough generalizes to">
 
 The specific numbers here are Focus's: 12 agents, 5 sub-workflows, this exact table. What generalizes to every other workflow in this handbook is the method that produced them, not the count. Sense's Signal Service runs the same four passes and lands at 19 agents across 6 sub-workflows; Design's Content Assembly Service lands at 14 across a different structure entirely. The sub-workflow names, the task list, the agent count, all workflow-specific. Pass 1 through Pass 4, in that order, applied to the workflow's actual job rather than skipped in favor of guessing at an agent count directly. That doesn't change.
+
+The method holds outside I-MOS's own workflows, too: Workday's 2025 redesign of its pipeline-generation system ran the same four passes, and Pass 4 alone surfaced fourteen cross-system connections, including a feedback loop that updates normalization weights every two weeks.
+
+<Stat id="workday-four-pass-case" />
 
 The one discipline worth carrying forward explicitly: Pass 2 before Pass 3. Skipping straight from sub-workflows to agents, deciding "who does this" before deciding "what exactly needs doing," is where agent designs fail at task boundaries, because the boundary was never actually specified.
 

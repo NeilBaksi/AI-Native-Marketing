@@ -10,6 +10,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'start-here',
     title: 'Start Here',
+    circleWord: 'Start',
     part: 'foundations',
     kind: 'static',
     index: '00',
@@ -21,6 +22,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'foundations/the-problem',
     title: 'The Problem',
+    circleWord: 'Problem',
     question: 'Why does marketing keep breaking even as budgets and headcount grow?',
     part: 'foundations',
     kind: 'chapter',
@@ -40,6 +42,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'foundations/two-architectures',
     title: 'Two Architectures',
+    circleWord: 'Architectures',
     question: 'Why does every other function have an operating layer, and marketing doesn’t?',
     part: 'foundations',
     kind: 'chapter',
@@ -69,6 +72,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'foundations/maturity-model',
     title: 'The Maturity Model',
+    circleWord: 'Maturity',
     question: 'Where does your organization actually sit between point tools and full I-MOS?',
     part: 'foundations',
     kind: 'chapter',
@@ -85,6 +89,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'spine/seven-workflows',
     title: 'The Seven Workflows',
+    circleWord: 'Workflows',
     question: 'How does the loop close, and what does each workflow actually do?',
     part: 'spine',
     kind: 'chapter',
@@ -101,6 +106,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'spine/four-layer-stack',
     title: 'The Four-Layer Stack',
+    circleWord: 'Stack',
     question: 'On what technical stack does a strategic I-MOS decision actually run?',
     part: 'spine',
     kind: 'chapter',
@@ -117,6 +123,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'spine/insight-gap',
     title: 'The Insight Gap',
+    circleWord: 'Insight',
     question: 'Why can’t the gap between signal and action be automated away?',
     part: 'spine',
     kind: 'chapter',
@@ -133,6 +140,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'spine/economics-of-error',
     title: 'The Economics of Error',
+    circleWord: 'Economics',
     question: 'How much autonomy does a decision actually deserve?',
     part: 'spine',
     kind: 'chapter',
@@ -149,6 +157,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'spine/shared-memory',
     title: 'Shared Memory',
+    circleWord: 'Memory',
     question: 'What does each workflow actually read and write to the shared memory fabric?',
     part: 'spine',
     kind: 'chapter',
@@ -165,6 +174,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'spine/govern-envelope',
     title: 'The Govern Envelope',
+    circleWord: 'Envelope',
     question: 'What constraint does governance place on every workflow before Part III starts?',
     part: 'spine',
     kind: 'chapter',
@@ -189,7 +199,7 @@ export const PAGES: PageMeta[] = [
     index: '01',
     difficulty: 'intermediate',
     readingTime: 6,
-    prerequisites: ['spine/insight-gap', 'spine/four-layer-stack'],
+    prerequisites: ['spine/insight-gap', 'spine/four-layer-stack', 'spine/shared-memory'],
     concepts: ['signal-families', 'triangulation', 'insight-objects', 'convergence', 'contradiction'],
     diagrams: ['D19', 'D20'],
     keywords: ['Starbucks', 'Deep Brew', 'triangulation', 'signal families'],
@@ -237,7 +247,7 @@ export const PAGES: PageMeta[] = [
     index: '03',
     difficulty: 'intermediate',
     readingTime: 7,
-    prerequisites: ['workflows/focus'],
+    prerequisites: ['workflows/focus', 'spine/economics-of-error'],
     concepts: ['brand-dna', 'machine-readability-test', 'content-blocks', 'prompt-architecture', 'governance-zones'],
     diagrams: ['D36', 'D41'],
     keywords: ['Unilever', 'BrandDNAi', 'StyleIDs', 'content blocks'],
@@ -317,7 +327,7 @@ export const PAGES: PageMeta[] = [
     index: '07',
     difficulty: 'intermediate',
     readingTime: 7,
-    prerequisites: ['workflows/build'],
+    prerequisites: ['workflows/build', 'spine/shared-memory'],
     concepts: ['always-on-execution', 'incrementality', 'iroas', 'romi', 'learning-flywheel'],
     diagrams: ['D76', 'D77'],
     keywords: ['iROAS', 'ROMI', 'incrementality', 'Airbnb', 'Instacart'],
@@ -547,6 +557,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'toolkit/positioning-statement',
     title: 'Positioning Statement',
+    circleWord: 'Positioning',
     part: 'toolkit',
     kind: 'template',
     index: '01',
@@ -560,6 +571,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'toolkit/messaging-pillar-spec',
     title: 'Messaging Pillar Spec',
+    circleWord: 'Pillar',
     part: 'toolkit',
     kind: 'template',
     index: '02',
@@ -573,6 +585,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'toolkit/icp-scoring-rubric',
     title: 'ICP Scoring Rubric',
+    circleWord: 'ICP',
     part: 'toolkit',
     kind: 'template',
     index: '03',
@@ -586,6 +599,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'toolkit/decision-narrative-persona',
     title: 'Decision-Narrative Persona',
+    circleWord: 'Persona',
     part: 'toolkit',
     kind: 'template',
     index: '04',
@@ -599,6 +613,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'toolkit/agent-design-framework',
     title: 'Agent Design Framework',
+    circleWord: 'Agent',
     part: 'toolkit',
     kind: 'template',
     index: '05',
@@ -612,6 +627,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'toolkit/economics-of-error-worksheet',
     title: 'Economics of Error Worksheet',
+    circleWord: 'Economics',
     part: 'toolkit',
     kind: 'template',
     index: '06',
@@ -625,6 +641,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'toolkit/journey-state-model',
     title: 'Journey-State Model',
+    circleWord: 'Model',
     part: 'toolkit',
     kind: 'template',
     index: '07',
@@ -638,6 +655,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'toolkit/brand-dna-spec',
     title: 'Brand DNA Spec',
+    circleWord: 'DNA',
     part: 'toolkit',
     kind: 'template',
     index: '08',
@@ -651,6 +669,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'toolkit/governance-table',
     title: 'Governance Table',
+    circleWord: 'Governance',
     part: 'toolkit',
     kind: 'template',
     index: '09',
@@ -664,6 +683,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'toolkit/experiment-design-checklist',
     title: 'Experiment Design Checklist',
+    circleWord: 'Experiment',
     part: 'toolkit',
     kind: 'template',
     index: '10',
@@ -677,6 +697,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'toolkit/measurement-humility-worksheet',
     title: 'Measurement Humility Worksheet',
+    circleWord: 'Humility',
     part: 'toolkit',
     kind: 'template',
     index: '11',
@@ -703,6 +724,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'toolkit/data-readiness-audit',
     title: 'Data Readiness Audit',
+    circleWord: 'Readiness',
     part: 'toolkit',
     kind: 'template',
     index: '13',
@@ -716,6 +738,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'toolkit/ai-hallucination-guardrails',
     title: 'AI Hallucination Guardrails',
+    circleWord: 'Hallucination',
     part: 'toolkit',
     kind: 'template',
     index: '14',
@@ -729,6 +752,7 @@ export const PAGES: PageMeta[] = [
   {
     slug: 'toolkit/30-60-90-roadmap',
     title: '30-60-90 Roadmap',
+    circleWord: 'Roadmap',
     part: 'toolkit',
     kind: 'template',
     index: '15',

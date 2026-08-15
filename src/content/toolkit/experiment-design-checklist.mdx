@@ -66,6 +66,8 @@ The seven fields above map directly onto a spreadsheet, one row per required fie
 
 <Section index="06" kicker="The two fields that get skipped" title="Design decision">
 
-Two fields do the real work here. Both are easy to skip under deadline pressure. The hypothesis has to name a number, not just a direction. "The banner will help" can never fail. "At least 8% lift" can — and only a hypothesis that can fail is actually being tested. Decision Enabled is the other one: stating, before launch, exactly what happens on a pass and on a miss. A test with no pre-committed decision attached to its result doesn't produce an action when it finishes. It produces a debate about what the number means instead.
+Two fields do the real work here. Both are easy to skip under deadline pressure. The hypothesis has to name a number, not just a direction. <Mark>"The banner will help" can never fail. "At least 8% lift" can — and only a hypothesis that can fail is actually being tested.</Mark> Decision Enabled is the other one: stating, before launch, exactly what happens on a pass and on a miss. <Mark>A test with no pre-committed decision attached to its result doesn't produce an action when it finishes.</Mark> It produces a debate about what the number means instead.
+
+A cleared test's result is what [Execute & Learn](/workflows/execute-and-learn)'s Update step writes back to Shared Memory's Learning object — the same number Sense's Propensity Score and Focus's ICP weights read the next time either one runs, not a slide that stops at "roll out to 100%."
 
 </Section>

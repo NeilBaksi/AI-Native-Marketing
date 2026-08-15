@@ -34,7 +34,7 @@ export function PrevNextPager({ prev, next }: PrevNextPagerProps) {
       {prev ? (
         <Link
           to={prev.to}
-          className="group flex min-w-0 items-center gap-3 rounded-xl border border-rule bg-surface px-5 py-4 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-ember sm:flex-1"
+          className="group flex min-w-0 items-center gap-3 rounded-xl rounded-bl-none rounded-tr-none border border-rule bg-surface px-5 py-4 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-ember sm:flex-1"
         >
           <ArrowLeft size={18} className="shrink-0 text-muted transition-colors group-hover:text-ember-deep" aria-hidden />
           <span className="flex min-w-0 flex-col">
@@ -49,7 +49,7 @@ export function PrevNextPager({ prev, next }: PrevNextPagerProps) {
       {next ? (
         <Link
           to={next.to}
-          className="group flex min-w-0 items-center gap-3 rounded-xl border border-rule bg-surface px-5 py-4 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-ember sm:flex-1 sm:justify-end sm:text-right"
+          className="group flex min-w-0 items-center gap-3 rounded-xl rounded-bl-none rounded-tr-none border border-rule bg-surface px-5 py-4 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-ember sm:flex-1 sm:justify-end sm:text-right"
         >
           <span className="flex min-w-0 flex-col">
             <span className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-muted">Next</span>

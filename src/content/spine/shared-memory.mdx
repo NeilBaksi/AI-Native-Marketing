@@ -1,10 +1,10 @@
-Every object written to Shared Memory carries an implicit contract. One workflow writes it. A named workflow downstream reads it, the instant it exists. Sense writes an object and Focus can act on it before anyone converts it into a slide. That write-then-read mechanic, repeated across all seven workflows, is what turns the four-layer stack's Shared Memory into an operating system rather than a database.
+Every object written to Shared Memory carries an implicit contract. One workflow writes it. A named workflow downstream reads it, the instant it exists. Sense writes an object and Focus can act on it before anyone converts it into a slide. That write-then-read mechanic, repeated across all seven workflows, is what turns the four-layer stack's Shared Memory into an operating system rather than a database. Computing has a name for the property that makes it possible: persistent state, as against episodic memory, which resets with every new session and carries nothing forward. <Mark>Most marketing tooling still runs on the episodic kind.</Mark>
 
 <Section index="01" kicker="The pattern" title="The object-writing pattern">
 
 Every workflow's contribution to the loop is a defined set of objects it writes, not a report, not a deck, but a structured record another workflow's agents can read without a person translating it first. The five object types from the four-layer stack (identity, state, decision, content, learning) are the schema; what varies by workflow is which specific objects within that schema each one is responsible for.
 
-This is what makes the difference between "Sense produces research" and "Sense writes five specific objects Focus can read the moment they exist" load-bearing rather than semantic. A report can sit unread. An object in Shared Memory is available to every downstream agent the instant it's written.
+This is what makes the difference between "Sense produces research" and "Sense writes five specific objects Focus can read the moment they exist" load-bearing rather than semantic. A report can sit unread. <Mark>An object in Shared Memory is available to every downstream agent the instant it's written.</Mark>
 
 </Section>
 
@@ -27,6 +27,8 @@ Sense writes five insight objects, and Focus reads all five:
 >
   <FlowChain nodes={['Sense', 'Identity · Engagement · Propensity · Need State · Consent', 'Focus']} />
 </Figure>
+
+Identity resolution has to run first, before anything else on that list gets computed: "start with identity, not intelligence" is the rule underneath all five objects, not just the first one. A propensity score computed against four fragmented identities produces four separate, partially-wrong numbers standing in for one person, not one number that's slightly off.
 
 Focus, in turn, writes five objects of its own for every workflow downstream of it to read: **ICP Score** (Fit × Readiness − Friction, the single number deciding who gets served which play), **Persona + Need State** (the job the buyer is doing, their anxieties, the proof they trust), **Positioning Payload** (which value pillar leads, which claims are highlighted, per customer), **Personalization Policy** (how far AI may personalize for this person: the trust-boundary rule as code, not a guideline), and **Segment Membership** (which service tier: high-touch, programmatic, nurture). Get the ICP wrong here and every object downstream inherits the error: positioning targets a customer who doesn't exist, journeys personalize at scale for the wrong audience, spend routes to accounts that never close.
 

@@ -2,7 +2,7 @@ Attract hands off a customer who has already been sorted into a state. Orchestra
 
 <Section index="01" kicker="Not a funnel" title="State-based customer journeys">
 
-A funnel tells you where a customer has been. A state tells the system where they are right now. A real state has to clear three tests: **observable** (the system can detect entry and exit on its own; "visited the pricing page three times this week" qualifies, "seems interested" doesn't), **exclusive** (one state at a time, since being in two simultaneously produces conflicting instructions), and **actionable** (every state comes with a clear next move; a label with no move attached is just a label, and labels don't make money).
+A funnel tells you where a customer has been. A state tells the system where they are right now. A real state has to clear three tests: **observable** (the system can detect entry and exit on its own; "visited the pricing page three times this week" qualifies, "seems interested" doesn't), **exclusive** (one state at a time, since being in two simultaneously produces conflicting instructions), and **actionable** (every state comes with a clear next move; <Mark>a label with no move attached is just a label, and labels don't make money</Mark>).
 
 <Figure
   d="D71"
@@ -15,8 +15,12 @@ A funnel tells you where a customer has been. A state tells the system where the
   />
 </Figure>
 
+Conventional journey maps fail in three specific, unrelated ways: they freeze into a static artifact the day someone draws them, they sit disconnected from what execution actually does, and the system reading them has no state awareness — no way to tell, moment to moment, which box a given customer is actually in. A state model doesn't patch around any of the three; it removes the artifact entirely and lets the system read state directly. The [journey-state toolkit](/toolkit/journey-state-model) covers what breaks when a state is defined without clearing the observable/exclusive/actionable bar above. Sephora rebuilt its Beauty Insider program on this same seven-state logic, replacing quarterly tier-based emails with behavioral journey states.
+
+<Stat id="sephora-journey-states" />
+
 <Example id="amazon-nba">
-  "Customers like you also bought" looks like a simple feature. Underneath it: 500-plus real-time signals, twelve customer-state variables, one decision authority, and zero manual campaign decisions per customer. The scale isn't the point. The real logic: one system deciding, continuously, instead of a person re-deciding per campaign.
+  "Customers like you also bought" looks like a simple feature. Underneath it: 500-plus real-time signals, twelve customer-state variables, one decision authority, and zero manual campaign decisions per customer. What matters is the logic, not the scale: one system deciding, continuously, instead of a person re-deciding per campaign.
 </Example>
 
 </Section>
@@ -38,6 +42,10 @@ Next-best-action is a real-time call for one customer, the moment a signal arriv
 
 Signal triggers fall into three types, and the useful ones read intent, not just activity: **intent signals** (pricing-page visits, comparison downloads), **behavioral signals** (an abandoned cart, a specific link clicked), and **lifecycle milestones** (day 30 usage check, day 60 renewal conversation). The same missed-day signal means something different for a casual learner than for someone with an exam in a week. Reading which one it is, rather than firing the identical alert either way, is the difference between a system that responds to intent and one that just responds to activity.
 
+Reading11 names this same loop from the coordinator's side, as five functions rather than five steps: reads the signal, fires the decisioning, issues the brief, manages the handoff sequence, writes back the outcome. Same mechanism as Signal through Learn above, described from what a person overseeing it actually does at each stage. Morgan Stanley runs a version of this for advisors rather than end customers: its "Debrief" NBA tool reached 98% adoption across advisor teams by mid-2024, on top of an earlier next-best-action tool already at 90%+ adoption among roughly 16,000 advisors.
+
+<Stat id="morgan-stanley-ai-advisor" />
+
 </Section>
 
 <Section index="03" kicker="Four checks, all must pass" title="The policy stack">
@@ -54,10 +62,47 @@ NBA runs on a checklist. It clears every check before it fires anything, hard-wi
 
 Only after all four gates clear does the system rank what's left by expected value (lift × business priority × recency). A do-not-contact list, channel-saturation limits, and an automatic sales-cycle exclusion in B2B all sit inside this same policy stack: marketing goes quiet the moment a prospect enters an active deal. No exceptions.
 
+Frequency Caps exist for a second reason beyond one customer's inbox: a channel that gets over-used stops converting for everyone on it, not just the person who unsubscribes. <Mark>Protecting a channel's health is protecting the system's future reach</Mark> — the fix, when a channel is degrading, is sometimes fewer messages, not smarter ones. Duolingo built its growth on that same restraint: notifications back off after three ignores, and DAU grew 4.5x over four years partly by sending fewer of them, not more.
+
+<Stat id="duolingo-notification-restraint" />
+
 <Example id="jpmorgan-policy-stack">
   Credit card, mortgage, and wealth used to run independent outreach with no referee — a customer could receive three competing offers in 72 hours, and pre-approved mortgage offers sometimes reached people in active default conversations. One system now arbitrates across every product line: one message per customer per contact window, every candidate clearing fit, eligibility, compliance, and a frequency cap before it ships. Contact frequency dropped more than 30%, and the worst misfires simply stopped happening — not because anyone reviewed harder, but because the check now sits inside the decision instead of after it.
 </Example>
 
+<Stat id="jpmorgan-pre-policy-baseline" />
+
+<Example id="peloton-five-state-model">
+  Peloton's At-Risk state doesn't fire on a single missed workout — it requires two signals together, 28 days of inactivity and a visit to the cancellation page, before it routes anywhere. And where it routes is a human member-success call, by design, not an automated fallback for when the system runs out of ideas. The threshold for pulling a person in is set in advance, inside the same policy stack as the other four gates, not bolted on after a complaint.
+</Example>
+
 <Prompt id="orchestrate-policy-stack" />
+
+</Section>
+
+<Section index="04" kicker="What Brief actually contains" title="The Content Brief">
+
+"Brief" in the loop above is one word standing in for a four-part structure, and skipping one of the four is what turns a brief into a guess by the time it reaches Build.
+
+<DefinitionList
+  items={[
+    { term: 'Who/Where', body: 'Which state or segment this is for, and the channel it will actually run on — decided together, not separately from the signal that triggered it.' },
+    { term: 'What to Say', body: "The message pulled from Focus's positioning, not improvised fresh per brief." },
+    { term: 'Channel/Format', body: 'The format the selected channel actually supports. A brief written for video and shipped as a static image has already failed before Design opens it.' },
+    { term: 'Compliance/Governance', body: 'Which governance zone the content falls into, and what the claims library allows it to say — checked before the brief goes out, not after the asset ships.' },
+  ]}
+/>
+
+Pillar and creative are not the same thing, worth separating cleanly since "pillar" is doing other work elsewhere on this site as a positioning term. Here, a pillar is one of the four fields above: a planning-level input, set once and reused across many pieces. Creative is what Build assembles against it — the individual asset, per channel, per variant. One pillar survives a hundred creative executions; one piece of creative answers to exactly one brief.
+
+</Section>
+
+<Section index="05" kicker="What the loop actually rewards" title="Measuring state, and the loop's own bias">
+
+A stage-conversion report counts how many customers crossed from one funnel stage to the next. That number describes a static funnel this chapter already argued isn't the right model, so it says nothing about whether the system made the right calls. What to track instead is the state transition itself, attributed to the decision that fired it: how many customers a specific NBA moved from Considering to High-Intent, or pulled back from At-Risk to Retained — not how many happened to be sitting in a stage that week.
+
+<PullQuote quote="An unconstrained loop doesn't optimize for trust. It optimizes for whatever Learn is told to value." />
+
+The loop carries no built-in preference for one over the other. Left to write back only click-through and immediate revenue, it will learn to over-contact, because over-contacting looks identical to working right up until the channel degrades. This chapter's frequency caps and channel-protection principle exist for exactly this reason — without something writing "channel health" into what Learn values, the loop has no way to know it's burning the asset it depends on.
 
 </Section>

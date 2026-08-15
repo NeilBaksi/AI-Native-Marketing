@@ -20,7 +20,7 @@ export function Callout({ kind, title, children }: CalloutProps) {
   const { icon: Icon, accent, label, tint } = CONFIG[kind]
 
   return (
-    <div className={`rounded-2xl border border-rule p-5 ${tint ? 'bg-ember/5' : 'bg-surface'}`}>
+    <div className={`rounded-2xl rounded-bl-none rounded-tr-none border border-rule p-5 ${tint ? 'bg-ember/5' : 'bg-surface'}`}>
       <div className="flex items-start gap-3">
         <Icon size={18} strokeWidth={1.75} aria-hidden className={`mt-0.5 shrink-0 ${accent}`} />
         <div>

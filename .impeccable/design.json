@@ -1,0 +1,303 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-15T04:30:36.734Z",
+  "title": "Design System: The AI-Native Marketing Handbook",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "oklch(0.971 0.006 84.6)",
+        "tonalRamp": [
+          "oklch(0.150 0.006 84.6)",
+          "oklch(0.280 0.006 84.6)",
+          "oklch(0.400 0.006 84.6)",
+          "oklch(0.520 0.006 84.6)",
+          "oklch(0.640 0.006 84.6)",
+          "oklch(0.760 0.006 84.6)",
+          "oklch(0.860 0.006 84.6)",
+          "oklch(0.950 0.006 84.6)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Raised Surface",
+        "canonical": "oklch(0.946 0.008 91.5)",
+        "tonalRamp": [
+          "oklch(0.150 0.008 91.5)",
+          "oklch(0.280 0.008 91.5)",
+          "oklch(0.400 0.008 91.5)",
+          "oklch(0.520 0.008 91.5)",
+          "oklch(0.640 0.008 91.5)",
+          "oklch(0.760 0.008 91.5)",
+          "oklch(0.860 0.008 91.5)",
+          "oklch(0.950 0.008 91.5)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline Rule",
+        "canonical": "oklch(0.883 0.015 84.6)",
+        "tonalRamp": [
+          "oklch(0.150 0.015 84.6)",
+          "oklch(0.280 0.015 84.6)",
+          "oklch(0.400 0.015 84.6)",
+          "oklch(0.520 0.015 84.6)",
+          "oklch(0.640 0.015 84.6)",
+          "oklch(0.760 0.015 84.6)",
+          "oklch(0.860 0.015 84.6)",
+          "oklch(0.950 0.015 84.6)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(0.183 0.007 78.1)",
+        "tonalRamp": [
+          "oklch(0.150 0.007 78.1)",
+          "oklch(0.280 0.007 78.1)",
+          "oklch(0.400 0.007 78.1)",
+          "oklch(0.520 0.007 78.1)",
+          "oklch(0.640 0.007 78.1)",
+          "oklch(0.760 0.007 78.1)",
+          "oklch(0.860 0.007 78.1)",
+          "oklch(0.950 0.007 78.1)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "oklch(0.335 0.012 78.2)",
+        "tonalRamp": [
+          "oklch(0.150 0.012 78.2)",
+          "oklch(0.280 0.012 78.2)",
+          "oklch(0.400 0.012 78.2)",
+          "oklch(0.520 0.012 78.2)",
+          "oklch(0.640 0.012 78.2)",
+          "oklch(0.760 0.012 78.2)",
+          "oklch(0.860 0.012 78.2)",
+          "oklch(0.950 0.012 78.2)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Meta",
+        "canonical": "oklch(0.52 0.017 80.7)",
+        "tonalRamp": [
+          "oklch(0.150 0.017 80.7)",
+          "oklch(0.280 0.017 80.7)",
+          "oklch(0.400 0.017 80.7)",
+          "oklch(0.520 0.017 80.7)",
+          "oklch(0.640 0.017 80.7)",
+          "oklch(0.760 0.017 80.7)",
+          "oklch(0.860 0.017 80.7)",
+          "oklch(0.950 0.017 80.7)"
+        ]
+      },
+      "ember": {
+        "role": "primary",
+        "displayName": "Burnt Ember",
+        "canonical": "oklch(0.553 0.174 38.4)",
+        "tonalRamp": [
+          "oklch(0.150 0.174 38.4)",
+          "oklch(0.280 0.174 38.4)",
+          "oklch(0.400 0.174 38.4)",
+          "oklch(0.520 0.174 38.4)",
+          "oklch(0.640 0.174 38.4)",
+          "oklch(0.760 0.174 38.4)",
+          "oklch(0.860 0.174 38.4)",
+          "oklch(0.950 0.174 38.4)"
+        ]
+      },
+      "ember-deep": {
+        "role": "primary",
+        "displayName": "Deep Ember",
+        "canonical": "oklch(0.47 0.143 37.3)",
+        "tonalRamp": [
+          "oklch(0.150 0.143 37.3)",
+          "oklch(0.280 0.143 37.3)",
+          "oklch(0.400 0.143 37.3)",
+          "oklch(0.520 0.143 37.3)",
+          "oklch(0.640 0.143 37.3)",
+          "oklch(0.760 0.143 37.3)",
+          "oklch(0.860 0.143 37.3)",
+          "oklch(0.950 0.143 37.3)"
+        ]
+      },
+      "pine": {
+        "role": "secondary",
+        "displayName": "Ledger Pine",
+        "canonical": "oklch(0.47 0.125 192)",
+        "tonalRamp": [
+          "oklch(0.150 0.125 192)",
+          "oklch(0.280 0.125 192)",
+          "oklch(0.400 0.125 192)",
+          "oklch(0.520 0.125 192)",
+          "oklch(0.640 0.125 192)",
+          "oklch(0.760 0.125 192)",
+          "oklch(0.860 0.125 192)",
+          "oklch(0.950 0.125 192)"
+        ]
+      },
+      "pine-deep": {
+        "role": "secondary",
+        "displayName": "Deep Pine",
+        "canonical": "oklch(0.4 0.105 192)",
+        "tonalRamp": [
+          "oklch(0.150 0.105 192)",
+          "oklch(0.280 0.105 192)",
+          "oklch(0.400 0.105 192)",
+          "oklch(0.520 0.105 192)",
+          "oklch(0.640 0.105 192)",
+          "oklch(0.760 0.105 192)",
+          "oklch(0.860 0.105 192)",
+          "oklch(0.950 0.105 192)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home page hero headline only."
+      },
+      "display-lg": {
+        "displayName": "Display Large",
+        "purpose": "Secondary large headlines, one step down from Display."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section-level headings (h2)."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card/component titles, question sub-headlines (h4)."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running prose, capped at 68ch measure."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Mono kickers, rail labels, D-numbers, provenance chips."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The single authored easing curve for every entrance/transition in the system."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Cut-corner CTA button — the sites one signature shape, reserved for primary calls to action.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Start here</a>",
+      "css": ".ds-btn-primary { display: inline-flex; min-height: 44px; align-items: center; border-radius: 12px 12px 12px 0; padding: 0 24px; background: #C2410C; color: #F7F5F1; font-family: \"Bricolage Grotesque\", system-ui, sans-serif; font-size: 1.3125rem; font-weight: 600; text-decoration: none; transition: background 0.2s cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary:hover { background: #9A3412; } .ds-btn-primary:focus-visible { outline: 2px solid #C2410C; outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Inline Text Link",
+      "kind": "custom",
+      "refersTo": "link-inline",
+      "description": "The sites secondary/ghost button role — a plain underlined ember-deep link, no button chrome.",
+      "html": "<a class=\"ds-link\" href=\"#\">Read the problem first</a>",
+      "css": ".ds-link { color: #9A3412; text-decoration: underline; text-decoration-color: rgba(154,52,18,0.7); text-decoration-thickness: 2px; text-underline-offset: 0.15em; transition: text-decoration-color 0.2s; } .ds-link:hover { text-decoration-color: #9A3412; }"
+    },
+    {
+      "name": "Prerequisite Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Small pill-shaped nav chip, used for read-first prerequisite links and provenance marks.",
+      "html": "<a class=\"ds-chip\" href=\"#\">Foundations</a>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 4px; border-radius: 9999px; border: 1px solid #DDD8CE; background: #F7F5F1; padding: 4px 12px; font-size: 0.875rem; color: #3A3630; text-decoration: none; transition: border-color 0.2s, color 0.2s; } .ds-chip:hover { border-color: #9A3412; color: #9A3412; }"
+    },
+    {
+      "name": "Key Callout Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Tinted callout card for a key/caution highlight — one of the systems only tinted surfaces.",
+      "html": "<div class=\"ds-callout\"><span class=\"ds-callout-label\">Key</span><p class=\"ds-callout-title\">Constraint beats latitude</p><div class=\"ds-callout-body\">A tighter brief produces a more specific claim.</div></div>",
+      "css": ".ds-callout { border-radius: 16px; border: 1px solid #DDD8CE; background: rgba(194,65,12,0.05); padding: 20px; } .ds-callout-label { font-family: \"Geist Mono\", ui-monospace, monospace; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; color: #9A3412; } .ds-callout-title { margin-top: 4px; font-weight: 500; color: #14120F; } .ds-callout-body { margin-top: 8px; font-size: 0.92rem; line-height: 1.6; color: #3A3630; }"
+    },
+    {
+      "name": "Decorative Swoosh Background",
+      "kind": "custom",
+      "refersTo": "swoosh",
+      "description": "Full-bleed 4%-opacity ember bezier curve behind page-hero content — the sites one piece of pure-geometry decoration.",
+      "html": "<div class=\"ds-swoosh\" aria-hidden=\"true\"><svg viewBox=\"0 0 1440 680\" preserveAspectRatio=\"none\"><path d=\"M0,0 L1440,0 L1440,420 C1220,500 1040,320 840,380 C640,440 480,300 300,350 C160,390 70,350 0,410 Z\" fill=\"#C2410C\" fill-opacity=\"0.04\"/></svg></div>",
+      "css": ".ds-swoosh { position: absolute; left: 50%; top: -56px; z-index: -10; height: 600px; width: 100vw; transform: translateX(-50%); overflow: hidden; pointer-events: none; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Annotated Ledger",
+    "overview": "This is a working reference document, not a marketing site pretending to teach — the visual language of a well-kept field notebook: warm paper, hairline rules, mono-set labels standing in for margin notes, and exactly two colors of ink used on purpose. Ember marks consequence; pine marks construction. Neither is decoration; hierarchy comes from type weight, spacing, and hairline rules first, color only when something specifically needs it. The system is flat by design — no shadows, no gradients, no glass. One custom shape carries the whole personality: a rounded rectangle with one corner squared off, used only on primary calls-to-action.",
+    "keyCharacteristics": [
+      "Warm, near-white paper background — never pure white, never dark mode",
+      "Two rationed accent hues (burnt ember, ledger pine), each with a fixed semantic job",
+      "Bricolage Grotesque display type paired with Switzer body copy and Geist Mono for every label/kicker/rail",
+      "Flat surfaces, hairline rule borders, zero shadows",
+      "One signature cut-corner shape, reserved for primary CTAs only",
+      "Decorative background curves (swooshes) at 4% ember opacity — texture, never a competing color"
+    ],
+    "rules": [
+      {
+        "name": "The One-Job Rule",
+        "body": "Ember means consequence, pine means construction. A color never gets reused for its other meaning just because a screen needs another accent.",
+        "section": "colors"
+      },
+      {
+        "name": "The Never-Alone Rule",
+        "body": "Ember and pine are never the sole difference between two things a reader has to tell apart. Always pair color with position, an icon, or a text label.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono-Meta Rule",
+        "body": "Anything that is metadata about the content renders in Geist Mono, uppercase, wide-tracked. Anything that is the content renders in Bricolage Grotesque or Switzer.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-Paper Rule",
+        "body": "No box-shadow anywhere. If something needs to feel lifted, give it a surface fill and a rule border, not a shadow.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One-Cut Rule",
+        "body": "The asymmetric cut-corner shape appears on primary CTAs only. The moment it shows up on a second component type, it stops meaning click this and starts meaning nothing.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do keep ember and pine rare — most components use neither; color is the exception, not the default source of hierarchy.",
+      "Do pair every color-coded distinction with an icon, label, or position, never color alone.",
+      "Do use ember-deep/pine-deep, not the base hue, for any small-size text.",
+      "Do render every kicker, rail label, D-number, and meta tag in mono, uppercase, wide-tracked.",
+      "Do use the cut-corner shape only on primary CTA buttons.",
+      "Do keep decorative background curves at ~4% opacity, single-hue, geometry only."
+    ],
+    "donts": [
+      "Dont add a shadow anywhere. The system is flat; a shadow breaks the paper metaphor.",
+      "Dont use pine as inline prose text or a link color — thats ember-deeps job.",
+      "Dont introduce a second signature shape. The cut corner means click this; a second irregular shape dilutes it.",
+      "Dont go dark mode. color-scheme: light is set explicitly at root; this is a light-only system.",
+      "Dont use pure white or pure black — paper/ink are both warm-tinted."
+    ]
+  }
+}

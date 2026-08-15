@@ -5,6 +5,7 @@ import {
   Example,
   StatCallout,
   PullQuote,
+  Mark,
   SyntheticBanner,
   Quarantine,
   Accordion,
@@ -45,7 +46,10 @@ export const mdxComponents: MDXComponents = {
   // already gets one.
   li: (props) => <li className="max-w-prose break-words leading-relaxed" {...props} />,
   a: (props) => (
-    <a className="text-ember-deep underline decoration-rule underline-offset-2 hover:decoration-ember-deep" {...props} />
+    <a
+      className="text-ember-deep underline decoration-ember-deep/70 decoration-2 underline-offset-[0.18em] transition-colors hover:decoration-ember-deep"
+      {...props}
+    />
   ),
   strong: (props) => <strong className="font-semibold text-ink" {...props} />,
   hr: () => <hr className="border-rule" />,
@@ -59,6 +63,7 @@ export const mdxComponents: MDXComponents = {
   Example,
   Stat: StatCallout,
   PullQuote,
+  Mark,
   SyntheticBanner,
   Quarantine,
   Accordion,

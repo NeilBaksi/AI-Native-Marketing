@@ -5,7 +5,7 @@ import { getPage } from '../data/pages'
 import { PARTS } from '../types'
 import { pager } from '../lib/pager'
 import { ErrorBoundary, PageHeader, PageSkeleton, PrevNextPager } from '../components/layout'
-import { SyntheticBanner, SourcesDisclosure } from '../components/ui'
+import { SyntheticBanner, SourcesDisclosure, Swoosh, variantForSlug } from '../components/ui'
 
 // Every MDX body in the site, lazily — Vite code-splits each into its own
 // chunk automatically. Adding a page is one manifest row + one file here,
@@ -62,10 +62,13 @@ export default function Page() {
   const { prev, next } = pager(slug)
 
   return (
-    <>
+    <div className="relative">
+      <Swoosh variant={variantForSlug(slug)} />
+
       <PageHeader
         kicker={PARTS[meta.part]}
         title={meta.title}
+        circleWord={meta.circleWord}
         question={meta.question}
         prerequisites={meta.prerequisites}
         prev={prev}
@@ -89,6 +92,6 @@ export default function Page() {
       )}
 
       <PrevNextPager prev={prev} next={next} />
-    </>
+    </div>
   )
 }

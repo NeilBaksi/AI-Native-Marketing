@@ -18,8 +18,8 @@ export function SyntheticBanner({ subject, note, scope }: SyntheticBannerProps) 
     <div
       className={
         scope === 'page'
-          ? 'flex items-start gap-3 rounded-2xl border border-ember-deep bg-surface p-5'
-          : 'flex items-start gap-3 rounded-xl border border-ember-deep bg-surface p-4'
+          ? 'flex items-start gap-3 rounded-2xl rounded-bl-none rounded-tr-none border border-ember-deep bg-surface p-5'
+          : 'flex items-start gap-3 rounded-xl rounded-bl-none rounded-tr-none border border-ember-deep bg-surface p-4'
       }
     >
       <AlertTriangle size={18} strokeWidth={1.75} aria-hidden className="mt-0.5 shrink-0 text-ember-deep" />

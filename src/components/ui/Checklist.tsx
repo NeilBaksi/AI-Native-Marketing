@@ -103,7 +103,7 @@ export function Checklist({ label, items }: ChecklistProps) {
           <button
             type="button"
             onClick={clear}
-            className="inline-flex min-h-[44px] items-center font-mono text-[0.7rem] uppercase tracking-[0.16em] text-pine-deep underline decoration-rule underline-offset-4 hover:decoration-pine-deep"
+            className="inline-flex min-h-[44px] items-center font-mono text-[0.7rem] uppercase tracking-[0.16em] text-pine-deep underline decoration-pine-deep/70 decoration-2 underline-offset-4 transition-colors hover:decoration-pine-deep"
           >
             Clear ticks
           </button>

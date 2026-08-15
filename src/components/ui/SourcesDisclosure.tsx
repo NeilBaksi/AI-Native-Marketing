@@ -18,7 +18,7 @@ export function SourcesDisclosure({ sources, openByDefault }: SourcesDisclosureP
             href={s.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-ink-soft underline decoration-rule underline-offset-2 hover:text-ember-deep"
+            className="text-sm text-ink-soft underline decoration-muted decoration-2 underline-offset-2 transition-colors hover:text-ember-deep hover:decoration-ember-deep"
           >
             {s.label}
           </a>

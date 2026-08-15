@@ -11,7 +11,7 @@ interface QuarantineProps {
  */
 export function Quarantine({ claim, why }: QuarantineProps) {
   return (
-    <div className="rounded-xl border border-rule bg-surface p-4">
+    <div className="rounded-xl rounded-bl-none rounded-tr-none border border-rule bg-surface p-4">
       <p className="flex items-center gap-2 font-mono text-[0.7rem] font-semibold uppercase tracking-widest text-ember-deep">
         <Ban size={14} aria-hidden />
         Fabricated claim — reproduced as evidence, not asserted

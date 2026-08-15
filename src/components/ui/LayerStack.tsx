@@ -18,14 +18,14 @@ interface LayerStackProps {
  */
 export function LayerStack({ layers }: LayerStackProps) {
   return (
-    <div className="flex flex-col gap-2 rounded-2xl border border-rule bg-surface p-4 sm:p-6">
+    <div className="flex flex-col gap-2 rounded-2xl rounded-bl-none rounded-tr-none border border-rule bg-surface p-4 sm:p-6">
       {layers.map((layer, i) => (
         <div
           key={layer.name}
           className={
             i === 0
-              ? 'rounded-xl border border-dashed border-ember/60 bg-ember/5 p-4'
-              : 'rounded-xl border border-rule bg-paper p-4'
+              ? 'rounded-xl rounded-bl-none rounded-tr-none border border-dashed border-ember/60 bg-ember/5 p-4'
+              : 'rounded-xl rounded-bl-none rounded-tr-none border border-rule bg-paper p-4'
           }
         >
           <div className="flex min-w-0 flex-wrap items-baseline justify-between gap-x-3 gap-y-1">

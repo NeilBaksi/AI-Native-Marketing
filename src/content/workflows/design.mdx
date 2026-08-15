@@ -8,6 +8,10 @@ A conventional brand guideline is written for a person to interpret. An AI agent
   Unilever runs 400+ brands through separate shoots per social, e-commerce, TV, and local market — five fragmented pipelines per product line before BrandDNAi. Encoding each brand's guidelines, visual identity, and regulatory constraints as an AI layer instead of a PDF took TRESemmé Thailand from a handful of assets per product to 400, 20 times the output, 65% faster, at 87% lower cost. Every one of them was brand-consistent without a person reviewing it first.
 </Example>
 
+That governance layer now runs at genuine enterprise scale, not just one pilot: it reaches 3.4 billion daily users across those 400+ brands, with 25,000 employees trained to work inside it.
+
+<Stat id="unilever-branddnai-scale" />
+
 </Section>
 
 <Section index="02" kicker="Documented isn't the same as usable" title="The Machine-Readability Test">
@@ -16,8 +20,8 @@ The test is one question, applied line by line: can an agent act on this without
 
 <Figure
   d="D36"
-  caption="Five real guideline lines against the machine-readability test — most fail on contact with the actual wording used."
-  alt="Table of guideline lines with verdicts. 'Our food photography should feel fresh and vibrant' fails; rewritten as overhead angle, white plate, natural light, saturation 70 to 85 percent, no stock, minimum 300 DPI. 'Maintain a friendly neighborhood feel' fails; rewritten as active voice, first person plural, max 12 words per sentence, reading level grade 6. 'No more than 2 promotional emails per customer per week' passes as-is — already a binary numeric rule."
+  caption="Four real guideline lines against the machine-readability test — most fail on contact with the actual wording used."
+  alt="Table of guideline lines with verdicts. 'Our food photography should feel fresh and vibrant' fails; rewritten as overhead angle, white plate, natural light, saturation 70 to 85 percent, no stock, minimum 300 DPI. 'Maintain a friendly neighborhood feel' fails; rewritten as active voice, first person plural, max 12 words per sentence, reading level grade 6. 'No more than 2 promotional emails per customer per week' passes as-is — already a binary numeric rule. 'Highlight our sustainability commitment' fails; rewritten as every third email includes one verified sourcing fact from the proof library, with no unverified green claims."
 >
   <ComparisonTable
     caption="Machine-readability verdicts on real brand guideline language."
@@ -31,7 +35,7 @@ The test is one question, applied line by line: can an agent act on this without
   />
 </Figure>
 
-The pattern across every failure is the same: an adjective standing in for a spec. "Fresh and vibrant" isn't wrong as a creative intent — it's just not a thing an agent can check itself against before generating. The rewrite doesn't change the intent; it gives the intent a boundary a machine can enforce.
+The pattern across every failure is the same: an adjective standing in for a spec. "Fresh and vibrant" is a legitimate creative intent, just not something an agent can check itself against before generating. <Mark>The rewrite doesn't change the intent; it gives the intent a boundary a machine can enforce.</Mark>
 
 <Prompt id="design-machine-readability-rewrite" />
 
@@ -48,7 +52,25 @@ Brand DNA and the messaging hierarchy above it decompose into four block types, 
   { title: 'Risk', body: 'Mandatory disclaimers, never removable by AI in a regulated category. Never omitted where regulation requires it.' },
 ]} />
 
-The same block renders differently by channel without becoming a different message: an email gets the full block at 180 words with a compliance footer; paid social gets a headline and the proof stat as an image overlay at 90 characters; a push notification gets under 100 characters and a deep link. What stays invariant across all of them is the proof stat itself, verbatim, and whatever disclaimer the channel requires. The rendering changes. The claim underneath it doesn't.
+The same block renders differently by channel without becoming a different message.
+
+<Figure
+  d="D40"
+  caption="Three channels, one claim — format and length change per channel; the proof stat and the required disclaimer never do."
+  alt="Channel translation table, three rows. Email: what varies is the full Core plus Proof block at 180 words with a compliance footer; what stays invariant is the proof stat verbatim and the required disclaimer. Paid social: what varies is a headline plus the proof stat as an image overlay at 90 characters; invariant is the same proof stat verbatim and required disclaimer. Push notification: what varies is under 100 characters plus a deep link; invariant is the same proof stat verbatim and required disclaimer. The rendering changes across all three rows. The claim underneath it doesn't."
+>
+  <ComparisonTable
+    caption="What varies vs. what stays invariant, by channel."
+    columns={['What varies (format, length)', 'What stays invariant']}
+    rows={[
+      { label: 'Email', cells: ['Full Core + Proof block, ~180 words, compliance footer', 'Proof stat, verbatim, plus required disclaimer'] },
+      { label: 'Paid social', cells: ['Headline + proof stat as image overlay, ~90 characters', 'Proof stat, verbatim, plus required disclaimer'] },
+      { label: 'Push notification', cells: ['Under 100 characters, deep link only', 'Proof stat, verbatim, plus required disclaimer'] },
+    ]}
+  />
+</Figure>
+
+<Mark>The rendering changes. The claim underneath it doesn't.</Mark>
 
 </Section>
 
@@ -64,7 +86,9 @@ Brand DNA and content blocks are the source of truth; the three-layer prompt arc
   <FlowChain nodes={['System Prompt — Brand DNA', 'Context Prompt — the brief', 'Asset Prompt — which blocks, exactly']} />
 </Figure>
 
-The System layer never changes within a brand; the Context layer changes per job; the Asset layer is the most specific of the three, naming the exact blocks to generate and which to withhold. Nothing about this requires a large model or a novel technique. The leverage is entirely in having Brand DNA specific enough to be layer one in the first place.
+The System layer never changes within a brand; the Context layer changes per job; the Asset layer is the most specific of the three, naming the exact blocks to generate and which to withhold. Nothing about this requires a large model or a novel technique. The leverage is entirely in having Brand DNA specific enough to be layer one in the first place — specific enough that Persado's Motivation AI, built on the same discipline, outperforms human-written and generic AI-generated copy 96% of the time.
+
+<Stat id="persado-motivation-ai" />
 
 </Section>
 
@@ -79,5 +103,119 @@ Part II already gave the volume split across the three zones and a case where th
 ]} />
 
 Answer those three questions for a new asset type once, and the zone falls out. It's the same discipline as the Economics of Error, applied here to what Design produces.
+
+</Section>
+
+<Section index="06" kicker="What Brand DNA is built to fix" title="The conventional workflow's six failures">
+
+Before Brand DNA and content blocks solve anything, it's worth naming exactly what they replace. The conventional creative workflow breaks in six specific, recurring ways, not one vague "it's slow":
+
+<DefinitionList items={[
+  { term: 'Linear and sequential', body: 'Brief, then draft, then review, then revise, each step waiting on the one before it with no way to compress the chain.' },
+  { term: 'Disconnected', body: "What Sense already knows about a customer never reaches the person writing copy for them." },
+  { term: 'Manual', body: 'Every asset gets written fresh, even when most of it is the same claim rendered a different way.' },
+  { term: 'Brand drift', body: 'Without a machine-checkable spec, each writer, agency, and tool interprets "on brand" slightly differently, and the gap compounds over time.' },
+  { term: 'Compliance bottleneck', body: 'Legal review happens at the end, on a finished asset, where a rejection costs the whole cycle rather than one draft.' },
+  { term: 'Siloed learnings', body: "What worked on one channel or in one region never systematically reaches the next brief." },
+]} />
+
+What those six failures cost in practice shows up clearest in a single worked timeline. A regional health plan's Sense layer flags a churn signal, a member's rising call volume tied to a formulary change, on a Tuesday. Here's what the conventional workflow does with that signal before a retention email actually ships:
+
+<Figure
+  d="D35"
+  caption="The 14-day content lag — a real churn signal, stalled by six manual handoffs, arrives two weeks after the moment it could have mattered."
+  alt="Six-point timeline from Day 0 to Day 14. Day 0: Sense flags a churn-risk pattern in the member cohort; nothing downstream sees it yet. Day 2: the signal surfaces on the weekly analytics dashboard, the first point a human could plausibly notice it. Day 6: a marketer reviews the dashboard and writes a creative brief for the next planning cycle. Day 8: the creative team turns the brief into content concepts — a faster competitor has, by this point, already reached this member. Day 10: concepts clear legal and compliance review, the bottleneck the six failures above name directly. Day 14: the retention email finally reaches the flagged member. Footnote: the signal was right, the system was too slow — two weeks is enough time for a member who felt the friction on Day 0 to have already switched plans."
+>
+  <Timeline
+    entries={[
+      { marker: 'Day 0', title: 'Signal fires', body: 'Sense flags the churn-risk pattern in the member cohort. Nothing downstream sees it yet.' },
+      { marker: 'Day 2', title: 'Dashboard', body: 'The signal surfaces on the weekly analytics dashboard, the first point a human could plausibly notice it.' },
+      { marker: 'Day 6', title: 'Brief', body: 'A marketer reviews the dashboard and writes a creative brief for the next planning cycle.' },
+      { marker: 'Day 8', title: 'Concepts', body: 'The creative team turns the brief into content concepts. A faster competitor has, by this point, already reached this member.' },
+      { marker: 'Day 10', title: 'Compliance', body: 'Concepts clear legal and compliance review, the bottleneck the six failures above name directly.' },
+      { marker: 'Day 14', title: 'Deploy', body: 'The retention email finally reaches the flagged member.' },
+    ]}
+  />
+</Figure>
+
+<PullQuote quote="The signal was right. The system was too slow — two weeks is enough time for a member who felt the friction on Day 0 to have already switched plans." />
+
+The volume problem compounds the timing one: content demand is rising faster than a linear, per-asset workflow can staff for — roughly two-thirds of marketers expect that demand to quintuple between 2024 and 2026 — and adding headcount only buys back the speed the timeline above already shows is too slow. I-MOS's answer to that curve is the same apparatus the rest of this chapter builds: assembly from Brand DNA and content blocks, not a proportionally larger creative team.
+
+<Stat id="content-demand-quintupling" />
+
+</Section>
+
+<Section index="07" kicker="One level more granular than Focus" title="The Three-Level Messaging Hierarchy">
+
+[Focus's five-layer messaging architecture](/workflows/focus/deep-dive/messaging-and-positioning) sets what a brand is allowed to claim, from the one-sentence positioning statement down to customer stories. Design runs its own, narrower hierarchy on top of that output: a Master Narrative at the top, Pillars beneath it, and the modular Content Blocks covered above at the bottom. Each level inherits from the one above it, the same discipline Focus's hierarchy enforces, just one level more granular by the point it reaches a generation call. Change the Master Narrative and every Pillar and Block downstream has to be re-derived.
+
+Two supporting pieces sit underneath that hierarchy without needing a section of their own. A content-to-state coverage matrix, flagging which customer journey state has content and which doesn't, keeps [Orchestrate](/workflows/orchestrate) from ever routing a customer toward content nobody wrote.
+
+<Figure
+  d="D39"
+  caption="Content-to-state coverage — Core and Risk hold up across the arc; Proof and Offer thin out exactly where the churn-signal timeline above shows the cost of that gap."
+  alt="Coverage matrix, seven journey states by four content block types (Core, Proof, Offer, Risk). Unaware: Core covered, Proof gap — no verified stat mapped yet, Offer covered — none expected at this stage, Risk covered. Aware: Core covered, Proof covered, Offer covered — none expected, Risk covered. Considering: Core covered, Proof covered, Offer gap — drafted but not yet compliance-cleared, Risk covered. High-Intent: Core covered, Proof covered, Offer covered, Risk covered. Retained: Core covered, Proof gap — loyalty proof points not yet written, Offer covered, Risk covered. At-Risk: Core major gap — no retention message written for this state, Proof major gap, Offer covered, Risk covered. Lapsed: Core gap, Proof major gap, Offer major gap, Risk covered."
+>
+  <ComparisonTable
+    caption="Content-block coverage by customer journey state."
+    columns={['Core', 'Proof', 'Offer', 'Risk']}
+    rows={[
+      { label: 'Unaware', cells: [{ text: 'Drafted', state: 'covered' }, { text: 'No stat mapped yet', state: 'gap' }, { text: 'None expected', state: 'covered' }, { text: 'Disclaimer set', state: 'covered' }] },
+      { label: 'Aware', cells: [{ text: 'Drafted', state: 'covered' }, { text: 'Drafted', state: 'covered' }, { text: 'None expected', state: 'covered' }, { text: 'Disclaimer set', state: 'covered' }] },
+      { label: 'Considering', cells: [{ text: 'Drafted', state: 'covered' }, { text: 'Drafted', state: 'covered' }, { text: 'Not compliance-cleared', state: 'gap' }, { text: 'Disclaimer set', state: 'covered' }] },
+      { label: 'High-Intent', cells: [{ text: 'Drafted', state: 'covered' }, { text: 'Drafted', state: 'covered' }, { text: 'Drafted', state: 'covered' }, { text: 'Disclaimer set', state: 'covered' }] },
+      { label: 'Retained', cells: [{ text: 'Drafted', state: 'covered' }, { text: 'Loyalty proof not written', state: 'gap' }, { text: 'Drafted', state: 'covered' }, { text: 'Disclaimer set', state: 'covered' }] },
+      { label: 'At-Risk', cells: [{ text: 'No message written', state: 'major-gap' }, { text: 'No message written', state: 'major-gap' }, { text: 'Drafted', state: 'covered' }, { text: 'Disclaimer set', state: 'covered' }] },
+      { label: 'Lapsed', cells: [{ text: 'Not written', state: 'gap' }, { text: 'Not written', state: 'major-gap' }, { text: 'Not written', state: 'major-gap' }, { text: 'Disclaimer set', state: 'covered' }] },
+    ]}
+  />
+</Figure>
+
+And the Proof block's library, referenced above, has to exist as its own pre-verified, source-tagged, version-controlled artifact before generation starts drawing from it, built before the content library, not assembled ad hoc alongside the first campaign that needs a stat.
+
+</Section>
+
+<Section index="08" kicker="How the assembly engine actually gets built" title="Creative tooling maturity">
+
+Creative tooling itself sits on a three-tier maturity ladder. Tier 1 is prompted AI used ad hoc inside whatever tool a writer already has open. Tier 2 bolts a dedicated content platform onto the existing workflow without changing its shape. Tier 3 replaces the workflow itself with a Content Assembly Service, the shift Sections 03 and 04 above describe. Most organizations evaluate vendors at Tier 2 while the real leverage sits one tier up, and self-assessment tends to run ahead of where an organization actually sits on that ladder.
+
+<Stat id="jasper-ai-maturity-selfreport" />
+
+That Tier 3 shift is also a change in trigger, not just tooling: a brief-driven process, where a human writes a brief, an agency produces it, and a DAM stores the result, becomes event-driven, where a signal fires and blocks assemble automatically, compressing what the Day 0-to-14 timeline above spends two weeks doing into something closer to real time.
+
+<Figure
+  d="D42"
+  caption="Seven steps from signal to delivery — the event-driven path that replaces the Day 0-to-14 timeline's six manual handoffs."
+  alt="Seven-step flow: signal fires, the Decisioning Engine decides what's needed, blocks are selected from Core, Proof, Offer, and Risk, the three-layer prompt is assembled, content is generated, the Governance Zone check runs, and the asset is delivered to the channel."
+>
+  <FlowChain
+    nodes={['Signal fires', 'Decisioning Engine decides', 'Blocks selected', 'Prompt assembled', 'Content generated', 'Governance Zone check', 'Delivered to channel']}
+  />
+</Figure>
+
+<Callout kind="note" title="The self-verification request">
+Append one line to any generation prompt: list any Brand DNA rule you were unable to follow. It costs nothing and catches the one failure mode the specs in Sections 01 and 02 can't catch on their own — a generation that silently drifted off a rule instead of flagging it.
+</Callout>
+
+</Section>
+
+<Section index="09" kicker="What the job becomes" title="The three new creative-ops roles">
+
+Three new roles replace the single creative-director model once Brand DNA and content blocks are running production, not the same team doing the same job with an AI tool bolted on:
+
+<DefinitionList items={[
+  { term: 'Brand DNA Architect', body: "The quality engineer of the three. Writes and continuously tests the Brand DNA spec itself, the machine-readable rules Section 01 above covers." },
+  { term: 'Content Strategist', body: "The product manager of the three. Owns the messaging hierarchy and the content roadmap, and decides which Pillar needs coverage next." },
+  { term: 'Creative Editor-in-Chief', body: "The taste-maker of the three. Owns the human judgment call on Zone 2 and Zone 3 content, closing the gap the machine-readability test can't close on its own." },
+]} />
+
+The distinction those three roles exist to protect is AI as infrastructure, not a tool. At the campaign level, each new tool re-specifies Brand DNA from scratch with no feedback loop; at the system level, Brand DNA is encoded once and content velocity, compliance rate, and brand consistency become metrics with an SLA, the shift [Coca-Cola's Fizzion build](/cases/coca-cola) already argues for under a different name. The same architecture holds across a brand's shorter- and longer-horizon investments; only the dials, review cadence, autonomy level, which Governance Zone applies, change with the horizon.
+
+<Example id="adobe-genstudio-pfizer">
+  Adobe GenStudio, launched at Summit 2024 and expanded through 2025, runs the same compliance-rate logic inside a third regulated industry: Pfizer uses it to produce content about medicines and vaccines faster, without loosening the regulatory review that content still has to clear.
+</Example>
+
+<PullQuote quote="Your moat is not content creation, it is emotional translation." attribution="course material, Session06 key takeaways" />
 
 </Section>

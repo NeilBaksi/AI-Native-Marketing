@@ -1,4 +1,4 @@
-In 2017, Procter & Gamble's chief brand officer told a room of advertisers something that should have been alarming: the company had quietly removed $200 million from its digital ad budget over the previous year, and nothing had gotten worse.
+In 2017, Procter & Gamble's chief brand officer told a room of advertisers something that should have been alarming: the company had quietly removed $200 million from its digital ad budget over the previous year, and <Mark>nothing had gotten worse</Mark>.
 
 That same year, a British regulator fined Honda's European arm for a smaller but more telling failure. Honda's marketing team wanted to confirm which customers had actually opted in to receive emails, so they emailed 289,790 people to ask — which was itself an act of marketing they had no consent for.
 
@@ -44,6 +44,31 @@ That gap shows up in four recurring ways.
 
 The instinct is to treat each symptom as its own problem: better attribution for the insight gap, a smarter CMS for context, a cleverer dashboard for learning, a compliance checklist for governance. Every one of those fixes has been tried, repeatedly, by capable teams. The symptoms persist anyway, because they aren't four separate problems. They're four views of the same missing thing: nothing in a typical marketing stack is responsible for making sure information that exists in one place automatically reaches every place that needs it, every time, without a human in the loop remembering to carry it across.
 
-Other functions solved this decades ago — not with better individual tools, but by building an operating layer underneath the tools whose entire job is that carrying-across. What that layer looks like for marketing, and why marketing never built one, is where this handbook starts.
+Other functions solved this decades ago — not with better individual tools, but by building an <Mark>operating layer</Mark> underneath the tools whose entire job is that carrying-across. What that layer looks like for marketing, and why marketing never built one, is where this handbook starts.
+
+</Section>
+
+<Section index="03" kicker="The mechanism" title="How a decision decays, step by step">
+
+A good decision doesn't fail all at once. It decays, the same six-step way, whether it's a targeting call or a claims policy:
+
+<Figure
+  d="D4"
+  caption="The six-step decay chain — a decision degrades in the same order whether it's a targeting call or a claims policy."
+  alt="Six-step sequence: Strategy set, a decision gets made. Handed off manually, as a document or meeting note rather than something a system can read. Degraded by delay, as time passes and the original context goes stale. Eroded by forgetting, as the people who made the call move on and the reasoning behind it doesn't travel with the artifact. Reinterpreted by the next brief, as whoever picks it up reconstructs intent from what's written rather than what was meant. Never updated by results, as nothing downstream loops back to revise the original call, so the next cycle starts from the same assumptions as the last one."
+>
+  <StepList
+    steps={[
+      { title: 'Strategy set', body: 'A decision gets made — a segment to target, a claim to make, a channel mix to run.' },
+      { title: 'Handed off manually', body: 'It moves to the next team as a document, a deck, or a meeting note, not as something a system can read.' },
+      { title: 'Degraded by delay', body: 'Time passes between the decision and the work that executes it, and the context that made the call right starts to go stale.' },
+      { title: 'Eroded by forgetting', body: 'The people who made the call move on to other work. The reasoning behind it never traveled with the artifact, only the conclusion did.' },
+      { title: 'Reinterpreted by the next brief', body: "Whoever picks it up next reconstructs intent from what's written down, not from what was actually meant." },
+      { title: 'Never updated by results', body: 'Nothing that happens downstream loops back to revise the original call. The next cycle starts from the same assumptions as the last one.' },
+    ]}
+  />
+</Figure>
+
+Each of the four symptoms above is this chain caught partway through. An insight sitting in a report is step two. A dashboard nobody feeds back into next quarter's plan is step six. Fixing the symptom without fixing the chain just moves where in the sequence the decay shows up.
 
 </Section>

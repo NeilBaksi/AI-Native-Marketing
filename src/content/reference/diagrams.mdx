@@ -1,13 +1,16 @@
-37 diagrams are live across the site today, each carrying a D-number back to Appendix A's inventory of 90 candidate diagrams for the course material. 23 of those 37 come from the 39-diagram v1 scope the build brief set out; the other 14 exist because a chapter needed a shape the original plan hadn't anticipated — CLAUDE.md's rule ("build the one the chapter needs") takes priority over the plan once a chapter is actually being written. 16 diagrams from the original 39-diagram scope haven't been drawn yet; they're listed as a backlog below, not hidden alongside the finished ones.
+Every diagram on the site appears inline in the chapter it illustrates; this page collects the complete list in one place, each entry linking back to where it lives.
+
+<Mark>Every diagram carries alt text that describes it completely, so the information is the same whether or not the reader can see it.</Mark> 51 diagrams are live today; 13 more are planned and listed as a backlog at the bottom of this page.
 
 ## How it's organized
 
-Live diagrams are grouped by the Part where they were first built, in reading order, each linking back to every chapter that uses it. Several diagrams (D1, D72, D81, D90) appear on more than one page. One representative diagram per Part is reproduced below, inline, exactly as it renders on its host chapter, using the same component and the same props, so nothing here can drift from the page it's quoting. The rest of each Part's diagrams are listed by D-number and link. The backlog table after that covers only the 16 unbuilt diagrams from the original 39-diagram scope; the remaining 51 diagrams in Appendix A's full 90-diagram inventory were never part of v1 to begin with, and live in the build-planning backlog instead.
+Diagrams are grouped by the Part where they were first built, in reading order, each linking to every chapter that uses it. A few — D1, D72, D81, D90 — appear on more than one page. <Mark>One diagram per Part is reproduced inline below, exactly as it renders on its chapter</Mark>; the rest are listed by D-number and link, with the unbuilt ones collected in the backlog table at the end.
 
 ## Live — Part I, Foundations
 
 - **D6** — The Four Symptoms. [The Problem](/foundations/the-problem).
 - **D1** — The Seven Workflows. [What Is I-MOS](/foundations/what-is-imos), [The Seven Workflows](/spine/seven-workflows).
+- **D4** — The Six-Step Strategy Decay Chain. [The Problem](/foundations/the-problem).
 
 <Figure
   d="D6"
@@ -75,25 +78,38 @@ As it renders on [The Economics of Error](/spine/economics-of-error).
 
 - **D19** — The Four Signal Families. [Sense](/workflows/sense).
 - **D20** — Triangulation. [Sense](/workflows/sense).
+- **D18** — Two Layers of Sensing. [Sense](/workflows/sense).
 - **D25** — ICP = Fit × Readiness − Friction. [Focus](/workflows/focus).
 - **D27** — The Personalization Spectrum. [Focus](/workflows/focus).
 - **D36** — The Machine-Readability Test. [Design](/workflows/design).
 - **D41** — The Three-Layer Prompt Architecture. [Design](/workflows/design).
+- **D35** — The 14-Day Content Lag. [Design](/workflows/design).
+- **D39** — Content-to-State Coverage Matrix. [Design](/workflows/design).
+- **D40** — Channel Translation with Invariants. [Design](/workflows/design).
+- **D42** — Seven Steps from Signal to Delivery. [Design](/workflows/design).
 - **D45** — The Three Eras of Discovery. [Attract](/workflows/attract).
 - **D47** — The Four Citation Signals. [Attract](/workflows/attract).
+- **D46** — The Four-Step Citation Pipeline. [Attract](/workflows/attract).
+- **D49** — The Two-Stage LLM Citation Model. [Attract](/workflows/attract).
+- **D51** — The Identity Handoff. [Attract](/workflows/attract).
+- **D52** — The AEO Audit Framework. [Attract](/workflows/attract).
 - **D70** — Signal → Decide → Brief → Act → Learn. [Orchestrate](/workflows/orchestrate).
 - **D71** — The Seven Archetypal Journey States. [Orchestrate](/workflows/orchestrate).
 - **D72** — The Policy Stack. [Orchestrate](/workflows/orchestrate), [National Australia Bank](/cases/nab).
 - **D54** — The Three Levels / Two Translations. [Build](/workflows/build).
 - **D56** — The Six Agentic Services. [Build](/workflows/build).
 - **D57** — The Ontology Schema. [Build](/workflows/build).
+- **D65** — The Archetype Selection Diagnostic. [Build](/workflows/build).
 - **D58** — The Four-Pass Decomposition Method. [Deep Dive: The Four-Pass Decomposition Method](/workflows/build/deep-dive/four-pass-decomposition).
 - **D59** — The Focus Workflow Sub-Workflow Map. [Deep Dive: The Four-Pass Decomposition Method](/workflows/build/deep-dive/four-pass-decomposition).
 - **D60** — The 12 Agents of Focus. [Deep Dive: The Four-Pass Decomposition Method](/workflows/build/deep-dive/four-pass-decomposition).
 - **D76** — The Campaign Lifecycle's Flaw. [Execute & Learn](/workflows/execute-and-learn).
 - **D77** — Incrementality. [Execute & Learn](/workflows/execute-and-learn).
+- **D79** — The Budget Reallocation Decision. [Execute & Learn](/workflows/execute-and-learn).
 - **D81** — The Six Risks and Their Controls. [Govern](/workflows/govern), [Six Governance Failures](/cases/governance-failures).
 - **D82** — Kill Switch Design. [Govern](/workflows/govern).
+- **D84** — Marketing Now Has Both Architectures. [Govern](/workflows/govern).
+- **D85** — Where AI Leads vs. Where You Lead. [Govern](/workflows/govern).
 
 <Figure
   d="D19"
@@ -132,9 +148,15 @@ As it renders on [Orchestrate](/workflows/orchestrate) and [National Australia B
   caption="Five states, each with an observable trigger, an escalating cost of intervention, and a human at the one state where automation would cost more than it saves."
   alt="Five-state journey: Active (3+ workouts a week for 30 days, gets a challenge invite or milestone celebration), Slipping (ride frequency drops 40% or more against a 30-day baseline, gets a personalized push with no discount), Dormant (no workout in 14 days, gets a progress recap with social proof), At-Risk (no workout in 28 days plus a visit to the cancellation page, gets a human member-success call, not an automated message), Lapsed (subscription cancelled, gets a 30-day pause offer, then win-back content at 60 days, then permanent suppression at 12 months)."
 >
-  <FlowChain
-    nodes={['Active', 'Slipping', 'Dormant', 'At-Risk — human call', 'Lapsed']}
-    loopBackLabel="A returning member re-enters at Active; the model doesn't assume decline is linear"
+  <Timeline
+    entries={[
+      { marker: 'Active', title: '3+ workouts a week, sustained 30 days', body: 'Gets a challenge invite or a milestone celebration.' },
+      { marker: 'Slipping', title: 'Ride frequency drops 40%+ against a 30-day baseline', body: 'Gets a personalized push with no discount — a member who re-engages on their own shouldn\'t cost margin.' },
+      { marker: 'Dormant', title: 'No workout in 14 days', body: 'Gets a progress recap with social proof.' },
+      { marker: 'At-Risk', title: '28 days inactive AND a cancellation-page visit', body: 'Routes to a human member-success call, not an automated message.' },
+      { marker: 'Lapsed', title: 'Subscription cancelled', body: 'A 30-day pause offer, then win-back content at 60 days, then permanent suppression at 12 months.' },
+    ]}
+    footnote="A returning member re-enters at Active — the model doesn't assume decline is linear."
   />
 </Figure>
 
@@ -144,12 +166,11 @@ Parts V and VI, Applied and Toolkit, carry no diagrams of their own; the applied
 
 ## Backlog — planned, not yet drawn
 
-These 16 were scoped into the original 39-diagram v1 set but haven't been built. Each still has a primitive assignment from the build brief, so drawing one is composition work against an existing shape, not a new design decision.
+These 13 were scoped into the original 39-diagram v1 set but haven't been built. Each still has a primitive assignment from the build brief, so drawing one is composition work against an existing shape, not a new design decision.
 
 | D# | Title | Scoped for |
 |---|---|---|
 | D2 | The Seven Workflows as a closed loop | Foundations & Spine |
-| D4 | The Six-Step Strategy Decay Chain | Foundations & Spine |
 | D5 | Strategic vs. Operating Architecture Across Disciplines | Foundations & Spine |
 | D9 | The I-MOS Maturity Model | Foundations & Spine |
 | D24 | The Human–AI Sensing Workflow | Sense |
@@ -159,8 +180,6 @@ These 16 were scoped into the original 39-diagram v1 set but haven't been built.
 | D37 | The Three-Level Messaging Hierarchy | Design |
 | D38 | The Four Content Blocks | Design |
 | D43 | Governance Zones | Design |
-| D49 | The Two-Stage LLM Citation Model | Attract |
 | D50 | Zero-Click Economics | Attract |
 | D64 | The Three Implementation Archetypes | Build |
 | D68 | Funnel vs. State Model | Orchestrate |
-| D79 | The Channel Reallocation Table | Execute & Learn |

@@ -43,7 +43,7 @@ Two findings from profiling the data before any prompt was written drove the ent
   ]}
 />
 
-STRATA and APEX run in parallel on genuinely independent data, purchase history against session events, with no shared state between them. SENTINEL is a required gate. There is no path by which ARC receives a candidate pool without passing through it first. LENS runs alongside STRATA and APEX and feeds ARC directly with a review summary, not a candidate list. It never touches who gets recommended, only how the recommendation reads.
+Temperature runs from 0.0, deterministic, to 0.4, the most varied; GATE and SENTINEL, the two hard gates, sit at zero by design. STRATA and APEX run in parallel on genuinely independent data, purchase history against session events, with no shared state between them. <Mark>SENTINEL is a required gate. There is no path by which ARC receives a candidate pool without passing through it first.</Mark> LENS runs alongside STRATA and APEX and feeds ARC directly with a review summary, not a candidate list. It never touches who gets recommended, only how the recommendation reads.
 
 <PullQuote quote="When in doubt, withhold. A confident wrong summary is worse than no summary." attribution="LENS agent prompt" />
 
@@ -68,7 +68,7 @@ APEX works on a different axis entirely: a real-time strength score built from f
   ]}
 />
 
-A weak or absent classification doesn't make ARC guess anyway. It collapses the recommendation back to neutral collaborative filtering with no life-stage language at all. Restraint is the default state, not an exception the system reaches for occasionally.
+A weak or absent classification doesn't make ARC guess anyway. It collapses the recommendation back to neutral collaborative filtering with no life-stage language at all. <Mark>Restraint is the default state, not an exception the system reaches for occasionally.</Mark>
 
 </Section>
 
@@ -81,7 +81,7 @@ Profiling the retailer's data before writing a single prompt surfaced the first 
 That's what pushed STRATA's actual homeowner rule to trade recall for precision deliberately, rather than follow the brief's looser version. The second finding is sharper, and it's the single most important result in the whole exercise.
 
 <Example id="agentic-lab-sensitive-trap">
-The obvious proxy for "this is a sensitive customer" is "this customer bought a sensitive product," a crib, a baby monitor, nursery safety gear. Checked against the dataset's hidden flag, that proxy performs *worse than doing nothing*: customers who bought a sensitive product turn out slightly less likely to actually be in the protected category than customers who never did. The obvious signal points backward.
+The obvious proxy for "this is a sensitive customer" is "this customer bought a sensitive product," a crib, a baby monitor, nursery safety gear. Checked against the dataset's hidden flag, that proxy performs *worse than doing nothing*: customers who bought a sensitive product turn out slightly less likely to actually be in the protected category than customers who never did. <Mark>The obvious signal points backward.</Mark>
 </Example>
 
 The conclusion Team 6 wrote directly into SENTINEL's prompt: suppression has to live on the product side. Don't aggressively cross-sell crib safety gear, full stop, regardless of who's shopping. Never treat it as a behavioral inference about the customer. That became a hard prohibition with its own dedicated kill-switch, not a soft guideline a later prompt revision could quietly soften.

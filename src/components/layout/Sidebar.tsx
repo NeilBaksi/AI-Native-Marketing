@@ -30,7 +30,7 @@ export function Sidebar({ onSearch }: SidebarProps) {
         <button
           type="button"
           onClick={onSearch}
-          className="flex min-h-[44px] w-full items-center gap-2 rounded-lg border border-rule bg-paper px-3 text-sm text-muted transition-colors hover:border-ember hover:text-ember-deep"
+          className="flex min-h-[44px] w-full items-center gap-2 rounded-lg rounded-bl-none rounded-tr-none border border-rule bg-paper px-3 text-sm text-muted transition-colors hover:border-ember hover:text-ember-deep"
         >
           <Search size={15} aria-hidden />
           Search

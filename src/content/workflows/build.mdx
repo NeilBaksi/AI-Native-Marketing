@@ -10,7 +10,7 @@ A stack is what actually gets built: which agents, doing what, on what data. An 
   <FlowChain nodes={['Level 1 — Strategic Architecture', 'Level 2 — Operating Architecture (I-MOS)', 'Level 3 — Operating Stack']} />
 </Figure>
 
-Part II's four layers were the operating architecture. That's what each layer is *for*. This chapter is what gets built inside each one: which agents, doing which tasks, connected how. Remove the translation and the architecture stays a diagram nobody can implement.
+Part II's four layers were the operating architecture. That's what each layer is *for*. This chapter is what gets built inside each one: which agents, doing which tasks, connected how. <Mark>Remove the translation and the architecture stays a diagram nobody can implement.</Mark>
 
 </Section>
 
@@ -39,7 +39,15 @@ An agentic service is a coordinated team of autonomous agents delivering one mar
 
 <Stat id="imos-agent-scale" />
 
-Decisioning Service sets the scale. It's the one behind Focus's ICP scoring: 12 agents organized into 5 sub-workflows, 3 of them requiring human sign-off before anything downstream fires. That's small next to Signal's 19, but still a coordinated service, not a single tool.
+Decisioning Service sets the scale. It's the one behind Focus's ICP scoring: 12 agents organized into 5 sub-workflows, 3 of them requiring human sign-off before anything downstream fires. That's small next to Signal's 19, but still a coordinated service, not a single tool — HubSpot found out what the alternative costs when a 2023 internal audit turned up seventeen AI tools licensed across four teams, none of them sharing data with each other.
+
+<Stat id="hubspot-tool-sprawl" />
+
+Connection count is itself a design signal, not incidental detail. A healthy service runs on the order of 25 to 40 connections within itself and 5 to 15 more out to the services around it; one with only a couple of external links probably isn't pulling its weight in the six-service system, and one drowning in cross-service links has likely absorbed work that belongs to a different service.
+
+<Callout kind="note" title="Where a human has to sign, and where autonomy can grow">
+The stack designs in four checkpoints by default, wherever they occur: contradictions between agents, high-cost state changes, blast-radius parameter changes, and P1-priority insight routing. Autonomy moves in both directions from there. An agent that clears those checkpoints reliably over a defined window can earn a higher level under the same governance process that also revokes one, and a segment or cluster gone stale but still consuming budget and firing actions unwatched, a zombie cluster, gets caught by the same kind of automated kill-switch as any other checkpoint failure, not a quarterly review that happens to notice.
+</Callout>
 
 </Section>
 
@@ -56,6 +64,8 @@ Every service above has to interoperate with every other one, and interoperation
 ]} />
 
 This is the schema the Four-Pass Decomposition Method walks through, workflow by workflow, to turn any of Part III's chapters into an actual buildable agent design — the deep dive attached to this chapter runs the full method against Focus, start to finish.
+
+That autonomy level sits on a technical axis, Rules-Based, ML-Assisted, Agentic, Autonomous, for how the agent itself decides, distinct from the Human-in-Command-through-Fully-Autonomous ladder used elsewhere in this handbook for how much a human oversees the result; the two move together in practice but answer different questions. The persona field carries more than tone: for anything customer-facing, it's a Brand Voice Profile stored as a Shared Memory object rather than a PDF, built as much from negative constraints, what the brand never sounds like, as from positive ones, so every agent that touches customer language reads the same rules from the same place instead of each being told separately.
 
 </Section>
 
@@ -75,6 +85,50 @@ There's no universal winner here: three archetypes implement the identical I-MOS
 
 Many organizations run hybrids rather than picking one cleanly. The CDW build from the previous chapter sits closer to Salesforce-plus-composable than to any pure archetype. That's normal. It's not a sign the framework doesn't fit.
 
+Choosing among them is a diagnostic question, not a preference: where the organization's richest, most current data already lives, who owns and maintains the systems of record, and how much vendor lock-in the team can tolerate. Get that wrong and the cost shows up later rather than at decision time. Every archetype accretes agent configs, data models, and integration work around itself, real switching cost that grows the longer it runs, not a choice to revisit lightly. <Mark>That argues for settling the architecture before shopping for the tools that will sit inside it, not the other way around.</Mark>
+
+<Figure
+  d="D65"
+  caption="The archetype selection diagnostic — routing from where customer data lives to the fitting archetype."
+  alt="Decision diagnostic: where does the organization's richest, most current customer data already live? If content and experience platforms lead the way — DTC, retail, media — the Adobe archetype fits, spine AEP plus Real-Time CDP, because personalization and experience are primary. If CRM data is the richest source and B2B account journeys dominate, the Salesforce archetype fits, spine CRM plus Account Intelligence, because the CRM already holds the richest data. If data is spread across a warehouse with no single system of record, the Composable archetype fits, spine warehouse plus best-of-breed, because flexibility and data-warehouse ownership matter more than one vendor."
+>
+  <DecisionTree
+    root={{
+      question: "Where does your organization's richest, most current customer data already live?",
+      branches: [
+        {
+          when: 'Content and experience platforms lead — DTC, retail, media',
+          then: 'Adobe archetype (AEP + Real-Time CDP)',
+          because: 'Personalization and experience are primary.',
+        },
+        {
+          when: 'CRM data is richest; B2B account journeys dominate',
+          then: 'Salesforce archetype (CRM + Account Intelligence)',
+          because: 'The CRM already holds the richest, most current data.',
+        },
+        {
+          when: 'Spread across a warehouse, no single system of record',
+          then: 'Composable archetype (warehouse + best-of-breed)',
+          because: 'Flexibility and data-warehouse ownership matter more than one vendor.',
+        },
+      ],
+    }}
+  />
+</Figure>
+
 <Prompt id="build-archetype-selector" />
+
+</Section>
+
+<Section index="05" kicker="The plumbing underneath" title="Agent-interoperability protocols">
+
+Every connection this chapter describes, an agent calling a tool, an agent calling another agent, assumes some shared way of actually making that call. Two protocols are emerging to standardize it: the Model Context Protocol (MCP), for an agent talking to its tools, and the Agent-to-Agent Protocol (A2A), for one agent talking to another.
+
+<DefinitionList items={[
+  { term: 'MCP — agent to tool', body: 'An open standard for how an agent discovers and invokes a tool: a CRM, an ad platform, a Shared Memory query. Without it, each of the six services needs a one-off integration per tool per agent; MCP is the attempt to make that a shared interface instead of six separate ones.' },
+  { term: 'A2A — agent to agent', body: "A newer standard for one agent calling another directly, including an agent outside the organization that built the calling one. Where MCP connects an agent to its tools, A2A connects it to a peer, the mechanism a Decisioning Service agent would eventually use to negotiate with a media platform's own agent, not just its API." },
+]} />
+
+Push A2A far enough and the counterparty on the other end of that call stops being a system built by another company and starts being a consumer's own agent, a shopping assistant or price-comparison agent acting on someone's behalf. M2M marketing, brand agents negotiating directly with consumer agents rather than serving an ad to a browser, is what that direction points toward. Neither the protocols nor the marketing practice built on them are mature yet, but a stack designed today around a person clicking a browser is the wrong architecture for a browser that's increasingly an agent itself. What lets an outside agent trust what it's negotiating with is the same machine-readable authority layer, structured claims and credentials rather than a page written for a person, that Design's Brand DNA and Attract's citation work already build toward.
 
 </Section>

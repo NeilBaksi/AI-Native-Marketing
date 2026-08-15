@@ -4,7 +4,7 @@
 
 <Formula
   name="ROMI"
-  expression="Incremental Contribution Margin ÷ Marketing Spend"
+  expression="(Incremental Contribution Margin − Marketing Spend) ÷ Marketing Spend"
   terms={[
     { symbol: 'iROAS', meaning: 'Incremental Revenue ÷ Marketing Spend. Incremental means the holdout-tested gap, not everything a last-touch report attributes to the channel.' },
     { symbol: 'Contribution Margin', meaning: 'Revenue × (1 − COGS% − Returns Rate) — what is actually left after cost of goods and returns, before marketing spend is subtracted.' },
@@ -39,7 +39,7 @@ A channel ran a holdout test: $50,000 spend, $180,000 in incremental revenue att
   ]}
 />
 
-iROAS on the same spend is a simpler line — $180,000 ÷ $50,000 = 3.6x — and doesn't move with the COGS assumption at all, which is exactly why ROMI, not iROAS, is the number that needs the sensitivity check. Here the channel clears a positive ROMI at both ends of a reasonable COGS range, so the decision doesn't hinge on getting the assumption exactly right.
+iROAS on the same spend is a simpler line — $180,000 ÷ $50,000 = 3.6x — and <Mark>doesn't move with the COGS assumption at all, which is exactly why ROMI, not iROAS, is the number that needs the sensitivity check</Mark>. Here the channel clears a positive ROMI at both ends of a reasonable COGS range, so the decision doesn't hinge on getting the assumption exactly right.
 
 <Example id="instacart-iroas">
   Instacart's 4.5x average verified iROAS replaced a last-touch model that had been overcrediting paid search — the number only became trustworthy once it came from geo-based holdout testing instead of an attribution report, the same treatment-vs-control discipline behind every number in the table above.
@@ -80,6 +80,6 @@ The formula above translates directly into a spreadsheet as named cells, and the
 
 <Section index="06" kicker="Why ROAS isn't in the set" title="Design decision">
 
-ROAS — gross revenue over spend, with no incrementality or margin in it — deliberately isn't in the reference set above. It's reference-only where it appears elsewhere, never the number a decision leans on, because it can't fail: a channel with terrible margins and zero incremental effect can still post a large ROAS. The other non-obvious habit worth carrying forward: state the COGS assumption out loud and re-run the number at a band around it, every time. A ROMI figure is only as trustworthy as the margin assumption behind it, and the sensitivity check is what turns "trust this number" into something a reader can actually audit.
+ROAS — gross revenue over spend, with no incrementality or margin in it — deliberately isn't in the reference set above. It's reference-only where it appears elsewhere, never the number a decision leans on, because <Mark>it can't fail: a channel with terrible margins and zero incremental effect can still post a large ROAS.</Mark> The other non-obvious habit worth carrying forward: state the COGS assumption out loud and re-run the number at a band around it, every time. A ROMI figure is only as trustworthy as the margin assumption behind it, and the sensitivity check is what turns "trust this number" into something a reader can actually audit. That audit trail is what a number needs before it survives a quarterly review or a budget-reallocation case — the sensitivity table travels with the headline figure into that deck, not filed away once the deck ships.
 
 </Section>

@@ -2,13 +2,13 @@
 
 <Section index="01" kicker="Autonomy, made auditable" title="What it's for">
 
-A governance table documents three things: what's automated, what needs human review, and what was deliberately left out and why. That's the part most teams skip. Filled out honestly, it's the artifact a compliance review or an incident postmortem actually wants to see. It isn't a values statement about responsible AI. It's a specific mechanism per agent that someone can check against what actually shipped.
+A governance table documents three things: what's automated, what needs human review, and what was deliberately left out and why. That's the part most teams skip. Filled out honestly, it's the artifact a compliance review or an incident postmortem actually wants to see. <Mark>It isn't a values statement about responsible AI. It's a specific mechanism per agent that someone can check against what actually shipped.</Mark>
 
 </Section>
 
 <Section index="02" kicker="Before an agent goes live" title="When to use it">
 
-Fill this out when standing up a new agentic workflow, before it touches customer-facing output. Revisit it at any compliance or audit review of an existing one. A workflow that can't produce a filled row isn't ready to run unsupervised, regardless of how well it tested in a demo. A filled row names a specific failure mode, a control, and a measurable trigger.
+Fill this out when standing up a new agentic workflow, before it touches customer-facing output. Revisit it at any compliance or audit review of an existing one. <Mark>A workflow that can't produce a filled row isn't ready to run unsupervised, regardless of how well it tested in a demo.</Mark> A filled row names a specific failure mode, a control, and a measurable trigger.
 
 <Checklist
   label="Ready to go live: all four required, per agent"
@@ -123,5 +123,7 @@ Both tables map directly to two spreadsheet tabs: a working `.csv` pair once the
 <Callout kind="key" title="Naming what you didn't cover is the harder half">
 The main table is the part every team eventually fills in under audit pressure. The exclusions table is the part that gets skipped, because admitting a gap feels like handing a reviewer ammunition. An unnamed gap is a gap nobody's watching. A named one, with its risk stated, is a gap someone made a deliberate call about. That's the same discipline the [decision-narrative persona](/toolkit/decision-narrative-persona) template applies to its negative persona, pointed at governance instead of targeting.
 </Callout>
+
+Filled in, this table is what a compliance review or an incident postmortem reads first, and what [Govern](/workflows/govern)'s kill-switch design points back to — the control column names the check, the kill-switch column names the trigger that pulls the plug on it.
 
 </Section>

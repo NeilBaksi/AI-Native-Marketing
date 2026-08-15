@@ -48,7 +48,7 @@ const isDense = (nodes: string[]) => nodes.some((label) => label.trim().split(/\
 export function FlowChain({ nodes, loopBackLabel, band }: FlowChainProps) {
   const dense = isDense(nodes)
   return (
-    <div className="rounded-2xl border border-rule bg-surface p-4 sm:p-6">
+    <div className="rounded-2xl rounded-bl-none rounded-tr-none border border-rule bg-surface p-4 sm:p-6">
       <div
         className={clsx(
           'flex flex-col gap-2',
@@ -67,7 +67,7 @@ export function FlowChain({ nodes, loopBackLabel, band }: FlowChainProps) {
             */}
             <div
               className={clsx(
-                'flex w-full items-center justify-center rounded-xl border border-rule bg-paper px-4 py-4 text-center sm:px-5',
+                'flex w-full items-center justify-center rounded-xl rounded-bl-none rounded-tr-none border border-rule bg-paper px-4 py-4 text-center sm:px-5',
                 !dense && 'xl:w-auto xl:px-3',
               )}
             >

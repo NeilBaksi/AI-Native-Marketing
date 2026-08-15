@@ -16,7 +16,7 @@ import { prompts, type PromptId } from '../../data/prompts'
 const highlight = (s: string): ReactNode[] =>
   s.split(/(\[[^\]]+\])/g).map((part, i) =>
     part.startsWith('[') ? (
-      <mark key={i} className="rounded-[2px] bg-ember/12 px-1 text-ember-deep">
+      <mark key={i} className="rounded-[2px] bg-ember/10 px-1 text-ember-deep">
         {part}
       </mark>
     ) : (

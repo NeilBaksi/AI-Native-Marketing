@@ -32,13 +32,13 @@ const STATE: Record<
 > = {
   covered: { icon: Check, label: 'Covered', text: 'text-muted', cell: '' },
   gap: { icon: AlertTriangle, label: 'Gap', text: 'text-ember-deep', cell: '' },
-  'major-gap': { icon: X, label: 'Major gap', text: 'text-ember-deep', cell: 'bg-ember/8' },
+  'major-gap': { icon: X, label: 'Major gap', text: 'text-ember-deep', cell: 'bg-ember/10' },
 }
 
 /** Also serves the brief's CoverageGrid form via the per-cell `state` field. */
 export function ComparisonTable({ caption, columns, rows }: ComparisonTableProps) {
   return (
-    <div className="overflow-x-auto rounded-xl border border-rule">
+    <div className="overflow-x-auto rounded-xl rounded-bl-none rounded-tr-none border border-rule">
       <table className="w-full border-collapse text-sm">
         <caption className="sr-only">{caption}</caption>
         <thead>

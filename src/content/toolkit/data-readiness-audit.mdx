@@ -52,7 +52,7 @@ Copy the worked example's table shape: five rows, three columns (what it require
 - **Content**: modular, tagged Core/Proof/Offer/Risk blocks an agent can assemble?
 - **Learning**: holdout-tested results written back automatically after every campaign?
 
-The placement rule from the worked example still applies: the audit's verdict is set by the worst object type, not the average. One blocking gap stops the loop from writing anywhere, no matter how ready the other four are.
+The placement rule from the worked example still applies: the audit's verdict is set by the worst object type, not the average. <Mark>One blocking gap stops the loop from writing anywhere, no matter how ready the other four are.</Mark>
 
 <Prompt id="data-readiness-audit-run" />
 
@@ -66,6 +66,8 @@ The table above is meant to be copied into a written inventory, not filled in fr
 
 <Section index="06" kicker="Not every gap is a blocker" title="Design decision">
 
-The verdict column forces a real distinction most data audits skip: not every imperfection is a blocker. A field that's slightly stale, or a category share that's off by a rounding error, doesn't deserve the same response as an object that structurally doesn't exist anywhere. Treating every gap as equally urgent trains a team to either ignore the audit entirely or stall a launch over something that was never going to matter. This audit asks the launch-blocking question explicitly, row by row, instead of producing one undifferentiated list of problems.
+The verdict column forces a real distinction most data audits skip: not every imperfection is a blocker. A field that's slightly stale, or a category share that's off by a rounding error, doesn't deserve the same response as an object that structurally doesn't exist anywhere. Treating every gap as equally urgent trains a team to either ignore the audit entirely or stall a launch over something that was never going to matter. <Mark>This audit asks the launch-blocking question explicitly, row by row, instead of producing one undifferentiated list of problems.</Mark>
+
+A completed audit with even one blocking verdict is what stops a build before it starts — the greenlight [Shared Memory](/spine/shared-memory) assumes every object already has, made explicit instead of discovered as a production bug three sprints in.
 
 </Section>

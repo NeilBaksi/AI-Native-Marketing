@@ -1,5 +1,9 @@
 Sense runs first. It watches four signal families, continuously, and everything downstream inherits what it hears. Focus cannot build a living ICP on signal that's stale, incomplete, or misread.
 
+Most organizations already believe customer insight should drive strategy. What's missing is the infrastructure to act on it before it goes stale. Left unbuilt, that gap shows up as one of three specific failures: a finding sits without ever triggering the action it justified, two teams read the same signal and act on contradictory conclusions, or a pattern gets rediscovered from scratch because nobody wrote it down where the next person could find it.
+
+<Stat id="customer-centricity-paradox" />
+
 <Section index="01" kicker="Not one stream" title="Signal families">
 
 Four signal families exist, each answering a different question and each blind to something the others catch. No single family is sufficient on its own. The next section explains why.
@@ -17,8 +21,12 @@ Four signal families exist, each answering a different question and each blind t
   ]} />
 </Figure>
 
+Intent signal carries a specific blind spot worth naming: most B2B buying research happens in what's called the dark funnel, the pre-vendor-contact phase where a buying committee compares vendors and builds a shortlist off-site, before any form fill or outreach response. That's different from dark social, Attract's blind spot in earned reach — this is invisible research, not invisible sharing. A category of B2B intent vendor exists specifically to make part of the dark funnel visible: Bombora is a named example, tracking an account's research activity in a topic category against its own historical baseline, so a sudden spike, sometimes called a company surge, flags elevated intent before the account has contacted sales at all.
+
+<Stat id="bombora-intent-scale" />
+
 <Example id="retail-bank-churn-lag">
-  This isn't a hypothetical cost. A retail bank's models correctly flagged 40,000 customers as churn risks. The signal was real and correctly detected. Nearly a third of them left before any campaign built off that signal ever launched, because the finding sat in a dashboard instead of writing to an object Focus could read the moment it existed. The signal wasn't the problem. The architecture carrying it was.
+  This isn't a hypothetical cost. A retail bank's models correctly flagged 40,000 customers as churn risks. The signal was real and correctly detected. Nearly a third of them left before any campaign built off that signal ever launched, because the finding sat in a dashboard instead of writing to an object Focus could read the moment it existed. <Mark>The signal wasn't the problem. The architecture carrying it was.</Mark>
 </Example>
 
 <Prompt id="sense-signal-audit" />
@@ -27,7 +35,9 @@ Four signal families exist, each answering a different question and each blind t
 
 <Section index="02" kicker="Why no family stands alone" title="Triangulation">
 
-Each family's blind spot is exactly what another family covers: behavioral sees *what* but not *why*; qualitative sees *why* but not *how much*; intent sees *next* but not how *certain*; environmental sees *context* but not *cause*. Combine them and two distinct things can happen. The system should do something different in each case.
+Triangulation means reading two or more signal families together instead of trusting any one alone. Each family's blind spot is exactly what another family covers: behavioral sees *what* but not *why*; qualitative sees *why* but not *how much*; intent sees *next* but not how *certain*; environmental sees *context* but not *cause*. Combine them and two distinct things can happen. The system should do something different in each case.
+
+Qualitative signal needs triangulation for a reason beyond small sample size: stated preference carries its own distortion. People struggle to articulate a need they haven't consciously formed, default to the familiar over what would actually serve them, anchor on a specific solution instead of the underlying problem, and edit their answers toward what sounds acceptable to say out loud. None of that makes an interview worthless — it's why qualitative gets read alongside behavioral and intent rather than trusted on its own.
 
 <Figure
   d="D20"
@@ -40,7 +50,7 @@ Each family's blind spot is exactly what another family covers: behavioral sees 
   </div>
 </Figure>
 
-The contradiction case is the one worth sitting with. Read behavioral data alone, engagement climbing, and the system would file this customer as healthy, maybe even upsell-ready. That's the false positive a single-signal system produces with total confidence. Add the review and the competitor-browsing pattern and the read flips from *growing* to *at risk of leaving*. Triangulation didn't just add detail here; it reversed the conclusion.
+The contradiction case is the one worth sitting with. Read behavioral data alone, engagement climbing, and the system would file this customer as healthy, maybe even upsell-ready. A single-signal system has nothing to check that read against, so it reports this customer as healthy with total confidence — a false positive it can't catch on its own. Add the review and the competitor-browsing pattern and the read flips from *growing* to *at risk of leaving*. Triangulation didn't just add detail here; it reversed the conclusion.
 
 <Example id="starbucks-deep-brew">
   Deep Brew's real value shows up in composition, not any one feed: a customer's habitual morning latte now includes weekday afternoon cold brews (behavioral); she's browsed the summer Refreshers menu three times without ordering (intent); a barista's observation, confirmed by the regional manager, places the second drink as an office run, not a personal treat (qualitative); a heat wave hits her zip code the same week a competitor launches a cold-brew promotion (environmental). No single feed justifies an offer. Together, they do. An AI found the pattern. A person confirmed what the office-run observation meant.
@@ -65,5 +75,78 @@ Part II already named what Sense writes: Identity Profile, Engagement History, P
 />
 
 No object in that table comes from one signal family working alone.
+
+</Section>
+
+<Section index="04" kicker="Discovery, then detection" title="Two layers of sensing">
+
+Sense actually runs at two layers, not one. Strategic sensing is discovery: periodic, deep, generative — the kind of listening that surfaces a need nobody has articulated yet. Operating sensing is detection: continuous, lightweight, running across every customer at once, and it's where the four signal families from Section 01 mostly operate. Neither layer replaces the other. Operating sensing can't discover a need it doesn't already know to watch for, and strategic sensing can't monitor a customer base at the scale operating sensing runs at.
+
+<Figure
+  d="D18"
+  caption="Two layers of sensing — strategic (periodic discovery) and operating (continuous detection) — and how they bridge."
+  alt="Comparison table of the two layers of sensing. Strategic sensing: periodic cadence, quarterly or per-launch; primary method is ethnography, customer visits, and advisory boards; it finds a need nobody has named yet. Operating sensing: continuous, always-on cadence; primary method is the four signal families, triangulated; it finds a change in a need already on the map. The two layers bridge each other — operating sensing detects shifts in needs strategic sensing has already surfaced, while strategic sensing periodically surfaces needs operating sensing doesn't yet know to watch for."
+>
+  <ComparisonTable
+    caption="The two layers of sensing — cadence, method, and what each is built to find."
+    columns={['Cadence', 'Primary method', 'What it finds']}
+    rows={[
+      { label: 'Strategic sensing', cells: ['Periodic — quarterly, per-launch', 'Ethnography, customer visits, advisory boards', 'A need nobody has named yet'] },
+      { label: 'Operating sensing', cells: ['Continuous, always-on', 'The four signal families, triangulated', 'A change in a need already on the map'] },
+    ]}
+  />
+</Figure>
+
+Strategic sensing runs its own toolkit, distinct from the always-on feeds operating sensing reads:
+
+- **Ethnography** — observing customers in their own context, not answering a survey.
+- **Customer visits** — structured sessions, in person or virtual, that go beyond a support ticket's scope.
+- **Customer advisory boards (CABs)** — a standing panel consulted on direction, not just satisfaction.
+- **Crowdsourcing** — an open call for input from the wider customer base, not a sampled few.
+- **Product telemetry review** — usage data read qualitatively, not only aggregated into a dashboard.
+- **AI-assisted qualitative research** — synthesizing interview and open-text volume no team could read manually.
+
+<Stat id="dell-ideastorm-launch" />
+
+The two layers connect in both directions: a theme a customer visit surfaces becomes a pattern operating sensing then watches for at scale, and a pattern operating sensing flags without a clear cause becomes the next strategic-sensing agenda.
+
+</Section>
+
+<Section index="05" kicker="What actually runs it" title="The sensing tool stack">
+
+The tool stack behind sensing runs in four layers, wrapped in governance end to end. Signal collection pulls in raw data from every source; identity resolution merges it into one customer record; AI interpretation finds the pattern; insight surface writes the finding somewhere a workflow can act on it. None of the four is optional — a gap at collection starves everything above it, and a gap at surface means a real finding never reaches the workflow that needed it.
+
+<LayerStack layers={[
+  { name: 'Governance', metaphor: 'Envelope', role: 'Wraps every layer below — consent scope, access control, and audit trail apply the same way whether the signal is a page view or a support transcript.' },
+  { name: 'Signal collection', metaphor: 'Layer 1', role: 'Raw data in: CRM events, web and product analytics, support and social feeds, third-party intent data.' },
+  { name: 'Identity resolution', metaphor: 'Layer 2', role: 'Merges signal from every source into one customer record, so behavioral and qualitative data describe the same person.' },
+  { name: 'AI interpretation', metaphor: 'Layer 3', role: 'Finds the pattern — clustering, anomaly detection, and language models reading open-text signal at volume.' },
+  { name: 'Insight surface', metaphor: 'Layer 4', role: 'Writes the finding to Shared Memory, not a dashboard nobody revisits, so the workflow that needs it can read it.' },
+]} />
+
+Spotify's Discover Weekly is what that interpretation layer looks like working at consumer scale: a pattern found in listening behavior, surfaced as a weekly playlist, not a report.
+
+<Stat id="spotify-discover-weekly" />
+
+None of this requires an enterprise platform on day one. A workable version runs on tools most teams already have:
+
+<StepList steps={[
+  { title: 'Four free or cheap signal feeds', body: 'A social-listening free tier, on-site search queries, support-ticket tags, and a review-site export — no paid platform required to start.' },
+  { title: 'CRM tagging', body: 'Route each feed into a field the sales and marketing team already looks at, so a signal has a home before it needs an AI layer at all.' },
+  { title: 'A structured prompt', body: "One repeatable prompt that reads the week's tagged signal and drafts a pattern summary — not a bespoke model, a consistent question asked the same way every week." },
+  { title: 'A Slack digest', body: "The prompt's output posted somewhere the team already reads, on a fixed cadence, so a finding reaches someone before it goes stale." },
+]} />
+
+</Section>
+
+<Section index="06" kicker="Where interpretation happens" title="The Weekly Signal Review">
+
+Sensing produces patterns. It doesn't produce meaning on its own — that step needs a human, on a fixed cadence, or it doesn't happen at all. The Weekly Signal Review is a 30-minute structured session, not a dashboard walkthrough: the team looks at what the four signal families surfaced that week and debates why, out loud, before anything downstream gets resourced.
+
+<Callout kind="key" title="The Hypothesis Layer">
+No AI-detected pattern gets resourced without a human-authored "why" attached to it first. A spike is a fact; the reason for the spike is a hypothesis, and someone has to write it down and own it before a team acts on it.
+</Callout>
+
+That hypothesis step is what keeps sensing accountable rather than performative. <Mark>Collecting signal without interpreting it is surveillance; interpretation is what turns data into strategy.</Mark> It's also why the relevant metric is decision improvement — churn caught early, an opportunity found in time to act on it — never the volume of signal ingested. Section 02's contradiction case is this same discipline in miniature: convergence lets the system act on its own, contradiction routes to exactly this kind of review.
 
 </Section>

@@ -4,13 +4,13 @@ Salesforce is shifting Agentforce from per-seat subscription pricing to consumpt
 
 <Stat id="salesforce-scenario-setup" />
 
-Six student teams worked the same capstone dataset toward different commercial objectives. Five took an external angle. That meant new logos, expansion, competitive response. Team 6 got the outlier assignment: Internal Marketing / Revenue Model Transition. The actual problem isn't that Agentforce is a hard sell. It's that reps are losing deals they should win because they can't make the new pricing make sense out loud, in front of a customer. Team 6 named that symptom consumption confusion.
+Six student teams worked the same capstone dataset toward different commercial objectives. Five took an external angle. That meant new logos, expansion, competitive response. Team 6 got the outlier assignment: Internal Marketing / Revenue Model Transition. Reps are losing deals they should win because they can't make the new pricing make sense out loud, in front of a customer. Team 6 named that symptom consumption confusion.
 
 <Example id="capstone-engineered-trap">
-The dataset buries a deliberate trap in the enablement table: a cluster of reps with well over 80% training completion, but a confidence score of 1 or 2 out of 5 and a deal-attach rate under 10%. Training completion, on its own, turns out to be a vanity metric. A rep can sit through every module and still be unable to defend the bill.
+The dataset buries a deliberate trap in the enablement table: a cluster of reps with well over 80% training completion, but a confidence score of 1 or 2 out of 5 and a deal-attach rate under 10%. Training completion, on its own, turns out to be a vanity metric. <Mark>A rep can sit through every module and still be unable to defend the bill.</Mark>
 </Example>
 
-Read that way, portfolio complexity isn't a sales-enablement gap to patch with another course. It's a problem the company is failing to market to itself.
+Read that way, portfolio complexity isn't only a sales-enablement gap to patch with another course. It's also a problem the company is failing to market to itself, though a messaging fix addresses discoverability, not the underlying pricing complexity reps are struggling to explain.
 
 </Section>
 
@@ -30,7 +30,7 @@ The ICP work runs a four-signal-family triangulation, cognitive readiness, behav
   { term: 'Negative — the Natural Adapter', body: 'Confidence 3–4 of 5, already attaching Agentforce without help. Explicitly excluded from the program. There is no decision narrative to write for a rep who was never confused.' },
 ]} />
 
-Naming who the program is *not* for turns out to matter as much as naming who it is for. Most enablement plans skip that negative persona entirely.
+<Mark>Naming who the program is *not* for turns out to matter as much as naming who it is for.</Mark> Most enablement plans skip that negative persona entirely.
 
 </Section>
 
@@ -42,7 +42,7 @@ The iROAS this page uses is [incremental return divided by incremental cost](/wo
 The deck itself calls its own +5-percentage-point attach lift and 4.9× iROAS "a shipping threshold, not a forecast." None of these outcomes exist in the dataset yet. Every figure below is an a-priori target the pilot will be held to, not a result it already produced.
 </Callout>
 
-The chain: a 35-rep Tier-1 cohort carries $11.3M in ACV exposure. A baseline Agentforce attach rate of 4.5%, corrected mid-project from an overstated 8%, targets a lift to 9.5%, five points higher. Five points against $11.3M is $565K of incremental Agentforce revenue; applying a 1.3× per-deal expansion multiplier (flagged by the team itself as an assumption to validate) brings incremental return to $735K against a $150K program cost.
+The chain: a 35-rep Tier-1 cohort carries $11.3M in ACV (annual contract value) exposure. A baseline Agentforce attach rate of 4.5%, corrected mid-project from an overstated 8%, targets a lift to 9.5%, five points higher. Five points against $11.3M is $565K of incremental Agentforce revenue; applying a 1.3× per-deal expansion multiplier (flagged by the team itself as an assumption to validate) brings incremental return to $735K against a $150K program cost.
 
 TODO(verify): the $11.3M figure is arithmetically verified, but two derivations in the underlying material don't reconcile — 35 Tier-1 reps at roughly 70% of active pipeline, versus 25 external accounts on consumption or hybrid pricing at 46% of active ACV. They may be the same pool seen two ways, or they may not be. This sentence carries the open question; the number itself is safe to publish.
 
@@ -60,7 +60,7 @@ TODO(verify): the $11.3M figure is arithmetically verified, but two derivations 
 
 <Stat id="capstone-iroas" />
 
-The scale gate that decides whether the 35-rep pilot expands to the full 89-rep cohort sits right against that sensitivity table's middle row: an observed iROAS of at least 3.0×, with guardrails holding. A +3pp outcome would miss it, and the gate genuinely bites. It isn't decoration.
+The scale gate that decides whether the 35-rep pilot expands to the full 89-rep cohort sits right against that sensitivity table's middle row: an observed iROAS of at least 3.0×, with guardrails holding. A +3pp outcome would miss it, and the gate genuinely bites.
 
 <Example id="capstone-baseline-correction">
 An instructor caught the stated baseline attach rate mid-project. It was 8%, and should have been 4.5%. Because the return is built on the *lift*, not the baseline itself, correcting the number left the 4.9× iROAS unchanged. Team 6 turned the correction into evidence that the underlying model was robust, rather than treating it as an embarrassment to bury.

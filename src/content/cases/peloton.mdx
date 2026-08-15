@@ -1,19 +1,27 @@
-Peloton's product generates a behavioral signal on every workout, which sounds like an advantage until you notice what it doesn't tell you: whether a member who skipped this week is a traveler who'll be back on Monday or a subscriber quietly disengaging toward cancellation. Before Peloton built a state model, churn was identified from billing data *after* the cancellation had already happened, and the response was a single win-back email. Active and at-risk members received the identical content schedule, because nothing distinguished them until it was too late to matter.
+Matching the cost of an intervention to how much is actually at stake is what let Peloton stop guessing at retention, a discipline that applies to any team deciding when a human should step in instead of an automated message. Peloton's product generates a behavioral signal on every workout, which sounds like an advantage until you notice what it doesn't tell you: whether a member who skipped this week is a traveler who'll be back on Monday or a subscriber quietly disengaging toward cancellation. Before Peloton built a state model, churn was identified from billing data *after* the cancellation had already happened, and the response was a single win-back email. <Mark>Active and at-risk members received the identical content schedule, because nothing distinguished them until it was too late to matter.</Mark>
 
 <Section index="01" kicker="What happened" title="Five states, not one undifferentiated subscriber base">
 
-<Timeline
-  entries={[
-    { marker: 'Active', title: '3+ workouts a week, sustained 30 days', body: 'Gets a challenge invite or a milestone celebration.' },
-    { marker: 'Slipping', title: 'Ride frequency drops 40%+ against a 30-day baseline', body: 'Gets a personalized push with no discount — a member who re-engages on their own shouldn\'t cost margin.' },
-    { marker: 'Dormant', title: 'No workout in 14 days', body: 'Gets a progress recap with social proof.' },
-    { marker: 'At-Risk', title: '28 days inactive AND a cancellation-page visit', body: 'Routes to a human member-success call, not an automated message.' },
-    { marker: 'Lapsed', title: 'Subscription cancelled', body: 'A 30-day pause offer, then win-back content at 60 days, then permanent suppression at 12 months.' },
-  ]}
-  footnote="A returning member re-enters at Active — the model doesn't assume decline is linear."
-/>
+<Figure
+  d="D73"
+  caption="Five states, each with an observable trigger, an escalating cost of intervention, and a human at the one state where automation would cost more than it saves."
+  alt="Five-state journey: Active (3+ workouts a week for 30 days, gets a challenge invite or milestone celebration), Slipping (ride frequency drops 40% or more against a 30-day baseline, gets a personalized push with no discount), Dormant (no workout in 14 days, gets a progress recap with social proof), At-Risk (no workout in 28 days plus a visit to the cancellation page, gets a human member-success call, not an automated message), Lapsed (subscription cancelled, gets a 30-day pause offer, then win-back content at 60 days, then permanent suppression at 12 months)."
+>
+  <Timeline
+    entries={[
+      { marker: 'Active', title: '3+ workouts a week, sustained 30 days', body: 'Gets a challenge invite or a milestone celebration.' },
+      { marker: 'Slipping', title: 'Ride frequency drops 40%+ against a 30-day baseline', body: 'Gets a personalized push with no discount — a member who re-engages on their own shouldn\'t cost margin.' },
+      { marker: 'Dormant', title: 'No workout in 14 days', body: 'Gets a progress recap with social proof.' },
+      { marker: 'At-Risk', title: '28 days inactive AND a cancellation-page visit', body: 'Routes to a human member-success call, not an automated message.' },
+      { marker: 'Lapsed', title: 'Subscription cancelled', body: 'A 30-day pause offer, then win-back content at 60 days, then permanent suppression at 12 months.' },
+    ]}
+    footnote="A returning member re-enters at Active — the model doesn't assume decline is linear."
+  />
+</Figure>
 
 Each state has an observable, behavioral entry trigger, not a judgment call. At-Risk requires two signals together, inactivity *and* a cancellation-page visit, not either alone. A vague trigger like "seems disengaged" can't fire an action without a person deciding what it means first, which defeats the purpose of building a state model at all.
+
+Together, the five states replace one blanket response to disengagement with an escalating one: light, low-cost nudges for members likely to return on their own, and the most expensive intervention, a human call, reserved for the state where a cancellation is genuinely at stake.
 
 </Section>
 
@@ -53,7 +61,7 @@ The reasoning follows the same [cost-of-error calculation](/spine/economics-of-e
   caption="At-Risk is the second branch: high stakes, low reversibility, so automation stops and a person takes over."
 />
 
-Every signal points to a human. None of them point away from it.
+<Mark>Every signal points to a human. None of them point away from it.</Mark>
 
 <PullQuote quote="Human escalation is not a failure mode. It is a designed next-best-action, chosen because a skilled person reading the situation beats a faster automated guess at this specific point in the journey." />
 

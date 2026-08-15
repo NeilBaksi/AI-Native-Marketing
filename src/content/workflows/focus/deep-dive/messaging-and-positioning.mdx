@@ -4,7 +4,7 @@ Before starting here, [Focus](/workflows/focus) should already be familiar: the 
 
 <Section index="01" kicker="One layer, cascading" title="The five-layer messaging architecture">
 
-Five layers exist, each inherited by the one below it. Change something at the top and every layer under it has to change too. Nothing downstream contradicts what's above it. Run it against [the toolkit's own worked example](/toolkit/positioning-statement) — Ridgeline, a fictional expense-and-procurement platform for mid-market finance teams — end to end:
+Five layers exist, each inherited by the one below it. Change something at the top and every layer under it has to change too. <Mark>Nothing downstream contradicts what's above it.</Mark> Run it against [the toolkit's own worked example](/toolkit/positioning-statement) — Ridgeline, a fictional expense-and-procurement platform for mid-market finance teams — end to end:
 
 <StepList steps={[
   {
@@ -48,7 +48,7 @@ The failure mode this distinction exists to prevent: leading with a POP as if it
 
 <Section index="03" kicker="Not optional" title="No stat without a source">
 
-Every number that reaches layer three needs a registered, provenance-tagged source before AI can use it in generated content: verified, course-sourced, or explicitly synthetic, never unmarked. This isn't a style guideline for this handbook. It's mechanically enforced. Every `<Stat>` and `<Example>` on this site resolves against [a typed fact registry](/reference/statistics), and the site's own build fails if one doesn't. That includes this page's own tags — the same discipline it's teaching, applied to itself.
+Every number that reaches layer three needs a registered, provenance-tagged source before AI can use it in generated content: verified, course-sourced, or explicitly synthetic, never unmarked. <Mark>This is mechanically enforced, not a style guideline for this handbook.</Mark> Every `<Stat>` and `<Example>` on this site resolves against [a typed fact registry](/reference/statistics), and the site's own build fails if one doesn't. That includes this page's own tags — the same discipline it's teaching, applied to itself.
 
 Skip this discipline in a real deployment and the failure mode isn't abstract: an AI system generating content at scale will confidently produce a claim that sounds exactly as authoritative as one that's actually sourced, because nothing in its output format distinguishes the two. The proof requirement is what makes that distinction visible before a claim ships, not after a customer catches it.
 

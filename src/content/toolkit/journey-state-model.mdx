@@ -30,7 +30,7 @@ A state that sits inside "Considering" for a subscription product: a free trial 
   ]}
 />
 
-Each field maps back to one of the three tests Orchestrate names. Entry and Exit make the state observable, since a system can detect them without a person judging. Purchase and day-14-no-purchase can't both be true, which keeps this state exclusive. Content/NBA is the piece that makes it actionable. Nothing about being "nearing expiry" matters if no move is attached to it.
+Each field maps back to one of the three tests Orchestrate names. Entry and Exit make the state observable, since a system can detect them without a person judging. Purchase and day-14-no-purchase can't both be true, which keeps this state exclusive. Content/NBA is the piece that makes it actionable. <Mark>Nothing about being "nearing expiry" matters if no move is attached to it.</Mark>
 
 </Section>
 
@@ -64,6 +64,8 @@ This copies straight into a spreadsheet. One row goes per field, one column per 
 
 <Section index="06" kicker="What keeps a state machine calm" title="Design decision">
 
-Dwell minimum and the regression cooldown are the two fields most journey-state designs skip, and they're the ones that keep a state machine calm in production. Without a dwell minimum, a customer whose activation score wobbles across a threshold gets re-evaluated on every event and can flicker between states within minutes. Without a cooldown on regression, a customer who drops out of a state and immediately re-qualifies bounces straight back in. The system then spends its effort reacting to noise, instead of orchestrating anything real. Name both explicitly, for every state. Then the template survives contact with real data, instead of only ever working in the design doc.
+Dwell minimum and the regression cooldown are the two fields most journey-state designs skip, and they're the ones that keep a state machine calm in production. Without a dwell minimum, a customer whose activation score wobbles across a threshold gets re-evaluated on every event and can flicker between states within minutes. Without a cooldown on regression, a customer who drops out of a state and immediately re-qualifies bounces straight back in. <Mark>The system then spends its effort reacting to noise, instead of orchestrating anything real.</Mark> Name both explicitly, for every state. Then the template survives contact with real data, instead of only ever working in the design doc.
+
+Filled in, these fields are what [Orchestrate](/workflows/orchestrate)'s next-best-action logic reads at runtime — Entry and Exit decide when a customer moves, Content/next-best-action decides what fires, and Autonomy level decides whether a person signs off first.
 
 </Section>

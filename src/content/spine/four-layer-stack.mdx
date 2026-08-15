@@ -1,10 +1,10 @@
-The seven workflows name the work. This chapter names what the work runs on, and none of it is optional. Remove any one of the four layers below and the system breaks, no matter how well the workflows themselves are designed.
+The seven workflows name the work. This chapter names what the work runs on, and none of it is optional. <Mark>Remove any one of the four layers below and the system breaks</Mark>, no matter how well the workflows themselves are designed.
 
 <Section index="01" kicker="Layer 1" title="Shared Memory: the hard drive">
 
-Today, customer truth is fragmented across a CDP, a CRM, a data lake, an identity graph, and a consent platform, each from a different vendor, stitched together with brittle integrations and conflicting customer IDs for the same person. Shared Memory replaces all five with one logical layer that every agent reads and writes in real time, organized into five object types: identity, state, decision, content, and learning.
+Today, customer truth is fragmented across a CDP (a system built to unify customer records across sources), a CRM, a data lake, an identity graph, and a consent platform, each from a different vendor, stitched together with brittle integrations and conflicting customer IDs for the same person. Shared Memory replaces all five with one logical layer that every agent reads and writes in real time, organized into five object types: identity, state, decision, content, and learning.
 
-That fifth type is the one easy to miss: the write-back. Incrementality by channel, drift alerts, model performance by segment. It is the layer where Learn's output becomes next cycle's starting input instead of a slide nobody revisits.
+That fifth type is the one easy to miss: the write-back. Incrementality by channel, drift alerts, model performance by segment. <Mark>It is the layer where Learn's output becomes next cycle's starting input instead of a slide nobody revisits.</Mark>
 
 <Figure
   d="D3"
@@ -88,8 +88,28 @@ Put the four layers on one timeline and they stop being an org chart and start b
   CDW didn't build this on a blank slate. It already ran Marketo, 6sense, Adobe CDP, Adobe Target, and SFMC, and the CMO's stated problem was "islands of improvement with no system-level benefit." Marko, the multi-agent system they built on top of that stack, proved itself on one narrow use case before scaling, with governance agents at every step rather than one review at the end. Prove narrow, then expand the architecture. That is the same sequencing behind the trace above, just at the scale of an actual $22B organization instead of one signal.
 </Example>
 
+The audit that justified building Marko in the first place found the scale of the mess it inherited:
+
+<Stat id="cdw-data-quality" />
+
 A strategic decision, such as which segment to prioritize or which claim is safe to make, is not separate from this stack. It's the thing the stack exists to carry, correctly, from the moment a signal arrives to the moment a customer sees the result.
 
 <Prompt id="four-layer-stack-trace-audit" />
+
+</Section>
+
+<Section index="06" kicker="Same stack, different goal" title="Three Marketing Horizons">
+
+The four layers above don't run once, for one kind of marketing. They run continuously, for three genuinely different jobs at once, and which one is active changes how each layer behaves without changing which layers exist.
+
+<DefinitionList
+  items={[
+    { term: 'H1 — Demand Generation', body: 'Fast-cycle, response-driven work: lead gen, conversion campaigns, retargeting. Signal is dense and behavioral, so the stack compresses the Insight Gap hardest here, and governed autonomy can run furthest toward fully autonomous.' },
+    { term: 'H2 — Brand Building', body: 'Slower-cycle positioning and perception work. Signal is thinner and more inferential — sentiment, share of voice, brand lift — so more of the loop runs Human in the Loop.' },
+    { term: 'H3 — Thought Leadership', body: 'The longest cycle and the thinnest signal of the three: reputation, category authority, executive visibility. The stack has the least to read here, and the most of the work stays Human in Command.' },
+  ]}
+/>
+
+Same seven workflows, same four layers, all three horizons running inside most organizations at once. What changes horizon to horizon is the configuration active on a given piece of work, how wide the Insight Gap opens, how far autonomy is allowed to run, not which system is doing it.
 
 </Section>

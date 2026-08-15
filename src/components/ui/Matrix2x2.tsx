@@ -20,13 +20,13 @@ interface Matrix2x2Props {
 export function Matrix2x2({ xLabel, yLabel, quadrants }: Matrix2x2Props) {
   const [tl, tr, bl, br] = quadrants
   return (
-    <div className="rounded-2xl border border-rule bg-surface p-4 sm:p-6">
+    <div className="rounded-2xl rounded-bl-none rounded-tr-none border border-rule bg-surface p-4 sm:p-6">
       <div className="grid grid-cols-2 gap-2 sm:gap-3">
         {[tl, tr, bl, br].map((q) => (
           // Hairline on paper. Four identically tinted boxes was precisely the
           // "every element on the page is tinted" problem — a quadrant grid gets
           // its meaning from position against the axes, never from fill.
-          <div key={q.tier} className="min-w-0 rounded-xl border border-rule bg-paper p-3 sm:p-4">
+          <div key={q.tier} className="min-w-0 rounded-xl rounded-bl-none rounded-tr-none border border-rule bg-paper p-3 sm:p-4">
             <p className="break-words font-display text-sm font-bold text-ink sm:text-base">{q.tier}</p>
             <p className="mt-1 break-words text-xs leading-relaxed text-ink-soft sm:text-sm">{q.description}</p>
           </div>

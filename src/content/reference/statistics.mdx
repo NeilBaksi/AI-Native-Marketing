@@ -1,4 +1,4 @@
-38 of the site's registered facts carry a number worth looking up on its own, outside the chapter that first used it. Below, each one renders inside a `<Scorecard>`, the same fact record the chapter itself renders, so a source or a figure can never drift between a chapter and this index.
+64 of the site's registered facts carry a number worth looking up on its own, outside the chapter that first used it. Below, each one renders inside a `<Scorecard>`, the same fact record the chapter itself renders, <Mark>so a source or a figure can never drift between a chapter and this index.</Mark>
 
 Every stat carries a provenance chip: **Verified** means an independently checked, linkable source. Only two of those exist on the site today, both in Foundations. **Course** means the figure comes from the MKTG 468 course material as cited in its own endnotes, not independently re-verified for this site. No stat here is **Synthetic**. See the note below.
 
@@ -10,7 +10,7 @@ The 12 synthetic teaching-case figures — Auranis, the Salesforce Agentforce Ca
 
 ## How it's organized
 
-Stats are grouped by Part, in the order their host chapters appear, not by size or topic. This is a lookup list, not a ranking. Within a Part, related stats are clustered into rows of 2–4 (a `<Scorecard>` each) rather than stacked one per line, so a Part's numbers can be scanned in one pass instead of scrolled past one at a time. A row's mono label names the shared theme; it isn't a fifth data point.
+Stats are grouped by Part, in the order their host chapters appear, not by size or topic. <Mark>This is a lookup list, not a ranking.</Mark> Within a Part, related stats are clustered into rows of 2–4 (a `<Scorecard>` each) rather than stacked one per line, so a Part's numbers can be scanned in one pass instead of scrolled past one at a time. A row's mono label names the shared theme; it isn't a fifth data point.
 
 ## Part I — Foundations
 
@@ -33,6 +33,8 @@ Stats are grouped by Part, in the order their host chapters appear, not by size 
   ids={['netflix-ab-tests', 'ab-inbev-three-consumers', 'booking-com-experiments']}
 />
 
+<Scorecard label="A data-quality baseline" ids={['cdw-data-quality']} />
+
 ## Part III — The Workflows
 
 <Scorecard
@@ -41,8 +43,30 @@ Stats are grouped by Part, in the order their host chapters appear, not by size 
 />
 
 <Scorecard
+  label="Sense — signal vendors and detection"
+  ids={['bombora-intent-scale', 'customer-centricity-paradox', 'dell-ideastorm-launch', 'spotify-discover-weekly']}
+/>
+
+<Scorecard
+  label="Focus — scoring and settlement scope"
+  ids={['amazon-recommendation-economics', 'betterhelp-settlement-scope', 'salesforce-einstein-scoring']}
+/>
+
+<Scorecard
+  label="Design — content scale and compliance"
+  ids={['content-demand-quintupling', 'jasper-ai-maturity-selfreport', 'unilever-branddnai-scale', 'persado-motivation-ai']}
+/>
+
+<Scorecard label="Design — regulated-industry assembly" ids={['adobe-genstudio-pfizer']} />
+
+<Scorecard
   label="Attract — search to answer engines"
   ids={['casper-saatva-aeo', 'hubspot-aeo', 'zero-click-rate', 'dark-social-share']}
+/>
+
+<Scorecard
+  label="Attract — the numbers behind zero-click and dark social"
+  ids={['ai-overviews-ctr-collapse', 'b2b-dark-funnel-trio']}
 />
 
 <Scorecard
@@ -51,8 +75,23 @@ Stats are grouped by Part, in the order their host chapters appear, not by size 
 />
 
 <Scorecard
+  label="Orchestrate — journey states and restraint"
+  ids={['sephora-journey-states', 'morgan-stanley-ai-advisor', 'duolingo-notification-restraint', 'jpmorgan-pre-policy-baseline']}
+/>
+
+<Scorecard
+  label="Build — designing the stack, not buying tools"
+  ids={['hubspot-tool-sprawl', 'workday-four-pass-case']}
+/>
+
+<Scorecard
   label="Execute, Learn, and Govern"
   ids={['instacart-iroas', 'air-canada-chatbot', 'meta-hud-bias', 'spotify-ai-dj-trust']}
+/>
+
+<Scorecard
+  label="Execute & Learn — attribution corrected"
+  ids={['trade-desk-over-attribution', 'zillow-attribution-correction', 'adidas-odyssey-roi']}
 />
 
 ## Part IV — Cases
@@ -66,6 +105,8 @@ Stats are grouped by Part, in the order their host chapters appear, not by size 
   label="Yelp, NAB, Peloton, and Lensa"
   ids={['yelp-zero-click-exposure', 'nab-policy-stack-scale', 'peloton-five-state-model', 'lensa-uncanny-valley']}
 />
+
+<Scorecard label="A deeper L'Oréal moat, and Yelp's AI-response strategy" ids={['loreal-modiface-moat', 'yelp-hatch-acquisition']} />
 
 ## Part V — Applied
 

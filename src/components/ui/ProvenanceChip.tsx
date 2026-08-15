@@ -20,7 +20,7 @@ export function ProvenanceChip({ provenance }: { provenance: Provenance }) {
         href={provenance.source.url}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${base} text-pine-deep underline decoration-rule underline-offset-2 hover:text-ember-deep`}
+        className={`${base} text-pine-deep underline decoration-pine-deep/70 decoration-2 underline-offset-2 transition-colors hover:text-ember-deep hover:decoration-ember-deep`}
         title={provenance.source.label}
       >
         <Link2 size={12} aria-hidden />

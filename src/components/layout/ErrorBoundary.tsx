@@ -29,7 +29,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   render() {
     if (this.state.error) {
       return (
-        <div className="flex items-start gap-3 rounded-2xl border border-rule bg-surface p-6">
+        <div className="flex items-start gap-3 rounded-2xl rounded-bl-none rounded-tr-none border border-rule bg-surface p-6">
           <AlertTriangle size={20} className="mt-0.5 shrink-0 text-ember-deep" aria-hidden />
           <div>
             <p className="font-medium text-ink">This page failed to render.</p>
